@@ -1,5 +1,5 @@
 param(
-    $github_proxy="mirror.ghproxy.com"
+    $github_proxy="www.ghproxy.cn"
 )
 
 # 开启调试
