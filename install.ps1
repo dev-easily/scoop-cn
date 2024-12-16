@@ -57,7 +57,7 @@ Invoke-RestMethod -Uri "$gitee_repo_root/scripts/git/uninstall-file-associations
 # 安装时注意顺序是 7-Zip, Git, Aria2
 scoop install $bucket_name/7zip
 scoop install $bucket_name/git
-# scoop install $bucket_name/aria2
+scoop install $bucket_name/aria2
 
 # $bucket_name 库还不是 Git 仓库，删掉后，重新添加 Git 仓库
 if (Test-Path -Path "$env:SCOOP\buckets\$bucket_name") {
