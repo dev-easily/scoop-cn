@@ -1,5 +1,5 @@
 param(
-    $github_proxy="mirror.ghproxy.com", 
+    $github_proxy="www.ghproxy.cn", 
     $bucket_name="easy-win",
     $install_scoop_to='D:\APPS\LOCAL',
     $install_global_to='D:\APPS\ALL_USER\',
