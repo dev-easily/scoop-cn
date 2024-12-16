@@ -6,13 +6,13 @@
     "suggest": {
         "JDK": "easy-win/openjdk"
     },
-    "url": "https://mirror.ghproxy.com/https://github.com/com-lihaoyi/mill/releases/download/0.12.3/0.12.3-assembly#/mill.bat",
+    "url": "https://www.ghproxy.cn/https://github.com/com-lihaoyi/mill/releases/download/0.12.3/0.12.3-assembly#/mill.bat",
     "hash": "86acc0b9869d09c8983ecfdbeb39682d47eb585e2b46d94148cc528fbb4b83b8",
     "bin": "mill.bat",
     "checkver": {
         "github": "https://github.com/com-lihaoyi/mill"
     },
     "autoupdate": {
-        "url": "https://mirror.ghproxy.com/https://github.com/com-lihaoyi/mill/releases/download/$matchHead/$version-assembly#/mill.bat"
+        "url": "https://www.ghproxy.cn/https://github.com/com-lihaoyi/mill/releases/download/$matchHead/$version-assembly#/mill.bat"
     }
 }

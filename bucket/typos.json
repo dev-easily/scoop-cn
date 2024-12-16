@@ -5,7 +5,7 @@
     "license": "Apache-2.0|MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/crate-ci/typos/releases/download/v1.28.3/typos-v1.28.3-x86_64-pc-windows-msvc.zip",
+            "url": "https://www.ghproxy.cn/https://github.com/crate-ci/typos/releases/download/v1.28.3/typos-v1.28.3-x86_64-pc-windows-msvc.zip",
             "hash": "f24e3460b132c7a85bcc8c2f25521aadfb9d6bd5faa312446d0fa86d40cd5d05"
         }
     },
@@ -14,7 +14,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/crate-ci/typos/releases/download/v$version/typos-v$version-x86_64-pc-windows-msvc.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/crate-ci/typos/releases/download/v$version/typos-v$version-x86_64-pc-windows-msvc.zip"
             }
         }
     }

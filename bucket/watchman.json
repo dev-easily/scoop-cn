@@ -5,7 +5,7 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/facebook/watchman/releases/download/v2024.12.09.00/watchman-v2024.12.09.00-windows.zip",
+            "url": "https://www.ghproxy.cn/https://github.com/facebook/watchman/releases/download/v2024.12.09.00/watchman-v2024.12.09.00-windows.zip",
             "hash": "1fb465d8b2a4488671e52efbaf744be72ecebf5a67f527d9644d29c79f54c960"
         }
     },
@@ -23,7 +23,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/facebook/watchman/releases/download/v$version/watchman-v$version-windows.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/facebook/watchman/releases/download/v$version/watchman-v$version-windows.zip"
             }
         },
         "extract_dir": "watchman-v$version-windows\\bin"

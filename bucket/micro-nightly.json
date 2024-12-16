@@ -1,16 +1,16 @@
 {
-    "version": "nightly-2024-12-12",
+    "version": "nightly-2024-12-16",
     "description": "A terminal-based text editor that aims to be easy to use and intuitive, while also taking advantage of the full capabilities of modern terminals.",
     "homepage": "https://micro-editor.github.io/",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/zyedidia/micro/releases/download/nightly/micro-nightly-win64.zip",
-            "hash": "536ba858a855e7ecc98aed02e4029fc8149687a53ea685e8669608eee35fac26"
+            "url": "https://www.ghproxy.cn/https://github.com/zyedidia/micro/releases/download/nightly/micro-nightly-win64.zip",
+            "hash": "88af5b38750da3318047b791d587cf0d1868a1e4ab871067ce7f34ecbbd08b9d"
         },
         "32bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/zyedidia/micro/releases/download/nightly/micro-nightly-win64.zip",
-            "hash": "536ba858a855e7ecc98aed02e4029fc8149687a53ea685e8669608eee35fac26"
+            "url": "https://www.ghproxy.cn/https://github.com/zyedidia/micro/releases/download/nightly/micro-nightly-win64.zip",
+            "hash": "88af5b38750da3318047b791d587cf0d1868a1e4ab871067ce7f34ecbbd08b9d"
         }
     },
     "extract_dir": "micro-nightly",
@@ -23,10 +23,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/zyedidia/micro/releases/download/nightly/micro-$matchMicro-win64.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/zyedidia/micro/releases/download/nightly/micro-$matchMicro-win64.zip"
             },
             "32bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/zyedidia/micro/releases/download/nightly/micro-$matchMicro-win64.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/zyedidia/micro/releases/download/nightly/micro-$matchMicro-win64.zip"
             }
         },
         "extract_dir": "micro-$matchMicro"

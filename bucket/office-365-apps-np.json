@@ -1,5 +1,5 @@
 {
-    "version": "6.3.3",
+    "version": "1.5.5.0",
     "description": "Family of client software, server software and services developed by Microsoft.",
     "homepage": "https://www.office.com/",
     "license": {
@@ -8,7 +8,7 @@
     },
     "depends": "easy-win/7zip19.00-helper",
     "url": "https://download.microsoft.com/download/#/dl.7z_",
-    "hash": "2f615890753c736afbcbd618e2042417c40f67d679101774b09200c507d4572d",
+    "hash": "acb12755b715adeb8546316f17ce7fda54bbbddecb53424944e3ebe6eda0270c",
     "pre_install": [
         "$scriptdir = \"$bucketsdir\\easy-win\\scripts\"",
         "if ($architecture -eq '64bit') {",

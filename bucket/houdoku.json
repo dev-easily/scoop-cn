@@ -5,7 +5,7 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/xgi/houdoku/releases/download/v2.15.0/Houdoku-Setup-2.15.0.exe#/dl.7z",
+            "url": "https://www.ghproxy.cn/https://github.com/xgi/houdoku/releases/download/v2.15.0/Houdoku-Setup-2.15.0.exe#/dl.7z",
             "hash": "sha512:f34a9f39aeaa2498b78324cdb8d100b96ced30d49aba3519c09bf8e58dfc32b20f359a386b29d6ff599d70d49e049e2958429219ebe115d36fa7eed765bb3802"
         }
     },
@@ -25,7 +25,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/xgi/houdoku/releases/download/v$version/Houdoku-Setup-$version.exe#/dl.7z",
+                "url": "https://www.ghproxy.cn/https://github.com/xgi/houdoku/releases/download/v$version/Houdoku-Setup-$version.exe#/dl.7z",
                 "hash": {
                     "url": "$baseurl/latest.yml",
                     "regex": "sha512:\\s+$base64"

@@ -6,13 +6,13 @@
     "suggest": {
         "JDK": "easy-win/openjdk"
     },
-    "url": "https://mirror.ghproxy.com/https://github.com/halo-dev/halo/releases/download/v2.20.11/halo-2.20.11.jar#/halo.jar",
+    "url": "https://www.ghproxy.cn/https://github.com/halo-dev/halo/releases/download/v2.20.11/halo-2.20.11.jar#/halo.jar",
     "hash": "e18f3dc8c47aad54440355755e6f160067812a8bf19b2d3f5cfcccf422a5bb31",
     "bin": "halo.jar",
     "checkver": {
         "github": "https://github.com/halo-dev/halo"
     },
     "autoupdate": {
-        "url": "https://mirror.ghproxy.com/https://github.com/halo-dev/halo/releases/download/v$version/halo-$version.jar#/halo.jar"
+        "url": "https://www.ghproxy.cn/https://github.com/halo-dev/halo/releases/download/v$version/halo-$version.jar#/halo.jar"
     }
 }

@@ -5,7 +5,7 @@
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/kubernetes-sigs/kind/releases/download/v0.25.0/kind-windows-amd64#/kind.exe",
+            "url": "https://www.ghproxy.cn/https://github.com/kubernetes-sigs/kind/releases/download/v0.25.0/kind-windows-amd64#/kind.exe",
             "hash": "5fe4acad495dacc21efb5e2362b3b567e19b7d845acbc07f96c9a5170aaf2d7f"
         }
     },
@@ -16,7 +16,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/kubernetes-sigs/kind/releases/download/v$version/kind-windows-amd64#/kind.exe"
+                "url": "https://www.ghproxy.cn/https://github.com/kubernetes-sigs/kind/releases/download/v$version/kind-windows-amd64#/kind.exe"
             }
         }
     }

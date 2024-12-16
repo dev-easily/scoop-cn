@@ -1,5 +1,5 @@
 {
-    "version": "7.1-58-20241212",
+    "version": "7.1-58-20241216",
     "description": "FFMpeg builds of latest release branch with patches necessary for smooth integration with yt-dlp",
     "homepage": "https://github.com/yt-dlp/FFmpeg-Builds",
     "license": "MIT",
@@ -8,13 +8,13 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2024-12-12-14-15/ffmpeg-n7.1-58-g10aaf84f85-win64-gpl-7.1.zip",
-            "hash": "3216c4755acccaa36f81fd5e2ce26f0b3d4bf0a30a62da9869c38ea28c54c082",
+            "url": "https://www.ghproxy.cn/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2024-12-16-14-28/ffmpeg-n7.1-58-g10aaf84f85-win64-gpl-7.1.zip",
+            "hash": "1003c8c6d854b8db613d2f9031e0b9b01041db333b81d13f24c4d9ea5a846986",
             "extract_dir": "ffmpeg-n7.1-58-g10aaf84f85-win64-gpl-7.1"
         },
         "32bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2024-12-12-14-15/ffmpeg-n7.1-58-g10aaf84f85-win32-gpl-7.1.zip",
-            "hash": "fc9c0d2793409d509323374c06f36a6e9ada530c356817c25188565ce8dbb12e",
+            "url": "https://www.ghproxy.cn/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-2024-12-16-14-28/ffmpeg-n7.1-58-g10aaf84f85-win32-gpl-7.1.zip",
+            "hash": "f29596d72ea57219796cc87e836b7425f74b484d8f4a493a048293e537dff54c",
             "extract_dir": "ffmpeg-n7.1-58-g10aaf84f85-win32-gpl-7.1"
         }
     },
@@ -47,11 +47,11 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-$matchBuildtime/$matchFilename64bit.zip",
+                "url": "https://www.ghproxy.cn/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-$matchBuildtime/$matchFilename64bit.zip",
                 "extract_dir": "$matchFilename64bit"
             },
             "32bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-$matchBuildtime/$matchFilename32bit.zip",
+                "url": "https://www.ghproxy.cn/https://github.com/yt-dlp/FFmpeg-Builds/releases/download/autobuild-$matchBuildtime/$matchFilename32bit.zip",
                 "extract_dir": "$matchFilename32bit"
             }
         }

@@ -5,16 +5,16 @@
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/sourcegraph/src-cli/releases/download/5.10.0/src-cli_5.10.0_windows_amd64.tar.gz",
+            "url": "https://www.ghproxy.cn/https://github.com/sourcegraph/src-cli/releases/download/5.10.0/src-cli_5.10.0_windows_amd64.tar.gz",
             "hash": "63aad2b233210f8843e909d792bf0e94da5c32c530bc60330c60d8ebde07e316"
         }
     },
     "bin": "src.exe",
     "checkver": "github",
     "autoupdate": {
-        "url": "https://mirror.ghproxy.com/https://github.com/sourcegraph/src-cli/releases/download/$version/src-cli_$version_windows_amd64.tar.gz",
+        "url": "https://www.ghproxy.cn/https://github.com/sourcegraph/src-cli/releases/download/$version/src-cli_$version_windows_amd64.tar.gz",
         "hash": {
-            "url": "https://mirror.ghproxy.com/https://github.com/sourcegraph/src-cli/releases/download/$version/src-cli_$version_checksums.txt",
+            "url": "https://www.ghproxy.cn/https://github.com/sourcegraph/src-cli/releases/download/$version/src-cli_$version_checksums.txt",
             "regex": "^(\\w+)\\s+src-cli_$version_windows_amd64\\.tar\\.gz$"
         }
     }

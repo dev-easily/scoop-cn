@@ -1,12 +1,12 @@
 {
-    "version": "0.10.10-20241212",
+    "version": "0.10.10-20241216",
     "description": "A privacy-first platform for knowledge sharing and management",
     "homepage": "https://logseq.com",
     "license": "AGPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/logseq/logseq/releases/download/nightly/Logseq-win-x64-0.10.10-alpha+nightly.20241212.zip",
-            "hash": "d79c0ee183920cbda32abf4b185cee0b62aece25fb3b6e22f1ae22e30f8beb20"
+            "url": "https://www.ghproxy.cn/https://github.com/logseq/logseq/releases/download/nightly/Logseq-win-x64-0.10.10-alpha+nightly.20241216.zip",
+            "hash": "aa9148e1066ac9534bd5052a7e47b57bdc5f1c5887b178b9f2b644012e3ec9e2"
         }
     },
     "shortcuts": [
@@ -24,7 +24,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/logseq/logseq/releases/download/nightly/Logseq-win-x64-$matchVersion-alpha+nightly.$matchDate.zip",
+                "url": "https://www.ghproxy.cn/https://github.com/logseq/logseq/releases/download/nightly/Logseq-win-x64-$matchVersion-alpha+nightly.$matchDate.zip",
                 "hash": {
                     "url": "$baseurl/SHA256SUMS.txt",
                     "regex": "$sha256\\s+Logseq-win-x64.*\\.zip"

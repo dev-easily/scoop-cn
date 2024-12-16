@@ -5,11 +5,11 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/railwayapp/cli/releases/download/v3.19.1/railway-v3.19.1-x86_64-pc-windows-msvc.zip",
+            "url": "https://www.ghproxy.cn/https://github.com/railwayapp/cli/releases/download/v3.19.1/railway-v3.19.1-x86_64-pc-windows-msvc.zip",
             "hash": "a535df4982a442b993b889f0e64942791b5d9df88f40b9114ad0498ec07da8cd"
         },
         "32bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/railwayapp/cli/releases/download/v3.19.1/railway-v3.19.1-i686-pc-windows-msvc.zip",
+            "url": "https://www.ghproxy.cn/https://github.com/railwayapp/cli/releases/download/v3.19.1/railway-v3.19.1-i686-pc-windows-msvc.zip",
             "hash": "45a9088ef5c8112517a3fbd138f29702a0508c64b3aed2c1b7aeebba29f9c0be"
         }
     },
@@ -18,10 +18,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/railwayapp/cli/releases/download/v$version/railway-v$version-x86_64-pc-windows-msvc.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/railwayapp/cli/releases/download/v$version/railway-v$version-x86_64-pc-windows-msvc.zip"
             },
             "32bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/railwayapp/cli/releases/download/v$version/railway-v$version-i686-pc-windows-msvc.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/railwayapp/cli/releases/download/v$version/railway-v$version-i686-pc-windows-msvc.zip"
             }
         }
     }

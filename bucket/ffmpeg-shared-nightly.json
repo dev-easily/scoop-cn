@@ -1,13 +1,13 @@
 {
-    "version": "118050",
+    "version": "118072",
     "description": "A complete, cross-platform solution to record, convert and stream audio and video.",
     "homepage": "https://ffmpeg.org",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-12-12-13-01/ffmpeg-N-118050-ga518b5540d-win64-gpl-shared.zip",
-            "hash": "f38ad26057390f3af59ca86b391dcdfcef9db9aa3e99d31f0768c0b21b342dbf",
-            "extract_dir": "ffmpeg-N-118050-ga518b5540d-win64-gpl-shared"
+            "url": "https://www.ghproxy.cn/https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-2024-12-16-13-02/ffmpeg-N-118072-gce457bfccd-win64-gpl-shared.zip",
+            "hash": "373f5cba0bf86b85e330dd0531883e3bc4b7fd0c07e78e428a139828c2528f00",
+            "extract_dir": "ffmpeg-N-118072-gce457bfccd-win64-gpl-shared"
         }
     },
     "bin": [
@@ -23,7 +23,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-$matchTime/ffmpeg-N-$version-g$matchHash-win64-gpl-shared.zip",
+                "url": "https://www.ghproxy.cn/https://github.com/BtbN/FFmpeg-Builds/releases/download/autobuild-$matchTime/ffmpeg-N-$version-g$matchHash-win64-gpl-shared.zip",
                 "extract_dir": "ffmpeg-N-$version-g$matchHash-win64-gpl-shared"
             }
         }

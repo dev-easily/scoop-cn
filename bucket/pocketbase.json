@@ -1,16 +1,16 @@
 {
-    "version": "0.23.6",
+    "version": "0.23.8",
     "description": "Open Source realtime backend in 1 file",
     "homepage": "https://pocketbase.io",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/pocketbase/pocketbase/releases/download/v0.23.6/pocketbase_0.23.6_windows_amd64.zip",
-            "hash": "34ebec0646c1c2168f3bd48e5a6daeafb260b2cc4822f0d68dee7a035733b786"
+            "url": "https://www.ghproxy.cn/https://github.com/pocketbase/pocketbase/releases/download/v0.23.8/pocketbase_0.23.8_windows_amd64.zip",
+            "hash": "83ce461f7463bf83e2cdc7f82a81925dc2b9976628ac1584a943bf343cdbd5ce"
         },
         "arm64": {
-            "url": "https://mirror.ghproxy.com/https://github.com/pocketbase/pocketbase/releases/download/v0.23.6/pocketbase_0.23.6_windows_arm64.zip",
-            "hash": "3899ad34d5dbffa189d0d7374d5d1d4c8340cfd81381000b754aff07cdbde7ec"
+            "url": "https://www.ghproxy.cn/https://github.com/pocketbase/pocketbase/releases/download/v0.23.8/pocketbase_0.23.8_windows_arm64.zip",
+            "hash": "7e21dcd01d9b98fe662d6983a5c690bee160afe8f78c3f7669b2f772660da5a7"
         }
     },
     "bin": "pocketbase.exe",
@@ -24,10 +24,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/pocketbase/pocketbase/releases/download/v$version/pocketbase_$version_windows_amd64.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/pocketbase/pocketbase/releases/download/v$version/pocketbase_$version_windows_amd64.zip"
             },
             "arm64": {
-                "url": "https://mirror.ghproxy.com/https://github.com/pocketbase/pocketbase/releases/download/v$version/pocketbase_$version_windows_arm64.zip"
+                "url": "https://www.ghproxy.cn/https://github.com/pocketbase/pocketbase/releases/download/v$version/pocketbase_$version_windows_arm64.zip"
             }
         },
         "hash": {

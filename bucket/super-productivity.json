@@ -5,7 +5,7 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirror.ghproxy.com/https://github.com/johannesjo/super-productivity/releases/download/v10.2.3/Super-Productivity-Setup-x64.exe#/dl.7z",
+            "url": "https://www.ghproxy.cn/https://github.com/johannesjo/super-productivity/releases/download/v10.2.3/Super-Productivity-Setup-x64.exe#/dl.7z",
             "hash": "sha512:e2b416a860aeb76aac40fbb63ae3f515ba6178365fe07024dc21e03667597c4d381bfe675860a46a4a026a95faa81d2f5e574e4ad069cb3a61db1e7411fae82d",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
@@ -13,7 +13,7 @@
             ]
         },
         "arm64": {
-            "url": "https://mirror.ghproxy.com/https://github.com/johannesjo/super-productivity/releases/download/v10.2.3/Super-Productivity-Setup-arm64.exe#/dl.7z",
+            "url": "https://www.ghproxy.cn/https://github.com/johannesjo/super-productivity/releases/download/v10.2.3/Super-Productivity-Setup-arm64.exe#/dl.7z",
             "hash": "sha512:e4a63c709f763871f3d6758576bc9016e65cdc4a8715b7c4736d2e136894b7bfec76dce3646c858860fea15f323685608ef9f083e635f698f1a49f3392e31eed",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-arm64.7z\" \"$dir\"",
@@ -33,10 +33,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://mirror.ghproxy.com/https://github.com/johannesjo/super-productivity/releases/download/v$version/Super-Productivity-Setup-x64.exe#/dl.7z"
+                "url": "https://www.ghproxy.cn/https://github.com/johannesjo/super-productivity/releases/download/v$version/Super-Productivity-Setup-x64.exe#/dl.7z"
             },
             "arm64": {
-                "url": "https://mirror.ghproxy.com/https://github.com/johannesjo/super-productivity/releases/download/v$version/Super-Productivity-Setup-arm64.exe#/dl.7z"
+                "url": "https://www.ghproxy.cn/https://github.com/johannesjo/super-productivity/releases/download/v$version/Super-Productivity-Setup-arm64.exe#/dl.7z"
             }
         },
         "hash": {
