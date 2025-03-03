@@ -1,0 +1,36 @@
+{
+    "version": "8.2.0",
+    "description": "Feature-rich GraphQL Client",
+    "homepage": "https://altair.sirmuel.design",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/altair-graphql/altair/releases/download/v8.2.0/altair_8.2.0_x64_win.exe#/dl.7z",
+            "hash": "sha512:755eb13b58f74f07756e8bd77f151e8e809ff77ee054f72ec6364d6fec5f237688b75454f0ce5b5afc1d307da5b32107e10d5a5976c842c4cf5eaa157afd95e5",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Force -Recurse"
+            ]
+        }
+    },
+    "shortcuts": [
+        [
+            "Altair GraphQL Client.exe",
+            "Altair GraphQL Client"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/altair-graphql/altair"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/altair-graphql/altair/releases/download/v$version/altair_$version_x64_win.exe#/dl.7z",
+                "hash": {
+                    "url": "$baseurl/latest.yml",
+                    "regex": "sha512:\\s+$base64"
+                }
+            }
+        }
+    }
+}

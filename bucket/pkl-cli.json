@@ -1,0 +1,24 @@
+{
+    "$schema": "https://www.ghproxy.cn/https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "0.28.0",
+    "description": "A configuration as code language with rich validation and tooling.",
+    "homepage": "https://pkl-lang.org/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/apple/pkl/releases/download/0.28.0/pkl-windows-amd64.exe#/pkl.exe",
+            "hash": "5a44fd07dcef67905e8a3eb1ccc2551d53dc2eec71ee6ce65ef0667cf7243d23"
+        }
+    },
+    "bin": "pkl.exe",
+    "checkver": {
+        "github": "https://github.com/apple/pkl"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/apple/pkl/releases/download/$version/pkl-windows-amd64.exe#/pkl.exe"
+            }
+        }
+    }
+}

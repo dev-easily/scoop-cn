@@ -1,0 +1,35 @@
+{
+    "version": "0.9.99.66",
+    "description": "Text-based desktop environment",
+    "homepage": "https://github.com/directvt/vtm",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/directvt/vtm/releases/download/v0.9.99.66/vtm_windows_x86_64.zip",
+            "hash": "90ecfa66a1d57ba3e38df360ce5a6529cd309d586c11414801ba63e250bdeb2a"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/directvt/vtm/releases/download/v0.9.99.66/vtm_windows_x86.zip",
+            "hash": "e625511fc93ac245c780a011aa529edd05af252282bae48e4b72a8a3cdd1f985"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/directvt/vtm/releases/download/v0.9.99.66/vtm_windows_arm64.zip",
+            "hash": "ca164ad59b7207e784cde89c1f294720778f42852d5aa14ec87e24d6808dd943"
+        }
+    },
+    "bin": "vtm.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/directvt/vtm/releases/download/v$version/vtm_windows_x86_64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/directvt/vtm/releases/download/v$version/vtm_windows_x86.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/directvt/vtm/releases/download/v$version/vtm_windows_arm64.zip"
+            }
+        }
+    }
+}
