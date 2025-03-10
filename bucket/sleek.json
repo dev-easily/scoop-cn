@@ -1,0 +1,39 @@
+{
+    "version": "2.0.19",
+    "description": "Open-source (FOSS) todo manager based on the todo.txt syntax",
+    "homepage": "https://github.com/ransome1/sleek",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ransome1/sleek/releases/download/v2.0.19/sleek-2.0.19-win-x64-Setup.exe#/dl.7z",
+            "hash": "sha512:796106f3bac23dff9fd3e71dc45d187031d5ff516f25cc5fbaac4d739532df7612368b080c10c205543e2086108acc00e780c2b131e62d7bd71457581d86f07c"
+        }
+    },
+    "pre_install": [
+        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+        "Remove-Item \"$dir\\`$*\" -Force -Recurse",
+        "if (!(Test-Path \"$persist_dir\\user-preferences.json\")) {",
+        "    New-Item -Path \"$dir\\user-preferences.json\" | Out-Null",
+        "}"
+    ],
+    "bin": "sleek.exe",
+    "shortcuts": [
+        [
+            "sleek.exe",
+            "Sleek"
+        ]
+    ],
+    "persist": "user-preferences.json",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ransome1/sleek/releases/download/v$version/sleek-$version-win-x64-Setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
+    }
+}

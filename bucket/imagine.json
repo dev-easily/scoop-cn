@@ -1,0 +1,56 @@
+{
+    "version": "1.8.3",
+    "description": "(1MB Tiny) Freeware Image & Animation Viewer for Windows",
+    "homepage": "https://www.nyam.pe.kr/dev/imagine/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.nyam.pe.kr/dev/imagine/#license"
+    },
+    "pre_install": "if (!(Test-Path \"$persist_dir\\Imagine.ini\")) { New-Item \"$dir\\Imagine.ini\" | Out-Null }",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/nyam1003/imagine/main/x64/Imagine_1.8.3_x64_Unicode.zip",
+            "hash": "906f7eba1da87c491dc1b10ef83225a86f4f352fc555d2a1a4fa4761d6a3e261",
+            "bin": [
+                "Imagine64.exe",
+                [
+                    "Imagine64.exe",
+                    "Imagine"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "Imagine64.exe",
+                    "Imagine"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/nyam1003/imagine/main/Imagine_1.8.3_Unicode.zip",
+            "hash": "bd2f15975466ad5c23414652d3113fc057c440c106982719b12dcf49dacd701b",
+            "bin": "Imagine.exe",
+            "shortcuts": [
+                [
+                    "Imagine.exe",
+                    "Imagine"
+                ]
+            ]
+        }
+    },
+    "persist": [
+        "Imagine.ini",
+        "PlugInst.inf",
+        "Plugin"
+    ],
+    "checkver": "v(\\d[\\d.]+)",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/nyam1003/imagine/main/x64/Imagine_$version_x64_Unicode.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/nyam1003/imagine/main/Imagine_$version_Unicode.zip"
+            }
+        }
+    }
+}

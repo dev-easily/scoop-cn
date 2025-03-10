@@ -1,0 +1,34 @@
+{
+    "version": "2.11.0",
+    "description": "The Community Manifest Creator for WinGet",
+    "homepage": "https://github.com/russellbanks/Komac",
+    "license": "GPL-3.0-only",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/russellbanks/Komac/releases/download/v2.11.0/komac-2.11.0-x86_64-pc-windows-msvc.exe#/Komac.exe",
+            "hash": "9b7b4504a2b469d4791dac3295350bed4ee13c385340438d396ec9948b25fb12"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/russellbanks/Komac/releases/download/v2.11.0/komac-2.11.0-aarch64-pc-windows-msvc.exe#/Komac.exe",
+            "hash": "6ad1ac9074d2ca067ebfb9a31991624369ce12edb54bee5a8de4d81bc4394f81"
+        }
+    },
+    "bin": "Komac.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/russellbanks/Komac/releases/download/v$version/komac-$version-x86_64-pc-windows-msvc.exe#/Komac.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/russellbanks/Komac/releases/download/v$version/komac-$version-aarch64-pc-windows-msvc.exe#/Komac.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
