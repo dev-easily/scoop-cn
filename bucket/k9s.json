@@ -1,0 +1,36 @@
+{
+    "version": "0.40.8",
+    "description": "Kubernetes Clusters manager",
+    "homepage": "https://github.com/derailed/k9s",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/derailed/k9s/releases/download/v0.40.8/k9s_Windows_amd64.zip",
+            "hash": "d2bfdc39328fb7fc9a1568292cba8d5b63ba154c304f8b53aece16bf35517abf"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/derailed/k9s/releases/download/v0.40.8/k9s_Windows_arm64.zip",
+            "hash": "417c929d5b561d1c7addc9431c39cc1b1d424c06acb09c484dfb082e7159d3d1"
+        }
+    },
+    "bin": "k9s.exe",
+    "env_set": {
+        "K9S_CONFIG_DIR": "$persist_dir/config",
+        "K9S_LOGS_DIR": "$persist_dir/logs"
+    },
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/derailed/k9s/releases/download/v$version/k9s_Windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/derailed/k9s/releases/download/v$version/k9s_Windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.sha256",
+            "regex": "$sha256  $basename\\n"
+        }
+    }
+}

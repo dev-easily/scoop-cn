@@ -1,0 +1,30 @@
+{
+    "version": "7.8.3",
+    "description": "PDF Editor",
+    "homepage": "https://www.sejda.com/desktop",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.sejda.com/eula"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.sejda-cdn.com/sejda-desktop_7.8.3_x64_portable.zip",
+            "hash": "03996bacc177e7bc35a39dafcba662d6b8f55012de4a9a09eb9963a15aed4397"
+        }
+    },
+    "extract_dir": "Sejda PDF Desktop",
+    "shortcuts": [
+        [
+            "Sejda PDF Desktop.exe",
+            "Sejda PDF"
+        ]
+    ],
+    "checkver": "sejda-desktop_([\\d.]+)_x64_portable",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.sejda-cdn.com/sejda-desktop_$version_x64_portable.zip"
+            }
+        }
+    }
+}

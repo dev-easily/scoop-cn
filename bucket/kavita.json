@@ -1,0 +1,36 @@
+{
+    "version": "0.8.5.3",
+    "description": "Kavita is a fast, feature rich, cross platform reading server. Built with a focus for manga and the goal of being a full solution for all your reading needs.",
+    "homepage": "https://github.com/Kareadita/Kavita/",
+    "license": "GPL-3.0",
+    "notes": "Default URL is http://localhost:5000/login",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Kareadita/Kavita/releases/download/v0.8.5.3/kavita-win-x64.tar.gz",
+            "hash": "1abd31b2357b249fdb24881703723d20f6a4dc5fe188f8388a67772916572abb"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Kareadita/Kavita/releases/download/v0.8.5.3/kavita-win-x86.tar.gz",
+            "hash": "07fe69012179cd2f50c8f19fd4cbc2f72ff93fd9351d909afe11bf3a030c5339"
+        }
+    },
+    "extract_dir": "Kavita",
+    "shortcuts": [
+        [
+            "Kavita.exe",
+            "Kavita"
+        ]
+    ],
+    "persist": "config",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Kareadita/Kavita/releases/download/v$version/kavita-win-x64.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Kareadita/Kavita/releases/download/v$version/kavita-win-x86.tar.gz"
+            }
+        }
+    }
+}

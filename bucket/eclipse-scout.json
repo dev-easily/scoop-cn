@@ -1,0 +1,34 @@
+{
+    "version": "2025-03",
+    "description": "Eclipse IDE for Scout Developers",
+    "homepage": "https://www.eclipse.org",
+    "license": "EPL-1.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://download.eclipse.org/technology/epp/downloads/release/2025-03/R/eclipse-scout-2025-03-R-win32-x86_64.zip",
+            "hash": "sha512:4e1cfba531c9518b3b50604d3525c1ce24f386398a1ffb4f55a17390f1ce5ccf275d29c661a668e3528cf84dfeabef1d3af4c40551cc90505b104e097d9b327b"
+        }
+    },
+    "extract_dir": "eclipse",
+    "shortcuts": [
+        [
+            "eclipse.exe",
+            "Eclipse for Scout Developers"
+        ]
+    ],
+    "checkver": {
+        "url": "https://download.eclipse.org/technology/epp/downloads/release/release.xml",
+        "xpath": "/packages/present",
+        "regex": "([\\d-]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://download.eclipse.org/technology/epp/downloads/release/$version/R/eclipse-scout-$version-R-win32-x86_64.zip",
+                "hash": {
+                    "url": "$url.sha512"
+                }
+            }
+        }
+    }
+}

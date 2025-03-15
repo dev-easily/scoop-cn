@@ -1,0 +1,24 @@
+{
+    "version": "0.10.7",
+    "description": "Blazing fast general purpose fuzzy finder TUI.",
+    "homepage": "https://github.com/alexpasmantier/television",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/alexpasmantier/television/releases/download/0.10.7/tv-0.10.7-windows-x86_64.tar.gz",
+            "hash": "4ce0d4b101da40ba9128ec86fbc8f2f26558b7ff1554d11ac9ddb6286f3cbc0d"
+        }
+    },
+    "bin": "tv.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/alexpasmantier/television/releases/download/$version/tv-$version-windows-x86_64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/tv-$version-windows-x86_64.sha256"
+        }
+    }
+}
