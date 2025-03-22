@@ -1,0 +1,48 @@
+{
+    "version": "2025-03-19T20_54",
+    "description": "A multiplayer voxel RPG inspired by games such as Cube World, Legend of Zelda: Breath of the Wild, Dwarf Fortress and Minecraft",
+    "homepage": "https://veloren.net/",
+    "license": {
+        "identifier": "GPL-3.0-or-later",
+        "url": "https://gitlab.com/veloren/veloren/-/blob/master/LICENSE"
+    },
+    "notes": [
+        "Veloren has a number of game servers available to join, a list of which can be found here:",
+        "https://gitlab.com/veloren/serverbrowser/-/blob/master/server/servers.ron",
+        "(replace the address shown on Veloren's login page with an address from the link above).",
+        "For help regarding the game, see Veloren's Owner's Manual: https://book.veloren.net/"
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/veloren/veloren/releases/download/weekly/weekly-windows-x86_64-2025-03-19T20_54.zip",
+            "hash": "6d9c4c49d0bb8a38e1896173e82811b70bd20e000ea6f800ccd14a601c2e9dab"
+        }
+    },
+    "bin": [
+        "veloren-server-cli.exe",
+        "veloren-voxygen.exe"
+    ],
+    "shortcuts": [
+        [
+            "veloren-server-cli.exe",
+            "Veloren Server CLI"
+        ],
+        [
+            "veloren-voxygen.exe",
+            "Veloren"
+        ]
+    ],
+    "persist": "userdata",
+    "checkver": {
+        "url": "https://github.com/veloren/veloren/releases/expanded_assets/weekly",
+        "regex": "/download/weekly/weekly-windows-x86_64-(?<version>[\\w-]+).zip",
+        "reverse": true
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/veloren/veloren/releases/download/weekly/weekly-windows-x86_64-$version.zip"
+            }
+        }
+    }
+}

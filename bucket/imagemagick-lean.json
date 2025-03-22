@@ -1,0 +1,53 @@
+{
+    "version": "7.1.1-46",
+    "description": "Create, edit, compose, and convert 200+ of bitmap images formats.",
+    "homepage": "https://imagemagick.org/",
+    "license": "ImageMagick",
+    "architecture": {
+        "64bit": {
+            "url": "https://imagemagick.org/archive/binaries/ImageMagick-7.1.1-46-portable-Q16-HDRI-x64.zip",
+            "hash": "7ffd5d9a7ae9a2acaeb95806ac7f64066be8574ffba0ad72841c68cd39db366f",
+            "extract_dir": "ImageMagick-7.1.1-46-portable-Q16-HDRI-x64"
+        },
+        "32bit": {
+            "url": "https://imagemagick.org/archive/binaries/ImageMagick-7.1.1-46-portable-Q16-HDRI-x86.zip",
+            "hash": "a61f78b98339fa719f2a387328f4f6154bcbddb4cb59d4433b064461ee55a7b1",
+            "extract_dir": "ImageMagick-7.1.1-46-portable-Q16-HDRI-x86"
+        },
+        "arm64": {
+            "url": "https://imagemagick.org/archive/binaries/ImageMagick-7.1.1-46-portable-Q16-HDRI-arm64.zip",
+            "hash": "9d638c6aa42d0c273dd0bd900683c520a0b613b0b15199b8230ac3073d43aeee",
+            "extract_dir": "ImageMagick-7.1.1-46-portable-Q16-HDRI-arm64"
+        }
+    },
+    "bin": "magick.exe",
+    "notes": [
+        "- This manifest contains the barebones ImageMagick installation.",
+        "- For appropriate programming DLLs and environment variables, install 'imagemagick' instead."
+    ],
+    "checkver": {
+        "url": "https://imagemagick.org/archive/binaries/digest.rdf",
+        "reverse": true,
+        "regex": "ImageMagick-([\\d.-]+)-portable-Q16-HDRI-x64\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://imagemagick.org/archive/binaries/ImageMagick-$version-portable-Q16-HDRI-x64.zip",
+                "extract_dir": "ImageMagick-$version-portable-Q16-HDRI-x64"
+            },
+            "32bit": {
+                "url": "https://imagemagick.org/archive/binaries/ImageMagick-$version-portable-Q16-HDRI-x86.zip",
+                "extract_dir": "ImageMagick-$version-portable-Q16-HDRI-x86"
+            },
+            "arm64": {
+                "url": "https://imagemagick.org/archive/binaries/ImageMagick-$version-portable-Q16-HDRI-arm64.zip",
+                "extract_dir": "ImageMagick-$version-portable-Q16-HDRI-arm64"
+            }
+        },
+        "hash": {
+            "mode": "rdf",
+            "url": "https://imagemagick.org/archive/binaries/digest.rdf"
+        }
+    }
+}

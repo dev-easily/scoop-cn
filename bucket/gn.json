@@ -1,0 +1,33 @@
+{
+    "version": "xUvJ_C",
+    "description": "GN is a meta-build system that generates build files for Ninja.",
+    "homepage": "https://gn.googlesource.com/gn",
+    "license": "BSD-3-Clause",
+    "suggest": {
+        "ninja": "ninja",
+        "Python3": "python"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://chrome-infra-packages.appspot.com/dl/gn/gn/windows-amd64/+/xUvJ_C_NaaxcpSJ0cip298pVDiKxB1qFB0qMuyC6CjUC#/gn-windows-amd64.zip",
+            "hash": "c54bc9fc2fcd69ac5ca52274722a76f7ca550e22b1075a85074a8cbb20ba0a35"
+        }
+    },
+    "bin": "gn.exe",
+    "checkver": {
+        "url": "https://chrome-infra-packages.appspot.com/p/gn/gn/windows-amd64/+/latest",
+        "regex": "Instance ID\\S+\\s+<td class=\"user-select-all\">(?<instanceId>(?<short>[\\w-]{6})[\\w-]+)",
+        "replace": "${short}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://chrome-infra-packages.appspot.com/dl/gn/gn/windows-amd64/+/$matchInstanceid#/gn-windows-amd64.zip",
+                "hash": {
+                    "url": "https://chrome-infra-packages.appspot.com/p/gn/gn/windows-amd64/+/latest",
+                    "regex": "<b>SHA256</b>\\S+\\s+<td class=\"user-select-all\">$sha256"
+                }
+            }
+        }
+    }
+}

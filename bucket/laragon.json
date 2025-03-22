@@ -1,0 +1,27 @@
+{
+    "version": "8.0.0",
+    "description": "Universal development environment for PHP, Node.js, Python, Java, Go, Ruby",
+    "homepage": "https://laragon.org/",
+    "license": "MIT",
+    "innosetup": true,
+    "url": "https://www.ghproxy.cn/https://github.com/leokhoa/laragon/releases/download/8.0.0/laragon-wamp.exe",
+    "hash": "a87ad4be44e190eff7505f9bbcf1fa425571cdc8f4fccb27ba5fadf65e999879",
+    "shortcuts": [
+        [
+            "laragon.exe",
+            "Laragon"
+        ]
+    ],
+    "persist": [
+        "etc",
+        "tmp",
+        "usr",
+        "www"
+    ],
+    "checkver": {
+        "github": "https://github.com/leokhoa/laragon"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/leokhoa/laragon/releases/download/$version/laragon-wamp.exe"
+    }
+}

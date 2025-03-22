@@ -1,0 +1,43 @@
+{
+    "version": "2025.1.67057",
+    "description": "Web-based issue tracking and agile project management tool by JetBrains.",
+    "homepage": "https://jetbrains.com/youtrack/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://jetbrains.com/youtrack/buy/license.html"
+    },
+    "notes": "YouTrack can be started from anywhere using 'youtrack' command.",
+    "url": "https://download.jetbrains.com/charisma/youtrack-2025.1.67057.zip",
+    "hash": "5a31a652a3e9cce8fcd00c54634caf06f890ccb895d5116577ed4f74f37c7ad6",
+    "extract_dir": "youtrack-2025.1.67057",
+    "installer": {
+        "script": [
+            "$ver_path = \"$dir\\bin\"",
+            "$cont = @(",
+            "    \"Push-Location \"\"$ver_path\"\"\"",
+            "    '& .\\youtrack.bat @args'",
+            "    'Pop-Location'",
+            ")",
+            "Set-Content \"$dir\\youtrack.ps1\" $cont -Encoding Ascii"
+        ]
+    },
+    "bin": "youtrack.ps1",
+    "persist": [
+        "backup",
+        "conf",
+        "data",
+        "logs"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=YTD&platform=zip&latest=true&type=release",
+        "regex": "version\":\"(?<ver>[\\d.]+)\".*\"build\":\"(?<build>[\\d]+)\"",
+        "replace": "${ver}.${build}"
+    },
+    "autoupdate": {
+        "url": "https://download.jetbrains.com/charisma/youtrack-$version.zip",
+        "hash": {
+            "url": "$url.sha256"
+        },
+        "extract_dir": "youtrack-$version"
+    }
+}

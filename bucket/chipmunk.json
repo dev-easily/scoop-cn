@@ -1,0 +1,29 @@
+{
+    "version": "3.16.3",
+    "description": "Fast logfile viewer with support for huge logfiles (>10 GB)",
+    "homepage": "https://github.com/esrlabs/chipmunk",
+    "license": "Apache-2.0",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/esrlabs/chipmunk/releases/download/3.16.3/chipmunk@3.16.3-win64-portable.tgz",
+            "hash": "6a1570168bf6bf63a91a7319961a01e1bdd8dc498116682ff7f7f0902cd1355a"
+        }
+    },
+    "shortcuts": [
+        [
+            "chipmunk.exe",
+            "chipmunk"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/esrlabs/chipmunk/releases/download/$version/chipmunk@$version-win64-portable.tgz"
+            }
+        }
+    }
+}

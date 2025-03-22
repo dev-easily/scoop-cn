@@ -1,0 +1,40 @@
+{
+    "version": "4.3.0",
+    "description": "OpenTofu, Terraform, Terragrunt, and Atmos version manager, written in Go.",
+    "homepage": "https://tofuutils.github.io/tenv/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/tofuutils/tenv/releases/download/v4.3.0/tenv_v4.3.0_Windows_x86_64.zip",
+            "hash": "7d27b8a00a237edfb88383479070b3f4951f9b974013653223242a85ca0dbc37"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/tofuutils/tenv/releases/download/v4.3.0/tenv_v4.3.0_Windows_arm64.zip",
+            "hash": "cdae7068ca17dfc1efca087a41a646447a28bd1b77668f63f27047e7dbe1155a"
+        }
+    },
+    "bin": [
+        "atmos.exe",
+        "tenv.exe",
+        "terraform.exe",
+        "terragrunt.exe",
+        "tf.exe",
+        "tofu.exe"
+    ],
+    "checkver": {
+        "github": "https://github.com/tofuutils/tenv"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/tofuutils/tenv/releases/download/v$version/tenv_v$version_Windows_x86_64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/tofuutils/tenv/releases/download/v$version/tenv_v$version_Windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/tenv_v$version_checksums.txt"
+        }
+    }
+}

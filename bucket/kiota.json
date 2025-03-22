@@ -1,0 +1,30 @@
+{
+    "version": "1.24.1",
+    "description": "Kiota is a command line tool for generating an API client to call any OpenAPI described API you are interested in. The goal is to eliminate the need to take a dependency on a different API SDK for every API that you need to call. Kiota API clients provide a strongly typed experience with all the features you expect from a high quality API SDK, but without having to learn a new library for every HTTP API.",
+    "homepage": "https://aka.ms/kiota/docs",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/microsoft/kiota/releases/download/v1.24.1/win-x64.zip",
+            "hash": "8e3e1fed7c776c52a7b964fe9dc46bafdf90d41b6ac6109d6b1922429c5e2cdf"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/microsoft/kiota/releases/download/v1.24.1/win-x86.zip",
+            "hash": "b2ab84864bfd6d059926b178829b7ecc7315572c7821086ce3744b19d78cc88c"
+        }
+    },
+    "bin": "kiota.exe",
+    "checkver": {
+        "github": "https://github.com/microsoft/kiota"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/microsoft/kiota/releases/download/v$version/win-x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/microsoft/kiota/releases/download/v$version/win-x86.zip"
+            }
+        }
+    }
+}
