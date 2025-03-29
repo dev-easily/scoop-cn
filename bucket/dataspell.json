@@ -1,0 +1,56 @@
+{
+    "version": "2024.3.2-243.25659.44",
+    "description": "Cross-Platform IDE for Data Scientists by JetBrains.",
+    "homepage": "https://www.jetbrains.com/dataspell/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.jetbrains.com/store/license.html"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://download.jetbrains.com/python/dataspell-2024.3.2.exe#/dl.7z",
+            "hash": "4ea363740bd286c44478950739345c2f699de98b1d2354cb66f6878b0c33ca16"
+        },
+        "arm64": {
+            "url": "https://download.jetbrains.com/python/dataspell-2024.3.2-aarch64.exe#/dl.7z",
+            "hash": "16e494fa897e891b6f6b7bd3a5dd82ad7247af23240dcb893d080f4fe8a7f06b"
+        }
+    },
+    "extract_to": "IDE",
+    "installer": {
+        "script": [
+            "& \"$bucketsdir\\easy-win\\scripts\\jetbrains\\portable.ps1\" $dir $persist_dir",
+            "Remove-Item \"$dir\\IDE\\`$*\" -Force -Recurse"
+        ]
+    },
+    "shortcuts": [
+        [
+            "IDE\\bin\\dataspell64.exe",
+            "JetBrains\\DataSpell"
+        ]
+    ],
+    "persist": [
+        "IDE\\bin\\idea.properties",
+        "IDE\\bin\\dataspell.exe.vmoptions",
+        "IDE\\bin\\dataspell64.exe.vmoptions",
+        "profile"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=DS&latest=true&platform=zip&type=release",
+        "regex": "version\":\"(?<ver>[\\d.]+)\".*\"build\":\"(?<build>[\\d.]+)\"",
+        "replace": "${ver}-${build}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.jetbrains.com/python/dataspell-$matchVer.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://download.jetbrains.com/python/dataspell-$matchVer-aarch64.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

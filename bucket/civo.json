@@ -1,0 +1,24 @@
+{
+    "version": "1.1.99",
+    "description": "CLI library for managing cloud resources such as instances and Kubernetes clusters at Civo.com.",
+    "homepage": "https://github.com/civo/cli",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/civo/cli/releases/download/v1.1.99/civo-1.1.99-windows-amd64.zip",
+            "hash": "02ec54e4855f991bfd3383304d8c05e7c54f20c257f563fefd8bb299957cf350"
+        }
+    },
+    "bin": "civo.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/civo/cli/releases/download/v$version/civo-$version-windows-amd64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/civo-$version-checksums.sha256"
+        }
+    }
+}
