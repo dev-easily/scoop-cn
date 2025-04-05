@@ -1,0 +1,23 @@
+{
+    "version": "4.8.0",
+    "description": "Micronaut - A modern, JVM-based (Java, Groovy, Kotlin), full-stack framework for building modular and testable microservice and serverless applications",
+    "homepage": "https://micronaut.io",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JDK": "easy-win/openjdk"
+    },
+    "url": "https://www.ghproxy.cn/https://github.com/micronaut-projects/micronaut-starter/releases/download/v4.8.0/micronaut-cli-4.8.0.zip",
+    "hash": "f19a41d933d1678606e212cb57c532cd38629e9d5acffc004c8feea68504614c",
+    "extract_dir": "micronaut-cli-4.8.0",
+    "bin": "bin\\mn.bat",
+    "env_set": {
+        "MICRONAUT_HOME": "$dir"
+    },
+    "checkver": {
+        "github": "https://github.com/micronaut-projects/micronaut-starter"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/micronaut-projects/micronaut-starter/releases/download/v$version/micronaut-cli-$version.zip",
+        "extract_dir": "micronaut-cli-$version"
+    }
+}

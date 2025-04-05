@@ -1,0 +1,25 @@
+{
+    "version": "2.40.0",
+    "description": "Flexible & Powerful Open Source Multi-Protocol Messaging",
+    "homepage": "https://activemq.apache.org/components/artemis/",
+    "license": "Apache-2.0",
+    "notes": "Create a broker instance by running 'artemis create (broker path)'",
+    "suggest": {
+        "JDK": "easy-win/openjdk"
+    },
+    "url": "https://archive.apache.org/dist/activemq/activemq-artemis/2.40.0/apache-artemis-2.40.0-bin.zip",
+    "hash": "sha512:9ddb9f25f967dd78b88e4ecac67f8aa3cf1e3caabfd58fb520dee8e691b7351c727f7c7b2ad603cf38261c1f05a3231db6f9aabe5b933aefef6f71f3d3f8eacb",
+    "extract_dir": "apache-artemis-2.40.0",
+    "bin": "bin\\artemis.cmd",
+    "checkver": {
+        "url": "https://activemq.apache.org/components/artemis/download/",
+        "regex": "ActiveMQ Artemis ([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://archive.apache.org/dist/activemq/activemq-artemis/$version/apache-artemis-$version-bin.zip",
+        "extract_dir": "apache-artemis-$version",
+        "hash": {
+            "url": "$url.sha512"
+        }
+    }
+}

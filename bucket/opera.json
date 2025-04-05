@@ -1,0 +1,62 @@
+{
+    "version": "117.0.5408.197",
+    "description": "Fast, secure, easy-to-use browser.",
+    "homepage": "https://www.opera.com/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.opera.com/eula/computers"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://get.geo.opera.com/pub/opera/desktop/117.0.5408.197/win/Opera_117.0.5408.197_Setup_x64.exe#/dl.7z",
+            "hash": "d2368a5c00cce7f71975cc27b59f50d556e9de5f234a4a89097de48f92fe4982"
+        },
+        "32bit": {
+            "url": "https://get.geo.opera.com/pub/opera/desktop/117.0.5408.197/win/Opera_117.0.5408.197_Setup.exe#/dl.7z",
+            "hash": "f8a0ae70def8014fd1168142243ca5c857f25e2fc889747501e6d7682f6ce05f"
+        }
+    },
+    "installer": {
+        "script": [
+            "Remove-Item -Path \"$dir\\*_list\" -Force",
+            "Move-Item -Path \"$dir\\*\" -Destination \"$dir\\$version\" -Exclude 'Assets', 'launcher*', 'Resources.pri' -ErrorAction Ignore",
+            "if (!(Test-Path \"$dir\\$version\\localization\")) {",
+            "   New-Item -Path \"$dir\\$version\\localization\" -ItemType Directory | Out-Null",
+            "   Move-Item -Path \"$dir\\$version\\*.pak\" -Destination \"$dir\\$version\\localization\" -Exclude 'opera*' -ErrorAction Ignore",
+            "}",
+            "Set-Content -Path \"$dir\\installer_prefs.json\" -Value (@{ 'autoupdate'= $false; 'enable_stats' = $false; 'single_profile' = $true } | ConvertTo-Json) -Encoding ASCII",
+            "Copy-Item \"$dir\\$version\\opera.exe\" \"$dir\""
+        ]
+    },
+    "shortcuts": [
+        [
+            "opera.exe",
+            "Opera"
+        ]
+    ],
+    "persist": "profile",
+    "checkver": {
+        "script": [
+            "$releases = 'https://get.geo.opera.com/pub/opera/desktop/'",
+            "$download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing",
+            "$versionSort   = { [version]$_.href.TrimEnd('/') }",
+            "$last_ver = $download_page.links | Where-Object href -match '^[\\d]+[\\d\\.]+/$' | Sort-Object $versionSort -Descending | Select-Object -first 1 -expand href",
+            "$version = $last_ver -replace '/', ''",
+            "Write-Output $version"
+        ],
+        "regex": "(\\S+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://get.geo.opera.com/pub/opera/desktop/$version/win/Opera_$version_Setup_x64.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://get.geo.opera.com/pub/opera/desktop/$version/win/Opera_$version_Setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256sum"
+        }
+    }
+}

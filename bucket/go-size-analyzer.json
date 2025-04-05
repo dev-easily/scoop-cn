@@ -1,0 +1,31 @@
+{
+    "version": "1.7.8",
+    "description": "A tool for analyzing the dependencies in compiled Golang binaries.",
+    "homepage": "https://github.com/Zxilly/go-size-analyzer",
+    "license": "AGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Zxilly/go-size-analyzer/releases/download/v1.7.8/go-size-analyzer_windows_amd64.zip",
+            "hash": "bdacf52b124af724ec60c60cb76bf5afb4da5ff3a9bb7e2f1951cb5b5d63648e"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Zxilly/go-size-analyzer/releases/download/v1.7.8/go-size-analyzer_windows_arm64.zip",
+            "hash": "c2b8a3cab56badf4d8feee884ea373ee5929de6ee7bfa27ef1ed7cd517153f53"
+        }
+    },
+    "bin": "gsa.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Zxilly/go-size-analyzer/releases/download/v$version/go-size-analyzer_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Zxilly/go-size-analyzer/releases/download/v$version/go-size-analyzer_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "version": "2.0.2",
+    "description": "An opinionated Lua code formatter",
+    "homepage": "https://github.com/JohnnyMorganz/StyLua",
+    "license": "MPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/JohnnyMorganz/StyLua/releases/download/v2.0.2/stylua-windows-x86_64.zip",
+            "hash": "b88b32417a37af623698fa4ba0bed9abf3a777a2cbf532b4c4313d7ec9679aee"
+        }
+    },
+    "bin": "stylua.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/JohnnyMorganz/StyLua/releases/download/v$version/stylua-windows-x86_64.zip"
+            }
+        }
+    }
+}

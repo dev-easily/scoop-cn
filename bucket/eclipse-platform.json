@@ -1,0 +1,34 @@
+{
+    "version": "4.35-202502280140",
+    "description": "Eclipse Platform",
+    "homepage": "https://www.eclipse.org",
+    "license": "EPL-1.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://download.eclipse.org/eclipse/downloads/drops4/R-4.35-202502280140/eclipse-platform-4.35-win32-x86_64.zip",
+            "hash": "sha512:650095af80b87ca6aa57406a22ae7a14b6c7fe8a87488245015e25822609c77463c1fa7b7c4a06b8aba196b7fd2a72aab803151c5cb8627c16230064d55bdb2f"
+        }
+    },
+    "extract_dir": "eclipse",
+    "bin": "eclipsec.exe",
+    "shortcuts": [
+        [
+            "eclipse.exe",
+            "Eclipse Platform"
+        ]
+    ],
+    "checkver": {
+        "url": "https://download.eclipse.org/eclipse/downloads/",
+        "regex": "/R-([\\d.-]+)/\" title=\"Latest Release"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://download.eclipse.org/eclipse/downloads/drops$majorVersion/R-$version/eclipse-platform-$matchHead-win32-x86_64.zip",
+                "hash": {
+                    "url": "$baseurl/checksum/$basename.sha512"
+                }
+            }
+        }
+    }
+}

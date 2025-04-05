@@ -1,0 +1,44 @@
+{
+    "version": "2.5.1",
+    "description": "KubeVPN offers a Cloud Native Dev Environment that connects to kubernetes cluster network.",
+    "homepage": "https://www.kubevpn.dev/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/kubenetworks/kubevpn/releases/download/v2.5.1/kubevpn_v2.5.1_windows_amd64.zip",
+            "hash": "26dabccb503cbe35b6877f6bb84fb842fe79a4ae18a08052b71f6470b7b914f6"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/kubenetworks/kubevpn/releases/download/v2.5.1/kubevpn_v2.5.1_windows_386.zip",
+            "hash": "b4c7fa4b3c3568110d6029807c9c2fa5febccae01e86ce00f86df237a502b31b"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/kubenetworks/kubevpn/releases/download/v2.5.1/kubevpn_v2.5.1_windows_arm64.zip",
+            "hash": "4f9de3e0b85265c5e364d05ccad6bc237cea8bcfd1ab7d43ba2d6c05bbed499c"
+        }
+    },
+    "extract_dir": "bin",
+    "bin": "kubevpn.exe",
+    "shortcuts": [
+        [
+            "kubevpn.exe",
+            "kubevpn"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/kubenetworks/kubevpn"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/kubenetworks/kubevpn/releases/download/v$version/kubevpn_v$version_windows_amd64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/kubenetworks/kubevpn/releases/download/v$version/kubevpn_v$version_windows_386.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/kubenetworks/kubevpn/releases/download/v$version/kubevpn_v$version_windows_arm64.zip"
+            }
+        }
+    }
+}
