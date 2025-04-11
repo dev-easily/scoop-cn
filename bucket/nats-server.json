@@ -1,0 +1,44 @@
+{
+    "version": "2.11.1",
+    "description": "High-Performance server for NATS.io, the cloud and edge native messaging system",
+    "homepage": "https://github.com/nats-io/nats-server",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v2.11.1/nats-server-v2.11.1-windows-amd64.zip",
+            "hash": "f5594798e1b77013b674c0049070d2502c20ee6f03a04d854cac333e2a21ca20",
+            "extract_dir": "nats-server-v2.11.1-windows-amd64"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v2.11.1/nats-server-v2.11.1-windows-386.zip",
+            "hash": "e0536567c4184f80b9517dc783e830f17bca4e628baf06ace1a1d79cb9770190",
+            "extract_dir": "nats-server-v2.11.1-windows-386"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v2.11.1/nats-server-v2.11.1-windows-arm64.zip",
+            "hash": "1962840c1829d90d58a4a64d7f79971be6b7af505c5a92bb57e2ede65f5bde96",
+            "extract_dir": "nats-server-v2.11.1-windows-arm64"
+        }
+    },
+    "bin": "nats-server.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v$version/nats-server-v$version-windows-amd64.zip",
+                "extract_dir": "nats-server-v$version-windows-amd64"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v$version/nats-server-v$version-windows-386.zip",
+                "extract_dir": "nats-server-v$version-windows-386"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v$version/nats-server-v$version-windows-arm64.zip",
+                "extract_dir": "nats-server-v$version-windows-arm64"
+            }
+        },
+        "hash": {
+            "url": "https://www.ghproxy.cn/https://github.com/nats-io/nats-server/releases/download/v$version/SHA256SUMS"
+        }
+    }
+}

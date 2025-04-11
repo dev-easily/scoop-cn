@@ -1,0 +1,47 @@
+{
+    "version": "10.1.40",
+    "description": "Implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies",
+    "homepage": "https://tomcat.apache.org",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JRE": "easy-win/openjdk"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.apache.org/tomcat/tomcat-10/v10.1.40/bin/apache-tomcat-10.1.40-windows-x64.zip",
+            "hash": "sha512:cfc0486bb767006068b5e5e11c585ac0a63f3f874e01595dca7d49f44578b953da4494c462a8eae97158614d760d26c4b07bf2f8973cfdb6812307d992c68750"
+        },
+        "32bit": {
+            "url": "https://downloads.apache.org/tomcat/tomcat-10/v10.1.40/bin/apache-tomcat-10.1.40-windows-x86.zip",
+            "hash": "sha512:9b070478dadbfa1c7e30610aeb0b1a4fff4b55b2557f7f4ff99f24f7f1786f8d9f3ec61206c36c52647330e1365d9e47ff790080e70d2eab8dd314fe4dbffbc3"
+        }
+    },
+    "extract_dir": "apache-tomcat-10.1.40",
+    "bin": "bin\\catalina.bat",
+    "env_set": {
+        "CATALINA_HOME": "$dir",
+        "CATALINA_BASE": "$dir"
+    },
+    "persist": [
+        "conf",
+        "webapps"
+    ],
+    "checkver": {
+        "url": "https://downloads.apache.org/tomcat/tomcat-10/?C=M;O=D",
+        "regex": "v([\\d.]+)/"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.apache.org/tomcat/tomcat-$majorVersion/v$version/bin/apache-tomcat-$version-windows-x64.zip"
+            },
+            "32bit": {
+                "url": "https://downloads.apache.org/tomcat/tomcat-$majorVersion/v$version/bin/apache-tomcat-$version-windows-x86.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha512"
+        },
+        "extract_dir": "apache-tomcat-$version"
+    }
+}

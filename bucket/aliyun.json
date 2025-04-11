@@ -1,0 +1,21 @@
+{
+    "version": "3.0.269",
+    "description": "Manage and use Alibaba Cloud resources.",
+    "homepage": "https://github.com/aliyun/aliyun-cli",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/aliyun/aliyun-cli/releases/download/v3.0.269/aliyun-cli-windows-3.0.269-amd64.zip",
+            "hash": "d274b818b4c9c55c56804017aa6e011b6b43ce07d31f4ba3234e01f50db33c22"
+        }
+    },
+    "bin": "aliyun.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/aliyun/aliyun-cli/releases/download/v$version/aliyun-cli-windows-$version-amd64.zip"
+            }
+        }
+    }
+}

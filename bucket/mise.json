@@ -1,0 +1,49 @@
+{
+    "version": "2025.4.1",
+    "description": "Polyglot tool version manager and task runner",
+    "homepage": "https://mise.jdx.dev/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/jdx/mise/releases/download/v2025.4.1/mise-v2025.4.1-windows-x64.zip",
+            "hash": "36e02073353b431a75ad66c8f9fa680472a5d0ec0782e78e43f212e5631b878f"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/jdx/mise/releases/download/v2025.4.1/mise-v2025.4.1-windows-arm64.zip",
+            "hash": "ff196d86f14a4d64143d54ec0da708a6e69b1368680ebba008fcadd3fa8623b7"
+        }
+    },
+    "extract_dir": "mise",
+    "bin": "bin/mise.exe",
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\config.toml\") -and !(Test-Path \"$dir\\config.toml\")) {",
+        "    New-Item -Path \"$dir\\config.toml\" -ItemType File -ea 0 | Out-Null",
+        "}"
+    ],
+    "env_set": {
+        "MISE_DATA_DIR": "$dir\\mise",
+        "MISE_GLOBAL_CONFIG_FILE": "$dir\\config.toml"
+    },
+    "env_add_path": "mise\\shims",
+    "persist": [
+        "mise",
+        "config.toml"
+    ],
+    "notes": "See documentation for notes on configuring your shell: https://mise.jdx.dev/installing-mise.html",
+    "checkver": {
+        "github": "https://github.com/jdx/mise"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/jdx/mise/releases/download/v$version/mise-v$version-windows-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/jdx/mise/releases/download/v$version/mise-v$version-windows-arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHASUMS256.txt"
+        }
+    }
+}

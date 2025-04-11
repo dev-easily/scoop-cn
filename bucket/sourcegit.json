@@ -1,0 +1,43 @@
+{
+    "version": "2025.12",
+    "description": "Open-source GUI client for git users.",
+    "homepage": "https://github.com/sourcegit-scm/sourcegit",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/sourcegit-scm/sourcegit/releases/download/v2025.12/sourcegit_2025.12.win-x64.zip",
+            "hash": "7e15bd9396d99936142aa46e6212c32e256a94a18e0006011e72be6c776a7e91"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/sourcegit-scm/sourcegit/releases/download/v2025.12/sourcegit_2025.12.win-arm64.zip",
+            "hash": "704c6138b9ea49e5f62103cb3ea2e99627777be38f5de2767d37744a54e5424f"
+        }
+    },
+    "extract_dir": "SourceGit",
+    "post_install": [
+        "if (Test-Path $env:AppData\\SourceGit) {",
+        "    Write-Host \"`r`nMove config from non-portable version...\"",
+        "    Copy-Item -Path $env:AppData\\SourceGit\\* -Destination \"$persist_dir\\data\" -Force -Recurse | Out-Null",
+        "    Remove-Item $env:AppData\\SourceGit -Force -Recurse",
+        "}"
+    ],
+    "bin": "SourceGit.exe",
+    "shortcuts": [
+        [
+            "SourceGit.exe",
+            "SourceGit"
+        ]
+    ],
+    "persist": "data",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/sourcegit-scm/sourcegit/releases/download/v$version/sourcegit_$version.win-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/sourcegit-scm/sourcegit/releases/download/v$version/sourcegit_$version.win-arm64.zip"
+            }
+        }
+    }
+}

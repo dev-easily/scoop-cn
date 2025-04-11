@@ -1,0 +1,43 @@
+{
+    "version": "0.98.1",
+    "description": "An app runtime based on Chromium and NodeJS",
+    "homepage": "https://nwjs.io",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://dl.nwjs.io/v0.98.1/nwjs-sdk-v0.98.1-win-x64.zip",
+            "hash": "2e387bc8f9f88f68c5b2bcf3196b18a0dbce873904562df57b87b9d4bd087f6b",
+            "extract_dir": "nwjs-sdk-v0.98.1-win-x64"
+        },
+        "32bit": {
+            "url": "https://dl.nwjs.io/v0.98.1/nwjs-sdk-v0.98.1-win-ia32.zip",
+            "hash": "dd036940d63e45cb292d952bf64c2bc5c71df420cf2e2a94eea3f33816445e4e",
+            "extract_dir": "nwjs-sdk-v0.98.1-win-ia32"
+        }
+    },
+    "extract_to": "nwjs-sdk",
+    "bin": [
+        "nwjs-sdk\\nw.exe",
+        "nwjs-sdk\\nwjc.exe"
+    ],
+    "checkver": {
+        "url": "https://nwjs.io/versions.json",
+        "jsonpath": "$.stable",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://dl.nwjs.io/v$version/nwjs-sdk-v$version-win-x64.zip",
+                "extract_dir": "nwjs-sdk-v$version-win-x64"
+            },
+            "32bit": {
+                "url": "https://dl.nwjs.io/v$version/nwjs-sdk-v$version-win-ia32.zip",
+                "extract_dir": "nwjs-sdk-v$version-win-ia32"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHASUMS256.txt"
+        }
+    }
+}
