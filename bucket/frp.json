@@ -1,0 +1,42 @@
+{
+    "version": "0.62.0",
+    "description": "A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.",
+    "homepage": "https://github.com/fatedier/frp",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/fatedier/frp/releases/download/v0.62.0/frp_0.62.0_windows_amd64.zip",
+            "hash": "542b0e056c70ea4dd5e0bef72f64ff3ac501cd33e3a56d93df7780beb9451ddc",
+            "extract_dir": "frp_0.62.0_windows_amd64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/fatedier/frp/releases/download/v0.62.0/frp_0.62.0_windows_arm64.zip",
+            "hash": "dd824012869b3bd9aeaf3929961237944c7d87ad893327f69ab05a64000cec6f",
+            "extract_dir": "frp_0.62.0_windows_arm64"
+        }
+    },
+    "bin": [
+        "frpc.exe",
+        "frps.exe"
+    ],
+    "persist": [
+        "frpc.toml",
+        "frps.toml"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/fatedier/frp/releases/download/v$version/frp_$version_windows_amd64.zip",
+                "extract_dir": "frp_$version_windows_amd64"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/fatedier/frp/releases/download/v$version/frp_$version_windows_arm64.zip",
+                "extract_dir": "frp_$version_windows_arm64"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/frp_sha256_checksums.txt"
+        }
+    }
+}

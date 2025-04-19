@@ -1,0 +1,30 @@
+{
+    "version": "2.15.1",
+    "description": "The open-source, decentralized C/C++ package manager",
+    "homepage": "https://conan.io",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/conan-io/conan/releases/download/2.15.1/conan-2.15.1-windows-x86_64.zip",
+            "hash": "c7469ce022b74d5f842d9454fb58906db5fadad5629f89b70305be2a412aa1f6"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/conan-io/conan/releases/download/2.15.1/conan-2.15.1-windows-i686.zip",
+            "hash": "034c2e170ef159b4c0c40f0cf2c8a69813c0333601de8479362063b8e2c2d466"
+        }
+    },
+    "bin": "conan.exe",
+    "checkver": {
+        "github": "https://github.com/conan-io/conan"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/conan-io/conan/releases/download/$version/conan-$version-windows-x86_64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/conan-io/conan/releases/download/$version/conan-$version-windows-i686.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "version": "5.40.2674",
+    "description": "Audio player",
+    "homepage": "https://www.aimp.ru",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.aimp.ru/?do=eula&os=windows"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.aimp.ru/?do=download.file&id=31#/dl.zip",
+            "hash": "820e2eb6da869f668e25ccd41eb12731a958e7a8bee01acf29ea622f567b7f9d"
+        },
+        "32bit": {
+            "url": "https://www.aimp.ru/?do=download.file&id=8#/dl.zip",
+            "hash": "f4663bac703de566d8601caa96ceb2e055cf67a15c4fcb76a671745e27a579e6"
+        }
+    },
+    "extract_dir": "AIMP",
+    "bin": [
+        "AIMP.exe",
+        "AIMPac.exe",
+        "AIMPate.exe"
+    ],
+    "shortcuts": [
+        [
+            "AIMP.exe",
+            "AIMP"
+        ],
+        [
+            "AIMPac.exe",
+            "AIMP Audio Converter"
+        ],
+        [
+            "AIMPate.exe",
+            "AIMP Advanced Tag Editor"
+        ]
+    ],
+    "persist": [
+        "Profile",
+        "Plugins",
+        "Skins",
+        "Icons"
+    ],
+    "checkver": {
+        "url": "https://www.aimp.ru/?do=download&os=windows",
+        "regex": ">AIMP v([\\d.]+)<"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.aimp.ru/?do=download.file&id=31#/dl.zip",
+                "hash": {
+                    "url": "https://www.aimp.ru/?do=download&os=windows",
+                    "regex": "(?sm)64-bit \\(No Installer\\).*?SHA256: $sha256"
+                }
+            },
+            "32bit": {
+                "url": "https://www.aimp.ru/?do=download.file&id=8#/dl.zip",
+                "hash": {
+                    "url": "https://www.aimp.ru/?do=download&os=windows",
+                    "regex": "(?sm)32-bit \\(No Installer\\).*?SHA256: $sha256"
+                }
+            }
+        }
+    }
+}

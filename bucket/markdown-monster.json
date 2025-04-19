@@ -1,0 +1,26 @@
+{
+    "version": "3.7.3",
+    "description": "Markdown editing and weblog publishing tool",
+    "homepage": "https://markdownmonster.west-wind.com",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://markdownmonster.west-wind.com/purchase.aspx#License"
+    },
+    "url": "https://www.ghproxy.cn/https://github.com/RickStrahl/MarkdownMonsterReleases/raw/master/CurrentRelease/MarkdownMonsterPortable.zip",
+    "hash": "669b1b85b9a0d767c5d7b1e2e25fbfe6a5e0299e01ffe1667ee60914c8258788",
+    "bin": "mmcli.exe",
+    "shortcuts": [
+        [
+            "MarkdownMonster.exe",
+            "Markdown Monster"
+        ]
+    ],
+    "persist": "PortableSettings",
+    "checkver": {
+        "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/RickStrahl/MarkdownMonsterReleases/master/CurrentRelease/MarkdownMonster_Version.xml",
+        "regex": "<Version>([\\d.]+)</Version>"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/RickStrahl/MarkdownMonsterReleases/raw/master/CurrentRelease/MarkdownMonsterPortable.zip"
+    }
+}

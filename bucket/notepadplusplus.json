@@ -1,0 +1,87 @@
+{
+    "version": "8.7.9",
+    "description": "A free source code editor and Notepad replacement that supports several languages.",
+    "homepage": "https://notepad-plus-plus.org",
+    "license": "GPL-3.0-or-later",
+    "notes": "Add Notepad++ as a context menu option by running: reg import \"$dir\\install-context.reg\"",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.portable.x64.zip",
+            "hash": "c0543076abcad4b3119154cc3ee2ca88e63fc1381ee07e1e29d7321df2b7513d"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.portable.zip",
+            "hash": "e428bdef3914bf7bc1dd197cafce3ee661853141a17662cf1657531fd5a83092"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v8.7.9/npp.8.7.9.portable.arm64.zip",
+            "hash": "54e52bde00219c9daf1b0895fa3c125b0fb06cd6c7ce5eb374440057816ab18f"
+        }
+    },
+    "pre_install": [
+        "'session.xml', 'userDefineLang.xml', 'nativeLang.xml' | ForEach-Object {",
+        "    if (!(Test-Path \"$persist_dir\\$_\")) { New-Item \"$dir\\$_\" -ItemType File | Out-Null }",
+        "}",
+        "if (!(Test-Path \"$persist_dir\\stylers.xml\")) { Copy-Item \"$dir\\stylers.model.xml\" \"$dir\\stylers.xml\" }"
+    ],
+    "post_install": [
+        "'install-context', 'uninstall-context' | ForEach-Object {",
+        "    if (Test-Path \"$bucketsdir\\easy-win\\scripts\\notepadplusplus\\$_.reg\") {",
+        "        $nppPath = \"$dir\\notepad++.exe\".Replace('\\', '\\\\')",
+        "        $content = (Get-Content \"$bucketsdir\\easy-win\\scripts\\notepadplusplus\\$_.reg\").Replace('$npp', $nppPath)",
+        "        if ($global) { $content = $content.Replace('HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE') }",
+        "        Set-Content \"$dir\\$_.reg\" $content -Encoding Ascii -Force",
+        "    }",
+        "}",
+        "# Update shipped plugins",
+        "if (Test-Path \"$dir\\plugins.original\") {",
+        "    Copy-Item -Recurse \"$dir\\plugins.original\\*\" \"$dir\\plugins\\\" -Force",
+        "}"
+    ],
+    "uninstaller": {
+        "script": [
+            "if ($cmd -eq 'uninstall') {",
+            "    reg import \"$dir\\uninstall-context.reg\"",
+            "}"
+        ]
+    },
+    "bin": "notepad++.exe",
+    "shortcuts": [
+        [
+            "notepad++.exe",
+            "Notepad++"
+        ]
+    ],
+    "persist": [
+        "backup",
+        "cloud",
+        "plugins",
+        "themes",
+        "userDefineLangs",
+        "config.xml",
+        "nativeLang.xml",
+        "session.xml",
+        "shortcuts.xml",
+        "stylers.xml",
+        "userDefineLang.xml"
+    ],
+    "checkver": {
+        "github": "https://github.com/notepad-plus-plus/notepad-plus-plus"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v$version/npp.$version.portable.x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v$version/npp.$version.portable.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/notepad-plus-plus/notepad-plus-plus/releases/download/v$version/npp.$version.portable.arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/npp.$version.checksums.sha256"
+        }
+    }
+}

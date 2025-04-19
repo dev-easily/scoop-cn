@@ -1,0 +1,34 @@
+{
+    "version": "11.3",
+    "description": "Free Graphic Design Software",
+    "homepage": "https://icons8.com/lunacy",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://docs.icons8.com/lunacy%20license.md"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://lcdn.icons8.com/setup/LunacySetup_11.3.exe",
+            "hash": "c1a24b098161d996709ec5264c7a526c345205221092a5ce6626c66c8a6423b3"
+        }
+    },
+    "innosetup": true,
+    "bin": "Lunacy.exe",
+    "shortcuts": [
+        [
+            "Lunacy.exe",
+            "Lunacy"
+        ]
+    ],
+    "checkver": {
+        "url": "https://docs.icons8.com/release-notes/",
+        "regex": "setup/LunacySetup_([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://lcdn.icons8.com/setup/LunacySetup_$version.exe"
+            }
+        }
+    }
+}

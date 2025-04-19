@@ -1,0 +1,64 @@
+{
+    "version": "1.2.61.443.gc51c574b",
+    "description": "A digital music service that gives you access to millions of songs.",
+    "homepage": "https://www.spotify.com/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.spotify.com/legal/end-user-agreement/"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://download.scdn.co/SpotifyFullSetupX64.exe",
+            "hash": "32d495eafb565731a1eceedd8a8cd83af0324a0f1b7ee369d6d3e358c978ad84"
+        },
+        "arm64": {
+            "url": "https://download.scdn.co/SpotifyFullSetupARM64.exe",
+            "hash": "15dfff7e49665ccc670836ed3c7f148cad19987a834c6da59d30d350c7390177"
+        }
+    },
+    "installer": {
+        "script": [
+            "Start-Process -Wait \"$dir\\$fname\" -ArgumentList '/extract', \"`\"$dir`\"\"",
+            "# Disable built-in updater",
+            "Remove-Item -ErrorAction Ignore -Recurse \"$env:LOCALAPPDATA\\Spotify\\Update\" | Out-Null",
+            "$updateFile = New-Item -Path \"$env:LOCALAPPDATA\\Spotify\" -Name Update -ItemType File -Value \"Disabled by Scoop\" -Force",
+            "$updatefile.Attributes = 'ReadOnly', 'System'",
+            "Remove-Item \"$dir\\$fname\", \"$dir\\SpotifyMigrator.exe\" -ErrorAction SilentlyContinue"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Spotify.exe",
+            "Spotify"
+        ]
+    ],
+    "uninstaller": {
+        "script": [
+            "$updateFile = \"$env:LOCALAPPDATA\\Spotify\\update\"",
+            "Remove-Item $updateFile -Force -ErrorAction SilentlyContinue",
+            "if ($cmd -ne 'uninstall') { return }",
+            "Start-Process -Wait \"$dir\\Spotify.exe\" -ArgumentList '/Uninstall', '/Silent'"
+        ]
+    },
+    "checkver": {
+        "script": [
+            "$dl_url = 'https://download.scdn.co/SpotifyFullSetupX64.exe'",
+            "$dl = cache_path 'spotify' 'unknown' $dl_url",
+            "Invoke-WebRequest $dl_url -OutFile $dl",
+            "$ver = (Get-Item $dl).VersionInfo.ProductVersion",
+            "Move-Item -Force $dl (cache_path 'spotify' $ver $dl_url)",
+            "$ver"
+        ],
+        "regex": "(\\S+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.scdn.co/SpotifyFullSetupX64.exe"
+            },
+            "arm64": {
+                "url": "https://download.scdn.co/SpotifyFullSetupARM64.exe"
+            }
+        }
+    }
+}

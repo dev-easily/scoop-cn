@@ -1,0 +1,38 @@
+{
+    "version": "7.1.0-nightly.1",
+    "description": "All-in-one messaging apps for various services",
+    "homepage": "https://github.com/ferdium/ferdium-app",
+    "license": "Apache-2.0",
+    "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v7.1.0-nightly.1/Ferdium-win-AutoSetup-7.1.0-nightly.1.exe#/dl.7z",
+    "hash": "sha512:40a6c383ea8f6a639628feff42cffde8e31e0db457fa9b69b98b4b5aa6b620863c66651f1802f22e5d3bdb014ee496fc623fdee4fd7b55a8fe6c58cd63e7957f",
+    "architecture": {
+        "64bit": {
+            "installer": {
+                "script": "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\""
+            }
+        },
+        "32bit": {
+            "installer": {
+                "script": "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\""
+            }
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall*.exe\" -Recurse -Force",
+    "shortcuts": [
+        [
+            "Ferdium.exe",
+            "Ferdium"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/ferdium/ferdium-app/releases",
+        "regex": "/releases/tag/(?:v|V)?([\\d\\-nightly.]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v$version/Ferdium-win-AutoSetup-$version.exe#/dl.7z",
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
+    }
+}

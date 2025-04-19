@@ -1,0 +1,61 @@
+{
+    "version": "118.0.5461.50",
+    "description": "Opera GX is a special version of the Opera browser built specifically for gamers.",
+    "homepage": "https://www.opera.com/gx",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.opera.com/eula/computers"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://get.opera.com/pub/opera_gx/118.0.5461.50/win/Opera_GX_118.0.5461.50_Setup_x64.exe#/dl.7z",
+            "hash": "3c5e7362e2ad254b916c96b9d4b7842e5bb9c30876def5d927035c7798690af2"
+        },
+        "32bit": {
+            "url": "https://get.opera.com/pub/opera_gx/118.0.5461.50/win/Opera_GX_118.0.5461.50_Setup.exe#/dl.7z",
+            "hash": "40bf65b519a2b2a1ed7a59c3a13474164351db2a543a70cb2255a6687fd5028c"
+        }
+    },
+    "installer": {
+        "script": [
+            "Remove-Item -Path \"$dir\\*_list\" -Force",
+            "Move-Item -Path \"$dir\\*\" -Destination \"$dir\\$version\" -Exclude 'Assets', 'launcher*', 'Resources.pri' -ErrorAction Ignore",
+            "if (!(Test-Path \"$dir\\$version\\localization\")) {",
+            "   New-Item -Path \"$dir\\$version\\localization\" -ItemType Directory | Out-Null",
+            "   Move-Item -Path \"$dir\\$version\\*.pak\" -Destination \"$dir\\$version\\localization\" -Exclude 'opera*' -ErrorAction Ignore",
+            "}",
+            "Set-Content -Path \"$dir\\installer_prefs.json\" -Value (@{ 'autoupdate'= $false; 'enable_stats' = $false; 'single_profile' = $true } | ConvertTo-Json) -Encoding ASCII"
+        ]
+    },
+    "shortcuts": [
+        [
+            "launcher.exe",
+            "Opera GX"
+        ]
+    ],
+    "persist": "profile",
+    "checkver": {
+        "script": [
+            "$releases = 'https://get.opera.com/pub/opera_gx/'",
+            "$download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing",
+            "$versionSort   = { [version]$_.href.TrimEnd('/') }",
+            "$last_ver = $download_page.links | Where-Object href -match '^[\\d]+[\\d\\.]+/$' | Sort-Object $versionSort -Descending | Select-Object -first 1 -expand href",
+            "$version = $last_ver -replace '/', ''",
+            "Write-Output $version"
+        ],
+        "regex": "(\\S+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://get.opera.com/pub/opera_gx/$version/win/Opera_GX_$version_Setup_x64.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://get.opera.com/pub/opera_gx/$version/win/Opera_GX_$version_Setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256sum"
+        }
+    }
+}
