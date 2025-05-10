@@ -1,0 +1,45 @@
+{
+    "version": "17.11.1",
+    "description": "Run your jobs and send the results back to GitLab",
+    "homepage": "https://docs.gitlab.com/runner/",
+    "license": "MIT",
+    "notes": [
+        "To set up, take the steps below:",
+        "1. Get registration token in any of your project settings, group settings, or server-admin settings",
+        "2. Create runner's root directory (C:\\gitlab-runner, C:\\Users\\<your username>\\gitlab-runner, etc) where you place your config.toml and build your project, and cd there",
+        "3. Run 'gitlab-runner register --url <your server's URL> --registration-token <your token>'",
+        "4. Run 'gitlab-runner install', or 'gitlab-runner install --user <your username> --password <your password>', in an elevated prompt",
+        "5. Check your git installation IF you didn't specify your username and password. If git isn't installed system-wide, run 'scoop install git --global' as admin",
+        "6. Run 'gitlab-runner start' as admin",
+        "7. Check your runner's signal in the GitLab. If it isn't green or doesn't exist, check the official documentation",
+        "8. Run it once from your project's pipeline. If you're prompted to choose a credential helper, select 'manager-core' (or whichever desired) with 'Always use this from now on' checked"
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://gitlab-runner-downloads.s3.amazonaws.com/v17.11.1/binaries/gitlab-runner-windows-amd64.exe#/gitlab-runner.exe",
+            "hash": "aa0ec1d9c4220af8f13743994b4827d939bf4cc88ff3fc67fff8f95bc2a1c296"
+        },
+        "32bit": {
+            "url": "https://gitlab-runner-downloads.s3.amazonaws.com/v17.11.1/binaries/gitlab-runner-windows-386.exe#/gitlab-runner.exe",
+            "hash": "58c8be6b6c5ba0eafa2f9e386253e2217011e9de6eb8bf92b0e06d535528c8d3"
+        }
+    },
+    "bin": "gitlab-runner.exe",
+    "checkver": {
+        "url": "https://gitlab.com/gitlab-org/gitlab-runner/-/tags?format=atom&sort=version_desc",
+        "regex": "/tags/v([\\d.]+)<"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://gitlab-runner-downloads.s3.amazonaws.com/v$version/binaries/gitlab-runner-windows-amd64.exe#/gitlab-runner.exe"
+            },
+            "32bit": {
+                "url": "https://gitlab-runner-downloads.s3.amazonaws.com/v$version/binaries/gitlab-runner-windows-386.exe#/gitlab-runner.exe"
+            }
+        },
+        "hash": {
+            "url": "https://gitlab-runner-downloads.s3.amazonaws.com/v$version/release.sha256"
+        }
+    }
+}

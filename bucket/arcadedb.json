@@ -1,0 +1,40 @@
+{
+    "version": "25.4.1",
+    "description": "Multi-model database, one DBMS that supports SQL, Cypher, Gremlin, HTTP/JSON, MongoDB and Redis",
+    "homepage": "https://arcadedb.com",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JDK": [
+            "easy-win/openjdk11",
+            "easy-win/graalvm-jdk11"
+        ]
+    },
+    "url": "https://www.ghproxy.cn/https://github.com/ArcadeData/arcadedb/releases/download/25.4.1/arcadedb-25.4.1.tar.gz",
+    "hash": "fd83092311daa32398faa85f70b0284a16fb13ece2f932aa0c2493f42d0bfb81",
+    "extract_dir": "arcadedb-25.4.1",
+    "persist": [
+        "config",
+        "databases",
+        "log"
+    ],
+    "env_set": {
+        "ARCADEDB_HOME": "$dir"
+    },
+    "bin": [
+        [
+            "bin\\console.bat",
+            "arcadedb-console"
+        ],
+        [
+            "bin\\server.bat",
+            "arcadedb-server"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/ArcadeData/arcadedb"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/ArcadeData/arcadedb/releases/download/$version/arcadedb-$version.tar.gz",
+        "extract_dir": "arcadedb-$version"
+    }
+}

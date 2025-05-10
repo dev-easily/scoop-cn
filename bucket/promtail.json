@@ -1,0 +1,31 @@
+{
+    "version": "3.5.0",
+    "description": "Multi-tenant log aggregation system",
+    "homepage": "https://grafana.com/oss/loki/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/grafana/loki/releases/download/v3.5.0/promtail-windows-amd64.exe.zip",
+            "hash": "cce321077ce18f4ccc512700365439ae58fb8af13cbab8d91b6437ca9e121c3f",
+            "bin": [
+                [
+                    "promtail-windows-amd64.exe",
+                    "promtail"
+                ]
+            ]
+        }
+    },
+    "checkver": {
+        "github": "https://github.com/grafana/loki"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/grafana/loki/releases/download/v$version/promtail-windows-amd64.exe.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
+}

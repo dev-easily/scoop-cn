@@ -1,0 +1,34 @@
+{
+    "version": "1.38.0",
+    "description": "Generate an OCI compliant image based off app source.",
+    "homepage": "https://github.com/railwayapp/nixpacks",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/railwayapp/nixpacks/releases/download/v1.38.0/nixpacks-v1.38.0-x86_64-pc-windows-msvc.zip",
+            "hash": "b84dece6ab63142fa17be13f36505702685a2c620bac149bd7120cdf22f2743f"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/railwayapp/nixpacks/releases/download/v1.38.0/nixpacks-v1.38.0-i686-pc-windows-msvc.zip",
+            "hash": "77dfcee5b58bd73d43345413638880117ba8f8208e56234950a15db7c86f7bc6"
+        }
+    },
+    "bin": "nixpacks.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/railwayapp/nixpacks/releases/download/v$version/nixpacks-v$version-x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/railwayapp/nixpacks/releases/download/v$version/nixpacks-v$version-i686-pc-windows-msvc.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

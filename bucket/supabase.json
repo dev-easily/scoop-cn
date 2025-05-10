@@ -1,0 +1,33 @@
+{
+    "version": "2.22.12",
+    "description": "An open-source Firebase alternative.",
+    "homepage": "https://supabase.com/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v2.22.12/supabase_windows_amd64.tar.gz",
+            "hash": "9039ffae8a831247b4f44ea788b3250f403b951e488a46d94c83ca41d5d4ec14"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v2.22.12/supabase_windows_arm64.tar.gz",
+            "hash": "676aad33e18e331c45fe329e0efbd2a90378ebdd0137a4a29b69b5338307e832"
+        }
+    },
+    "bin": "supabase.exe",
+    "checkver": {
+        "github": "https://github.com/supabase/cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v$version/supabase_windows_amd64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v$version/supabase_windows_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/supabase_$version_checksums.txt"
+        }
+    }
+}

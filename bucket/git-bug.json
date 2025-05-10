@@ -1,0 +1,28 @@
+{
+    "version": "0.8.1",
+    "description": "Distributed, offline-first bug tracker embedded in git, with bridges",
+    "homepage": "https://github.com/git-bug/git-bug",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/git-bug/git-bug/releases/download/v0.8.1/git-bug_windows_amd64.exe#/git-bug.exe",
+            "hash": "26e98d4fc58935f53810f7e978342a4e82ed27b480affcb584d1b858979165f8"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/git-bug/git-bug/releases/download/v0.8.1/git-bug_windows_386.exe#/git-bug.exe",
+            "hash": "c07c1aaeac80d375e98ad590f9a370facf38f6fe7514341d2e35a977477ce808"
+        }
+    },
+    "bin": "git-bug.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/git-bug/git-bug/releases/download/v$version/git-bug_windows_amd64.exe#/git-bug.exe"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/git-bug/git-bug/releases/download/v$version/git-bug_windows_386.exe#/git-bug.exe"
+            }
+        }
+    }
+}

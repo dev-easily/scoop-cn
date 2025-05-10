@@ -1,0 +1,28 @@
+{
+    "version": "3.7",
+    "description": "Finite element analysis framework",
+    "homepage": "https://tlcfem.github.io/suanPan/",
+    "license": "GPL-3.0-only",
+    "notes": "Run '$dir\\AddAssociation.bat' with admin privilege to configure file association and Sublime Text syntax support.",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/TLCFEM/suanPan/releases/download/suanPan-v3.7/suanPan-win-mkl-vtk.zip",
+            "hash": "2ea972f5d8adcd018e4e0e90b5686f1c2c01ba58845d880f0b1c65f57091fe89"
+        }
+    },
+    "bin": "suanPan.exe",
+    "checkver": {
+        "url": "https://github.com/TLCFEM/suanPan/releases",
+        "regex": "suanPan-v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/TLCFEM/suanPan/releases/download/suanPan-v$version/suanPan-win-mkl-vtk.zip"
+            }
+        },
+        "hash": {
+            "url": "https://www.ghproxy.cn/https://github.com/TLCFEM/suanPan/releases/download/suanPan-v$version/suanPan-win-mkl-vtk.sha256"
+        }
+    }
+}
