@@ -1,0 +1,24 @@
+{
+    "version": "0.271.0",
+    "description": "A static type checker for JavaScript code",
+    "homepage": "https://flow.org/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/facebook/flow/releases/download/v0.271.0/flow-win64-v0.271.0.zip",
+            "hash": "54f1d1435ebcae588b9b750e45b837ba84cc8748c9b2e5790f7ad798438f41c5"
+        }
+    },
+    "extract_dir": "flow",
+    "bin": "flow.exe",
+    "checkver": {
+        "github": "https://github.com/facebook/flow"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/facebook/flow/releases/download/v$version/flow-win64-v$version.zip"
+            }
+        }
+    }
+}

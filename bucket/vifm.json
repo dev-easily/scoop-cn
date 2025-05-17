@@ -1,0 +1,45 @@
+{
+    "version": "0.14.2",
+    "description": "A file manager with curses interface, which provides Vi[m]-like environment for managing objects within file systems.",
+    "homepage": "https://vifm.info/",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/vifm/vifm/releases/download/v0.14.2/vifm-w64-se-0.14.2-binary.zip",
+            "hash": "sha1:586ec5e19de05765d93a20e3be8cdfe0c3405bea",
+            "extract_dir": "vifm-w64-se-0.14.2-binary"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/vifm/vifm/releases/download/v0.14.2/vifm-w32-se-0.14.2-binary.zip",
+            "hash": "sha1:063f9da5aa2b96a83c8e314fa7f348ac0f194b5a",
+            "extract_dir": "vifm-w32-se-0.14.2-binary"
+        }
+    },
+    "bin": "vifm.exe",
+    "shortcuts": [
+        [
+            "vifm.exe",
+            "vifm"
+        ]
+    ],
+    "persist": "data\\vifmrc",
+    "checkver": {
+        "github": "https://github.com/vifm/vifm"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/vifm/vifm/releases/download/v$version/vifm-w64-se-$version-binary.zip",
+                "extract_dir": "vifm-w64-se-$version-binary"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/vifm/vifm/releases/download/v$version/vifm-w32-se-$version-binary.zip",
+                "extract_dir": "vifm-w32-se-$version-binary"
+            }
+        },
+        "hash": {
+            "url": "https://vifm.info/downloads.shtml",
+            "regex": "(?sm)$basename.*?$sha1"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "version": "4.8.3",
+    "description": "A simple, light and easy-to-use RSS/ATOM feed aggregator",
+    "homepage": "https://github.com/martinrotter/rssguard",
+    "license": "GPL-3.0-only",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/martinrotter/rssguard/releases/download/4.8.3/rssguard-4.8.3-4d74a6f4f-win10.7z",
+            "hash": "24b7c26b53b9ac8d3c943296bb73a3a60de795cdb3d5c513bf326b63b32f465f"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\vc_redis*\"",
+    "shortcuts": [
+        [
+            "rssguard.exe",
+            "RSS Guard"
+        ]
+    ],
+    "persist": "data4",
+    "checkver": {
+        "url": "https://api.github.com/repositories/23906078/releases/latest",
+        "jsonpath": "$.assets[?(@.name =~ /^rssguard-([\\d.]+)-([\\w]+)-win10.7z$/)].name",
+        "regex": "rssguard-(?<version>([\\d.]+))-(?<commit>[\\w]+)-win10.7z"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/martinrotter/rssguard/releases/download/$version/rssguard-$version-$matchCommit-win10.7z"
+            }
+        }
+    }
+}
