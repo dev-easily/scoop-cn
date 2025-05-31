@@ -1,0 +1,32 @@
+{
+    "version": "0.17.0",
+    "description": "A collection of JavaScript tools written in Rust.",
+    "homepage": "https://github.com/oxc-project/oxc",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v0.17.0/oxlint-win32-x64.zip",
+            "hash": "1d25fd837df02362156569b443808fd5882a2d9df1f4a448ce36be459a0fb7c0"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v0.17.0/oxlint-win32-arm64.zip",
+            "hash": "1b06c6419bfd8cdde893a031a94bd79d0191592df076b1e33cdb235ce3544c40"
+        }
+    },
+    "pre_install": "Rename-Item \"$dir\\oxlint-*.exe\" \"$dir\\oxlint.exe\"",
+    "bin": "oxlint.exe",
+    "checkver": {
+        "url": "https://api.github.com/repositories/599431918/releases",
+        "regex": "tag/oxlint_v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v$version/oxlint-win32-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v$version/oxlint-win32-arm64.zip"
+            }
+        }
+    }
+}

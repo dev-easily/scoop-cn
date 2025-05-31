@@ -1,0 +1,46 @@
+{
+    "version": "1.5.0.2656",
+    "description": "Lightweight and fast file manager",
+    "homepage": "https://explorerplusplus.com",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.explorerplusplus.com/dev/1.5.0.2656/explorerpp_x64.zip",
+            "hash": "2709b24e035830fcda2ea70a739658bf1d53d2df4a8a4971beb3ca199149ddb8"
+        },
+        "32bit": {
+            "url": "https://download.explorerplusplus.com/dev/1.5.0.2656/explorerpp_x86.zip",
+            "hash": "d8785d731bd156bdaaf7c937a3336f909065460b5c73df57f4396c94089f3d07"
+        },
+        "arm64": {
+            "url": "https://download.explorerplusplus.com/dev/1.5.0.2656/explorerpp_arm64.zip",
+            "hash": "c51eb9dc5cdfebad8005affa0601a7194cf0d212a10b3f6b79e67f96c7e3cb67"
+        }
+    },
+    "persist": "config.xml",
+    "pre_install": "New-Item -Path \"$dir\\config.xml\" -ItemType File -Value '<?xml version=\"1.0\"?><ExplorerPlusPlus><ApplicationToolbar /><Toolbars /><ColorRules /></ExplorerPlusPlus>' | Out-Null",
+    "bin": "explorer++.exe",
+    "shortcuts": [
+        [
+            "Explorer++.exe",
+            "Explorer++"
+        ]
+    ],
+    "checkver": {
+        "url": "https://download.explorerplusplus.com/dev/latest_version.txt",
+        "regex": "([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.explorerplusplus.com/dev/$version/explorerpp_x64.zip"
+            },
+            "32bit": {
+                "url": "https://download.explorerplusplus.com/dev/$version/explorerpp_x86.zip"
+            },
+            "arm64": {
+                "url": "https://download.explorerplusplus.com/dev/$version/explorerpp_arm64.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "version": "10.8.0",
+    "description": "An essential part of using Heroku, which can perform nearly any Heroku-related task right from your terminal.",
+    "homepage": "https://devcenter.heroku.com/articles/heroku-cli",
+    "license": "ISC",
+    "architecture": {
+        "64bit": {
+            "url": "https://cli-assets.heroku.com/versions/10.8.0/e1b3372/heroku-v10.8.0-e1b3372-win32-x64.tar.xz#/dl.xz",
+            "hash": "4b5590b392b9097b0b694dfbd9d7ebcbe8fa41c12a1ba963dc339ce019cf077c"
+        },
+        "32bit": {
+            "url": "https://cli-assets.heroku.com/versions/10.8.0/e1b3372/heroku-v10.8.0-e1b3372-win32-x86.tar.xz#/dl.xz",
+            "hash": "b87471cd0e8814baed982555eb26033b5599b7fe5c0157dfdbb474dca210f1a1"
+        }
+    },
+    "pre_install": [
+        "Invoke-ExternalCommand (Get-HelperPath '7zip') -ArgumentList @(",
+        "    'x'",
+        "    \"$dir\\dl\"",
+        "    \"-o$dir\\dlo\"",
+        "    '-bso0'",
+        "    '-bd'",
+        "    '-bse0'",
+        ") -ContinueExitCodes @{ 2 = 'Can not create symlink while running from un-elevated prompt. Installation is not affected.'} | Out-Null",
+        "Move-Item \"$dir\\dlo\\heroku\\*\" \"$dir\"",
+        "Remove-Item \"$dir\\dl*\" -Recurse"
+    ],
+    "bin": "bin\\heroku.cmd",
+    "checkver": {
+        "url": "https://cli-assets.heroku.com/channels/stable/heroku-win32-x64-buildmanifest",
+        "jsonpath": "$.xz",
+        "regex": "heroku-v([\\d.]+)-(?<commit>\\w+)-win32"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cli-assets.heroku.com/versions/$version/$matchCommit/heroku-v$version-$matchCommit-win32-x64.tar.xz#/dl.xz",
+                "hash": {
+                    "url": "https://cli-assets.heroku.com/channels/stable/heroku-win32-x64-buildmanifest",
+                    "regex": "sha256xz.*$sha256"
+                }
+            },
+            "32bit": {
+                "url": "https://cli-assets.heroku.com/versions/$version/$matchCommit/heroku-v$version-$matchCommit-win32-x86.tar.xz#/dl.xz",
+                "hash": {
+                    "url": "https://cli-assets.heroku.com/channels/stable/heroku-win32-x86-buildmanifest",
+                    "regex": "sha256xz.*$sha256"
+                }
+            }
+        }
+    }
+}

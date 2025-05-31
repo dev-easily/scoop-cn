@@ -1,0 +1,34 @@
+{
+    "version": "2025-03",
+    "description": "Eclipse IDE for RCP and RAP Developers",
+    "homepage": "https://www.eclipse.org",
+    "license": "EPL-1.0",
+    "architecture": {
+        "64bit": {
+            "url": "http://download.eclipse.org/technology/epp/downloads/release/2025-03/R/eclipse-rcp-2025-03-R-win32-x86_64.zip",
+            "hash": "sha512:19a16c977645afc5517eb8f84a90a6fc54fdcec7d3a4d14353f2dc332b20ed51ea2cf7eaae52ee340b8f3265af74c6d5d11d5df9627cf1c5576d272a9344bda9"
+        }
+    },
+    "extract_dir": "eclipse",
+    "shortcuts": [
+        [
+            "eclipse.exe",
+            "Eclipse for RCP and RAP Developers"
+        ]
+    ],
+    "checkver": {
+        "url": "https://download.eclipse.org/technology/epp/downloads/release/release.xml",
+        "xpath": "/packages/present",
+        "regex": "([\\d-]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://download.eclipse.org/technology/epp/downloads/release/$version/R/eclipse-rcp-$version-R-win32-x86_64.zip",
+                "hash": {
+                    "url": "$url.sha512"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "version": "6.5.0",
+    "description": "A generic post-processing injector for games and video software",
+    "homepage": "https://reshade.me",
+    "license": "BSD-3-Clause",
+    "url": "https://reshade.me/downloads/ReShade_Setup_6.5.0.exe#/ReShade.exe",
+    "hash": "503a2cef5a3a24400759d9559b36b9100574c09525d8ef1dba7b91b001ff1845",
+    "bin": "ReShade.exe",
+    "shortcuts": [
+        [
+            "ReShade.exe",
+            "ReShade"
+        ]
+    ],
+    "checkver": "<strong>Version\\s+([\\d.]+)</strong>",
+    "autoupdate": {
+        "url": "https://reshade.me/downloads/ReShade_Setup_$version.exe#/ReShade.exe"
+    }
+}

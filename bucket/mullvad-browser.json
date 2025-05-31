@@ -1,0 +1,39 @@
+{
+    "$schema": "https://www.ghproxy.cn/https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "version": "14.5.2",
+    "description": "A privacy-focused web browser developed in a collaboration between Mullvad VPN and the Tor Project.",
+    "homepage": "https://mullvad.net/en/browser",
+    "license": "MPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.mullvad.net/browser/14.5.2/mullvad-browser-windows-x86_64-14.5.2.exe#/dl.7z",
+            "hash": "f26eee6a9de362d04d8fc52595d66d0a037d938827745e0b39e93fcd12fe3504"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Browser\\update*\" -Recurse -ErrorAction SilentlyContinue",
+    "shortcuts": [
+        [
+            "mullvadbrowser.exe",
+            "Mullvad Browser"
+        ]
+    ],
+    "persist": [
+        "Data",
+        "UpdateInfo"
+    ],
+    "checkver": {
+        "url": "https://cdn.mullvad.net/browser/update_responses/update_1/release/downloads.json",
+        "jsonpath": "$.version"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.mullvad.net/browser/$version/mullvad-browser-windows-x86_64-$version.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sums-signed-build.txt",
+            "regex": "$sha256\\s+$basename"
+        }
+    }
+}

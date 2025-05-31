@@ -1,0 +1,48 @@
+{
+    "version": "0.25-v1.17",
+    "description": "Gettext is an internationalization and localization (i18n) system commonly used for writing multilingual programs on Unix-like computer operating systems.",
+    "homepage": "https://mlocati.github.io/articles/gettext-iconv-windows.html",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/mlocati/gettext-iconv-windows/releases/download/v0.25-v1.17/gettext0.25-iconv1.17-shared-64.zip",
+            "hash": "4f9db55e291e89770e538168e6dd58f268a3c59fdb6b78e67feb5c9d701e0f1c"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/mlocati/gettext-iconv-windows/releases/download/v0.25-v1.17/gettext0.25-iconv1.17-shared-32.zip",
+            "hash": "832f6b82cddf3dc3f92f02d36fa87ee92a73256b5e8c7ed284b646e2a4312d66"
+        }
+    },
+    "bin": [
+        "bin\\iconv.exe",
+        "bin\\msgattrib.exe",
+        "bin\\msgcat.exe",
+        "bin\\msgcmp.exe",
+        "bin\\msgcomm.exe",
+        "bin\\msgconv.exe",
+        "bin\\msgen.exe",
+        "bin\\msgexec.exe",
+        "bin\\msgfilter.exe",
+        "bin\\msgfmt.exe",
+        "bin\\msggrep.exe",
+        "bin\\msginit.exe",
+        "bin\\msgmerge.exe",
+        "bin\\msgunfmt.exe",
+        "bin\\msguniq.exe",
+        "bin\\xgettext.exe"
+    ],
+    "checkver": {
+        "url": "https://github.com/mlocati/gettext-iconv-windows/releases",
+        "regex": "/releases/tag/v((?<gettext>[\\d.]+)-v(?<iconv>[\\d.]+))"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/mlocati/gettext-iconv-windows/releases/download/v$version/gettext$matchGettext-iconv$matchIconv-shared-64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/mlocati/gettext-iconv-windows/releases/download/v$version/gettext$matchGettext-iconv$matchIconv-shared-32.zip"
+            }
+        }
+    }
+}
