@@ -1,0 +1,44 @@
+{
+    "version": "0.94.0",
+    "description": "Build your personal knowledge base with TriliumNext Notes",
+    "homepage": "https://github.com/TriliumNext/Notes",
+    "license": "AGPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/TriliumNext/Notes/releases/download/v0.94.0/TriliumNextNotes-v0.94.0-windows-x64.zip",
+            "hash": "3926ba176169c6fdb40d3042e8e8316c373c160fc89077bdbf5d847f5317bbf1"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/TriliumNext/Notes/releases/download/v0.94.0/TriliumNextNotes-v0.94.0-windows-arm64.zip",
+            "hash": "cd9421d87ed24e8053a4a960ac3ccb44dc9006d3cc23d5cdcf511992f6af29e0"
+        }
+    },
+    "shortcuts": [
+        [
+            "trilium.exe",
+            "TriliumNext"
+        ]
+    ],
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\trilium-data\") -and (Test-Path \"$env:APPDATA\\trilium-data\")) {",
+        "    info \"Copying old '$env:APPDATA\\trilium-data' to '$persist_dir\\trilium-data'\"",
+        "    ensure \"$persist_dir\\trilium-data\" | Out-Null",
+        "    Copy-Item \"$env:APPDATA\\trilium-data\\*\" \"$persist_dir\\trilium-data\" -Recurse -Force",
+        "}"
+    ],
+    "env_set": {
+        "TRILIUM_DATA_DIR": "$persist_dir\\trilium-data"
+    },
+    "persist": "trilium-data",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/TriliumNext/Notes/releases/download/v$version/TriliumNextNotes-v$version-windows-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/TriliumNext/Notes/releases/download/v$version/TriliumNextNotes-v$version-windows-arm64.zip"
+            }
+        }
+    }
+}

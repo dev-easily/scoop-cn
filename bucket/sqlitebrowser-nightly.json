@@ -1,0 +1,47 @@
+{
+    "version": "20250525",
+    "description": "DB Browser for SQLite (DB4S) project (nightly build)",
+    "homepage": "https://github.com/sqlitebrowser/sqlitebrowser",
+    "license": "MPL-2.0|GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/nightly/DB.Browser.for.SQLite-20250525-x64.zip",
+            "hash": "f0cc9e0dd4b3f07fe49228db819c0c7197b7a2421981f9b47b04bfda5dcd3cf6"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/nightly/DB.Browser.for.SQLite-20250525-x86.zip",
+            "hash": "527a2c88e52e0ded15da7b6ff941dd3aeca71cde466b3699020649d548fdd4e8"
+        }
+    },
+    "bin": [
+        "DB Browser for SQLite.exe",
+        "DB Browser for SQLCipher.exe"
+    ],
+    "shortcuts": [
+        [
+            "DB Browser for SQLite.exe",
+            "DB Browser for SQLite"
+        ],
+        [
+            "DB Browser for SQLCipher.exe",
+            "DB Browser for SQLCipher"
+        ]
+    ],
+    "persist": "Data",
+    "checkver": {
+        "url": "https://api.github.com/repos/sqlitebrowser/sqlitebrowser/releases/tags/nightly",
+        "jsonpath": "$.assets..browser_download_url",
+        "regex": "SQLite-(?<version>\\d{8})-x64\\.",
+        "reverse": true
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/nightly/DB.Browser.for.SQLite-$matchVersion-x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/nightly/DB.Browser.for.SQLite-$matchVersion-x86.zip"
+            }
+        }
+    }
+}

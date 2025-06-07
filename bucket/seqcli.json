@@ -1,0 +1,23 @@
+{
+    "version": "2025.1.02332",
+    "description": "Seq command-line client",
+    "homepage": "https://github.com/datalust/seqcli",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/datalust/seqcli/releases/download/v2025.1.02332/seqcli-2025.1.02332-win-x64.zip",
+            "hash": "7d195ea10ec6a9dcc9155820e4a7953f0493f9e376c79eb405ed088ea7e09cc3",
+            "extract_dir": "seqcli-2025.1.02332-win-x64"
+        }
+    },
+    "bin": "seqcli.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/datalust/seqcli/releases/download/v$version/seqcli-$version-win-x64.zip",
+                "extract_dir": "seqcli-$version-win-x64"
+            }
+        }
+    }
+}

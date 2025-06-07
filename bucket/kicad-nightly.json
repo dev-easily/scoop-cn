@@ -1,0 +1,44 @@
+{
+    "version": "9.99.0.1539.gfe54a2ec0f",
+    "description": "Nightly build of KiCAD, an electronics design automation (EDA) suite.",
+    "homepage": "https://kicad.org",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.kicad.org/kicad/windows/explore/nightlies/download/kicad-nightly-9.99.0.1539.gfe54a2ec0f-x86_64.exe#/dl.7z",
+            "hash": "f12f40f83323be9d6fb0e9e94290938c8c12e55d550c7fa430c9c3d46afe03bc"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninst*\" -Recurse",
+    "bin": "bin\\kicad.exe",
+    "shortcuts": [
+        [
+            "bin\\kicad.exe",
+            "KiCad nightly"
+        ],
+        [
+            "bin\\eeschema.exe",
+            "Eeschema nightly"
+        ],
+        [
+            "bin\\pcbnew.exe",
+            "Pcbnew nightly"
+        ],
+        [
+            "bin\\gerbview.exe",
+            "Gerbview nightly"
+        ]
+    ],
+    "checkver": {
+        "url": "https://downloads.kicad.org/kicad/windows/explore/nightlies",
+        "regex": "kicad-nightly-(\\d+(\\.\\d+)*(\\.rc\\d+(\\.\\d+)*)*\\.g[a-f\\d]+)-x86_64\\.exe",
+        "reverse": false
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.kicad.org/kicad/windows/explore/nightlies/download/kicad-nightly-$version-x86_64.exe#/dl.7z"
+            }
+        }
+    }
+}

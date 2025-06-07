@@ -1,0 +1,34 @@
+{
+    "version": "16.5",
+    "description": "A brand-new shell connection hub and remote file manager",
+    "homepage": "https://xpipe.io/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/xpipe-io/xpipe/releases/download/16.5/xpipe-portable-windows-x86_64.zip",
+            "hash": "ace0b448d454edd7d7eed1c8a250f218b4d4e2e2d17914bc4562d01f04310a0e",
+            "extract_dir": "xpipe-16.5"
+        }
+    },
+    "bin": "bin\\xpipe.exe",
+    "shortcuts": [
+        [
+            "xpiped.exe",
+            "XPipe"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/xpipe-io/xpipe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/xpipe-io/xpipe/releases/download/$version/xpipe-portable-windows-x86_64.zip",
+                "extract_dir": "xpipe-$version"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sums.txt"
+        }
+    }
+}
