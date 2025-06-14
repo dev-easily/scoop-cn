@@ -1,0 +1,27 @@
+{
+    "version": "5.1.9.0",
+    "description": "Speed test PC in less than a minute.",
+    "homepage": "https://www.userbenchmark.com/",
+    "license": "Freeware",
+    "url": "https://www.userbenchmark.com/resources/download/UserBenchmark.zip",
+    "hash": "b563e5672ca6aad15083c562317cf69dfdabff04b69075d578c015eda194480f",
+    "extract_dir": "UserBenchmark",
+    "pre_install": "Copy-Item \"$persist_dir\\User\" \"$dir\" -Force -Recurse -ErrorAction SilentlyContinue",
+    "shortcuts": [
+        [
+            "UserBenchmark.exe",
+            "UserBenchmark"
+        ]
+    ],
+    "pre_uninstall": [
+        "ensure \"$persist_dir\\User\" | Out-Null",
+        "Copy-Item \"$dir\\User\\*\" \"$persist_dir\\User\" -Exclude 'manifest.dat' -Force -Recurse"
+    ],
+    "checkver": {
+        "url": "https://www.filehorse.com/download-userbenchmark/",
+        "regex": "UserBenchmark\\s([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.userbenchmark.com/resources/download/UserBenchmark.zip"
+    }
+}
