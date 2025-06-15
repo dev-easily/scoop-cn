@@ -1,0 +1,31 @@
+{
+    "version": "5.4.0",
+    "description": "Terminal emulator for ssh/telnet/serial connection.",
+    "homepage": "https://teratermproject.github.io/index-en.html",
+    "license": "BSD-3-Clause",
+    "notes": "OSDN is currently unstable. See: https://github.com/TeraTermProject/osdn-download",
+    "url": "https://www.ghproxy.cn/https://github.com/TeraTermProject/teraterm/releases/download/v5.4.0/teraterm-5.4.0.zip",
+    "hash": "8f4403c851e91fa430ab50cda60c8f954d94c83cd1a25d27b6658754c3dc1651",
+    "extract_dir": "teraterm-5.4.0",
+    "bin": "ttermpro.exe",
+    "shortcuts": [
+        [
+            "ttermpro.exe",
+            "Tera Term"
+        ]
+    ],
+    "persist": [
+        "cygterm.cfg",
+        "KEYBOARD.CNF",
+        "ttpmenu.ini",
+        "ssh_known_hosts",
+        "TERATERM.INI"
+    ],
+    "checkver": {
+        "github": "https://github.com/TeraTermProject/teraterm"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/TeraTermProject/teraterm/releases/download/v$version/teraterm-$version.zip",
+        "extract_dir": "teraterm-$version"
+    }
+}

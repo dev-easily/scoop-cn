@@ -1,0 +1,61 @@
+{
+    "version": "8.4.8",
+    "description": "A popular general-purpose scripting language that is especially suited to web development. (non-thread safe)",
+    "homepage": "https://windows.php.net/",
+    "license": "PHP-3.01",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://windows.php.net/downloads/releases/php-8.4.8-nts-Win32-vs17-x64.zip",
+            "hash": "aae862b9b6e8a8fefb3bc2554cd62ff45174004e5f4f1ff5a3f5684b36536cf6"
+        },
+        "32bit": {
+            "url": "https://windows.php.net/downloads/releases/php-8.4.8-nts-Win32-vs17-x86.zip",
+            "hash": "c86b2e5f871c55516496debde7f5b84cd0c12e727c91376337e09e38f5d515ef"
+        }
+    },
+    "pre_install": [
+        "# Create directory for custom PHP configuration",
+        "if (!(Test-Path \"$dir\\cli\\conf.d\")) {",
+        "    (New-Item -Type directory \"$dir\\cli\\conf.d\") | Out-Null",
+        "}"
+    ],
+    "post_install": [
+        "# Enable extensions to be found in installation-relative folder (the default is to search C:/php)",
+        "(Get-Content \"$dir\\cli\\php.ini\") | % { $_ -replace ';\\s?(extension_dir = \"ext\")', '$1' } | Set-Content \"$dir\\cli\\php.ini\""
+    ],
+    "bin": [
+        "php.exe",
+        "php-cgi.exe",
+        "phpdbg.exe"
+    ],
+    "env_set": {
+        "PHP_INI_SCAN_DIR": "$dir\\cli;$dir\\cli\\conf.d;"
+    },
+    "persist": [
+        "cli",
+        [
+            "php.ini-production",
+            "cli\\php.ini"
+        ]
+    ],
+    "checkver": {
+        "url": "https://windows.php.net/download/",
+        "regex": "<h3 id=\"php-[\\d.]+\".*?>.*?\\(([\\d.]+)\\)</h3>"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://windows.php.net/downloads/releases/php-$version-nts-Win32-vs17-x64.zip"
+            },
+            "32bit": {
+                "url": "https://windows.php.net/downloads/releases/php-$version-nts-Win32-vs17-x86.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sum.txt"
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "version": "1.96",
+    "description": "Music tracker Fasttracker 2 clone.",
+    "homepage": "https://16-bits.org/ft2.php",
+    "license": "BSD-3-clause",
+    "architecture": {
+        "64bit": {
+            "url": "https://16-bits.org/ft2-clone-v1.96-win64.zip",
+            "hash": "761aef40092b084b7f021f58ac20f476e1ad9d495f48ae94815c2fadeee277a9",
+            "extract_dir": "ft2-clone-win64"
+        },
+        "32bit": {
+            "url": "https://16-bits.org/ft2-clone-v1.96-win32.zip",
+            "hash": "10ac60e28c932d21f7a31dee5be63321899febe588f6063a97a03a935be28893",
+            "extract_dir": "ft2-clone-win32"
+        }
+    },
+    "pre_install": "Get-Item \"$dir\\ft2-clone*.exe\" | Rename-Item -NewName 'ft2-clone.exe'",
+    "bin": [
+        [
+            "ft2-clone.exe",
+            "ft2"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "ft2-clone.exe",
+            "Fasttracker II clone"
+        ]
+    ],
+    "checkver": {
+        "url": "https://16-bits.org/ft2-clone-changelog.txt",
+        "re": "v(?<version>[\\d.]+) - (?<date>[\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://16-bits.org/ft2-clone-v$version-win64.zip",
+                "extract_dir": "ft2-clone-win64"
+            },
+            "32bit": {
+                "url": "https://16-bits.org/ft2-clone-v$version-win32.zip",
+                "extract_dir": "ft2-clone-win32"
+            }
+        }
+    }
+}

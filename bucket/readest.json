@@ -1,0 +1,38 @@
+{
+    "version": "0.9.57",
+    "description": "An open-source ebook reader designed for immersive and deep reading experiences",
+    "homepage": "https://readest.com/",
+    "license": {
+        "identifier": "AGPL-3.0-or-later",
+        "url": "https://github.com/readest/readest/blob/main/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/readest/readest/releases/download/v0.9.57/Readest_0.9.57_x64-portable.exe#/Readest.exe",
+            "hash": "4a9facb89ff23a297d83731cf59e8abf1cd2b4e952ae4d348e739977d2f05683"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/readest/readest/releases/download/v0.9.57/Readest_0.9.57_arm64-portable.exe#/Readest.exe",
+            "hash": "7419d8eadbbfb65abc8973ec504fb4e6799ed98264448492ba239e18e7e51044"
+        }
+    },
+    "shortcuts": [
+        [
+            "Readest.exe",
+            "Readest"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/readest/readest"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/readest/readest/releases/download/v$version/Readest_$version_x64-portable.exe#/Readest.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/readest/readest/releases/download/v$version/Readest_$version_arm64-portable.exe#/Readest.exe"
+            }
+        }
+    }
+}

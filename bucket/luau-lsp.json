@@ -1,0 +1,21 @@
+{
+    "version": "1.49.1",
+    "description": "Language Server Implementation for Luau",
+    "homepage": "https://github.com/JohnnyMorganz/luau-lsp",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/JohnnyMorganz/luau-lsp/releases/download/1.49.1/luau-lsp-win64.zip",
+            "hash": "17f33d9fbdae20beb2e1170dba11f2d9305bba4ec6cf2da58c7f28a90132167d"
+        }
+    },
+    "bin": "luau-lsp.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/JohnnyMorganz/luau-lsp/releases/download/$version/luau-lsp-win64.zip"
+            }
+        }
+    }
+}

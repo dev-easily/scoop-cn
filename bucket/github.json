@@ -1,0 +1,34 @@
+{
+    "version": "3.4.21",
+    "description": "Extend your GitHub workflow beyond your browser.",
+    "homepage": "https://desktop.github.com/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/desktop/desktop/releases/download/release-3.4.21/GitHubDesktop-3.4.21-x64-full.nupkg",
+            "hash": "cb911521bfa00692d4e82e13570376e4a2a19d71e97d074d3dce4f21b24c8691"
+        }
+    },
+    "extract_dir": "lib\\net45",
+    "bin": "GitHubDesktop.exe",
+    "shortcuts": [
+        [
+            "GitHubDesktop.exe",
+            "GitHub Desktop"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/58559694/tags",
+        "regex": "tags/release-([\\d.]+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/desktop/desktop/releases/download/release-$version/GitHubDesktop-$version-x64-full.nupkg"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/GitHub.Desktop-$version-checksums.txt"
+        }
+    }
+}

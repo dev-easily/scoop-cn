@@ -1,0 +1,49 @@
+{
+    "version": "b5664",
+    "description": "Inference of LLaMA model in pure C/C++ (CPU version)",
+    "homepage": "https://github.com/ggml-org/llama.cpp",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/b5664/llama-b5664-bin-win-cpu-x64.zip",
+            "hash": "45781ee9910291ed9fec6f124c169457cd2a62e702f1ec998f3813d5da179321"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/b5664/llama-b5664-bin-win-cpu-arm64.zip",
+            "hash": "0824026142ae98fe895f9b5d1025f129b80f363ace3a1994b937fdbebc6e50b9"
+        }
+    },
+    "bin": [
+        "llama-batched-bench.exe",
+        "llama-bench.exe",
+        "llama-cli.exe",
+        "llama-gemma3-cli.exe",
+        "llama-gguf-split.exe",
+        "llama-imatrix.exe",
+        "llama-llava-cli.exe",
+        "llama-minicpmv-cli.exe",
+        "llama-mtmd-cli.exe",
+        "llama-perplexity.exe",
+        "llama-quantize.exe",
+        "llama-qwen2vl-cli.exe",
+        "llama-run.exe",
+        "llama-server.exe",
+        "llama-tokenize.exe",
+        "llama-tts.exe"
+    ],
+    "persist": "models",
+    "checkver": {
+        "github": "https://github.com/ggml-org/llama.cpp",
+        "regex": "/releases/tag/(b[\\d]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-cpu-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-cpu-arm64.zip"
+            }
+        }
+    }
+}
