@@ -1,0 +1,36 @@
+{
+    "version": "42180",
+    "description": "A free and open-source multi-platform parametric 3D modeler.",
+    "homepage": "https://www.freecadweb.org",
+    "license": "LGPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/FreeCAD/FreeCAD-Bundle/releases/download/weekly-builds/FreeCAD_weekly-builds-42180-conda-Windows-x86_64-py311.7z",
+            "hash": "72c80ddf526b8be54f2d3e4cb7e34c0ceb8d590d8c433d83ef6bc22d35e97969"
+        }
+    },
+    "extract_dir": "FreeCAD_weekly-builds-42180-conda-Windows-x86_64-py311",
+    "bin": "bin\\FreeCADCmd.exe",
+    "shortcuts": [
+        [
+            "bin\\FreeCAD.exe",
+            "FreeCAD"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/FreeCAD/FreeCAD-Bundle/releases/tags/weekly-builds",
+        "regex": "FreeCAD_weekly-builds-([\\d]+)-conda-Windows"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/FreeCAD/FreeCAD-Bundle/releases/download/weekly-builds/FreeCAD_weekly-builds-$version-conda-Windows-x86_64-py311.7z"
+            }
+        },
+        "hash": {
+            "url": "$url-SHA256.txt",
+            "regex": "(?sm):\\s+([a-fA-F\\d\\s]+)CertUtil"
+        },
+        "extract_dir": "FreeCAD_weekly-builds-$version-conda-Windows-x86_64-py311"
+    }
+}

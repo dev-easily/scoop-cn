@@ -1,0 +1,32 @@
+{
+    "version": "1.12.8",
+    "description": "DLNA/UPnP audio streaming software",
+    "homepage": "https://github.com/dheijl/swyh-rs",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/dheijl/swyh-rs/releases/download/1.12.8/swyh-rs-release.zip",
+            "hash": "f8826d69348037a26ad9b156ef517d0b3fb326819f2cf6884a59ebaf1548f364"
+        }
+    },
+    "shortcuts": [
+        [
+            "swyh-rs.exe",
+            "SWYH-RS"
+        ]
+    ],
+    "bin": [
+        [
+            "swyh-rs-cli.exe",
+            "swyh-rs"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/dheijl/swyh-rs/releases/download/$version/swyh-rs-release.zip"
+            }
+        }
+    }
+}
