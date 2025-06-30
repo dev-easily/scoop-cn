@@ -1,0 +1,28 @@
+{
+    "version": "7.12",
+    "description": "Decompress RAR files.",
+    "homepage": "https://www.rarlab.com/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.rarlab.com/license.htm"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/ScoopInstaller/Binary/master/unrar/7.12/UnRAR_x64.exe#/UnRAR.exe",
+            "hash": "90c2b2107a22ea8eb3593a155c4c0007b18b1ba552bf65f963c040038da248be"
+        }
+    },
+    "bin": "UnRAR.exe",
+    "checkver": "WinRAR and RAR ([\\d.]+) release",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/ScoopInstaller/Binary/master/unrar/$version/UnRAR_x64.exe#/UnRAR.exe"
+            }
+        },
+        "hash": {
+            "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/ScoopInstaller/Binary/master/checksums.sha256",
+            "regex": "$sha256.*?$version/$basename"
+        }
+    }
+}

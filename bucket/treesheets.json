@@ -1,0 +1,40 @@
+{
+    "version": "15959404401",
+    "description": "A free form data organizer and a replacement for spreadsheets, mind mappers, outliners, PIMs, text editors and small databases.",
+    "homepage": "https://strlen.com/treesheets",
+    "license": "ZLIB",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/aardappel/treesheets/releases/download/15959404401/TreeSheets-250629.2109-win64.zip",
+            "hash": "94f8048a5e70d7fe48d3d0868f92d55bd0152151e2d5ce033d5679d9ef2a3b5c",
+            "extract_dir": "TreeSheets-250629.2109-win64"
+        }
+    },
+    "pre_install": [
+        "ensure \"$persist_dir\" | Out-Null",
+        "if (Test-Path \"$persist_dir\\TreeSheets.ini\") {",
+        "    Copy-Item \"$persist_dir\\TreeSheets.ini\" \"$dir\"",
+        "}"
+    ],
+    "shortcuts": [
+        [
+            "TreeSheets.exe",
+            "TreeSheets",
+            "-p"
+        ]
+    ],
+    "pre_uninstall": "if (Test-Path \"$dir\\TreeSheets.ini\") { Copy-Item \"$dir\\TreeSheets.ini\" \"$persist_dir\" }",
+    "checkver": {
+        "url": "https://api.github.com/repositories/10671623/releases/latest",
+        "jsonpath": "$..browser_download_url",
+        "regex": "download/(\\d+)\\/TreeSheets-(?<date>[\\d.]+)-win64\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/aardappel/treesheets/releases/download/$version/TreeSheets-$matchDate-win64.zip",
+                "extract_dir": "TreeSheets-$matchDate-win64"
+            }
+        }
+    }
+}

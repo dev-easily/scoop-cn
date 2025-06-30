@@ -1,0 +1,39 @@
+{
+    "version": "1.0.11",
+    "description": "Tool for measuring the Round Trip Latency of your Digital Audio Workstation (DAW) and audio interface",
+    "homepage": "https://oblique-audio.com/rtl-utility.php",
+    "license": "Freeware",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://oblique-audio.com/downloads/RTL_Utility_1_0_11_x64.exe#/RTL_Utility.exe",
+            "hash": "23044c531953aa1e4964c700745fbf2c4140390f6f24ce76ffd1b5abe0cec875"
+        },
+        "32bit": {
+            "url": "https://oblique-audio.com/downloads/RTL_Utility_1_0_11_Win32.exe#/RTL_Utility.exe",
+            "hash": "5560e6f47700ab1c2e5bb28ac10c21228868bf318dc2b6f0f57046c59fca16d7"
+        }
+    },
+    "shortcuts": [
+        [
+            "RTL_Utility.exe",
+            "RTL Utility"
+        ]
+    ],
+    "checkver": {
+        "url": "https://oblique-audio.com/rtl-utility.php",
+        "regex": "<td>([\\d.]+)</td>"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://oblique-audio.com/downloads/RTL_Utility_$underscoreVersion_x64.exe#/RTL_Utility.exe"
+            },
+            "32bit": {
+                "url": "https://oblique-audio.com/downloads/RTL_Utility_$underscoreVersion_Win32.exe#/RTL_Utility.exe"
+            }
+        }
+    }
+}

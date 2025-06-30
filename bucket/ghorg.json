@@ -1,0 +1,38 @@
+{
+    "version": "1.11.2",
+    "description": "Quickly clone an entire org/users repositories into one directory - Supports GitHub, GitLab, Bitbucket, and more",
+    "homepage": "https://github.com/gabrie30/ghorg",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/gabrie30/ghorg/releases/download/v1.11.2/ghorg_1.11.2_Windows_x86_64.tar.gz",
+            "hash": "43cdad3011a1903a876ab9d8da8d6b29823a56e4bcd2e6cf7871fd25757e37cc"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/gabrie30/ghorg/releases/download/v1.11.2/ghorg_1.11.2_Windows_i386.tar.gz",
+            "hash": "3fd5dbc478c6b43288a9aafd576029a951fbbb1d730e04e4622a37773286ae55"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/gabrie30/ghorg/releases/download/v1.11.2/ghorg_1.11.2_Windows_arm64.tar.gz",
+            "hash": "00633dd0824f2cf89a7389d515cd8a767b6920869e583fc7bbbb9f63b5802125"
+        }
+    },
+    "bin": "ghorg.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/gabrie30/ghorg/releases/download/v$version/ghorg_$version_Windows_x86_64.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/gabrie30/ghorg/releases/download/v$version/ghorg_$version_Windows_i386.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/gabrie30/ghorg/releases/download/v$version/ghorg_$version_Windows_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}
