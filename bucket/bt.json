@@ -1,0 +1,42 @@
+{
+    "version": "4.3.1",
+    "description": "Opens required browser based on configuration",
+    "homepage": "https://www.aloneguid.uk/projects/bt/",
+    "license": "Freeware",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/aloneguid/bt/releases/download/4.3.1/bt-4.3.1.zip",
+            "hash": "29c6d7e03da7ce20936d49cc31a688253ffc0d02d75946caf783037f4ab4ea6b"
+        }
+    },
+    "pre_install": [
+        "# Portable",
+        "New-Item \"$dir\\.portable\" -ItemType File | Out-Null",
+        "if (!(Test-Path \"$persist_dir\\config.ini\")) { New-Item \"$dir\\config.ini\" -ItemType File | Out-Null }",
+        "if (!(Test-Path \"$persist_dir\\hit_log.csv\")) { New-Item \"$dir\\hit_log.csv\" -ItemType File | Out-Null }"
+    ],
+    "bin": "bt.exe",
+    "shortcuts": [
+        [
+            "bt.exe",
+            "Browser Tamer"
+        ]
+    ],
+    "persist": [
+        "config.ini",
+        "hit_log.csv"
+    ],
+    "checkver": {
+        "github": "https://github.com/aloneguid/bt"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/aloneguid/bt/releases/download/$version/bt-$version.zip",
+                "hash": {
+                    "url": "$url.sha256.txt"
+                }
+            }
+        }
+    }
+}

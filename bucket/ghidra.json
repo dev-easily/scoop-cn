@@ -1,0 +1,53 @@
+{
+    "version": "11.4-20250620",
+    "description": "a software reverse engineering (SRE) framework",
+    "homepage": "https://ghidra-sre.org",
+    "license": "Apache-2.0",
+    "notes": "Ghidra requires JDK 21 on the PATH to run.",
+    "extract_dir": "ghidra_11.4_PUBLIC",
+    "suggest": {
+        "JDK": "easy-win/temurin21-jdk"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_11.4_build/ghidra_11.4_PUBLIC_20250620.zip",
+            "hash": "8b2902bb3166901bc6297a06892eee077c08605be65abfe73ce7aaaafb651632"
+        }
+    },
+    "post_install": [
+        "# Copy default Configurations to persisting dir.",
+        "if (Test-Path \"$dir\\Ghidra\\Configurations.original\") {",
+        "    Copy-Item \"$dir\\Ghidra\\Configurations.original\\*\" \"$persist_dir\\Ghidra\\Configurations\" -Force -Recurse",
+        "    Remove-Item \"$dir\\Ghidra\\Configurations.original\" -Force -Recurse | Out-Null",
+        "}"
+    ],
+    "bin": "ghidraRun.bat",
+    "shortcuts": [
+        [
+            "ghidraRun.bat",
+            "ghidra"
+        ]
+    ],
+    "env_set": {
+        "GHIDRA_INSTALL_DIR": "$dir"
+    },
+    "persist": "Ghidra/Configurations",
+    "checkver": {
+        "url": "https://api.github.com/repositories/173228436/releases/latest",
+        "jsonpath": "$.assets..browser_download_url",
+        "regex": "ghidra_([\\d.]+)_PUBLIC_(?<releasedate>\\d+)\\.zip",
+        "replace": "${1}-${2}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/NationalSecurityAgency/ghidra/releases/download/Ghidra_$matchHead_build/ghidra_$matchHead_PUBLIC_$matchReleasedate.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/NationalSecurityAgency/ghidra/releases/tag/Ghidra_$matchHead_build",
+            "regex": "<code>$sha256</code>"
+        },
+        "extract_dir": "ghidra_$matchHead_PUBLIC"
+    }
+}

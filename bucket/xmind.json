@@ -1,0 +1,44 @@
+{
+    "version": "25.04.03523",
+    "description": "A full-featured mind mapping and brainstorming tool",
+    "homepage": "https://xmind.app/",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://xmind.app/terms/"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://dl3.xmind.net/Xmind-for-Windows-x64bit-25.04.03523-202505300023.exe#/dl.7z",
+            "hash": "7b2d8b71cd75069d1855e95e95fcda32eabc68ee6b96fce39248a0a8a15d392d",
+            "installer": {
+                "script": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\""
+            }
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse",
+    "shortcuts": [
+        [
+            "XMind.exe",
+            "XMind"
+        ]
+    ],
+    "checkver": {
+        "script": [
+            "$url = 'https://www.xmind.app/zen/download/win64/'",
+            "if ($PSVersionTable.PSVersion.Major -lt 7.0) {",
+            "    $req = Invoke-WebRequest -Uri $url -MaximumRedirection 0 -ErrorAction SilentlyContinue",
+            "} else {",
+            "    $req = Invoke-WebRequest -Uri $url -MaximumRedirection 0 -ErrorAction SilentlyContinue -SkipHttpErrorCheck",
+            "}",
+            "Write-Output $req.Headers.Location"
+        ],
+        "regex": "Xmind-for-Windows-x64bit-([\\d.]+)-(?<dt>\\d{12})\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://dl3.xmind.net/Xmind-for-Windows-x64bit-$version-$matchDt.exe#/dl.7z"
+            }
+        }
+    }
+}

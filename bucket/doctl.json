@@ -1,0 +1,38 @@
+{
+    "version": "1.132.0",
+    "description": "A command line tool for DigitalOcean services",
+    "homepage": "https://github.com/digitalocean/doctl",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/digitalocean/doctl/releases/download/v1.132.0/doctl-1.132.0-windows-amd64.zip",
+            "hash": "7da4511a03a250e07c6d73619d935aa24ce77fea847142291ebc9202302a90f9"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/digitalocean/doctl/releases/download/v1.132.0/doctl-1.132.0-windows-386.zip",
+            "hash": "325b973e3be3931398282dc0c9e0b51280bf49e7e64034a7386feecc0d2c9727"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/digitalocean/doctl/releases/download/v1.132.0/doctl-1.132.0-windows-arm64.zip",
+            "hash": "92d7861266952ea71299a32a8ef1514a53f38c41d21c11edf17122e434063b31"
+        }
+    },
+    "bin": "doctl.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/digitalocean/doctl/releases/download/v$version/doctl-$version-windows-amd64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/digitalocean/doctl/releases/download/v$version/doctl-$version-windows-386.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/digitalocean/doctl/releases/download/v$version/doctl-$version-windows-arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/doctl-$version-checksums.sha256"
+        }
+    }
+}

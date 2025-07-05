@@ -1,0 +1,31 @@
+{
+    "version": "3.5.0",
+    "description": "A mock code autogenerator for Golang",
+    "homepage": "https://github.com/vektra/mockery",
+    "license": "BSD-3-Clause",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/vektra/mockery/releases/download/v3.5.0/mockery_3.5.0_Windows_x86_64.tar.gz",
+            "hash": "7a06587719900527e877ce403b8a222a9aef82ce8324593e7360a1b5f6427e8d"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/vektra/mockery/releases/download/v3.5.0/mockery_3.5.0_Windows_arm64.tar.gz",
+            "hash": "4e23acf5f4cb5a5f5065841dade712864a4528985cefcf799adb16791bf75d5c"
+        }
+    },
+    "bin": "mockery.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/vektra/mockery/releases/download/v$version/mockery_$version_Windows_x86_64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/vektra/mockery/releases/download/v$version/mockery_$version_Windows_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksum.txt"
+        }
+    }
+}

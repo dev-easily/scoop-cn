@@ -1,0 +1,31 @@
+{
+    "version": "202506161038",
+    "description": "A free and universal communication platform which preserves the user's privacy and freedoms.",
+    "homepage": "https://jami.net/",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://dl.jami.net/windows/archive/jami_x86_64-202506161038.msi",
+            "hash": "fcfffa1c57b00d16145f6d68f30021b7ccc2b906e9466244e41cd274e428f7df"
+        }
+    },
+    "extract_dir": "Jami",
+    "bin": "Jami.exe",
+    "shortcuts": [
+        [
+            "Jami.exe",
+            "Jami"
+        ]
+    ],
+    "checkver": {
+        "url": "https://dl.jami.net/windows/archive/?C=M;O=D",
+        "regex": "jami_x86_64-(\\d+)\\.msi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://dl.jami.net/windows/archive/jami_x86_64-$version.msi"
+            }
+        }
+    }
+}
