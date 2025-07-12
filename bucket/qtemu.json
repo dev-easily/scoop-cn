@@ -1,0 +1,31 @@
+{
+    "version": "2.1",
+    "description": "Graphical User Interface for QEMU written in Qt",
+    "homepage": "https://gitlab.com/qtemu/gui",
+    "license": "GPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://web.archive.org/web/20210417194244/https://carlavilla.es/qtemu/qtemu_portable_x86_64.zip",
+            "hash": "1a845c7beb860b35b35533fb33263f39356caf5b3198f878ae2ad90b7a4bcb04",
+            "extract_dir": "qtemu_portable_x86_64"
+        }
+    },
+    "shortcuts": [
+        [
+            "qtemu.exe",
+            "QtEmu"
+        ]
+    ],
+    "checkver": {
+        "url": "https://gitlab.com/api/v4/projects/10442008/releases",
+        "jp": "$.[0].tag_name",
+        "regex": "([\\d.-]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://web.archive.org/web/20210417194244/https://carlavilla.es/qtemu/qtemu_portable_x86_64.zip"
+            }
+        }
+    }
+}

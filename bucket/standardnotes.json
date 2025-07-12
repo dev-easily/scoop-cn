@@ -1,0 +1,42 @@
+{
+    "version": "3.197.0",
+    "description": "A safe place for your notes, thoughts, and life's work.",
+    "homepage": "https://standardnotes.org/",
+    "license": "AGPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@3.197.0/standard-notes-3.197.0-win-x64.exe#/dl.7z",
+            "hash": "sha512:03986e7b824d4b6d30e82cfdf5e44149732d6d3ad30afd8a129a0cba4eee94e0d0a59e324df5c54180a240ef3ddff896f68691c608798722b05a38aaede033d7"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@3.197.0/standard-notes-3.197.0-win-ia32.exe#/dl.7z",
+            "hash": "sha512:09de787b38d1186edc5ddf876b4aeb272b28a99fa0b444f0dc024f3f64f74f65ca34ca9782c1c1576ba7c5befc1620319c32ef5b0a5fb9fc873988ce2e9da298"
+        }
+    },
+    "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-$($architecture.Substring(0,2)).7z\" \"$dir\"",
+    "post_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse",
+    "shortcuts": [
+        [
+            "Standard Notes.exe",
+            "Standard Notes"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/75675698/releases/latest",
+        "regex": "@standardnotes/desktop@([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@$version/standard-notes-$version-win-x64.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@$version/standard-notes-$version-win-ia32.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "(?is)$basename.*?$base64"
+        }
+    }
+}

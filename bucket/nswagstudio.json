@@ -1,0 +1,27 @@
+{
+    "version": "14.4.0",
+    "description": "The OpenAPI/Swagger API toolchain for .NET and TypeScript",
+    "homepage": "https://github.com/RicoSuter/NSwag",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/RicoSuter/NSwag/releases/download/v14.4.0/NSwag.zip",
+            "hash": "69ef41d0fadba7c73bdf666de5b9322de3902e9672ac4084a6a669a342c738e3"
+        }
+    },
+    "bin": "Win\\NSwag.exe",
+    "shortcuts": [
+        [
+            "NSwagStudio.exe",
+            "NSwagStudio"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/RicoSuter/NSwag/releases/download/v$version/NSwag.zip"
+            }
+        }
+    }
+}

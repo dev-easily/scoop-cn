@@ -1,0 +1,40 @@
+{
+    "$schema": "https://www.ghproxy.cn/https://raw.githubusercontent.com/ScoopInstaller/Scoop/master/schema.json",
+    "##": "Rename download file because 7-zip can't decompress it as zip file.",
+    "version": "4.0.7512",
+    "description": "Microsoft Azure Functions Core Tools",
+    "homepage": "https://github.com/Azure/azure-functions-core-tools",
+    "license": "MIT",
+    "architecture": {
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-functions-core-tools/releases/download/4.0.7512/Azure.Functions.Cli.win-arm64.4.0.7512.zip#/dl.7z",
+            "hash": "5ad22e82e17f052b62b9df7fa11c342dc91fb36a4cb1226dbe0b247ac60a82f2"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-functions-core-tools/releases/download/4.0.7512/Azure.Functions.Cli.win-x86.4.0.7512.zip#/dl.7z",
+            "hash": "e937edc8e1fb4f0ba4373a8455ac3a73689cad5828f4ae76e25f499b3286984e"
+        },
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-functions-core-tools/releases/download/4.0.7512/Azure.Functions.Cli.win-x64.4.0.7512.zip#/dl.7z",
+            "hash": "ef8bea2a603df329a88d4afdb43f95888aac0f1da383f2f9896d399d76c2d512"
+        }
+    },
+    "bin": "func.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-functions-core-tools/releases/download/$version/Azure.Functions.Cli.win-arm64.$version.zip#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-functions-core-tools/releases/download/$version/Azure.Functions.Cli.win-x86.$version.zip#/dl.7z"
+            },
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-functions-core-tools/releases/download/$version/Azure.Functions.Cli.win-x64.$version.zip#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha2"
+        }
+    }
+}

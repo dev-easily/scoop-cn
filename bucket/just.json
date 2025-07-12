@@ -1,0 +1,26 @@
+{
+    "version": "1.41.0",
+    "description": "A command runner written in rust",
+    "homepage": "https://just.systems",
+    "license": "CC0-1.0",
+    "suggest": {
+        "fzf": "fzf"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/casey/just/releases/download/1.41.0/just-1.41.0-x86_64-pc-windows-msvc.zip",
+            "hash": "7a64efe8ce126fc45ab7418ef2013b8c52cd387d59de5207bd857ca9e7f197eb"
+        }
+    },
+    "bin": "just.exe",
+    "checkver": {
+        "github": "https://github.com/casey/just"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/casey/just/releases/download/$version/just-$version-x86_64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

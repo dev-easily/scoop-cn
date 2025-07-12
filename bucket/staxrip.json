@@ -1,0 +1,29 @@
+{
+    "version": "2.48.1",
+    "description": "Video encoding GUI for Windows.",
+    "homepage": "https://github.com/staxrip/staxrip",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/staxrip/staxrip/releases/download/v2.48.1/StaxRip-v2.48.1-x64-REPACK.7z",
+            "hash": "e4a1be2a1f6afeb55d7972786f34a18fa905cc9a1f52c752c3304d6596e14090",
+            "extract_dir": "StaxRip-v2.48.1-x64"
+        }
+    },
+    "shortcuts": [
+        [
+            "StaxRip.exe",
+            "StaxRip"
+        ]
+    ],
+    "persist": "Settings",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/staxrip/staxrip/releases/download/v$version/StaxRip-v$version-x64.7z",
+                "extract_dir": "StaxRip-v$version-x64"
+            }
+        }
+    }
+}

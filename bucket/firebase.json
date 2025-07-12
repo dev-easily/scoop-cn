@@ -1,0 +1,21 @@
+{
+    "version": "14.10.1",
+    "description": "Test, manage, and deploy Firebase project from the command line",
+    "homepage": "https://github.com/firebase/firebase-tools",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/firebase/firebase-tools/releases/download/v14.10.1/firebase-tools-win.exe#/firebase.exe",
+            "hash": "f552ba70e85762439a8ab278c23fe23d077bd61b1d3f25fe41d08fdbc97f4a50"
+        }
+    },
+    "bin": "firebase.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/firebase/firebase-tools/releases/download/v$version/firebase-tools-win.exe#/firebase.exe"
+            }
+        }
+    }
+}

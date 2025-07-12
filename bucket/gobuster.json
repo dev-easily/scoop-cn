@@ -1,0 +1,38 @@
+{
+    "version": "3.7.0",
+    "description": "A tool to brute-force URIs, DNS subdomains or Virtual Host names",
+    "homepage": "https://github.com/OJ/gobuster",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/OJ/gobuster/releases/download/v3.7.0/gobuster_Windows_x86_64.zip",
+            "hash": "424595b70c2084c8f7570f292c23cdb82ec1eae7b64baa5d50d92d5fd6885c51"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/OJ/gobuster/releases/download/v3.7.0/gobuster_Windows_i386.zip",
+            "hash": "85bf5698681cc6cd46a4e9b76884f0d2721c5a985320658de4a5bdc1a9ef019f"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/OJ/gobuster/releases/download/v3.7.0/gobuster_Windows_arm64.zip",
+            "hash": "e010a9b8b44ab6842be5ff0dbad2c4ea4141d4adaece4ba4658d1e0274830bd2"
+        }
+    },
+    "bin": "gobuster.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/OJ/gobuster/releases/download/v$version/gobuster_Windows_x86_64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/OJ/gobuster/releases/download/v$version/gobuster_Windows_i386.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/OJ/gobuster/releases/download/v$version/gobuster_Windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}
