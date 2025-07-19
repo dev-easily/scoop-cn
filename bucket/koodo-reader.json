@@ -1,0 +1,42 @@
+{
+    "version": "2.0.6",
+    "homepage": "https://www.koodoreader.com",
+    "description": "All-in-one ebook reader.",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/koodo-reader/koodo-reader/releases/download/v2.0.6/Koodo-Reader-2.0.6-x64-Win.zip",
+            "hash": "3053b1df25df1c53fbefe81b727d64014065a2f86fda2dbd1f6d74e48bd36fd6"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/koodo-reader/koodo-reader/releases/download/v2.0.6/Koodo-Reader-2.0.6-ia32-Win.zip",
+            "hash": "e6d3ace2bbfbd315d3416edade55d30886f4a68969362fa21f8798ad90a91967"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/koodo-reader/koodo-reader/releases/download/v2.0.6/Koodo-Reader-2.0.6-arm64-Win.zip",
+            "hash": "4de1b8c495dccec6c003cce0f3ec4460abf616decb9830fff4b79f9a4b36c5a6"
+        }
+    },
+    "shortcuts": [
+        [
+            "Koodo Reader.exe",
+            "Koodo Reader"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/koodo-reader/koodo-reader"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/koodo-reader/koodo-reader/releases/download/v$version/Koodo-Reader-$version-x64-Win.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/koodo-reader/koodo-reader/releases/download/v$version/Koodo-Reader-$version-ia32-Win.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/koodo-reader/koodo-reader/releases/download/v$version/Koodo-Reader-$version-arm64-Win.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "version": "19.27.0.0.0",
+    "description": "The SQL*Plus command line tool for SQL and PL/SQL queries with Oracle Instant Client.",
+    "homepage": "https://www.oracle.com/database/technologies/instant-client.html",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.oracle.com/downloads/licenses/instant-client-lic.html"
+    },
+    "depends": "easy-win/oracle-instant-client19",
+    "architecture": {
+        "64bit": {
+            "url": "https://download.oracle.com/otn_software/nt/instantclient/1927000/instantclient-sqlplus-windows.x64-19.27.0.0.0dbru.zip",
+            "hash": "90111ab7c84c777a1ba871ff10be118120c31e90439c06e23c94b2325ac52925"
+        },
+        "32bit": {
+            "url": "https://download.oracle.com/otn_software/nt/instantclient/1927000/instantclient-sqlplus-nt-19.27.0.0.0dbru.zip",
+            "hash": "9c15ef67a77853e61404cca7c0149511d39d142c597dc8a0ae8c758671421eb8"
+        }
+    },
+    "extract_dir": "instantclient_19_27",
+    "pre_install": [
+        "$instantclient = currentdir 'oracle-instant-client19'",
+        "Copy-Item -Path \"$dir\\*\" -Destination \"$instantclient\" -Force -Recurse | Out-Null"
+    ],
+    "uninstaller": {
+        "script": [
+            "$instantclient = currentdir 'oracle-instant-client19'",
+            "Get-ChildItem -Path \"$dir\" -Exclude *.json | ForEach-Object { Remove-Item -LiteralPath \"$instantclient\\$($_.Name)\" -Recurse -Force -ErrorAction SilentlyContinue }"
+        ]
+    },
+    "checkver": {
+        "url": "https://www.oracle.com/database/technologies/instant-client/microsoft-windows-32-downloads.html",
+        "regex": "Version (19[\\d.]+)",
+        "useragent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.oracle.com/otn_software/nt/instantclient/$cleanVersion/instantclient-sqlplus-windows.x64-$versiondbru.zip"
+            },
+            "32bit": {
+                "url": "https://download.oracle.com/otn_software/nt/instantclient/$cleanVersion/instantclient-sqlplus-nt-$versiondbru.zip"
+            }
+        },
+        "extract_dir": "instantclient_$majorVersion_$minorVersion"
+    }
+}

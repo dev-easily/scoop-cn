@@ -1,0 +1,21 @@
+{
+    "version": "2.27.0",
+    "description": "A lightweight, framework-agnostic database migration tool",
+    "homepage": "https://github.com/amacneil/dbmate",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/amacneil/dbmate/releases/download/v2.27.0/dbmate-windows-amd64.exe#/dbmate.exe",
+            "hash": "5fec472d738131a206ee3d0d65803eea3919a5ac3a7812d20f0419525904e2de"
+        }
+    },
+    "bin": "dbmate.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/amacneil/dbmate/releases/download/v$version/dbmate-windows-amd64.exe#/dbmate.exe"
+            }
+        }
+    }
+}

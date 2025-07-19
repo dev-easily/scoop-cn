@@ -1,0 +1,54 @@
+{
+    "version": "0.2.22",
+    "description": "A hardware-accelerated GPU terminal emulator focusing to run in desktops and browsers",
+    "homepage": "https://github.com/raphamorim/rio",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": [
+                "https://www.ghproxy.cn/https://github.com/raphamorim/rio/releases/download/v0.2.22/Rio-portable-x86_64.exe#/rio.exe",
+                "https://www.ghproxy.cn/https://raw.githubusercontent.com/raphamorim/rio/main/misc/windows/rio.ico"
+            ],
+            "hash": [
+                "f1a128b1a78d649b4f58731d663cca57def612e751af8e3c2c821afe0a15021e",
+                "df14ea18ec6cf01cc7709d4de0e14cfa0366b54fbbbee5e936be16db28b929cb"
+            ]
+        },
+        "arm64": {
+            "url": [
+                "https://www.ghproxy.cn/https://github.com/raphamorim/rio/releases/download/v0.2.22/Rio-portable-aarch64.exe#/rio.exe",
+                "https://www.ghproxy.cn/https://raw.githubusercontent.com/raphamorim/rio/main/misc/windows/rio.ico"
+            ],
+            "hash": [
+                "05cc675eaaa816b7bd3acc7a444141288b4c8d40dfea3f97a5196473da4b7def",
+                "df14ea18ec6cf01cc7709d4de0e14cfa0366b54fbbbee5e936be16db28b929cb"
+            ]
+        }
+    },
+    "bin": "rio.exe",
+    "shortcuts": [
+        [
+            "rio.exe",
+            "Rio",
+            "--working-dir %USERPROFILE%",
+            "rio.ico"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": [
+                    "https://www.ghproxy.cn/https://github.com/raphamorim/rio/releases/download/v$version/Rio-portable-x86_64.exe#/rio.exe",
+                    "https://www.ghproxy.cn/https://raw.githubusercontent.com/raphamorim/rio/main/misc/windows/rio.ico"
+                ]
+            },
+            "arm64": {
+                "url": [
+                    "https://www.ghproxy.cn/https://github.com/raphamorim/rio/releases/download/v$version/Rio-portable-aarch64.exe#/rio.exe",
+                    "https://www.ghproxy.cn/https://raw.githubusercontent.com/raphamorim/rio/main/misc/windows/rio.ico"
+                ]
+            }
+        }
+    }
+}

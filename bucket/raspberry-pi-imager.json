@@ -1,0 +1,23 @@
+{
+    "version": "1.9.5",
+    "description": "Tool for writing an Raspberry Pi OS images to SD cards.",
+    "homepage": "https://www.raspberrypi.org/software",
+    "license": "Apache-2.0",
+    "url": "https://www.ghproxy.cn/https://github.com/raspberrypi/rpi-imager/releases/download/v1.9.5/imager-1.9.5.exe",
+    "hash": "b3440b19bf7d86ca0f723132efee89c38659fd760951e95d584ba748be9e1259",
+    "innosetup": true,
+    "bin": "rpi-imager.exe",
+    "shortcuts": [
+        [
+            "rpi-imager.exe",
+            "Raspberry PI Imager"
+        ]
+    ],
+    "notes": "To opt out of telemetry, run: Set-ItemProperty 'HKCU:/Software/Raspberry Pi/Imager' telemetry 0",
+    "checkver": {
+        "github": "https://github.com/raspberrypi/rpi-imager"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/raspberrypi/rpi-imager/releases/download/v$version/imager-$version.exe"
+    }
+}

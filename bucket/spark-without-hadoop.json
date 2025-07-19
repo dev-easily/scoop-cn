@@ -1,0 +1,29 @@
+{
+    "version": "4.0.0",
+    "description": "A unified analytics engine for large-scale data processing.",
+    "homepage": "https://spark.apache.org/",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JDK": "easy-win/openjdk"
+    },
+    "url": "https://dlcdn.apache.org/spark/spark-4.0.0/spark-4.0.0-bin-without-hadoop.tgz",
+    "hash": "sha512:69dba65c68c4f7d2441fa917421d87ab3eaf6ed8333fd14281e414d58f61b2da79c8d3828046c3720f5079c936e8e0b7fb493bd99ce1e301bf152677c3320b3c",
+    "extract_dir": "spark-4.0.0-bin-without-hadoop",
+    "env_add_path": "bin",
+    "env_set": {
+        "SPARK_HOME": "$dir"
+    },
+    "persist": "conf",
+    "checkver": {
+        "url": "https://spark.apache.org/downloads.html",
+        "regex": "version: ([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://dlcdn.apache.org/spark/spark-$version/spark-$version-bin-without-hadoop.tgz",
+        "hash": {
+            "url": "$url.sha512",
+            "regex": "$basename: ([A-F0-9\\s]+)$"
+        },
+        "extract_dir": "spark-$version-bin-without-hadoop"
+    }
+}

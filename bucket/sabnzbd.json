@@ -1,0 +1,37 @@
+{
+    "version": "4.5.2",
+    "description": "The automated Usenet download tool",
+    "homepage": "https://sabnzbd.org",
+    "license": "GPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/sabnzbd/sabnzbd/releases/download/4.5.2/SABnzbd-4.5.2-win64-bin.zip",
+            "hash": "08d2cd3331077cb1e550f17f92f62f770c0e9e85e7be018eefef4d15b08e7a6a"
+        }
+    },
+    "extract_dir": "SABnzbd-4.5.2",
+    "bin": [
+        "SABnzbd-console.exe",
+        [
+            "SABnzbd-console.exe",
+            "SABnzbd"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "SABnzbd.exe",
+            "SABnzbd"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/sabnzbd/sabnzbd"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/sabnzbd/sabnzbd/releases/download/$version/SABnzbd-$version-win64-bin.zip"
+            }
+        },
+        "extract_dir": "SABnzbd-$version"
+    }
+}

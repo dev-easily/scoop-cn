@@ -1,0 +1,70 @@
+{
+    "version": "2.24.6",
+    "description": "An advanced freeware audio player for the Windows platform.",
+    "homepage": "https://www.foobar2000.org/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.foobar2000.org/license"
+    },
+    "suggest": {
+        "Encoders": "easy-win/foobar2000-encoders"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.foobar2000.org/files/foobar2000-x64_v2.24.6.exe#/dl.7z",
+            "hash": "17995d11803a6ab1603b8cc22a55134905a631f8a7d98537203485093256d995"
+        },
+        "32bit": {
+            "url": "https://www.foobar2000.org/files/foobar2000_v2.24.6.exe#/dl.7z",
+            "hash": "17e530ae99564c6c9236b3e6f3531b8cb0ff2fc4fc81f9a0efa9be0d64e0701e"
+        },
+        "arm64": {
+            "url": "https://www.foobar2000.org/files/foobar2000-arm64ec_v2.24.6.exe#/dl.7z",
+            "hash": "c8b4471642a087313fa597be78038e44a986ffb4b4f2bf31e76c673a64862f7f"
+        }
+    },
+    "installer": {
+        "script": [
+            "Remove-Item \"$dir\\`$*\" -Force -Recurse",
+            "New-Item \"$dir\\portable_mode_enabled\" -Force | Out-Null",
+            "$EncodersDir = $(appdir foobar2000-encoders $global)",
+            "if (Test-Path \"$EncodersDir\") {",
+            "    New-Item \"$dir\\encoders\" -ItemType Junction -Target \"$EncodersDir\\current\" | Out-Null",
+            "}"
+        ]
+    },
+    "post_install": [
+        "if (!(Test-Path \"$persist_dir\\profile\\*\")) {",
+        "    Get-ChildItem -Path \"$persist_dir\" -Exclude \"profile\" | Move-Item -Destination \"$persist_dir\\profile\" -Force",
+        "}",
+        "if (!(Test-Path \"$persist_dir\\profile\\*\") -and (Test-Path \"$env:AppData\\foobar2000-v2\")) {",
+        "    info '[Portable Mode]: Copying user data...'",
+        "    Copy-Item \"$env:AppData\\foobar2000-v2\\*\" -Destination \"$persist_dir\\profile\" -Force -Recurse",
+        "}"
+    ],
+    "bin": "foobar2000.exe",
+    "shortcuts": [
+        [
+            "foobar2000.exe",
+            "Foobar2000"
+        ]
+    ],
+    "persist": "profile",
+    "checkver": {
+        "url": "https://www.foobar2000.org/download",
+        "regex": "foobar2000_v([\\d.]+)\\."
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.foobar2000.org/files/foobar2000-x64_v$version.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.foobar2000.org/files/foobar2000_v$version.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.foobar2000.org/files/foobar2000-arm64ec_v$version.exe#/dl.7z"
+            }
+        }
+    }
+}
