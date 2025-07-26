@@ -1,0 +1,30 @@
+{
+    "version": "8.2.1",
+    "description": "Privacy enhanced BitTorrent client with P2P content discovery",
+    "homepage": "https://www.tribler.org",
+    "license": "LGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Tribler/tribler/releases/download/v8.2.1/Tribler_8.2.1_x64.exe#/dl.7z",
+            "hash": "d07fc61f6a542260331fea1010313191f507a65963692fc0dd33342f0ca10cf5"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
+    "bin": "tribler.exe",
+    "shortcuts": [
+        [
+            "tribler.exe",
+            "Tribler"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Tribler/tribler"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Tribler/tribler/releases/download/v$version/Tribler_$version_x64.exe#/dl.7z"
+            }
+        }
+    }
+}

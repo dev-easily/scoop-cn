@@ -1,0 +1,24 @@
+{
+    "version": "0.51.0",
+    "description": "xan is a command line tool that can be used to process CSV files directly from the shell.",
+    "homepage": "https://github.com/medialab/xan",
+    "license": "Unlincense|MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/medialab/xan/releases/download/0.51.0/xan-x86_64-pc-windows-msvc.zip",
+            "hash": "588f812e1a6662bae554489db8219e4086a7ce90a285a93dad9acbf167f6a730"
+        }
+    },
+    "bin": "xan.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/medialab/xan/releases/download/$version/xan-x86_64-pc-windows-msvc.zip",
+                "hash": {
+                    "url": "$baseurl/xan-x86_64-pc-windows-msvc.sha256"
+                }
+            }
+        }
+    }
+}
