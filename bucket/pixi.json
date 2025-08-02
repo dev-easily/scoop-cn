@@ -1,0 +1,36 @@
+{
+    "version": "0.50.2",
+    "description": "Package management made easy",
+    "homepage": "https://pixi.sh",
+    "license": "BSD-3-Clause",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/prefix-dev/pixi/releases/download/v0.50.2/pixi-x86_64-pc-windows-msvc.zip",
+            "hash": "bf3ad3399d34819fedfa0d08a70fc5376c9b5613e62ecbef0ed0dd12b43cbdfe"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/prefix-dev/pixi/releases/download/v0.50.2/pixi-aarch64-pc-windows-msvc.zip",
+            "hash": "93fd047b9d9f4131c2a4a612287793faf72299a106e2b7bf38e5a6418f4da8bb"
+        }
+    },
+    "bin": "pixi.exe",
+    "checkver": {
+        "github": "https://github.com/prefix-dev/pixi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/prefix-dev/pixi/releases/download/v$version/pixi-x86_64-pc-windows-msvc.zip",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/prefix-dev/pixi/releases/download/v$version/pixi-aarch64-pc-windows-msvc.zip",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "version": "2025.13.2",
+    "description": "A new language and compiler for shader development.",
+    "homepage": "https://shader-slang.com/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/shader-slang/slang/releases/download/v2025.13.2/slang-2025.13.2-windows-x86_64.zip",
+            "hash": "049ba6023b13c237f26f6bf27f1909c39e518f2b75b7963df8f0ba26f1582421"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/shader-slang/slang/releases/download/v2025.13.2/slang-2025.13.2-windows-aarch64.zip",
+            "hash": "5752891007c0bc4457126d4e4a5c55788a2ccf156d28bb55b45d08ce946a5eae"
+        }
+    },
+    "bin": [
+        "bin/slangc.exe",
+        "bin/slangd.exe"
+    ],
+    "checkver": {
+        "github": "https://github.com/shader-slang/slang"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/shader-slang/slang/releases/download/v$version/slang-$version-windows-x86_64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/shader-slang/slang/releases/download/v$version/slang-$version-windows-aarch64.zip"
+            }
+        }
+    }
+}

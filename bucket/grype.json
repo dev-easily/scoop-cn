@@ -1,0 +1,24 @@
+{
+    "version": "0.97.1",
+    "description": "A vulnerability scanner for container images and filesystems.",
+    "homepage": "https://github.com/anchore/grype",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/anchore/grype/releases/download/v0.97.1/grype_0.97.1_windows_amd64.zip",
+            "hash": "1d216cd2c22e3d1611db55b16bdaddb8024b20978f31ea019e31a4ef26e0322a"
+        }
+    },
+    "bin": "grype.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/anchore/grype/releases/download/v$version/grype_$version_windows_amd64.zip"
+            }
+        },
+        "hash": {
+            "url": "https://www.ghproxy.cn/https://github.com/anchore/grype/releases/download/v$version/grype_$version_checksums.txt"
+        }
+    }
+}

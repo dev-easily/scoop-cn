@@ -1,0 +1,19 @@
+{
+    "version": "2.4.0.20",
+    "description": "View detailed info about your nVidia graphics card. Features overclocking options and other nifty settings.",
+    "homepage": "https://github.com/Orbmu2k/nvidiaProfileInspector/",
+    "license": "MIT",
+    "url": "https://www.ghproxy.cn/https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/2.4.0.20/nvidiaProfileInspector.zip",
+    "hash": "dc28931b5b1b48b61789b581bd740a958e3e8aff872db8013b9f07db46184020",
+    "bin": "nvidiaProfileInspector.exe",
+    "shortcuts": [
+        [
+            "nvidiaProfileInspector.exe",
+            "NVIDIA Profile Inspector"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/Orbmu2k/nvidiaProfileInspector/releases/download/$version/nvidiaProfileInspector.zip"
+    }
+}

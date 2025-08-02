@@ -1,0 +1,33 @@
+{
+    "version": "2.3.2",
+    "description": "A simple, decentralized mesh VPN with WireGuard support.",
+    "homepage": "https://github.com/EasyTier/EasyTier",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/EasyTier/EasyTier/releases/download/v2.3.2/easytier-windows-x86_64-v2.3.2.zip",
+            "hash": "b599d2740550776e51863ae387de62936969a11a576cf205a82f47ec142608fc",
+            "extract_dir": "easytier-windows-x86_64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/EasyTier/EasyTier/releases/download/v2.3.2/easytier-windows-arm64-v2.3.2.zip",
+            "hash": "a3b6068853a08cb01775b9a1fc7995efeb3c209045b01fca93a2f1e527ef7ca3",
+            "extract_dir": "easytier-windows-arm64"
+        }
+    },
+    "bin": [
+        "easytier-cli.exe",
+        "easytier-core.exe"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/EasyTier/EasyTier/releases/download/v$version/easytier-windows-x86_64-v$version.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/EasyTier/EasyTier/releases/download/v$version/easytier-windows-arm64-v$version.zip"
+            }
+        }
+    }
+}

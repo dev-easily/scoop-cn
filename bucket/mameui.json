@@ -1,0 +1,38 @@
+{
+    "version": "0.279.0",
+    "description": "GUI frontend for MAME, the multi-purpose emulation framework",
+    "homepage": "https://messui.1emulation.com",
+    "license": "GPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://messui.1emulation.com/mameui279.7z",
+            "hash": "0fb4e939a0223491d81e436223e5e0ec9e0c0f0c0b8094339b9857e7e2e58847"
+        }
+    },
+    "shortcuts": [
+        [
+            "mameui.exe",
+            "MAMEUI"
+        ]
+    ],
+    "persist": [
+        "cfg",
+        "diff",
+        "ini",
+        "inp",
+        "memcard",
+        "nvram",
+        "snap",
+        "sta"
+    ],
+    "checkver": {
+        "regex": "MAMEUI64 ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://messui.1emulation.com/mameui$minorVersion.7z"
+            }
+        }
+    }
+}
