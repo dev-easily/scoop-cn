@@ -1,0 +1,32 @@
+{
+    "version": "3.6.2",
+    "description": "Bforartists is a fork of the popular 3D software Blender, with the goal to improve the UI.",
+    "homepage": "https://www.bforartists.de/",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.bforartists.de/data/binaries/Bforartists-3.6.2-Windows.zip",
+            "hash": "6cc717c5d72f29448e47d348fdf32ee83189f82aefa06d05372fef2962966d3a",
+            "extract_dir": "Bforartists-3.6.2-Windows"
+        }
+    },
+    "bin": "bforartists.exe",
+    "shortcuts": [
+        [
+            "bforartists.exe",
+            "Bforartists"
+        ]
+    ],
+    "checkver": {
+        "url": "https://www.bforartists.de/download/",
+        "regex": "Bforartists-([\\w.]+)-Windows\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.bforartists.de/data/binaries/Bforartists-$version-Windows.zip",
+                "extract_dir": "Bforartists-$version-Windows"
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "homepage": "https://www.beeflang.org/",
+    "description": "Beef programming language compiler. (nightly version)",
+    "version": "0.43.6.08072025",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "http://nightly.beeflang.org/BeefSetup_0_43_6__08_07_2025.exe#/dl.7z",
+            "hash": "7fc8bc1baa65fdc2901d15a1a9c8e11e3c9410849e00c176eed8365862938510"
+        }
+    },
+    "bin": [
+        [
+            "bin\\BeefIDE.exe",
+            "beefn"
+        ],
+        [
+            "bin\\BeefBuild.exe",
+            "BeefBuildN"
+        ]
+    ],
+    "checkver": {
+        "url": "http://nightly.beeflang.org/index.html",
+        "regex": "(?s)BeefSetup_(\\d+)_(\\d+)_(\\d+)__(\\d{2})_(\\d{2})_(\\d{4})",
+        "replace": "${1}.${2}.${3}.${4}${5}${6}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://nightly.beeflang.org/BeefSetup_$match1_$match2_$match3__$match4_$match5_$match6.exe#/dl.7z"
+            }
+        }
+    }
+}
