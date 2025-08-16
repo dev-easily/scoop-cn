@@ -1,0 +1,34 @@
+{
+    "version": "2025.2.2.97",
+    "homepage": "https://cascadeur.com/",
+    "description": "A physics‑based 3D animation software powered by artificial intelligence (A.I.). ",
+    "license": {
+        "identifier": "Shareware",
+        "url": "https://cascadeur.com/help/cascadeur_end_user_agreement"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.cascadeur.com/builds/windows/97/Cascadeur_2025.2.2.exe#/dl.7z",
+            "hash": "747f73058ac655a684782945a1bc19823d44d8e0c0a2aa085c8b666838604781"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\" -Include 'uninstall.*', '$*' -Recurse",
+    "shortcuts": [
+        [
+            "cascadeur.exe",
+            "Cascadeur"
+        ]
+    ],
+    "checkver": {
+        "url": "https://cascadeur.com/after-download?platform=windows",
+        "regex": "windows/(?<Build>[\\d]+)/(C|c)ascadeur_(?<Version>[\\w.]+)\\.exe",
+        "replace": "${Version}.${Build}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.cascadeur.com/builds/windows/$matchBuild/Cascadeur_$matchVersion.exe#/dl.7z"
+            }
+        }
+    }
+}

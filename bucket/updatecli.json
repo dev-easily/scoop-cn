@@ -1,0 +1,34 @@
+{
+    "version": "0.105.1",
+    "description": "A tool used to apply file update strategies. Designed to be used from everywhere, each application 'run' detects if a value needs to be updated using a custom strategy then apply changes according to the strategy.",
+    "homepage": "https://www.updatecli.io/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/updatecli/updatecli/releases/download/v0.105.1/updatecli_Windows_x86_64.zip",
+            "hash": "97358b4909cf027948dab19c78293552963ee5f5ebc405e288eea941d4249091"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/updatecli/updatecli/releases/download/v0.105.1/updatecli_Windows_arm64.zip",
+            "hash": "dcd9c87bf87b4cf0502f598686a3baa74221792877b712c34a2bb8851ca2cec4"
+        }
+    },
+    "env_add_path": ".",
+    "checkver": {
+        "github": "https://github.com/updatecli/updatecli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/updatecli/updatecli/releases/download/v$version/updatecli_Windows_x86_64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/updatecli/updatecli/releases/download/v$version/updatecli_Windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt",
+            "regex": "(?im)^$sha256\\s+$basename$"
+        }
+    }
+}

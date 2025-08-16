@@ -1,0 +1,21 @@
+{
+    "version": "0.1.9",
+    "description": "A terminal-based real-time satellite tracking and orbit prediction application.",
+    "homepage": "https://github.com/ShenMian/tracker",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ShenMian/tracker/releases/download/v0.1.9/tracker-windows-x86_64.zip",
+            "hash": "b5fb0580883c9c7b28b880081a5a5ed1385beb501a3e50b8818c8eab53066d3f"
+        }
+    },
+    "bin": "tracker.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ShenMian/tracker/releases/download/v$version/tracker-windows-x86_64.zip"
+            }
+        }
+    }
+}

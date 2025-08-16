@@ -1,0 +1,54 @@
+{
+    "version": "2.0.1",
+    "description": "The Syncthing global discovery server",
+    "homepage": "https://syncthing.net/",
+    "license": "MPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/syncthing/discosrv/releases/download/v2.0.1/stdiscosrv-windows-amd64-v2.0.1.zip",
+            "hash": "92e0f3afbf0c9cd7fbdd942e70760249e9888133e9adda205d9178eff89782df",
+            "extract_dir": "stdiscosrv-windows-amd64-v2.0.1"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/syncthing/discosrv/releases/download/v2.0.1/stdiscosrv-windows-386-v2.0.1.zip",
+            "hash": "988d2b116ed1f0a6d6772de63f624f062098773150e938d5a53649db928bcba1",
+            "extract_dir": "stdiscosrv-windows-386-v2.0.1"
+        }
+    },
+    "bin": [
+        [
+            "stdiscosrv.exe",
+            "stdiscosrv",
+            "-cert \"$dir\\cert.pem\"",
+            "-db-dir \"$dir\\discovery.db\"",
+            "-key \"$dir\\key.pem\""
+        ]
+    ],
+    "persist": [
+        "discovery.db",
+        "cert.pem",
+        "key.pem"
+    ],
+    "pre_install": [
+        "foreach ($name in @('cert.pem', 'key.pem')) {",
+        "    if (!(Test-Path \"$persist_dir\\$name\")) {",
+        "        New-Item -Force -Path \"$dir\" -Name $name | Out-Null",
+        "    }",
+        "}"
+    ],
+    "checkver": {
+        "github": "https://github.com/syncthing/discosrv"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/syncthing/discosrv/releases/download/v$version/stdiscosrv-windows-amd64-v$version.zip",
+                "extract_dir": "stdiscosrv-windows-amd64-v$version"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/syncthing/discosrv/releases/download/v$version/stdiscosrv-windows-386-v$version.zip",
+                "extract_dir": "stdiscosrv-windows-386-v$version"
+            }
+        }
+    }
+}

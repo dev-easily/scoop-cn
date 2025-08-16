@@ -1,0 +1,57 @@
+{
+    "version": "6.5.11",
+    "description": "The 100% fresh, free-range, ethical browser",
+    "homepage": "https://www.waterfox.net",
+    "license": "MPL-2.0",
+    "notes": [
+        "To set profile 'Scoop' as *DEFAULT*, or profiles/settings was lost after update:",
+        "  - Run 'Waterfox Profile Manager', choose 'Scoop' then click 'Start Waterfox'.",
+        "  - Visit 'about:profiles' page in Waterfox to check *DEFAULT* profile.",
+        "For details: https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles",
+        "For Waterfox Classic, please install 'waterfox-classic'."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn1.waterfox.net/waterfox/releases/6.5.11/WINNT_x86_64/Waterfox%20Setup%206.5.11.exe#/dl.7z",
+            "hash": "sha512:558aa7b9dc85e8380d9c2830e1959c39c08cdecea249897ff64bf5ae9cdf1b8aa0f11b7a5311603b41ab00f144730895ff24409eaef17139e2e0b7f2ee1e8ea0"
+        }
+    },
+    "extract_dir": "core",
+    "post_install": [
+        "waterfox -CreateProfile \"Scoop $persist_dir\\profile\"",
+        "$Addition = \"$persist_dir\\addition\"",
+        "if (Test-Path $Addition) {",
+        "  info 'Copying additional items...'",
+        "  Copy-Item -Path $Addition\\* -Destination $dir -Force -Recurse -ErrorAction SilentlyContinue",
+        "}"
+    ],
+    "bin": "waterfox.exe",
+    "shortcuts": [
+        [
+            "waterfox.exe",
+            "Waterfox"
+        ],
+        [
+            "waterfox.exe",
+            "Waterfox Profile Manager",
+            "-P"
+        ]
+    ],
+    "persist": [
+        "distribution",
+        "profile"
+    ],
+    "checkver": {
+        "github": "https://github.com/BrowserWorks/Waterfox"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn1.waterfox.net/waterfox/releases/$version/WINNT_x86_64/Waterfox%20Setup%20$version.exe#/dl.7z",
+                "hash": {
+                    "url": "$url.sha512"
+                }
+            }
+        }
+    }
+}

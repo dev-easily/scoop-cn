@@ -1,0 +1,40 @@
+{
+    "version": "1.12.6",
+    "description": "Modern, lightweight and multi-cluster Kubernetes GUI",
+    "homepage": "https://aptakube.com/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://aptakube.com/legal/eula"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/aptakube/aptakube/releases/download/1.12.6/Aptakube_1.12.6_x64.zip",
+            "hash": "12038040d8a63fce8731ebd0821710d042a803adb34e69f3aa68db873e8ed269"
+        }
+    },
+    "bin": [
+        [
+            "Aptakube.exe",
+            "aptakube"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Aptakube.exe",
+            "Aptakube"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/aptakube/aptakube"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/aptakube/aptakube/releases/download/$version/Aptakube_$version_x64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

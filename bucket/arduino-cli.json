@@ -1,0 +1,31 @@
+{
+    "version": "1.3.0",
+    "description": "Arduino command line interface",
+    "homepage": "https://github.com/arduino/arduino-cli",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/arduino/arduino-cli/releases/download/v1.3.0/arduino-cli_1.3.0_Windows_64bit.zip",
+            "hash": "2c4c09f5fe21ca4a1d4f3803485b623ab43b3f345fec255f6778275a068f6a47"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/arduino/arduino-cli/releases/download/v1.3.0/arduino-cli_1.3.0_Windows_32bit.zip",
+            "hash": "3700132a76544552e50d1bc0534d52dca3ff3f7f91fbad23fce855ffda1ea694"
+        }
+    },
+    "bin": "arduino-cli.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/arduino/arduino-cli/releases/download/v$version/arduino-cli_$version_Windows_64bit.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/arduino/arduino-cli/releases/download/v$version/arduino-cli_$version_Windows_32bit.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/$version-checksums.txt"
+        }
+    }
+}
