@@ -1,0 +1,32 @@
+{
+    "version": "44.0",
+    "description": "An image viewer that allows you to browse images in folders and compressed files like a book. Powerful customization is available.",
+    "homepage": "https://neelabo.github.io/NeeView",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/neelabo/NeeView/releases/download/44.0/NeeView44.0.zip",
+            "hash": "367b4ad74281cbebe14846b4fcdc88551887f0a230cdbf75465b89b124344cd3",
+            "extract_dir": "NeeView44.0"
+        }
+    },
+    "bin": "NeeView.exe",
+    "shortcuts": [
+        [
+            "NeeView.exe",
+            "NeeView"
+        ]
+    ],
+    "persist": "Profile",
+    "checkver": {
+        "github": "https://github.com/neelabo/NeeView"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/neelabo/NeeView/releases/download/$version/NeeView$version.zip",
+                "extract_dir": "NeeView$version"
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "version": "0.20.0",
+    "description": "A command-line link checker",
+    "homepage": "https://github.com/lycheeverse/lychee",
+    "license": "Apache-2.0|MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/lycheeverse/lychee/releases/download/lychee-v0.20.0/lychee-x86_64-windows.exe#/lychee.exe",
+            "hash": "238f89068c28a3d14ab6515ec71a974770b248bef1b1d08b8454941ea21b8291"
+        }
+    },
+    "bin": "lychee.exe",
+    "checkver": {
+        "url": "https://github.com/lycheeverse/lychee/releases",
+        "regex": "releases/tag/lychee-v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/lycheeverse/lychee/releases/download/lychee-v$version/lychee-x86_64-windows.exe#/lychee.exe"
+            }
+        }
+    }
+}

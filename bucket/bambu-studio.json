@@ -1,0 +1,30 @@
+{
+    "version": "02.02.00.85",
+    "description": "Bambu Studio is an open-source, cutting-edge, feature-rich slicing software for BambuLab and other 3D printers",
+    "homepage": "https://github.com/bambulab/BambuStudio",
+    "license": "AGPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/bambulab/BambuStudio/releases/download/v02.02.00.85/Bambu_Studio_win-v02.02.00.85-20250812192329.zip",
+            "hash": "8640e8fb8ebf59569c62a8a9f7d6b1f182b7de83ba1f24179afa1b8ea9e38db3"
+        }
+    },
+    "shortcuts": [
+        [
+            "bambu-studio.exe",
+            "Bambu Studio"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/511797274/releases/latest",
+        "jsonpath": "$..assets[?(@.browser_download_url =~ /Bambu_Studio_win-.*\\.zip/i)].browser_download_url",
+        "regex": "download/(?<tag>[\\w.]+)/Bambu_Studio_win-v([\\d.]+)-(?<date>[0-9]+)\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/bambulab/BambuStudio/releases/download/$matchTag/Bambu_Studio_win-v$version-$matchDate.zip"
+            }
+        }
+    }
+}

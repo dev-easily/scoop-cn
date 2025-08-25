@@ -1,0 +1,25 @@
+{
+    "version": "0.16.6",
+    "description": "A Helm-inspired infrastructure-as-code (IaC) package deployer",
+    "homepage": "https://github.com/yokecd/yoke",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/yokecd/yoke/releases/download/v0.16.6/yoke_v0.16.6_windows_amd64.exe.gz#/yoke.exe.gz",
+            "hash": "9ea6ba73f82d4e34b097c11d3dbe7b24c874aa1c20a2449981fa06c7f36f5b8d"
+        }
+    },
+    "bin": "yoke.exe",
+    "checkver": {
+        "url": "https://api.github.com/repositories/757558716/releases",
+        "jsonpath": "$..browser_download_url",
+        "regex": "yoke_v([\\d.]+)_windows_amd64\\.exe\\.gz"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/yokecd/yoke/releases/download/v$version/yoke_v$version_windows_amd64.exe.gz#/yoke.exe.gz"
+            }
+        }
+    }
+}
