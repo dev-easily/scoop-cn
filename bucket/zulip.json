@@ -1,0 +1,44 @@
+{
+    "version": "5.12.1",
+    "description": "Desktop client for Zulip, an open source team chat application",
+    "homepage": "https://zulipchat.com",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/zulip/zulip-desktop/releases/download/v5.12.1/zulip-5.12.1-x64.nsis.7z",
+            "hash": "sha512:03a97803b7fe2a209f92a2aaa9b6d23ce2a344fdcabb65b80a5c4687e46dbb9b6d9d4f0b6515f114a9bd2d93fa56648b53803cffd822b64839feebc1636d3f31"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/zulip/zulip-desktop/releases/download/v5.12.1/zulip-5.12.1-ia32.nsis.7z",
+            "hash": "sha512:ef341ee0f71ac99178fcddb212d5e64263a66ac9c7bcad54796445076fe30805e716edcd6d4fbf409635f3a6f787eae7d42545b6fdd4df0a971fb5cdca21b7cc"
+        }
+    },
+    "bin": "Zulip.exe",
+    "shortcuts": [
+        [
+            "Zulip.exe",
+            "Zulip"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/zulip/zulip-desktop"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/zulip/zulip-desktop/releases/download/v$version/zulip-$version-x64.nsis.7z",
+                "hash": {
+                    "url": "$baseurl/latest.yml",
+                    "regex": "(?sm)x64.*?$base64"
+                }
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/zulip/zulip-desktop/releases/download/v$version/zulip-$version-ia32.nsis.7z",
+                "hash": {
+                    "url": "$baseurl/latest.yml",
+                    "regex": "(?sm)ia32.*?$base64"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "version": "2.23.0",
+    "description": "Font manager",
+    "homepage": "https://fontba.se",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://fontba.se/legal/terms"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://releases.fontba.se/win/FontBase-2.23.0.exe#/dl.7z",
+            "hash": "sha512:d9ea572cb0eb22f9c4f73581261bffcc4c4c90b5f25385565ad25f1b4bdd2f86e209b7944012abe3ec142b8670bfc369a82a34a8f351152682161c54679f1e05",
+            "pre_install": [
+                "Expand-7ZipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\uninstall*\" -Recurse"
+            ]
+        }
+    },
+    "shortcuts": [
+        [
+            "FontBase.exe",
+            "FontBase"
+        ]
+    ],
+    "checkver": {
+        "url": "https://fontba.se/updates",
+        "regex": "([\\d.]+)</a"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://releases.fontba.se/win/FontBase-$version.exe#/dl.7z",
+                "hash": {
+                    "url": "$baseurl/latest.yml",
+                    "regex": "sha512:\\s+$base64"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "version": "5284",
+    "description": "Communications and data transfer between devices over local networks",
+    "homepage": "https://apps.kde.org/kdeconnect",
+    "license": "LGPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.kde.org/ci-builds/network/kdeconnect-kde/master/windows/kdeconnect-kde-master-5284-windows-cl-msvc2022-x86_64.7z",
+            "hash": "8766dbb6416cf1cae63894d65e2f353a624cd27d81e4c3d29c55aa444665715a"
+        }
+    },
+    "bin": [
+        [
+            "bin\\kdeconnect-cli.exe",
+            "kdeconnect-cli"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "bin\\kdeconnect-app.exe",
+            "KDE Connect Nightly"
+        ]
+    ],
+    "checkver": {
+        "url": "https://cdn.kde.org/ci-builds/network/kdeconnect-kde/master/windows/",
+        "regex": "kdeconnect-kde-master-(\\d+)-windows-cl-(?<lib>\\w+)-x86_64\\.7z"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.kde.org/ci-builds/network/kdeconnect-kde/master/windows/kdeconnect-kde-master-$version-windows-cl-$matchLib-x86_64.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

@@ -1,0 +1,22 @@
+{
+    "version": "22.3.0",
+    "description": "Official balena CLI for interacting with balenaCloud and balena API.",
+    "homepage": "https://github.com/balena-io/balena-cli",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/balena-io/balena-cli/releases/download/v22.3.0/balena-cli-v22.3.0-windows-x64-standalone.tar.gz",
+            "hash": "fc396ca6d2991c3e453bd382411c12b9a2205dc3e0b0aed5148135cccf28439b"
+        }
+    },
+    "extract_dir": "balena",
+    "bin": "bin/balena.cmd",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/balena-io/balena-cli/releases/download/v$version/balena-cli-v$version-windows-x64-standalone.tar.gz"
+            }
+        }
+    }
+}
