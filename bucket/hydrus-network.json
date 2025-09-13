@@ -1,0 +1,47 @@
+{
+    "version": "638",
+    "description": "A personal booru-style media tagger",
+    "homepage": "https://hydrusnetwork.github.io/hydrus/",
+    "license": "WTFPL",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/hydrusnetwork/hydrus/releases/download/v638/Hydrus.Network.638.-.Windows.-.Extract.only.zip",
+            "hash": "f4adf931995398f1cd05e654244db6a17c2e138999180e446ffede70379bebaf"
+        }
+    },
+    "extract_dir": "Hydrus Network",
+    "post_install": "if (Test-Path \"$dir\\db.original\\sqlite3.exe\") { Copy-Item \"$dir\\db.original\\sqlite3.exe\" \"$dir\\db\" -Force }",
+    "bin": [
+        [
+            "hydrus_client.exe",
+            "hydrusclient"
+        ],
+        [
+            "hydrus_server.exe",
+            "hydrusserver"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "hydrus_client.exe",
+            "Hydrus Client"
+        ],
+        [
+            "hydrus_server.exe",
+            "Hydrus Server"
+        ]
+    ],
+    "persist": "db",
+    "checkver": {
+        "url": "https://api.github.com/repositories/8285925/releases",
+        "jsonpath": "$..browser_download_url",
+        "regex": "Hydrus.Network.([\\d.]+[a-z]{0,1}).-.Windows.-.Extract.only.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/hydrusnetwork/hydrus/releases/download/v$version/Hydrus.Network.$version.-.Windows.-.Extract.only.zip"
+            }
+        }
+    }
+}

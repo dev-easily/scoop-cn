@@ -1,0 +1,31 @@
+{
+    "version": "5.0.6",
+    "description": "Terminal stock watcher and stock position tracker",
+    "homepage": "https://github.com/achannarasappa/ticker",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/achannarasappa/ticker/releases/download/v5.0.6/ticker-5.0.6-windows-amd64.tar.gz",
+            "hash": "7175cf058b8287f95a411ad33e3dd5c6db8273314bd497ab41852f62c6424e9d"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/achannarasappa/ticker/releases/download/v5.0.6/ticker-5.0.6-windows-386.tar.gz",
+            "hash": "b295a492322ecbfbdb50042edee977cdfe5c1af19c44dfc92c50c556088ee311"
+        }
+    },
+    "bin": "ticker.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/achannarasappa/ticker/releases/download/v$version/ticker-$version-windows-amd64.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/achannarasappa/ticker/releases/download/v$version/ticker-$version-windows-386.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/ticker-$version-checksums.txt"
+        }
+    }
+}
