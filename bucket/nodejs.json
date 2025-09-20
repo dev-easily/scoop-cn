@@ -1,0 +1,50 @@
+{
+    "version": "24.8.0",
+    "description": "An asynchronous event driven JavaScript runtime designed to build scalable network applications.",
+    "homepage": "https://nodejs.org",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://npmmirror.com/mirrors/node/v24.8.0/node-v24.8.0-win-x64.7z",
+            "hash": "3b61856b25be8d688f64a1aa4a725528fcffc472758888bf16e6c9251994e767",
+            "extract_dir": "node-v24.8.0-win-x64"
+        },
+        "arm64": {
+            "url": "https://npmmirror.com/mirrors/node/v24.8.0/node-v24.8.0-win-arm64.7z",
+            "hash": "7ccff15070850300c3e2b0dbec0466e6ea919315d2ec7be0f504c97d0017dd24",
+            "extract_dir": "node-v24.8.0-win-arm64"
+        }
+    },
+    "persist": [
+        "bin",
+        "cache"
+    ],
+    "env_add_path": [
+        "bin",
+        "."
+    ],
+    "post_install": [
+        "# Set npm prefix to install modules inside bin and npm cache so they persist",
+        "Set-Content -Value \"prefix=$persist_dir\\bin`ncache=$persist_dir\\cache\" -Path \"$dir\\node_modules\\npm\\npmrc\""
+    ],
+    "checkver": {
+        "url": "https://npmmirror.com/mirrors/node/index.json",
+        "jsonpath": "$[0].version",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://npmmirror.com/mirrors/node/v$version/node-v$version-win-x64.7z",
+                "extract_dir": "node-v$version-win-x64"
+            },
+            "arm64": {
+                "url": "https://npmmirror.com/mirrors/node/v$version/node-v$version-win-arm64.7z",
+                "extract_dir": "node-v$version-win-arm64"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHASUMS256.txt.asc"
+        }
+    }
+}

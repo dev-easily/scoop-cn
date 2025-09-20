@@ -1,0 +1,43 @@
+{
+    "version": "1.1.3.1",
+    "description": "Flash Browser",
+    "homepage": "https://github.com/Mzying2001/CefFlashBrowser",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://github.com/Mzying2001/CefFlashBrowser/blob/master/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Mzying2001/CefFlashBrowser/releases/download/1.1.3/FlashBrowser_x64_v1.1.3.1.zip",
+            "hash": "7a9b7a6690ade12e11d2c0c2f3c3002f2b60ad9674c94d7d4c61088a226f14cf"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Mzying2001/CefFlashBrowser/releases/download/1.1.3/FlashBrowser_x86_v1.1.3.1.zip",
+            "hash": "99a936a4aed9e14d79f12ade2650183b3ac1a3ccd6e6d6206aada613d281cb05"
+        }
+    },
+    "extract_dir": "Release",
+    "bin": "CefFlashBrowser.exe",
+    "shortcuts": [
+        [
+            "CefFlashBrowser.exe",
+            "CefFlashBrowser"
+        ]
+    ],
+    "persist": "Caches",
+    "checkver": {
+        "url": "https://api.github.com/repositories/343654752/releases/latest",
+        "jsonpath": "$..browser_download_url",
+        "regex": "download/(?<tag>[\\d.]+)/FlashBrowser_x64_v([\\d.]+)\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Mzying2001/CefFlashBrowser/releases/download/$matchTag/FlashBrowser_x64_v$version.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Mzying2001/CefFlashBrowser/releases/download/$matchTag/FlashBrowser_x86_v$version.zip"
+            }
+        }
+    }
+}

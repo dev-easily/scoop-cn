@@ -1,0 +1,74 @@
+{
+    "version": "140.3.0esr",
+    "description": "A free email application that’s easy to set up and customize (Extended Support Release)",
+    "homepage": "https://www.thunderbird.net",
+    "license": "MPL-2.0",
+    "notes": [
+        "To set profile 'Scoop-esr' as *DEFAULT*, or profiles/settings was lost after update:",
+        "  - Run 'Thunderbird ESR Profile Manager', choose 'Scoop-esr' then click 'Start Thunderbird'.",
+        "  - Visit 'about:profiles' page in Thunderbird ESR to check *DEFAULT* profile.",
+        "For details: https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-thunderbird-profiles"
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://archive.mozilla.org/pub/thunderbird/releases/140.3.0esr/win64/en-US/Thunderbird%20Setup%20140.3.0esr.exe#/dl.7z",
+            "hash": "sha512:971ce9bbd4e47616f02c00e79ee5355d578664d0bf42dd5151f9715baa56794cc9e993f6b4c54f37164b1db4cdfcc0b66064c20d34240e3af9cdad126e72ac51"
+        },
+        "32bit": {
+            "url": "https://archive.mozilla.org/pub/thunderbird/releases/140.3.0esr/win32/en-US/Thunderbird%20Setup%20140.3.0esr.exe#/dl.7z",
+            "hash": "sha512:f685478ca9da0206ff82e7f3f23b7f00ec2b2f171661b90a680c9d5307c0f84d715109a936dc23585b72f78aa9f6b72aa4feb5fdbba4f6b62e1661de9cea47c0"
+        }
+    },
+    "extract_dir": "core",
+    "post_install": [
+        "thunderbird-esr -CreateProfile \"Scoop-esr $persist_dir\\profile\"",
+        "$Addition = \"$persist_dir\\addition\"",
+        "if (Test-Path $Addition) {",
+        "  info 'Copying additional items...'",
+        "  Copy-Item -Path $Addition\\* -Destination $dir -Force -Recurse -ErrorAction SilentlyContinue",
+        "}"
+    ],
+    "bin": [
+        [
+            "thunderbird.exe",
+            "thunderbird-esr"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "thunderbird.exe",
+            "Thunderbird ESR"
+        ],
+        [
+            "thunderbird.exe",
+            "Thunderbird ESR Profile Manager",
+            "-P"
+        ]
+    ],
+    "persist": [
+        "distribution",
+        "profile"
+    ],
+    "checkver": {
+        "url": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
+        "jsonpath": "$.THUNDERBIRD_ESR"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/win64/en-US/Thunderbird%20Setup%20$version.exe#/dl.7z",
+                "hash": {
+                    "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/SHA512SUMS",
+                    "regex": "$sha512\\s+win64/en-US/$basename"
+                }
+            },
+            "32bit": {
+                "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/win32/en-US/Thunderbird%20Setup%20$version.exe#/dl.7z",
+                "hash": {
+                    "url": "https://archive.mozilla.org/pub/thunderbird/releases/$version/SHA512SUMS",
+                    "regex": "$sha512\\s+win32/en-US/$basename"
+                }
+            }
+        }
+    }
+}
