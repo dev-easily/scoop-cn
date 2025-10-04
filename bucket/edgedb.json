@@ -1,0 +1,28 @@
+{
+    "version": "7.9.0+070b371",
+    "description": "A graph-relational database",
+    "homepage": "https://www.edgedb.com/",
+    "license": "Apache-2.0|MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://packages.edgedb.com/archive/x86_64-pc-windows-msvc/gel-cli-7.9.0+070b371.exe#/edgedb.exe",
+            "hash": "c66bbc09fcb0a02251c81eb072dbc83d7e5350ec63ce7e176513c8e01aa474a0"
+        }
+    },
+    "bin": "edgedb.exe",
+    "checkver": {
+        "url": "https://packages.edgedb.com/archive/.jsonindexes/x86_64-pc-windows-msvc.json",
+        "jsonpath": "$..packages[-1:].version"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://packages.edgedb.com/archive/x86_64-pc-windows-msvc/gel-cli-$version.exe#/edgedb.exe",
+                "hash": {
+                    "url": "https://packages.edgedb.com/archive/.jsonindexes/x86_64-pc-windows-msvc.json",
+                    "jsonpath": "$..packages[-1:].installrefs[?(@.encoding=='identity')].verification.sha256"
+                }
+            }
+        }
+    }
+}

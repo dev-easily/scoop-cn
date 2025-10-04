@@ -1,0 +1,55 @@
+{
+    "homepage": "https://slproweb.com/products/Win32OpenSSL.html",
+    "version": "3.5.4",
+    "license": "Apache-2.0",
+    "description": "TLS/SSL toolkit (Light)",
+    "architecture": {
+        "64bit": {
+            "url": "https://slproweb.com/download/Win64OpenSSL_Light-3_5_4.exe",
+            "hash": "0b31c851748b4f08c993d2a91ff895be167a53458d6c2784804c6ef5053460db"
+        },
+        "32bit": {
+            "url": "https://slproweb.com/download/Win32OpenSSL_Light-3_5_4.exe",
+            "hash": "e2583fe54cc44f86dea620f5975415c782a741a2278c3205644c2a2ff2c3a054"
+        },
+        "arm64": {
+            "url": "https://slproweb.com/download/Win64ARMOpenSSL_Light-3_5_4.exe",
+            "hash": "bb2cdfceed49ed480b534011a1a7ebf4c1e4eb930637d8b4e1003e718e75b7e6"
+        }
+    },
+    "depends": "easy-win/innounp",
+    "installer": {
+        "script": [
+            "Expand-InnoArchive -Path \"$dir\\$fname\"",
+            "Expand-InnoArchive -Path \"$dir\\$fname\" -DestinationPath \"$dir\\bin\" -ExtractDir '{cf}' -Removal",
+            "Rename-Item \"$dir\\bin\\SSL\" 'cnf' -Force"
+        ]
+    },
+    "bin": "bin\\openssl.exe",
+    "env_set": {
+        "OPENSSL_CONF": "$dir\\bin\\cnf\\openssl.cnf"
+    },
+    "checkver": {
+        "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/slproweb/opensslhashes/master/win32_openssl_hashes.json",
+        "jsonpath": "$.files..basever",
+        "regex": "([\\d.]+)",
+        "reverse": true
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://slproweb.com/download/Win64OpenSSL_Light-$underscoreVersion.exe"
+            },
+            "32bit": {
+                "url": "https://slproweb.com/download/Win32OpenSSL_Light-$underscoreVersion.exe"
+            },
+            "arm64": {
+                "url": "https://slproweb.com/download/Win64ARMOpenSSL_Light-$underscoreVersion.exe"
+            }
+        },
+        "hash": {
+            "url": "https://www.ghproxy.cn/https://raw.githubusercontent.com/slproweb/opensslhashes/master/win32_openssl_hashes.json",
+            "jsonpath": "$.files.['$basename'].sha256"
+        }
+    }
+}

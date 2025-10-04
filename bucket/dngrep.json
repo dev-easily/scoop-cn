@@ -1,0 +1,48 @@
+{
+    "version": "4.6.7.0",
+    "description": "Graphical GREP tool to search across text files, Word and Excel documents, PDFs and archives",
+    "homepage": "https://dngrep.github.io/",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/dnGrep/dnGrep/releases/download/v4.6.7.0/dnGREP.4.6.7.x64.msi",
+            "hash": "ab36625195b441ce30f7696d8a6236b5d7883713ed87432e0459ee300f468adc"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/dnGrep/dnGrep/releases/download/v4.6.7.0/dnGREP.4.6.7.x86.msi",
+            "hash": "64469472330405aa7ed9084f0364721459583ad00d55e6cb0d1e01d03db543d1"
+        }
+    },
+    "pre_install": [
+        "$cont = '<?xml version=\"1.0\" encoding=\"utf-8\"?><dictionary version=\"2\"></dictionary>'",
+        "if (!(Test-Path \"$persist_dir\\dnGREP.Settings.dat\")) { Set-Content \"$dir\\dnGREP.Settings.dat\" $cont -Encoding 'ascii' }",
+        "Copy-Item \"$persist_dir\\Themes\\*\" \"$dir\\Themes\" -ErrorAction 'SilentlyContinue' -Recurse"
+    ],
+    "extract_dir": "dnGREP",
+    "bin": "dnGREP.exe",
+    "shortcuts": [
+        [
+            "dnGREP.exe",
+            "dnGREP"
+        ]
+    ],
+    "persist": "dnGREP.Settings.dat",
+    "pre_uninstall": "Copy-Item \"$dir\\Themes\\*\" \"$persist_dir\\Themes\" -ErrorAction 'SilentlyContinue' -Recurse",
+    "checkver": {
+        "github": "https://github.com/dnGrep/dnGrep"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/dnGrep/dnGrep/releases/download/v$version/dnGREP.$matchHead.x64.msi"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/dnGrep/dnGrep/releases/download/v$version/dnGREP.$matchHead.x86.msi"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/dnGrep/dnGrep/releases/v$version",
+            "regex": "(?sm)$basename.*?SHA-256: $sha256"
+        }
+    }
+}

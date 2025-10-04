@@ -1,0 +1,52 @@
+{
+    "version": "22.20.0",
+    "description": "JavaScript runtime environment.",
+    "homepage": "https://nodejs.org",
+    "license": "MIT",
+    "notes": "npm global prefix set to: $env:APPDATA\\npm",
+    "architecture": {
+        "64bit": {
+            "url": "https://npmmirror.com/mirrors/node/v22.20.0/node-v22.20.0-win-x64.7z",
+            "hash": "a49bc0e03dea2c57941f9d473223c0f23943f225b97fde1037800a9f146f7c19",
+            "extract_dir": "node-v22.20.0-win-x64"
+        },
+        "32bit": {
+            "url": "https://npmmirror.com/mirrors/node/v22.20.0/node-v22.20.0-win-x86.7z",
+            "hash": "c0987f04eb9df214ecdd4ec606170350901b4b47e223e7549332f327355c75e5",
+            "extract_dir": "node-v22.20.0-win-x86"
+        }
+    },
+    "installer": {
+        "script": [
+            "add_first_in_path \"$env:APPDATA\\npm\" $global",
+            "& \"$dir\\npm.cmd\" config set prefix \"$env:APPDATA\\npm\""
+        ]
+    },
+    "uninstaller": {
+        "script": "remove_from_path \"$env:APPDATA\\npm\" $global"
+    },
+    "bin": [
+        "node.exe",
+        "npm.cmd"
+    ],
+    "checkver": {
+        "url": "https://npmmirror.com/mirrors/node/index.json",
+        "jsonpath": "$..[?(@.lts != false)].version",
+        "regex": "v([\\d\\.]+).*"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://npmmirror.com/mirrors/node/v$version/node-v$version-win-x64.7z",
+                "extract_dir": "node-v$version-win-x64"
+            },
+            "32bit": {
+                "url": "https://npmmirror.com/mirrors/node/v$version/node-v$version-win-x86.7z",
+                "extract_dir": "node-v$version-win-x86"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHASUMS256.txt.asc"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "version": "3.28.2",
+    "description": "A CLI for Quarkus Java framework",
+    "homepage": "https://quarkus.io/",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JDK": "easy-win/openjdk"
+    },
+    "url": "https://www.ghproxy.cn/https://github.com/quarkusio/quarkus/releases/download/3.28.2/quarkus-cli-3.28.2.zip",
+    "extract_dir": "quarkus-cli-3.28.2",
+    "hash": "a20c43fe4fba0c9eb15128ad13f00675c676474941fbedfef4974527316fa997",
+    "bin": "bin\\quarkus.bat",
+    "checkver": {
+        "url": "https://registry.quarkus.io/client/platforms",
+        "jsonpath": "$..version",
+        "regex": "([\\d+\\.]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/quarkusio/quarkus/releases/download/$version/quarkus-cli-$version.zip",
+        "extract_dir": "quarkus-cli-$version",
+        "hash": {
+            "url": "$baseurl/checksums_sha256.txt"
+        }
+    }
+}

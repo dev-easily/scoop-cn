@@ -1,0 +1,22 @@
+{
+    "version": "3.4.1",
+    "homepage": "https://github.com/FlareSolverr/FlareSolverr",
+    "description": "A proxy server to bypass Cloudflare and DDoS-GUARD protection.",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/FlareSolverr/FlareSolverr/releases/download/v3.4.1/flaresolverr_windows_x64.zip",
+            "hash": "690b6948fe94bde147f3a5c1970e06ad7d81f44a7c82e48e44967931fe5d5814"
+        }
+    },
+    "extract_dir": "flaresolverr",
+    "bin": "flaresolverr.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/FlareSolverr/FlareSolverr/releases/download/v$version/flaresolverr_windows_x64.zip"
+            }
+        }
+    }
+}
