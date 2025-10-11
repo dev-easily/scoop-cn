@@ -1,0 +1,35 @@
+{
+    "version": "0.34.0",
+    "description": "Desktop application for Aider AI assistant",
+    "homepage": "https://github.com/hotovo/aider-desk",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/hotovo/aider-desk/releases/download/v0.34.0/aider-desk-0.34.0-setup.exe#/dl.7z",
+            "hash": "sha512:c37a35915b94aed9dd25827c2a2b06d571c03a3d6269418dc8edcb4e73041305fe935e1488d9789f6af065dbf8f8e133935fcc57d4f315695c5ca7ab2b5075fb",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninst*\" -Recurse"
+            ]
+        }
+    },
+    "post_uninstall": "Remove-Item \"$env:APPDATA\\aider-desk\" -Recurse -Force",
+    "shortcuts": [
+        [
+            "Aider-desk.exe",
+            "Aider Desk"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/hotovo/aider-desk/releases/download/v$version/aider-desk-$version-setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
+    }
+}

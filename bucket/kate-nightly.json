@@ -1,0 +1,38 @@
+{
+    "version": "10386",
+    "description": "Multi-document editor",
+    "homepage": "https://apps.kde.org/kate",
+    "license": "LGPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.kde.org/ci-builds/utilities/kate/master/windows/kate-master-10386-windows-cl-msvc2022-x86_64.7z",
+            "hash": "b835267f0cd52f6c9c23d5a57c4233a8192ec8937a82f8408659d4a8a6570cdf"
+        }
+    },
+    "bin": [
+        [
+            "bin\\kate.exe",
+            "kate"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "bin\\kate.exe",
+            "Kate Nightly"
+        ]
+    ],
+    "checkver": {
+        "url": "https://cdn.kde.org/ci-builds/utilities/kate/master/windows/",
+        "regex": "kate-master-(\\d+)-windows-cl-(?<lib>\\w+)-x86_64\\.7z"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.kde.org/ci-builds/utilities/kate/master/windows/kate-master-$version-windows-cl-$matchLib-x86_64.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

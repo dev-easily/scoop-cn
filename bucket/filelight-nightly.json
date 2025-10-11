@@ -1,0 +1,38 @@
+{
+    "version": "1901",
+    "description": "Disk usage visualizer",
+    "homepage": "https://apps.kde.org/filelight",
+    "license": "LGPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.kde.org/ci-builds/utilities/filelight/master/windows/filelight-master-1901-windows-cl-msvc2022-x86_64.7z",
+            "hash": "7e1016a79cb944fa78f058c1351eb35d56fe0aed275a4f5d6318fa1ebdde44a8"
+        }
+    },
+    "bin": [
+        [
+            "bin\\filelight.exe",
+            "filelight"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "bin\\filelight.exe",
+            "Filelight Nightly"
+        ]
+    ],
+    "checkver": {
+        "url": "https://cdn.kde.org/ci-builds/utilities/filelight/master/windows/",
+        "regex": "filelight-master-(\\d+)-windows-cl-(?<lib>\\w+)-x86_64\\.7z"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.kde.org/ci-builds/utilities/filelight/master/windows/filelight-master-$version-windows-cl-$matchLib-x86_64.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "version": "1.51.0",
+    "description": "A new way to see and navigate directory trees",
+    "homepage": "https://dystroy.org/broot/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Canop/broot/releases/download/v1.51.0/broot_1.51.0.zip",
+            "hash": "d224bbb18d784e6fcfc05c23873d93b22c146ba284d6ef4abacc14da97de60cf",
+            "extract_dir": "x86_64-pc-windows-gnu"
+        }
+    },
+    "bin": "broot.exe",
+    "checkver": {
+        "github": "https://github.com/Canop/broot"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Canop/broot/releases/download/v$version/broot_$version.zip"
+            }
+        }
+    }
+}

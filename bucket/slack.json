@@ -1,0 +1,37 @@
+{
+    "version": "4.46.101",
+    "description": "Collaboration software",
+    "homepage": "https://slack.com",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://slack.com/intl/en-nl/legal"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.slack-edge.com/desktop-releases/windows/x64/4.46.101/slack-4.46.101-full.nupkg",
+            "hash": "sha1:8dad3816f6c26e2d35ad4c3006ca5d0f33526542"
+        }
+    },
+    "extract_dir": "lib\\net45",
+    "bin": "slack.exe",
+    "shortcuts": [
+        [
+            "slack.exe",
+            "Slack"
+        ]
+    ],
+    "checkver": {
+        "url": "https://slack.com/release-notes/windows",
+        "regex": "<h2 .+?>Slack ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.slack-edge.com/desktop-releases/windows/x64/$version/slack-$version-full.nupkg"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/RELEASES"
+        }
+    }
+}

@@ -1,0 +1,41 @@
+{
+    "homepage": "https://rclone.org",
+    "description": "rsync for cloud storage",
+    "version": "1.72.0-beta.9172.de8e9d469",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://beta.rclone.org/v1.72.0-beta.9172.de8e9d469/rclone-v1.72.0-beta.9172.de8e9d469-windows-amd64.zip",
+            "extract_dir": "rclone-v1.72.0-beta.9172.de8e9d469-windows-amd64",
+            "hash": "abdc1694d60719ca2d75dd4d4e9a73afd299bdf97f48ea78a41f625f15d8b23a"
+        },
+        "32bit": {
+            "url": "https://beta.rclone.org/v1.72.0-beta.9172.de8e9d469/rclone-v1.72.0-beta.9172.de8e9d469-windows-386.zip",
+            "extract_dir": "rclone-v1.72.0-beta.9172.de8e9d469-windows-386",
+            "hash": "78d6de451503311e759612134bb4d2334062c1084040500ec6bcebf2e32c410c"
+        }
+    },
+    "bin": [
+        "rclone.exe",
+        [
+            "rclone.exe",
+            "rclone-beta"
+        ]
+    ],
+    "checkver": {
+        "url": "https://beta.rclone.org/version.txt",
+        "regex": "rclone v(.+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://beta.rclone.org/v$version/rclone-v$version-windows-amd64.zip",
+                "extract_dir": "rclone-v$version-windows-amd64"
+            },
+            "32bit": {
+                "url": "https://beta.rclone.org/v$version/rclone-v$version-windows-386.zip",
+                "extract_dir": "rclone-v$version-windows-386"
+            }
+        }
+    }
+}
