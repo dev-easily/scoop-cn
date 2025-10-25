@@ -1,0 +1,40 @@
+{
+    "version": "6.0.1.17343",
+    "description": "The ownCloud Desktop Client is a tool to synchronize files from ownCloud Server with your computer.",
+    "homepage": "https://owncloud.com/",
+    "license": "GPL-2.0",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://download.owncloud.com/desktop/ownCloud/stable/6.0.1.17343/win/ownCloud-6.0.1.17343.x64.msi",
+            "hash": "5014b5714b7bb8867063399f8a86f3defe1bcbda9988a198b7e9b40c6dc183f0"
+        }
+    },
+    "extract_dir": "PFiles\\ownCloud",
+    "bin": [
+        "owncloudcmd.exe",
+        [
+            "owncloudcmd.exe",
+            "owncloud"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "owncloud.exe",
+            "ownCloud"
+        ]
+    ],
+    "checkver": {
+        "url": "https://owncloud.com/desktop-app/",
+        "regex": "ownCloud-([\\d.]+).x64.msi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.owncloud.com/desktop/ownCloud/stable/$version/win/ownCloud-$version.x64.msi"
+            }
+        }
+    }
+}

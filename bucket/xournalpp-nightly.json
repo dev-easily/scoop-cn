@@ -1,0 +1,42 @@
+{
+    "version": "1.2.8-20251019",
+    "description": "A handwriting notetaking software with PDF annotation support",
+    "homepage": "https://github.com/xournalpp/xournalpp",
+    "license": "GPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/xournalpp/xournalpp/releases/download/nightly/xournalpp-1.2.8%2Bdev-nightly-20251019-windows-portable-AMD64.zip",
+            "hash": "4817ae33f383d5f33a9ad4480cadd7d383a8becaae9c7fd36e30660ee7af234e",
+            "extract_dir": "xournalpp-1.2.8+dev-nightly-20251019-windows-portable-AMD64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/xournalpp/xournalpp/releases/download/nightly/xournalpp-1.2.8%2Bdev-nightly-20251019-windows-portable-ARM64.zip",
+            "hash": "1fc5eaa650cfd1e6328789f5c2196b980465e642bf6344e25c11ca851f3a3462",
+            "extract_dir": "xournalpp-1.2.8+dev-nightly-20251019-windows-portable-ARM64"
+        }
+    },
+    "bin": "bin\\xournalpp.exe",
+    "shortcuts": [
+        [
+            "bin\\xournalpp.exe",
+            "Xournal++ Nightly"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/11986447/releases/tags/nightly",
+        "regex": "xournalpp-(?<main>[\\d.]+)\\+dev-nightly-(?<date>\\d{8})",
+        "replace": "${main}-${date}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/xournalpp/xournalpp/releases/download/nightly/xournalpp-$matchMain%2Bdev-nightly-$matchDate-windows-portable-AMD64.zip",
+                "extract_dir": "xournalpp-$matchMain+dev-nightly-$matchDate-windows-portable-AMD64"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/xournalpp/xournalpp/releases/download/nightly/xournalpp-$matchMain%2Bdev-nightly-$matchDate-windows-portable-ARM64.zip",
+                "extract_dir": "xournalpp-$matchMain+dev-nightly-$matchDate-windows-portable-ARM64"
+            }
+        }
+    }
+}

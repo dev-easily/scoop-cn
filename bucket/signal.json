@@ -1,0 +1,43 @@
+{
+    "version": "7.76.0",
+    "description": "A cross-platform encrypted messaging service.",
+    "homepage": "https://signal.org",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://updates.signal.org/desktop/signal-desktop-win-x64-7.76.0.exe#/dl.7z",
+            "hash": "sha512:e8ce6803e7fc959517b484e8b74ea75c0cb1a6e6e7ba2df818cff4fa28358d776e391e0742f87be9e57b2ac151224cd9dd509528bd203be38f8dd3db198a66e8",
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\""
+        },
+        "arm64": {
+            "url": "https://updates.signal.org/desktop/signal-desktop-win-arm64-7.76.0.exe#/dl.7z",
+            "hash": "sha512:c51dadf6fbd52486878ed43cf9e00fe3b742a46bf8ab45b621597d7af2ec166c7e0bddf8b21afcf47f72ab5ca018f1fb51052eb4aac81f633cef0171fec68620",
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-arm64.7z\" \"$dir\""
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*.exe\" -Recurse -Force",
+    "shortcuts": [
+        [
+            "Signal.exe",
+            "Signal"
+        ]
+    ],
+    "checkver": {
+        "url": "https://updates.signal.org/desktop/latest.yml",
+        "regex": "version:\\s([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://updates.signal.org/desktop/signal-desktop-win-x64-$version.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://updates.signal.org/desktop/signal-desktop-win-arm64-$version.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "$basename\\s+sha512:\\s$base64"
+        }
+    }
+}

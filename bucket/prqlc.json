@@ -1,0 +1,23 @@
+{
+    "version": "0.13.5",
+    "description": "A simple, powerful, pipelined SQL replacement",
+    "homepage": "https://prql-lang.org/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/PRQL/prql/releases/download/0.13.5/prqlc-0.13.5-x86_64-pc-windows-msvc.zip",
+            "hash": "31737db27b200e4001abafbeacbd7cc826db41373b2d5be6f10ec4bc36801830"
+        }
+    },
+    "bin": "prqlc.exe",
+    "checkver": {
+        "github": "https://github.com/PRQL/prql"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/PRQL/prql/releases/download/$version/prqlc-$version-x86_64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

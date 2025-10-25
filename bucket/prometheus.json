@@ -1,0 +1,48 @@
+{
+    "version": "3.7.2",
+    "description": "Systems monitoring and alerting toolkit",
+    "homepage": "https://prometheus.io",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/prometheus/prometheus/releases/download/v3.7.2/prometheus-3.7.2.windows-amd64.tar.gz",
+            "hash": "06bb269774356029752b94c54a8c1e07dadb49a3194a5bb43fa11a0589210659",
+            "extract_dir": "prometheus-3.7.2.windows-amd64"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/prometheus/prometheus/releases/download/v3.7.2/prometheus-3.7.2.windows-386.tar.gz",
+            "hash": "1f8e768bf2d62604e16facd5560ef4ee5c3766bcff2ff81478c1c617db838dc1",
+            "extract_dir": "prometheus-3.7.2.windows-386"
+        }
+    },
+    "bin": [
+        [
+            "prometheus.exe",
+            "prometheus",
+            "--config.file \"$persist_dir\\prometheus.yml\""
+        ],
+        "promtool.exe"
+    ],
+    "persist": [
+        "data",
+        "prometheus.yml"
+    ],
+    "checkver": {
+        "github": "https://github.com/prometheus/prometheus"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/prometheus/prometheus/releases/download/v$version/prometheus-$version.windows-amd64.tar.gz",
+                "extract_dir": "prometheus-$version.windows-amd64"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/prometheus/prometheus/releases/download/v$version/prometheus-$version.windows-386.tar.gz",
+                "extract_dir": "prometheus-$version.windows-386"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sums.txt"
+        }
+    }
+}

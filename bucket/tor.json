@@ -1,0 +1,61 @@
+{
+    "version": "0.4.8.19-14.5.8",
+    "description": "Enables anonymous communication over the onion network (expert mode).",
+    "homepage": "https://www.torproject.org",
+    "license": "BSD-3-Clause",
+    "notes": [
+        "You will need to configure Tor before using, as it does not come pre-configured.",
+        "See https://tb-manual.torproject.org/ for details."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://tor.ybti.net/dist/torbrowser/14.5.8/tor-expert-bundle-windows-x86_64-14.5.8.tar.gz",
+            "hash": "baf4a0f60f6e15baeae242ca3c03017b71a9da3d32fcbde36ef5d4fc50790385"
+        },
+        "32bit": {
+            "url": "https://tor.ybti.net/dist/torbrowser/14.5.8/tor-expert-bundle-windows-i686-14.5.8.tar.gz",
+            "hash": "6272acc4ec285be9f69ab70fded9966f367196f9a38b43c7f24716d2f2a66628"
+        }
+    },
+    "pre_install": [
+        "$current_dir = if (get_config NO_JUNCTIONS) { $dir } else { \"$(appdir $app $global)\\current\" }",
+        "$content = @(",
+        "    \"DataDirectory `\"$current_dir\\data`\"\"",
+        "    \"GeoIPFile `\"$current_dir\\data\\geoip`\"\"",
+        "    \"GeoIPv6File `\"$current_dir\\data\\geoip6`\"\"",
+        ")",
+        "if (!(Test-Path \"$persist_dir\\torrc\")) {",
+        "    Add-Content \"$dir\\torrc\" $content.Replace('\\', '/') -Encoding ASCII -Force",
+        "}"
+    ],
+    "bin": [
+        [
+            "tor\\tor.exe",
+            "tor",
+            "-f \"$dir\\torrc\""
+        ],
+        "tor\\tor-gencert.exe"
+    ],
+    "persist": [
+        "data",
+        "torrc"
+    ],
+    "checkver": {
+        "url": "https://www.torproject.org/download/tor/",
+        "regex": "windows-i686-[\\d.]+.tar.gz\">(?<browser>[\\d.]+) \\(tor (?<tor>[\\d.]+)\\)",
+        "replace": "${tor}-${browser}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://tor.ybti.net/dist/torbrowser/$matchBrowser/tor-expert-bundle-windows-x86_64-$matchBrowser.tar.gz"
+            },
+            "32bit": {
+                "url": "https://tor.ybti.net/dist/torbrowser/$matchBrowser/tor-expert-bundle-windows-i686-$matchBrowser.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sums-signed-build.txt"
+        }
+    }
+}
