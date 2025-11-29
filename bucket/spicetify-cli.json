@@ -1,0 +1,34 @@
+{
+    "version": "2.42.3",
+    "description": "Tool for customizing the Spotify client.",
+    "homepage": "https://spicetify.app/",
+    "license": "LGPL-2.1-only",
+    "notes": "Make sure to set 'spotify_path' to the directory of your Spotify installation in the Spicetify config",
+    "suggest": {
+        "Spotify": "easy-win/spotify"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/spicetify/cli/releases/download/v2.42.3/spicetify-2.42.3-windows-x64.zip",
+            "hash": "6b031d99f3c05c829360875746c96f35a7ae5b29118d34537c982292529fb328"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/spicetify/cli/releases/download/v2.42.3/spicetify-2.42.3-windows-x32.zip",
+            "hash": "bf962ccefa3d6ccb779ecaac86c26ca348b30e9349a70a8bce5051100c6f9c3e"
+        }
+    },
+    "bin": "spicetify.exe",
+    "checkver": {
+        "github": "https://github.com/spicetify/cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/spicetify/cli/releases/download/v$version/spicetify-$version-windows-x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/spicetify/cli/releases/download/v$version/spicetify-$version-windows-x32.zip"
+            }
+        }
+    }
+}

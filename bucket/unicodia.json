@@ -1,0 +1,29 @@
+{
+    "version": "3.0.3",
+    "description": "Encyclopedia of Unicode characters",
+    "homepage": "https://mercury13.github.io/unicodia/",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Mercury13/unicodia/releases/download/v3.0.3/Unicodia-w64-3.0.3.7z",
+            "hash": "1ad050624823a4faff777f114736c6ec78a4026da0b24f12cf810370ca369d49"
+        }
+    },
+    "bin": "unicodia.exe",
+    "shortcuts": [
+        [
+            "Unicodia.exe",
+            "Unicodia"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Mercury13/unicodia"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Mercury13/unicodia/releases/download/v$version/Unicodia-w64-$version.7z"
+            }
+        }
+    }
+}

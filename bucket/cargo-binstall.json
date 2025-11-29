@@ -1,0 +1,30 @@
+{
+    "version": "1.16.2",
+    "description": "Binary installation for rust projects",
+    "homepage": "https://github.com/cargo-bins/cargo-binstall",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/cargo-bins/cargo-binstall/releases/download/v1.16.2/cargo-binstall-x86_64-pc-windows-msvc.zip",
+            "hash": "970882c90c512f53d5ce446cf0b68dc70c35e75cc52dbb264606bcf72edfc02b"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/cargo-bins/cargo-binstall/releases/download/v1.16.2/cargo-binstall-aarch64-pc-windows-msvc.zip",
+            "hash": "cc506948ffbd388fa29eeca88744a2dfeb988b8bb41453dc5a7eda3441bf1aac"
+        }
+    },
+    "bin": "cargo-binstall.exe",
+    "checkver": {
+        "github": "https://github.com/cargo-bins/cargo-binstall"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/cargo-bins/cargo-binstall/releases/download/v$version/cargo-binstall-x86_64-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/cargo-bins/cargo-binstall/releases/download/v$version/cargo-binstall-aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}
