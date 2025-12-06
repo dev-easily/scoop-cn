@@ -1,0 +1,67 @@
+{
+    "version": "21.0.9-b1163.86",
+    "homepage": "https://github.com/JetBrains/JetBrainsRuntime",
+    "description": "A fork of OpenJDK that includes a number enhancements in font rendering, HiDPI support, ligatures, performance improvements, and bugfixes. These are mainly for running IntelliJ Platform-based products",
+    "license": "GPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.0.9-windows-x64-b1163.86.tar.gz",
+            "hash": "sha512:f969a9edc7547b36327bc3c467987b6b9d361cba158e7df0deb4db39ebf86876b6e97e7e7b822b997cb4532875bff6956d6c4f79f061258555cf7003f6387405",
+            "extract_dir": "jbrsdk_jcef-21.0.9-windows-x64-b1163.86"
+        },
+        "arm64": {
+            "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.0.9-windows-aarch64-b1163.86.tar.gz",
+            "hash": "sha512:111e41c303803da0f67d1fbc1403d9bdf82d66182f3bf4d2b6d37712ab2a3882abc13993f1716b419ff64dd4fe56e68a17a766f35c20bd06b6b816a76df44a63",
+            "extract_dir": "jbrsdk_jcef-21.0.9-windows-aarch64-b1163.86"
+        }
+    },
+    "env_set": {
+        "JAVA_HOME": "$dir"
+    },
+    "env_add_path": "bin",
+    "checkver": {
+        "script": [
+            "$url = 'https://api.github.com/repos/JetBrains/JetBrainsRuntime/releases'",
+            "$releases = Invoke-RestMethod $url",
+            "$tags = $releases | ForEach-Object { $_.tag_name }",
+            "# `$Script:expected_ver` is current version for fallback",
+            "$tags += 'jbr-release-' + ($Script:expected_ver -replace '-', '')",
+            "$pattern = 'jbr-release-21\\.(?<Version>[\\d.]+)b(?<BuildNum>[\\d]+)\\.(?<Patch>\\d+)'",
+            "$matches = foreach ($t in $tags) { if ($t -match $pattern) {",
+            "    [PSCustomObject]@{",
+            "      Tag = $t",
+            "      VersionParts = ($Matches.Version -split '\\.') | ForEach-Object { [int]$_ }",
+            "      BuildNum = [int]$Matches.BuildNum",
+            "      Patch = [int]$Matches.Patch",
+            "    }",
+            "  } }",
+            "$latest = $matches | Sort-Object @{Expression={$_.VersionParts[0]}},",
+            "                                 @{Expression={$_.VersionParts[1]}},",
+            "                                 @{Expression={$_.BuildNum}},",
+            "                                 @{Expression={$_.Patch}} | Select-Object -Last 1",
+            "Write-Output $latest.Tag"
+        ],
+        "regex": "jbr-release-21\\.(?<Version>[\\d.]+)(?<Build>[\\w]+)\\.(?<Patch>[\\d]+)",
+        "replace": "21.${Version}-${Build}.${Patch}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.$matchVersion-windows-x64-$matchBuild.$matchPatch.tar.gz",
+                "hash": {
+                    "url": "$url.checksum",
+                    "regex": "$sha512\\s"
+                },
+                "extract_dir": "jbrsdk_jcef-21.$matchVersion-windows-x64-$matchBuild.$matchPatch"
+            },
+            "arm64": {
+                "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbrsdk_jcef-21.$matchVersion-windows-aarch64-$matchBuild.$matchPatch.tar.gz",
+                "hash": {
+                    "url": "$url.checksum",
+                    "regex": "$sha512\\s"
+                },
+                "extract_dir": "jbrsdk_jcef-21.$matchVersion-windows-aarch64-$matchBuild.$matchPatch"
+            }
+        }
+    }
+}
