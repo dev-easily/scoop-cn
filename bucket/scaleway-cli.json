@@ -1,0 +1,31 @@
+{
+    "version": "2.48.0",
+    "description": "Manage BareMetal Servers from Command Line (as easily as with Docker).",
+    "homepage": "https://github.com/scaleway/scaleway-cli",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/scaleway/scaleway-cli/releases/download/v2.48.0/scaleway-cli_2.48.0_windows_amd64.exe#/scw.exe",
+            "hash": "b9f956131394877b4ef94d8f2574e0e9b451c2d6400804729d2d6892656338a9"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/scaleway/scaleway-cli/releases/download/v2.48.0/scaleway-cli_2.48.0_windows_386.exe#/scw.exe",
+            "hash": "4b711cfdb33e500a8802ffdc6fbbbc7dc7c7c5409baca9623d600a8f50280b2b"
+        }
+    },
+    "bin": "scw.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/scaleway/scaleway-cli/releases/download/v$version/scaleway-cli_$version_windows_amd64.exe#/scw.exe"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/scaleway/scaleway-cli/releases/download/v$version/scaleway-cli_$version_windows_386.exe#/scw.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "version": "5.3.4",
+    "description": "An Electron-based unofficial desktop client for ProtonMail.",
+    "homepage": "https://github.com/vladimiry/ElectronMail",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/vladimiry/ElectronMail/releases/download/v5.3.4/electron-mail-5.3.4-windows-x64-nsis-installer.exe#/dl.7z",
+            "hash": "fd6aaba6d463a33c15c939eee0c8c82088e5dabed3dd1d0ae4a98e1903170ded"
+        }
+    },
+    "extract_dir": "$PLUGINSDIR",
+    "pre_install": "Expand-7zipArchive \"$dir\\app-64.7z\" $dir -Removal",
+    "shortcuts": [
+        [
+            "electron-mail.exe",
+            "ElectronMail"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/vladimiry/ElectronMail/releases/download/v$version/electron-mail-$version-windows-x64-nsis-installer.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/vladimiry/ElectronMail/releases/tag/v$version",
+            "regex": "$sha256\\s+$basename"
+        }
+    }
+}

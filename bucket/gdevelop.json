@@ -1,0 +1,39 @@
+{
+    "version": "5.6.250",
+    "description": "A full-featured, no-code, open-source game development software.",
+    "homepage": "https://gdevelop.io",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://github.com/4ian/GDevelop/blob/master/license.txt"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/4ian/GDevelop/releases/download/v5.6.250/GDevelop-5-Setup-5.6.250.exe#/dl.7z",
+            "hash": "sha512:ef6dd00fa231c21ce4360645e385bb8dedf4427d856c805276637f21154fd2cbd053ef33824fc6d3356040a2df1dc0160232769f78b3bbcf558a570c9ef1386d"
+        }
+    },
+    "pre_install": [
+        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\" -Removal",
+        "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse -Force"
+    ],
+    "shortcuts": [
+        [
+            "GDevelop.exe",
+            "GDevelop"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/4ian/GDevelop"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/4ian/GDevelop/releases/download/v$version/GDevelop-$majorVersion-Setup-$version.exe#/dl.7z",
+                "hash": {
+                    "url": "$baseurl/latest.yml",
+                    "regex": "sha512:\\s$base64"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,50 @@
+{
+    "homepage": "https://github.com/xtaci/kcptun",
+    "description": "A Stable & Secure Tunnel based on KCP with N:M multiplexing and FEC.",
+    "version": "20251212",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/xtaci/kcptun/releases/download/v20251212/kcptun-windows-amd64-20251212.tar.gz",
+            "hash": "sha1:4dbeecf59e4709c5b16cc1f81edfdf82468c0f9a",
+            "bin": [
+                [
+                    "client_windows_amd64.exe",
+                    "kcptun-client"
+                ],
+                [
+                    "server_windows_amd64.exe",
+                    "kcptun-server"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/xtaci/kcptun/releases/download/v20251212/kcptun-windows-386-20251212.tar.gz",
+            "hash": "sha1:4710af8c1a4fe63ce7e88722797378d1ec499fea",
+            "bin": [
+                [
+                    "client_windows_386.exe",
+                    "kcptun-client"
+                ],
+                [
+                    "server_windows_386.exe",
+                    "kcptun-server"
+                ]
+            ]
+        }
+    },
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/xtaci/kcptun/releases/download/v$version/kcptun-windows-amd64-$version.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/xtaci/kcptun/releases/download/v$version/kcptun-windows-386-$version.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/xtaci/kcptun/releases"
+        }
+    }
+}
