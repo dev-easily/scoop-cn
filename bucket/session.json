@@ -1,0 +1,39 @@
+{
+    "version": "1.17.5",
+    "description": "End-to-end encrypted messenger",
+    "homepage": "https://getsession.org",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/session-foundation/session-desktop/releases/download/v1.17.5/session-desktop-win-x64-1.17.5.exe#/dl.7z",
+            "hash": "sha512:a2dd9d4e40a17d271c133d89057473fea714b304dfc88cb060a7b65db2b0fb223b830503b061c7c9f8cd074123788d20e84a8943b379b5ddc91bb5f683cd2e79",
+            "installer": {
+                "script": [
+                    "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                    "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
+                ]
+            }
+        }
+    },
+    "bin": "Session.exe",
+    "shortcuts": [
+        [
+            "Session.exe",
+            "Session"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/session-foundation/session-desktop"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/session-foundation/session-desktop/releases/download/v$version/session-desktop-win-x64-$version.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
+    }
+}

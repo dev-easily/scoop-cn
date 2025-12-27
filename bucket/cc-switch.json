@@ -1,0 +1,26 @@
+{
+    "version": "3.8.3",
+    "description": "A desktop All-in-One assistant tool for Claude Code, Codex & Gemini CLI.",
+    "homepage": "https://github.com/farion1231/cc-switch",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/farion1231/cc-switch/releases/download/v3.8.3/CC-Switch-v3.8.3-Windows-Portable.zip",
+            "hash": "e9ea56f0f342ca7abe2f07bb0fef7a1f3ce36616a82c5b6cb6349001839b5519"
+        }
+    },
+    "shortcuts": [
+        [
+            "cc-switch.exe",
+            "CC-Switch"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/farion1231/cc-switch/releases/download/v$version/CC-Switch-v$version-Windows-Portable.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "version": "v25.01-v1.5.7-R3",
+    "description": "Multi-format compression/decompression tool with brotli and other codecs (beta version)",
+    "homepage": "https://github.com/mcmilk/7-Zip-zstd/",
+    "license": "LGPL-2.1-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/mcmilk/7-Zip-zstd/releases/download/v25.01-v1.5.7-R3/7z25.01-zstd-x64.exe#/dl.7z",
+            "hash": "cb68843e7fca0a645d52e4193e8071c8fc0741a2fe3121a11e4452e31607af7f"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/mcmilk/7-Zip-zstd/releases/download/v25.01-v1.5.7-R3/7z25.01-zstd-x32.exe#/dl.7z",
+            "hash": "e6de9e03016311665319614c3b831351c582a4c99b9035852dbf3398addf5e14"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/mcmilk/7-Zip-zstd/releases/download/v25.01-v1.5.7-R3/7z25.01-zstd-arm64.exe#/dl.7z",
+            "hash": "82dd2ae09a8db928ea102b261c6906a1d00a1a7f01c9779ee26db6d801d704a2"
+        }
+    },
+    "bin": [
+        "7z.exe",
+        "7zFM.exe",
+        "7zG.exe"
+    ],
+    "shortcuts": [
+        [
+            "7zFM.exe",
+            "7-Zip Zstd"
+        ]
+    ],
+    "persist": [
+        "Codecs",
+        "Formats"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repositories/61958135/releases",
+        "jsonpath": "$[0].tag_name"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/mcmilk/7-Zip-zstd/releases/download/$version/7z$matchHead-zstd-x64.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/mcmilk/7-Zip-zstd/releases/download/$version/7z$matchHead-zstd-x32.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/mcmilk/7-Zip-zstd/releases/download/$version/7z$matchHead-zstd-arm64.exe#/dl.7z"
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "version": "0.0.35",
+    "description": "A simple screen annotation.",
+    "homepage": "https://github.com/DmytroVasin/DrawPen",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/DmytroVasin/DrawPen/releases/download/v0.0.35/DrawPen-win32-x64-0.0.35.zip",
+            "hash": "3b75bf3c966ad0ba756a7645d20065910530ff6490623cd7c36d01e9e37893c9"
+        }
+    },
+    "shortcuts": [
+        [
+            "DrawPen.exe",
+            "DrawPen"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/DmytroVasin/DrawPen/releases/download/v$version/DrawPen-win32-x64-$version.zip"
+            }
+        }
+    }
+}
