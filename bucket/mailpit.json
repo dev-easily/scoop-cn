@@ -1,0 +1,30 @@
+{
+    "version": "1.28.2",
+    "description": "An email and SMTP testing tool with API for developers",
+    "homepage": "https://mailpit.axllent.org",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/axllent/mailpit/releases/download/v1.28.2/mailpit-windows-amd64.zip",
+            "hash": "4ea65e3c653697d326856fbc7bdc53e16e39e5de5292864a50e9a266ac63ff5a"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/axllent/mailpit/releases/download/v1.28.2/mailpit-windows-arm64.zip",
+            "hash": "acd2676d8d321f3ec016b80c3292034f9090bedebe5719ed74b61b5873d5b188"
+        }
+    },
+    "bin": "mailpit.exe",
+    "checkver": {
+        "github": "https://github.com/axllent/mailpit"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/axllent/mailpit/releases/download/v$version/mailpit-windows-amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/axllent/mailpit/releases/download/v$version/mailpit-windows-arm64.zip"
+            }
+        }
+    }
+}
