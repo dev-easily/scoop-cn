@@ -1,0 +1,48 @@
+{
+    "version": "10.15.4.19",
+    "description": "A Visual Novel translation tool, with HOOK / OCR / clipboard support",
+    "homepage": "https://github.com/HIllya51/LunaTranslator",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/HIllya51/LunaTranslator/releases/download/v10.15.4.19/LunaTranslator_x64_win10.zip",
+            "hash": "adb1e0298ce8702829d1427b7110fd3a7430fd82cd395bb99e9331e9c4a48e74",
+            "extract_dir": "LunaTranslator_x64_win10"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/HIllya51/LunaTranslator/releases/download/v10.15.4.19/LunaTranslator_x86_win7.zip",
+            "hash": "607a685230285839c2e594f68824970486768e602d2222b63cc51c403ac1ebd5",
+            "extract_dir": "LunaTranslator_x86_win7"
+        }
+    },
+    "shortcuts": [
+        [
+            "LunaTranslator.exe",
+            "LunaTranslator"
+        ],
+        [
+            "LunaTranslator_admin.exe",
+            "LunaTranslator (admin)"
+        ],
+        [
+            "LunaTranslator_debug.bat",
+            "LunaTranslator (debug)"
+        ]
+    ],
+    "persist": [
+        "cache",
+        "userconfig",
+        "translation_record"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/HIllya51/LunaTranslator/releases/download/v$version/LunaTranslator_x64_win10.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/HIllya51/LunaTranslator/releases/download/v$version/LunaTranslator_x86_win7.zip"
+            }
+        }
+    }
+}
