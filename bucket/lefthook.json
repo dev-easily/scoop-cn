@@ -1,0 +1,38 @@
+{
+    "version": "2.0.16",
+    "description": "Fast and powerful Git hooks manager for any type of projects",
+    "homepage": "https://github.com/evilmartians/lefthook",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/evilmartians/lefthook/releases/download/v2.0.16/lefthook_2.0.16_Windows_x86_64.gz",
+            "hash": "07444502ac3ce9bb036323aae0bc5eb7e1ad9c1ea7fc32fc6d42561aa99aef66"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/evilmartians/lefthook/releases/download/v2.0.16/lefthook_2.0.16_Windows_i386.gz",
+            "hash": "4fc1e3e66c9f28d5c0029282f9911f08ef46b12dc547f5685683f19e231b4bde"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/evilmartians/lefthook/releases/download/v2.0.16/lefthook_2.0.16_Windows_arm64.gz",
+            "hash": "fe678ede445b0545f63cbd1a2bcfda796ad67ffbc102af82abff7b996bbd9f27"
+        }
+    },
+    "bin": "lefthook.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/evilmartians/lefthook/releases/download/v$version/lefthook_$version_Windows_x86_64.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/evilmartians/lefthook/releases/download/v$version/lefthook_$version_Windows_i386.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/evilmartians/lefthook/releases/download/v$version/lefthook_$version_Windows_arm64.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/lefthook_checksums.txt"
+        }
+    }
+}

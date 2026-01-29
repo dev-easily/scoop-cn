@@ -1,0 +1,59 @@
+{
+    "version": "11.90.20476",
+    "description": "DynamoRIO is a runtime code manipulation system that supports code transformations on any part of a program, while it executes.",
+    "homepage": "https://dynamorio.org",
+    "license": "BSD-3-Clause-Clear",
+    "url": "https://www.ghproxy.cn/https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-11.90.20476/DynamoRIO-Windows-11.90.20476.zip",
+    "hash": "96a06a0c8c4893cf6ca9192e334f0a70baf7c5bc722bfc42b40b2c08cf36a918",
+    "extract_dir": "DynamoRIO-Windows-11.90.20476",
+    "architecture": {
+        "64bit": {
+            "bin": [
+                "bin64\\closewnd.exe",
+                "bin64\\create_process.exe",
+                "bin64\\drconfig.exe",
+                "bin64\\DRcontrol.exe",
+                "bin64\\drdisas.exe",
+                "bin64\\drinject.exe",
+                "bin64\\DRkill.exe",
+                "bin64\\DRload.exe",
+                "bin64\\drrun.exe",
+                "bin64\\DRstats.exe",
+                "bin64\\DRview.exe",
+                "bin64\\dummy.exe",
+                "bin32\\ldmp.exe",
+                "bin64\\svccntrl.exe",
+                "bin64\\winstats.exe",
+                "bin64\\balloon.exe"
+            ]
+        },
+        "32bit": {
+            "bin": [
+                "bin32\\closewnd.exe",
+                "bin32\\create_process.exe",
+                "bin32\\drconfig.exe",
+                "bin32\\DRcontrol.exe",
+                "bin32\\drdisas.exe",
+                "bin32\\drinject.exe",
+                "bin32\\DRkill.exe",
+                "bin32\\DRload.exe",
+                "bin32\\drrun.exe",
+                "bin32\\DRstats.exe",
+                "bin32\\DRview.exe",
+                "bin32\\dummy.exe",
+                "bin32\\ldmp.exe",
+                "bin32\\svccntrl.exe",
+                "bin32\\winstats.exe",
+                "bin32\\balloon.exe"
+            ]
+        }
+    },
+    "checkver": {
+        "url": "https://github.com/DynamoRIO/dynamorio",
+        "regex": "tag/cronbuild-([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/DynamoRIO/dynamorio/releases/download/cronbuild-$version/DynamoRIO-Windows-$version.zip",
+        "extract_dir": "DynamoRIO-Windows-$version"
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "version": "0.92.0",
+    "description": "OpenAI's Codex AI coding assistant",
+    "homepage": "https://github.com/openai/codex",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-x86_64-pc-windows-msvc.exe#/codex.exe",
+            "hash": "80d00dc77b4dc3aa8c3a6291db2b37fa43bc3a6bfa8c6e28524a6eecae073fec"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/openai/codex/releases/download/rust-v0.92.0/codex-aarch64-pc-windows-msvc.exe#/codex.exe",
+            "hash": "074cca5fab2225ed95e893f8fb5040ae92e2eff02590844e0dc18d6b8d8c8e65"
+        }
+    },
+    "bin": [
+        [
+            "codex.exe",
+            "codex"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/openai/codex/releases",
+        "regex": "rust-v(\\d+\\.\\d+\\.\\d+)(?![^\\d]*alpha|[^\\d]*beta|[^\\d]*rc|[^\\d]*preview)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/openai/codex/releases/download/rust-v$version/codex-x86_64-pc-windows-msvc.exe#/codex.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/openai/codex/releases/download/rust-v$version/codex-aarch64-pc-windows-msvc.exe#/codex.exe"
+            }
+        }
+    }
+}

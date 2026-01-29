@@ -1,0 +1,38 @@
+{
+    "version": "1.64.4",
+    "description": "A live-reloading command line utility for developing Go applications.",
+    "homepage": "https://github.com/cosmtrek/air",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/cosmtrek/air/releases/download/v1.64.4/air_1.64.4_windows_amd64.tar.gz",
+            "hash": "bd580e36420496d8cc60e5aa2bc55896f58f3684d48e45324ab7bfe94ee6c058"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/cosmtrek/air/releases/download/v1.64.4/air_1.64.4_windows_386.tar.gz",
+            "hash": "deb00f395ccf5dac34374f917c027bea0c24ea036ea9c17352b2c446b4a033b4"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/cosmtrek/air/releases/download/v1.64.4/air_1.64.4_windows_arm64.tar.gz",
+            "hash": "64a626ba296f3f47ccf5ade94a9af6a3563594e30ecb1c8d4ea9367ad93f0d8f"
+        }
+    },
+    "bin": "air.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/cosmtrek/air/releases/download/v$version/air_$version_windows_amd64.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/cosmtrek/air/releases/download/v$version/air_$version_windows_386.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/cosmtrek/air/releases/download/v$version/air_$version_windows_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/air_$version_checksums.txt"
+        }
+    }
+}
