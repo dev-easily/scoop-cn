@@ -1,0 +1,26 @@
+{
+    "version": "3.63.3",
+    "description": "Allows deleting all resources of an AWS account.",
+    "homepage": "https://aws-nuke.ekristen.dev/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ekristen/aws-nuke/releases/download/v3.63.3/aws-nuke-v3.63.3-windows-amd64.zip",
+            "hash": "86fff690b4429ed0f75f67a9584a0329b5f9d19884d4f9cf47020d978a745414"
+        }
+    },
+    "bin": "aws-nuke.exe",
+    "checkver": {
+        "github": "https://github.com/ekristen/aws-nuke"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ekristen/aws-nuke/releases/download/v$version/aws-nuke-v$version-windows-amd64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}
