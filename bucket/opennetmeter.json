@@ -1,0 +1,30 @@
+{
+    "version": "0.14.0.0",
+    "description": "A simple program to monitor your network/data usage.",
+    "homepage": "https://github.com/Ashfaaq18/OpenNetMeter",
+    "license": "Apache-2.0",
+    "suggest": {
+        ".NET Desktop Runtime 8.0": "easy-win/windowsdesktop-runtime-8.0"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Ashfaaq18/OpenNetMeter/releases/download/v0.14.0.0/OpenNetMeter-0.14.0.msi",
+            "hash": "763df7be4601506f1a3004adb1dda4ad4785b4ff2d7304814180cd67f832856e",
+            "extract_dir": "PFiles64\\OpenNetMeter"
+        }
+    },
+    "shortcuts": [
+        [
+            "OpenNetMeter.exe",
+            "OpenNetMeter"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Ashfaaq18/OpenNetMeter/releases/download/v$version/OpenNetMeter-$matchHead.msi"
+            }
+        }
+    }
+}

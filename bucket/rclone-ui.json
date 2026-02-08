@@ -1,0 +1,46 @@
+{
+    "version": "3.4.1",
+    "description": "GUI for rclone & S3",
+    "homepage": "https://rcloneui.com",
+    "license": "Apache-2.0",
+    "notes": [
+        "Requires Microsoft Edge WebView2 Runtime (preinstalled on Windows 11 and most Windows 10).",
+        "If missing, install the Evergreen Runtime from Microsoft."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/rclone-ui/rclone-ui/releases/download/v3.4.1/Rclone.UI_x64.exe#/dl.7z",
+            "hash": "8aa8abaff1f4dd6ff3788667c5ae77220cfa46ee8c396e891ed244ccbfe1194e"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/rclone-ui/rclone-ui/releases/download/v3.4.1/Rclone.UI_arm64.exe#/dl.7z",
+            "hash": "3b369d49f63058a6882ffcf2145951a0e0ed6d776f51b02db17ef689fcc9343d"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninstall.exe\" -Force -Recurse",
+    "bin": [
+        [
+            "Rclone UI.exe",
+            "rclone-ui"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Rclone UI.exe",
+            "Rclone UI"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/rclone-ui/rclone-ui"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/rclone-ui/rclone-ui/releases/download/v$version/Rclone.UI_x64.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/rclone-ui/rclone-ui/releases/download/v$version/Rclone.UI_arm64.exe#/dl.7z"
+            }
+        }
+    }
+}

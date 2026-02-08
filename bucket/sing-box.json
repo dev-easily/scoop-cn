@@ -1,0 +1,44 @@
+{
+    "version": "1.12.20",
+    "description": "The universal proxy platform.",
+    "homepage": "https://sing-box.sagernet.org/",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/SagerNet/sing-box/releases/download/v1.12.20/sing-box-1.12.20-windows-amd64.zip",
+            "hash": "ee7ec44e818494e9e89b8f23f7664d3ef27eaf7d8063fa6b40e78d2ff203b990",
+            "extract_dir": "sing-box-1.12.20-windows-amd64"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/SagerNet/sing-box/releases/download/v1.12.20/sing-box-1.12.20-windows-386.zip",
+            "hash": "56aae7e2f7c65a797d80c7d6bb32534f3f2ac8ba51c9bf4e3abaa5f807e1e183",
+            "extract_dir": "sing-box-1.12.20-windows-386"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/SagerNet/sing-box/releases/download/v1.12.20/sing-box-1.12.20-windows-arm64.zip",
+            "hash": "89206dfd5944b96ceca5792dcdcbfe91f625fb68262b28d382e4d517d6a050c0",
+            "extract_dir": "sing-box-1.12.20-windows-arm64"
+        }
+    },
+    "bin": "sing-box.exe",
+    "checkver": {
+        "github": "https://github.com/SagerNet/sing-box/",
+        "regex": "(?<tag>v([\\d.]+))"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/SagerNet/sing-box/releases/download/$matchTag/sing-box-$version-windows-amd64.zip",
+                "extract_dir": "sing-box-$version-windows-amd64"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/SagerNet/sing-box/releases/download/$matchTag/sing-box-$version-windows-386.zip",
+                "extract_dir": "sing-box-$version-windows-386"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/SagerNet/sing-box/releases/download/$matchTag/sing-box-$version-windows-arm64.zip",
+                "extract_dir": "sing-box-$version-windows-arm64"
+            }
+        }
+    }
+}

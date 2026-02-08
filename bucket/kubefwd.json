@@ -1,0 +1,31 @@
+{
+    "version": "1.25.10",
+    "description": "Bulk port forwarding Kubernetes services for local development",
+    "homepage": "https://github.com/txn2/kubefwd",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/txn2/kubefwd/releases/download/v1.25.10/kubefwd_Windows_x86_64.zip",
+            "hash": "49e3aa8b17df86756da09d8001b0039a1fc99e9788bd0657844329c99af9cb0f"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/txn2/kubefwd/releases/download/v1.25.10/kubefwd_Windows_i386.zip",
+            "hash": "3962abae397da8c9afa99627749edbd9c4e7a61f304e842f8818ea2514d8b09e"
+        }
+    },
+    "bin": "kubefwd.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/txn2/kubefwd/releases/download/v$version/kubefwd_Windows_x86_64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/txn2/kubefwd/releases/download/v$version/kubefwd_Windows_i386.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/kubefwd_checksums.txt"
+        }
+    }
+}

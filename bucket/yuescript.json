@@ -1,0 +1,57 @@
+{
+    "version": "0.32.9",
+    "description": "A moonscipt dialect that is derived from the Moonscript language and continuously adopting new features to be more up to date. Just like moonscipt, it also compiles into Lua.",
+    "homepage": "https://yuescript.org/",
+    "license": "MIT",
+    "notes": [
+        "Yuescript Lua Module download links:",
+        "64bit",
+        "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v0.32.9/yue-windows-x64-lua51-dll.7z",
+        "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v0.32.9/yue-windows-x64-lua53-dll.7z",
+        "",
+        "32bit",
+        "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v0.32.9/yue-windows-x86-lua51-dll.7z",
+        "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v0.32.9/yue-windows-x86-lua53-dll.7z"
+    ],
+    "suggest": {
+        "Lua": [
+            "easy-win/lua",
+            "easy-win/lua51",
+            "easy-win/lua53"
+        ]
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v0.32.9/yue-windows-x64.7z",
+            "hash": "ae7f333b0f3b0f462cfed5b223536d2ef96deefcef8a676509f58410073c38d0"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v0.32.9/yue-windows-x86.7z",
+            "hash": "25b3134dc24deabe04f24e7258f42c79d80140224b895dea6b9a861a0f93fe09"
+        }
+    },
+    "bin": "yue.exe",
+    "checkver": {
+        "github": "https://github.com/pigpigyyy/Yuescript"
+    },
+    "autoupdate": {
+        "notes": [
+            "Yuescript Lua Module download links:",
+            "64bit",
+            "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v$version/yue-windows-x64-lua51-dll.7z",
+            "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v$version/yue-windows-x64-lua53-dll.7z",
+            "",
+            "32bit",
+            "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v$version/yue-windows-x86-lua51-dll.7z",
+            "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v$version/yue-windows-x86-lua53-dll.7z"
+        ],
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v$version/yue-windows-x64.7z"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/pigpigyyy/Yuescript/releases/download/v$version/yue-windows-x86.7z"
+            }
+        }
+    }
+}

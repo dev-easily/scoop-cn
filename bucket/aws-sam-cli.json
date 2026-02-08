@@ -1,0 +1,44 @@
+{
+    "version": "1.153.1",
+    "description": "Build, test, debug, and deploy Serverless applications from CLI",
+    "homepage": "https://aws.amazon.com/serverless/sam/",
+    "license": "Apache-2.0",
+    "depends": "easy-win/lessmsi",
+    "suggest": {
+        "AWS CLI": "aws"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/aws/aws-sam-cli/releases/download/v1.153.1/AWS_SAM_CLI_64_PY3.msi#/dl.msi_",
+            "hash": "b28b1e48ed724e4ee19204ab3823e67a669c91150ec84e11119af7a8d2247000"
+        }
+    },
+    "pre_install": [
+        "# Workaround for #4980, #5653",
+        "$msi = \"$dir\\$fname\"; $extracted = \"$dir\\\"",
+        "Invoke-ExternalCommand 'lessmsi' -Args @('x', $msi, $extracted) -Quiet",
+        "Move-Item \"$dir\\SourceDir\\PFiles64\\Amazon\\AWSSAMCLI\\**\" \"$dir\"",
+        "Remove-Item \"$dir\\SourceDir\", \"$dir\\$fname\" -Force -Recurse"
+    ],
+    "bin": [
+        "bin\\sam.cmd",
+        [
+            "bin\\sam.cmd",
+            "aws-sam-cli"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/aws/aws-sam-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/aws/aws-sam-cli/releases/download/v$version/AWS_SAM_CLI_64_PY3.msi#/dl.msi_"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/aws/aws-sam-cli/releases/tag/v$version",
+            "regex": "(?sm)>$basename</.*?>\\s*$sha256</"
+        }
+    }
+}

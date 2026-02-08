@@ -1,0 +1,28 @@
+{
+    "version": "0.6.1",
+    "description": "A context-aware AI assistant for your desktop. Ready to respond intelligently, seamlessly integrating multiple LLMs and MCP tools.",
+    "homepage": "https://everywhere.sylinko.com/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/DearVa/Everywhere/releases/download/v0.6.1/Everywhere-Windows-x64-v0.6.1.zip",
+            "hash": "0ab0b8b0736c917e01e111799af08bb85a8a411ee02b27212391e5080f78e7b0"
+        }
+    },
+    "shortcuts": [
+        [
+            "Everywhere.exe",
+            "Everywhere"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/DearVa/Everywhere"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/DearVa/Everywhere/releases/download/v$version/Everywhere-Windows-x64-v$version.zip"
+            }
+        }
+    }
+}

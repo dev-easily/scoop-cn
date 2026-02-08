@@ -1,0 +1,35 @@
+{
+    "version": "4.15.5",
+    "description": "Theorem prover from Microsoft Research.",
+    "homepage": "https://github.com/Z3Prover/z3",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Z3Prover/z3/releases/download/z3-4.15.5/z3-4.15.5-x64-win.zip",
+            "hash": "25f8f39f196c2343a77937201c79f491754b5e44ce267d049fa47f3379fe4390",
+            "extract_dir": "z3-4.15.5-x64-win"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Z3Prover/z3/releases/download/z3-4.15.5/z3-4.15.5-x86-win.zip",
+            "hash": "e4108bc6434e461bcb99260881cc39313e28e8bb4b39fd411122e862f3173401",
+            "extract_dir": "z3-4.15.5-x64-win"
+        }
+    },
+    "bin": "bin\\z3.exe",
+    "checkver": {
+        "github": "https://github.com/Z3Prover/z3",
+        "regex": "tag/z3-([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Z3Prover/z3/releases/download/z3-$version/z3-$version-x64-win.zip",
+                "extract_dir": "z3-$version-x64-win"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Z3Prover/z3/releases/download/z3-$version/z3-$version-x86-win.zip",
+                "extract_dir": "z3-$version-x64-win"
+            }
+        }
+    }
+}

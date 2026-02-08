@@ -1,0 +1,67 @@
+{
+    "version": "9.2.1",
+    "description": "Powerful and easy to use e-book manager.",
+    "homepage": "https://calibre-ebook.com",
+    "license": {
+        "identifier": "GPL-3.0-or-later",
+        "url": "https://github.com/kovidgoyal/calibre/blob/HEAD/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://download.calibre-ebook.com/9.2.1/calibre-64bit-9.2.1.msi",
+            "hash": "sha512:e7383e361c6f720fee2a6b11d9414300db443d8196e44ca4c4510fcf6a84617307e6b915bc715857f64615b7764b6a759d4bc939e700ef16091a0267a40171df",
+            "extract_dir": "PFiles64\\Calibre2"
+        }
+    },
+    "bin": [
+        "calibre.exe",
+        "calibre-customize.exe",
+        "calibre-debug.exe",
+        "calibre-server.exe",
+        "calibre-smtp.exe",
+        "calibredb.exe",
+        "ebook-convert.exe",
+        "ebook-device.exe",
+        "ebook-edit.exe",
+        "ebook-meta.exe",
+        "ebook-polish.exe",
+        "ebook-viewer.exe",
+        "fetch-ebook-metadata.exe",
+        "lrf2lrs.exe",
+        "lrfviewer.exe",
+        "lrs2lrf.exe",
+        "markdown-calibre.exe",
+        "web2disk.exe"
+    ],
+    "shortcuts": [
+        [
+            "calibre.exe",
+            "Calibre - E-book Management\\Calibre - E-book Management"
+        ],
+        [
+            "ebook-edit.exe",
+            "Calibre - E-book Management\\E-Book Editor"
+        ],
+        [
+            "ebook-viewer.exe",
+            "Calibre - E-book Management\\E-Book Viewer"
+        ],
+        [
+            "lrfviewer.exe",
+            "Calibre - E-book Management\\LRF Viewer"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/kovidgoyal/calibre"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.calibre-ebook.com/$version/calibre-64bit-$version.msi",
+                "hash": {
+                    "url": "https://calibre-ebook.com/signatures/$basename.sha512"
+                }
+            }
+        }
+    }
+}
