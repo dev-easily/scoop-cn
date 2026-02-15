@@ -1,0 +1,43 @@
+{
+    "version": "6.0.1621.0",
+    "description": "The 7-Zip derivative intended for the modern Windows experience",
+    "homepage": "https://github.com/M2Team/NanaZip",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/M2Team/NanaZip/releases/download/6.0.1621.0/NanaZipPreview_6.0.1621.0.msixbundle#/dl.7z",
+            "hash": "86984a706b33d0a9a99f88d9ea758b110d7eae9dc8c7948d41407685886aa676"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/M2Team/NanaZip/releases/download/6.0.1621.0/NanaZipPreview_6.0.1621.0.msixbundle#/dl.7z",
+            "hash": "86984a706b33d0a9a99f88d9ea758b110d7eae9dc8c7948d41407685886aa676"
+        }
+    },
+    "pre_install": [
+        "Expand-7zipArchive -Path \"$dir\\*$(switch ($architecture) { '64bit' { 'x64' } 'arm64' { 'arm64' } }).msix\"",
+        "Remove-Item -Path \"$dir\\*\" -Include '*.msix', 'Appx*', '?Content*', 'Code*' -Recurse -Force"
+    ],
+    "bin": [
+        [
+            "NanaZip.Universal.Console.exe",
+            "7z"
+        ],
+        [
+            "NanaZip.Universal.Windows.exe",
+            "7zG"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "NanaZip.Modern.FileManager.exe",
+            "NanaZip"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/M2Team/NanaZip/releases",
+        "jsonpath": "$.[?(@.prerelease==true)].tag_name"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/M2Team/NanaZip/releases/download/$version/NanaZipPreview_$version.msixbundle#/dl.7z"
+    }
+}

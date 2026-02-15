@@ -1,0 +1,32 @@
+{
+    "version": "2026.02.11",
+    "description": "A free and open-source multi-platform parametric 3D modeler.",
+    "homepage": "https://www.freecadweb.org",
+    "license": "LGPL-2.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/FreeCAD/FreeCAD/releases/download/weekly-2026.02.11/FreeCAD_weekly-2026.02.11-Windows-x86_64-py311.7z",
+            "hash": "1d35d4b3bed1b15733a896dd7820df1fc8e120f9f9154c411eb228076751e538"
+        }
+    },
+    "extract_dir": "FreeCAD_weekly-2026.02.11-Windows-x86_64-py311",
+    "bin": "bin\\FreeCADCmd.exe",
+    "shortcuts": [
+        [
+            "bin\\FreeCAD.exe",
+            "FreeCAD"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/FreeCAD/FreeCAD/releases",
+        "regex": "FreeCAD_weekly-([\\d.]+)-Windows-x86_64"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/FreeCAD/FreeCAD/releases/download/weekly-$version/FreeCAD_weekly-$version-Windows-x86_64-py311.7z"
+            }
+        },
+        "extract_dir": "FreeCAD_weekly-$version-Windows-x86_64-py311"
+    }
+}

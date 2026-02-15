@@ -1,0 +1,21 @@
+{
+    "version": "4.22.0",
+    "description": "Terminal ToDo List (TTDL) manager using plain text todo.txt format",
+    "homepage": "https://github.com/VladimirMarkelov/ttdl",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/VladimirMarkelov/ttdl/releases/download/v4.22.0/ttdl_4.22.0_win_x64.zip",
+            "hash": "8816351fee48ad7f719f34ad58f52ae874acdc1f4dcc110bbfdb8059cbc907ea"
+        }
+    },
+    "bin": "ttdl.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/VladimirMarkelov/ttdl/releases/download/v$version/ttdl_$version_win_x64.zip"
+            }
+        }
+    }
+}

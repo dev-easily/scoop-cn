@@ -1,0 +1,28 @@
+{
+    "version": "3.0.1",
+    "description": "A WebLogic Console that connects remotely using the WebLogic Management REST API",
+    "homepage": "https://oracle.github.io/weblogic-remote-console/",
+    "license": "UPL-1.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/oracle/weblogic-remote-console/releases/download/v3.0.1/WebLogic-Remote-Console-3.0.1-win.zip",
+            "hash": "4592f72f5dc25b3f1de22d306e40342f59bb32bdf503f18ec59f271643852e61"
+        }
+    },
+    "shortcuts": [
+        [
+            "WebLogic Remote Console.exe",
+            "WebLogic Remote Console"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/oracle/weblogic-remote-console"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/oracle/weblogic-remote-console/releases/download/v$version/WebLogic-Remote-Console-$version-win.zip"
+            }
+        }
+    }
+}

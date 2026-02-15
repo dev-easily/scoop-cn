@@ -1,0 +1,60 @@
+{
+    "version": "2025.3.2-253.30387.193",
+    "description": "Cross-Platform IDE for Go by JetBrains.",
+    "homepage": "https://www.jetbrains.com/goland/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.jetbrains.com/store/license.html"
+    },
+    "url": "https://download.jetbrains.com/go/goland-2025.3.2.win.zip",
+    "hash": "4326295a623e36f731af765969e99d0c58bf263212c8a7054876df0a5cdd7eca",
+    "extract_to": "IDE",
+    "installer": {
+        "script": [
+            "& \"$bucketsdir\\easy-win\\scripts\\jetbrains\\portable.ps1\" $dir $persist_dir",
+            "Remove-Item \"$dir\\IDE\\`$*\" -Force -Recurse"
+        ]
+    },
+    "architecture": {
+        "64bit": {
+            "bin": [
+                [
+                    "IDE\\bin\\goland64.exe",
+                    "goland"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "IDE\\bin\\goland64.exe",
+                    "JetBrains\\GoLand"
+                ]
+            ]
+        },
+        "32bit": {
+            "bin": "IDE\\bin\\goland.exe",
+            "shortcuts": [
+                [
+                    "IDE\\bin\\goland.exe",
+                    "JetBrains\\GoLand"
+                ]
+            ]
+        }
+    },
+    "persist": [
+        "IDE\\bin\\idea.properties",
+        "IDE\\bin\\goland.exe.vmoptions",
+        "IDE\\bin\\goland64.exe.vmoptions",
+        "profile"
+    ],
+    "checkver": {
+        "url": "https://data.services.jetbrains.com/products/releases?code=GO&latest=true&platform=zip&type=release",
+        "regex": "version\":\"(?<ver>[\\d.]+)\".*\"build\":\"(?<build>[\\d.]+)\"",
+        "replace": "${ver}-${build}"
+    },
+    "autoupdate": {
+        "url": "https://download.jetbrains.com/go/goland-$matchVer.win.zip",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
