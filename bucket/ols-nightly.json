@@ -1,0 +1,30 @@
+{
+    "version": "20260426-ge6fa7e8",
+    "description": "Language server for Odin.",
+    "homepage": "https://github.com/DanielGavin/ols",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/DanielGavin/ols/releases/download/nightly/ols-x86_64-pc-windows-msvc.zip",
+            "hash": "cc1a57400f97d0b0402f09486ed0e78475d2852c68d26a79660b50823fa7676c"
+        }
+    },
+    "bin": [
+        [
+            "ols-x86_64-pc-windows-msvc.exe",
+            "ols"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/DanielGavin/ols/releases/tag/nightly",
+        "regex": "datetime=\"(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})(.*\\n)*?.*/commit/(?<commit>[0-9a-f]{7})",
+        "replace": "${year}${month}${day}-g${commit}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/DanielGavin/ols/releases/download/nightly/ols-x86_64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

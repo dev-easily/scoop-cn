@@ -1,0 +1,42 @@
+{
+    "version": "1.14.29",
+    "description": "The open source AI coding agent.",
+    "homepage": "https://opencode.ai/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v1.14.29/opencode-desktop-windows-x64.exe#/dl.7z",
+            "hash": "4e3f80f369c30cf27003185497d80e707ae13ef649ae61fa3b4a2010adb8cf63"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v1.14.29/opencode-desktop-windows-arm64.exe#/dl.7z",
+            "hash": "40ff174a34ebd8e967ea5a6a8c6214b0c0dab0668abe91ff374a885fb2e1f3ed"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Force -Recurse -ErrorAction Ignore",
+    "bin": [
+        [
+            "opencode-cli.exe",
+            "opencode"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "OpenCode.exe",
+            "OpenCode"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/anomalyco/opencode"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v$version/opencode-desktop-windows-x64.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v$version/opencode-desktop-windows-arm64.exe#/dl.7z"
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "version": "0.7.6",
+    "description": "A fullstack app framework for web, desktop, mobile, and more.",
+    "homepage": "https://dioxuslabs.com",
+    "license": "Apache-2.0|MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/DioxusLabs/dioxus/releases/download/v0.7.6/dx-x86_64-pc-windows-msvc.zip",
+            "hash": "16a2539db09a4ac9bd2c1f2653e70a7e0f0b0eaf02af69b5fbcb833ed15c0c07"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/DioxusLabs/dioxus/releases/download/v0.7.6/dx-aarch64-pc-windows-msvc.zip",
+            "hash": "5e9f9f575d9a0ad397f6cb4483769abc4389d52301c6b69a2124c77bdeac79b9"
+        }
+    },
+    "bin": "dx.exe",
+    "checkver": {
+        "github": "https://github.com/DioxusLabs/dioxus"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/DioxusLabs/dioxus/releases/download/v$version/dx-x86_64-pc-windows-msvc.zip",
+                "hash": {
+                    "url": "$baseurl/dx-x86_64-pc-windows-msvc.sha256"
+                }
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/DioxusLabs/dioxus/releases/download/v$version/dx-aarch64-pc-windows-msvc.zip",
+                "hash": {
+                    "url": "$baseurl/dx-aarch64-pc-windows-msvc.sha256"
+                }
+            }
+        }
+    }
+}

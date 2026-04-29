@@ -1,0 +1,32 @@
+{
+    "version": "0.8.1",
+    "description": "MATLAB MCP Core Server - Model Context Protocol server for MATLAB that enables AI-driven workflows",
+    "homepage": "https://www.mathworks.com/products/matlab-mcp-core-server.html",
+    "license": {
+        "identifier": "BSD-3-Clause",
+        "url": "https://www.ghproxy.cn/https://github.com/matlab/matlab-mcp-core-server/raw/refs/heads/main/LICENSE.md"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/matlab/matlab-mcp-core-server/releases/download/v0.8.1/matlab-mcp-core-server-win64.exe#/matlab-mcp-core-server.exe",
+            "hash": "ae221ea8f15e893cad8694cf63db74cf72e48aea221f8e9db28625e399d76064"
+        }
+    },
+    "bin": [
+        [
+            "matlab-mcp-core-server.exe",
+            "matlab-mcp-core-server",
+            "--disable-telemetry=true"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/matlab/matlab-mcp-core-server"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/matlab/matlab-mcp-core-server/releases/download/v$version/matlab-mcp-core-server-win64.exe#/matlab-mcp-core-server.exe"
+            }
+        }
+    }
+}

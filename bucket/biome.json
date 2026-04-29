@@ -1,0 +1,32 @@
+{
+    "version": "2.4.13",
+    "description": "Formatter, linter, bundler, and more for JavaScript, TypeScript, JSON, HTML, Markdown, and CSS.",
+    "homepage": "https://biomejs.dev/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%402.4.13/biome-win32-x64.exe#/biome.exe",
+            "hash": "bc7d1f26be936aec1423f70ed94fd8c5aa80c3ba199d991dcaf13476daa5f786"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%402.4.13/biome-win32-arm64.exe#/biome.exe",
+            "hash": "4ebfc108a649076b45d04ebb2a6b8a6642ab2180da893b70a5c42b15d4154da6"
+        }
+    },
+    "bin": "biome.exe",
+    "checkver": {
+        "url": "https://api.github.com/repos/biomejs/biome/releases",
+        "jsonpath": "$..tag_name",
+        "regex": "@biomejs/biome@([\\d.]+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%40$version/biome-win32-x64.exe#/biome.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/biomejs/biome/releases/download/%40biomejs%2Fbiome%40$version/biome-win32-arm64.exe#/biome.exe"
+            }
+        }
+    }
+}

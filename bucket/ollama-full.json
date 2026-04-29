@@ -1,0 +1,41 @@
+{
+    "version": "0.22.0",
+    "description": "Get up and running with large language models locally.",
+    "homepage": "https://ollama.com/",
+    "license": "MIT",
+    "url": "https://www.ghproxy.cn/https://github.com/ollama/ollama/releases/download/v0.22.0/OllamaSetup.exe",
+    "hash": "ad66d4b92fee95c4c456f593970275386bfcc50b6db807d0f3f31d997a81e8bb",
+    "architecture": {
+        "64bit": {
+            "pre_install": [
+                "Get-ChildItem \"$dir\\*,1.*\" -Recurse | Rename-Item -NewName { $_.Name -replace ',1\\.', '.' }",
+                "Get-ChildItem \"$dir\\*,2.*\" -Recurse | Remove-Item"
+            ]
+        },
+        "arm64": {
+            "pre_install": [
+                "Get-ChildItem \"$dir\\*,2.*\" -Recurse | Rename-Item -NewName { $_.Name -replace ',2\\.', '.' }",
+                "Get-ChildItem \"$dir\\*,1.*\" -Recurse | Remove-Item"
+            ]
+        }
+    },
+    "innosetup": true,
+    "bin": "ollama.exe",
+    "shortcuts": [
+        [
+            "ollama app.exe",
+            "Ollama",
+            "",
+            "app.ico"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/ollama/ollama"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/ollama/ollama/releases/download/v$version/OllamaSetup.exe",
+        "hash": {
+            "url": "$baseurl/sha256sum.txt"
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "version": "378",
+    "description": "A fork of Aurora, providing unified lighting effects across multiple brands and various games",
+    "homepage": "https://www.project-aurora.com/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Aurora-RGB/Aurora/releases/download/v378/Aurora-v378.zip",
+            "hash": "db0d711bbc28ab36467fbca30a311837647a779f8c730bb4aa2f1472b3f15eb4"
+        }
+    },
+    "shortcuts": [
+        [
+            "AuroraRgb.exe",
+            "Aurora"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Aurora-RGB/Aurora"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Aurora-RGB/Aurora/releases/download/v$version/Aurora-v$version.zip"
+            }
+        }
+    }
+}

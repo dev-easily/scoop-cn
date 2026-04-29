@@ -1,0 +1,24 @@
+{
+    "version": "7.20",
+    "description": "Decompress RAR files.",
+    "homepage": "https://www.rarlab.com/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.rarlab.com/license.htm"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.rarlab.com/rar/unrarw64.exe#/dl.zip",
+            "hash": "f57bebe35501aa1ea9cfa3c9b1f4f7e201e1b5aaf54f600b03e3ef3e53047d6f"
+        }
+    },
+    "bin": "UnRAR.exe",
+    "checkver": "WinRAR and RAR ([\\d.]+) release",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.rarlab.com/rar/unrarw64.exe#/dl.zip"
+            }
+        }
+    }
+}

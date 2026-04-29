@@ -1,0 +1,38 @@
+{
+    "version": "3.0.21",
+    "description": "gibo (short for .gitignore boilerplates) is a shell script to help you easily access .gitignore boilerplates from github.com/github/gitignore",
+    "homepage": "https://github.com/simonwhitaker/gibo",
+    "license": "Unlicense",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/simonwhitaker/gibo/releases/download/v3.0.21/gibo_Windows_x86_64.zip",
+            "hash": "6a4261450d2284e31d1e51dfa23f2b36b294e339d1b03c8a5e8132d5fced0560"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/simonwhitaker/gibo/releases/download/v3.0.21/gibo_Windows_i386.zip",
+            "hash": "839b2d89eb56bb2b6322ae9ffc467d1400b910a93a623739c1c22e2c227a047a"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/simonwhitaker/gibo/releases/download/v3.0.21/gibo_Windows_arm64.zip",
+            "hash": "82b3e74f087b1221adcc6b8954374cbbe5ee518d58e90a2c931969aeed5c43d1"
+        }
+    },
+    "bin": "gibo.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/simonwhitaker/gibo/releases/download/v$version/gibo_Windows_x86_64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/simonwhitaker/gibo/releases/download/v$version/gibo_Windows_i386.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/simonwhitaker/gibo/releases/download/v$version/gibo_Windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.windows.txt"
+        }
+    }
+}

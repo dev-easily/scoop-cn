@@ -1,0 +1,40 @@
+{
+    "version": "0.7.1",
+    "description": "A modern lightweight database client built with Wails and React.",
+    "homepage": "https://github.com/Syngnat/GoNavi",
+    "license": "Apache-2.0",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022",
+        "Microsoft Edge WebView2": "easy-win/webview2"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Syngnat/GoNavi/releases/download/v0.7.1/GoNavi-0.7.1-Windows-Amd64.exe#/gonavi.exe",
+            "hash": "008e2acd968b064328575f5b4de0e9e7a714aff7de1e4180eddb87410f7f2890"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Syngnat/GoNavi/releases/download/v0.7.1/GoNavi-0.7.1-Windows-Arm64.exe#/gonavi.exe",
+            "hash": "8c244da31a2fcfb99d3674e56334f6083bfb27af7b979db1f2388027904fcc77"
+        }
+    },
+    "shortcuts": [
+        [
+            "gonavi.exe",
+            "GoNavi"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Syngnat/GoNavi/releases/download/v$version/GoNavi-$version-Windows-Amd64.exe#/gonavi.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Syngnat/GoNavi/releases/download/v$version/GoNavi-$version-Windows-Arm64.exe#/gonavi.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
+}
