@@ -1,0 +1,133 @@
+{
+    "version": "0.8.0",
+    "description": "A cross-platform Rust reimplementation of GNU coreutils (binaries compiled with MSVC), with some options or behaviors potentially differing from GNU coreutils.",
+    "homepage": "https://uutils.github.io/coreutils/",
+    "license": {
+        "identifier": "MIT",
+        "url": "https://github.com/uutils/coreutils/blob/HEAD/LICENSE"
+    },
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/uutils/coreutils/releases/download/0.8.0/coreutils-0.8.0-x86_64-pc-windows-msvc.zip",
+            "hash": "db464cf2a6ecbfd42c85f46ed2d749be574df4df47feca1f08988fd760f324f3",
+            "extract_dir": "coreutils-0.8.0-x86_64-pc-windows-msvc"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/uutils/coreutils/releases/download/0.8.0/coreutils-0.8.0-i686-pc-windows-msvc.zip",
+            "hash": "2ffe88b9d81fab6a1625a5f02737c8ab164741447403b92cb84377ac37e1bb39",
+            "extract_dir": "coreutils-0.8.0-i686-pc-windows-msvc"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/uutils/coreutils/releases/download/0.8.0/coreutils-0.8.0-aarch64-pc-windows-msvc.zip",
+            "hash": "1dfa62f18b64c70b664936b06fb1be20f0f6afa9ff041dd95dda629e987435a9",
+            "extract_dir": "coreutils-0.8.0-aarch64-pc-windows-msvc"
+        }
+    },
+    "bin": [
+        "arch.exe",
+        "b2sum.exe",
+        "base32.exe",
+        "base64.exe",
+        "basename.exe",
+        "basenc.exe",
+        "cat.exe",
+        "cksum.exe",
+        "comm.exe",
+        "cp.exe",
+        "csplit.exe",
+        "cut.exe",
+        "date.exe",
+        "dd.exe",
+        "df.exe",
+        "dir.exe",
+        "dircolors.exe",
+        "dirname.exe",
+        "du.exe",
+        "echo.exe",
+        "env.exe",
+        "expand.exe",
+        "expr.exe",
+        "factor.exe",
+        "false.exe",
+        "fmt.exe",
+        "fold.exe",
+        "head.exe",
+        "hostname.exe",
+        "join.exe",
+        "link.exe",
+        "ln.exe",
+        "ls.exe",
+        "md5sum.exe",
+        "mkdir.exe",
+        "mktemp.exe",
+        "more.exe",
+        "mv.exe",
+        "nl.exe",
+        "nproc.exe",
+        "numfmt.exe",
+        "od.exe",
+        "paste.exe",
+        "pathchk.exe",
+        "pr.exe",
+        "printenv.exe",
+        "printf.exe",
+        "ptx.exe",
+        "pwd.exe",
+        "readlink.exe",
+        "realpath.exe",
+        "rm.exe",
+        "rmdir.exe",
+        "seq.exe",
+        "sha1sum.exe",
+        "sha224sum.exe",
+        "sha256sum.exe",
+        "sha384sum.exe",
+        "sha512sum.exe",
+        "shred.exe",
+        "shuf.exe",
+        "sleep.exe",
+        "sort.exe",
+        "split.exe",
+        "sum.exe",
+        "sync.exe",
+        "tac.exe",
+        "tail.exe",
+        "tee.exe",
+        "test.exe",
+        "touch.exe",
+        "tr.exe",
+        "true.exe",
+        "truncate.exe",
+        "tsort.exe",
+        "uname.exe",
+        "unexpand.exe",
+        "uniq.exe",
+        "unlink.exe",
+        "vdir.exe",
+        "wc.exe",
+        "whoami.exe",
+        "yes.exe"
+    ],
+    "checkver": {
+        "github": "https://github.com/uutils/coreutils"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/uutils/coreutils/releases/download/$version/coreutils-$version-x86_64-pc-windows-msvc.zip",
+                "extract_dir": "coreutils-$version-x86_64-pc-windows-msvc"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/uutils/coreutils/releases/download/$version/coreutils-$version-i686-pc-windows-msvc.zip",
+                "extract_dir": "coreutils-$version-i686-pc-windows-msvc"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/uutils/coreutils/releases/download/$version/coreutils-$version-aarch64-pc-windows-msvc.zip",
+                "extract_dir": "coreutils-$version-aarch64-pc-windows-msvc"
+            }
+        }
+    }
+}

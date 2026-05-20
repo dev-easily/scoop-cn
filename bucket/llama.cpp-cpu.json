@@ -1,0 +1,50 @@
+{
+    "version": "b9222",
+    "description": "Inference of LLaMA model in pure C/C++ (CPU version)",
+    "homepage": "https://github.com/ggml-org/llama.cpp",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/b9222/llama-b9222-bin-win-cpu-x64.zip",
+            "hash": "a3484954606f3ade0937fc7fef86d434e35936db21264938c242bfced58a91b2"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/b9222/llama-b9222-bin-win-cpu-arm64.zip",
+            "hash": "18421db037c9327245da670ec65034b0a93bf8dacf1ea334e015d900a1fb821f"
+        }
+    },
+    "bin": [
+        "llama-batched-bench.exe",
+        "llama-bench.exe",
+        "llama-cli.exe",
+        "llama-completion.exe",
+        "llama-fit-params.exe",
+        "llama-gemma3-cli.exe",
+        "llama-gguf-split.exe",
+        "llama-imatrix.exe",
+        "llama-llava-cli.exe",
+        "llama-minicpmv-cli.exe",
+        "llama-mtmd-cli.exe",
+        "llama-perplexity.exe",
+        "llama-quantize.exe",
+        "llama-qwen2vl-cli.exe",
+        "llama-server.exe",
+        "llama-tokenize.exe",
+        "llama-tts.exe"
+    ],
+    "persist": "models",
+    "checkver": {
+        "github": "https://github.com/ggml-org/llama.cpp",
+        "regex": "(b[\\d]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-cpu-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-cpu-arm64.zip"
+            }
+        }
+    }
+}

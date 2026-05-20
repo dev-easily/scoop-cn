@@ -1,0 +1,27 @@
+{
+    "version": "14.11",
+    "description": "REST API for any Postgres database",
+    "homepage": "https://postgrest.org",
+    "license": "MIT",
+    "suggest": {
+        "PostgreSQL": "postgresql"
+    },
+    "depends": "easy-win/psqlodbc",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/PostgREST/postgrest/releases/download/v14.11/postgrest-v14.11-windows-x86-64.zip",
+            "hash": "044ac7afcb5aa0ee10a510facfcb55d34b3d7e45f4829b7b6f5b9dc9cb3491b9"
+        }
+    },
+    "bin": "postgrest.exe",
+    "checkver": {
+        "github": "https://github.com/PostgREST/postgrest"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/PostgREST/postgrest/releases/download/v$version/postgrest-v$version-windows-x86-64.zip"
+            }
+        }
+    }
+}
