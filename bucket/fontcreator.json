@@ -1,0 +1,40 @@
+{
+    "version": "16.0.0.3069",
+    "description": "the most popular font editor",
+    "homepage": "https://www.high-logic.com/font-editor/fontcreator",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.high-logic.com/font-editor/fontcreator/license-agreement"
+    },
+    "innosetup": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://www.high-logic.com/FontCreatorSetup-x64.exe",
+            "hash": "07bc8ea224bc9dac35c2c191c1fd88376ad26f83e31690cab8e2c62ea81eeaf7"
+        },
+        "32bit": {
+            "url": "https://www.high-logic.com/FontCreatorSetup.exe",
+            "hash": "07bc8ea224bc9dac35c2c191c1fd88376ad26f83e31690cab8e2c62ea81eeaf7"
+        }
+    },
+    "shortcuts": [
+        [
+            "FontCreator.exe",
+            "FontCreator"
+        ]
+    ],
+    "checkver": {
+        "url": "https://www.high-logic.com/font-editor/fontcreator/changelog",
+        "regex": "FontCreator ([\\d.]+) (?!\\[expected soon\\])"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.high-logic.com/FontCreatorSetup-x64.exe"
+            },
+            "32bit": {
+                "url": "https://www.high-logic.com/FontCreatorSetup.exe"
+            }
+        }
+    }
+}

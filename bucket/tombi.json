@@ -1,0 +1,33 @@
+{
+    "version": "1.1.3",
+    "description": "Feature-Rich TOML Toolkit.",
+    "homepage": "https://tombi-toml.github.io/tombi/",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/tombi-toml/tombi/releases/download/v1.1.3/tombi-cli-1.1.3-x86_64-pc-windows-msvc.zip",
+            "hash": "fcb02afd0c3be168bb2639346040212ea963f9fdd7e8a19b2b147bddea98ed34"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/tombi-toml/tombi/releases/download/v1.1.3/tombi-cli-1.1.3-aarch64-pc-windows-msvc.zip",
+            "hash": "7833a09638cd837972b81546f0294204d2ec335dbe8eaa3643f3de34c35a7e8a"
+        }
+    },
+    "bin": "tombi.exe",
+    "checkver": {
+        "github": "https://github.com/tombi-toml/tombi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/tombi-toml/tombi/releases/download/v$version/tombi-cli-$version-x86_64-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/tombi-toml/tombi/releases/download/v$version/tombi-cli-$version-aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,34 @@
+{
+    "version": "1.40.1",
+    "description": "Windows tail program and log file analyzer.",
+    "homepage": "https://github.com/LogExperts/LogExpert",
+    "license": "MIT",
+    "suggest": {
+        ".NET Desktop Runtime 10.0": "easy-win/windowsdesktop-runtime-10.0"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/LogExperts/LogExpert/releases/download/v1.40.1/LogExpert.1.40.1.zip",
+            "hash": "f11e531b33a1017650e9a5b5a4546bb5b57332a2742b7ba9d0e3fccc3b6db618"
+        }
+    },
+    "bin": "LogExpert.exe",
+    "shortcuts": [
+        [
+            "LogExpert.exe",
+            "LogExpert"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/LogExperts/LogExpert",
+        "jsonpath": "$.assets[*].browser_download_url",
+        "regex": "download/v(?<tag>[\\d.]+)/LogExpert\\.([\\d.]+)\\.zip"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/LogExperts/LogExpert/releases/download/v$matchTag/LogExpert.$version.zip"
+            }
+        }
+    }
+}

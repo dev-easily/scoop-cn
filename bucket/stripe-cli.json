@@ -1,0 +1,33 @@
+{
+    "version": "1.42.13",
+    "description": "Officially command-line tool for Stripe.",
+    "homepage": "https://stripe.com/docs/stripe-cli",
+    "license": "Apache-2.0",
+    "architecture": {
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/stripe/stripe-cli/releases/download/v1.42.13/stripe_1.42.13_windows_i386.zip",
+            "hash": "be1b36955af0f144755b64caf2091e19e24f0417a5e20928330b964d41f4f0d6"
+        },
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/stripe/stripe-cli/releases/download/v1.42.13/stripe_1.42.13_windows_x86_64.zip",
+            "hash": "0d73c42c81effb53b2d568d4fe6740732bb5e19bda2a5820507f9d33a28a6f80"
+        }
+    },
+    "bin": "stripe.exe",
+    "checkver": {
+        "github": "https://github.com/stripe/stripe-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/stripe/stripe-cli/releases/download/v$version/stripe_$version_windows_i386.zip"
+            },
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/stripe/stripe-cli/releases/download/v$version/stripe_$version_windows_x86_64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/stripe-windows-checksums.txt"
+        }
+    }
+}

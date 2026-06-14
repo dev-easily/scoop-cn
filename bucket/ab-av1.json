@@ -1,0 +1,22 @@
+{
+    "version": "0.11.3",
+    "description": "AV1 re-encoding using ffmpeg, svt-av1 & vmaf.",
+    "homepage": "https://github.com/alexheretic/ab-av1",
+    "license": "MIT",
+    "depends": "easy-win/main/ffmpeg",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/alexheretic/ab-av1/releases/download/v0.11.3/ab-av1.exe",
+            "hash": "fa1364cb9fe8b8d3efc7ab51c6dbee8aa6fc9a74c77a617aa8b2df978a9b7073"
+        }
+    },
+    "bin": "ab-av1.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/alexheretic/ab-av1/releases/download/v$version/ab-av1.exe"
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "version": "0.19.2",
+    "description": "Effortlessly compose, extend, and observe every service in real-time.",
+    "homepage": "https://iii.dev",
+    "license": {
+        "identifier": "Apache-2.0|Elastic-2.0",
+        "url": "https://github.com/iii-hq/iii/blob/main/LICENSE.spdx"
+    },
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/iii-hq/iii/releases/download/iii/v0.19.2/iii-x86_64-pc-windows-msvc.zip",
+            "hash": "a8ffd43ef566d6213fea151e2cef4b4a4b61e21a52ff70bde705b00295d2afed"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/iii-hq/iii/releases/download/iii/v0.19.2/iii-i686-pc-windows-msvc.zip",
+            "hash": "2b763865888dc1850b8035ca8ad14216dd3a4e940c91273a3b365cc47aebc3ef"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/iii-hq/iii/releases/download/iii/v0.19.2/iii-aarch64-pc-windows-msvc.zip",
+            "hash": "ff697908d797bc5e55e0715659c5e78adb082c92e9d7a7271a2a2fdf7f08fbb4"
+        }
+    },
+    "bin": "iii.exe",
+    "checkver": {
+        "github": "https://github.com/iii-hq/iii",
+        "regex": "iii/v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/iii-hq/iii/releases/download/iii/v$version/iii-x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/iii-hq/iii/releases/download/iii/v$version/iii-i686-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/iii-hq/iii/releases/download/iii/v$version/iii-aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "version": "21.0.0",
+    "description": "A command line CSV data-wrangling toolkit",
+    "homepage": "https://qsv.dathere.com",
+    "license": "Unlicense|MIT",
+    "notes": "Only the full featured \"qsv\" build is included",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/dathere/qsv/releases/download/21.0.0/qsv-21.0.0-x86_64-pc-windows-msvc.zip",
+            "hash": "3d94074377be3f95611c8ad038fd7a9cd5906fc7ef6cd33daa8ce90d7b83ce88"
+        }
+    },
+    "pre_install": "Get-ChildItem -Path \"$dir\" -Exclude README,qsv.exe | Remove-Item -Force",
+    "bin": "qsv.exe",
+    "checkver": {
+        "github": "https://github.com/dathere/qsv"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/dathere/qsv/releases/download/$version/qsv-$version-x86_64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "version": "0.79.3",
+    "description": "Minimal terminal coding harness",
+    "homepage": "https://pi.dev",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/earendil-works/pi/releases/download/v0.79.3/pi-windows-x64.zip",
+            "hash": "6f10c1344da777208249dd69674ffac3b0569f23b47edcc7f9434340032e6823"
+        }
+    },
+    "bin": "pi.exe",
+    "checkver": {
+        "github": "https://github.com/earendil-works/pi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/earendil-works/pi/releases/download/v$version/pi-windows-x64.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "version": "2.1.2",
+    "description": "Linux virtual machines, with a focus on running containers.",
+    "homepage": "https://lima-vm.io",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/lima-vm/lima/releases/download/v2.1.2/lima-2.1.2-Windows-AMD64.zip",
+            "hash": "522bd985635afbcfd7100241446925f10a0e4c47e175a68e65b6fca5569c6f64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/lima-vm/lima/releases/download/v2.1.2/lima-2.1.2-Windows-ARM64.zip",
+            "hash": "4ee8182b3f018b5614a029f8f49cb6ed401f386184518b0f355ddea26887a204"
+        }
+    },
+    "env_add_path": "bin",
+    "checkver": {
+        "github": "https://github.com/lima-vm/lima"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/lima-vm/lima/releases/download/v$version/lima-$version-Windows-AMD64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/lima-vm/lima/releases/download/v$version/lima-$version-Windows-ARM64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
+}

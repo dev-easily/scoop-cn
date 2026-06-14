@@ -1,0 +1,33 @@
+{
+    "version": "1.12.2",
+    "description": "An OSS tool for building, changing, and versioning infrastructure safely and efficiently. OpenTofu can manage existing and popular service providers as well as custom in-house solutions.",
+    "homepage": "https://opentofu.org/",
+    "license": "MPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/opentofu/opentofu/releases/download/v1.12.2/tofu_1.12.2_windows_amd64.zip",
+            "hash": "9c9c33b6a92b8d8c4850dd562df199767c825bff4c08f0955a59bad0c5d5ffaf"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/opentofu/opentofu/releases/download/v1.12.2/tofu_1.12.2_windows_386.zip",
+            "hash": "8e2661020bc92afdebbb763275a329399c36a384cd9f987d815a950d8fdd0aba"
+        }
+    },
+    "bin": "tofu.exe",
+    "checkver": {
+        "github": "https://github.com/opentofu/opentofu"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/opentofu/opentofu/releases/download/v$version/tofu_$version_windows_amd64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/opentofu/opentofu/releases/download/v$version/tofu_$version_windows_386.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/tofu_$version_SHA256SUMS"
+        }
+    }
+}

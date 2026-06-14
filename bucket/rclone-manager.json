@@ -1,0 +1,45 @@
+{
+    "version": "0.2.7",
+    "description": "A powerful, cross-platform GUI for managing Rclone remotes with style and ease.",
+    "homepage": "https://zarestia-dev.github.io/rclone-manager/",
+    "license": "GPL-3.0-or-later",
+    "suggest": {
+        "Microsoft Edge WebView2": "easy-win/webview2"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Zarestia-Dev/rclone-manager/releases/download/v0.2.7/RClone.Manager_0.2.7_x64-setup.exe#/dl.7z",
+            "hash": "512308140bf2125a27e16e211209c28a7a7ac7070ffb165d82eb9812949afd24"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Zarestia-Dev/rclone-manager/releases/download/v0.2.7/RClone.Manager_0.2.7_arm64-setup.exe#/dl.7z",
+            "hash": "2909b4e4c0cfaf07f12d89d3e41fb544c4a6e0a01ba3f52cacd79734f7d4bc51"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninstall.exe\" -Force -Recurse",
+    "bin": [
+        [
+            "rclone-manager.exe",
+            "rclone-manager"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "rclone-manager.exe",
+            "Rclone Manager"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Zarestia-Dev/rclone-manager"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Zarestia-Dev/rclone-manager/releases/download/v$version/RClone.Manager_$version_x64-setup.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Zarestia-Dev/rclone-manager/releases/download/v$version/RClone.Manager_$version_arm64-setup.exe#/dl.7z"
+            }
+        }
+    }
+}

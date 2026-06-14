@@ -1,0 +1,24 @@
+{
+    "version": "0.7.17",
+    "description": "A tool to use AWS IAM credentials to authenticate to a Kubernetes cluster",
+    "homepage": "https://github.com/kubernetes-sigs/aws-iam-authenticator",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v0.7.17/aws-iam-authenticator_0.7.17_windows_amd64.exe#/aws-iam-authenticator.exe",
+            "hash": "c6d3743c75e999e69bf8f79d758425c7bb9fdb7654fd5edf3e4f24aca2932635"
+        }
+    },
+    "bin": "aws-iam-authenticator.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/kubernetes-sigs/aws-iam-authenticator/releases/download/v$version/aws-iam-authenticator_$version_windows_amd64.exe#/aws-iam-authenticator.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/authenticator_$version_checksums.txt"
+        }
+    }
+}

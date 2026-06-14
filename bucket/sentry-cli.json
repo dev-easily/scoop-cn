@@ -1,0 +1,36 @@
+{
+    "version": "3.5.0",
+    "description": "Connect to the Sentry API and manage projects related data.",
+    "homepage": "https://docs.sentry.io/cli/",
+    "license": "BSD-3-Clause",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/getsentry/sentry-cli/releases/download/3.5.0/sentry-cli-Windows-x86_64.exe#/sentry.exe",
+            "hash": "7b7db2a8650644a77beef525e1464db3dad0b5313f6589f2991d39af7eda78aa"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/getsentry/sentry-cli/releases/download/3.5.0/sentry-cli-Windows-i686.exe#/sentry.exe",
+            "hash": "c03f3ddc68bfae1795ed817b102250642dd06ca0e42339e594454e3a9a42ef93"
+        }
+    },
+    "bin": [
+        "sentry.exe",
+        [
+            "sentry.exe",
+            "sentry-cli"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/getsentry/sentry-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/getsentry/sentry-cli/releases/download/$version/sentry-cli-Windows-x86_64.exe#/sentry.exe"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/getsentry/sentry-cli/releases/download/$version/sentry-cli-Windows-i686.exe#/sentry.exe"
+            }
+        }
+    }
+}

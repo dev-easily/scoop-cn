@@ -1,0 +1,34 @@
+{
+    "version": "0.11.0",
+    "description": "A better whois and domain intelligence toolkit.",
+    "homepage": "https://benword.com/quien-a-better-whois-and-domain-intelligence-toolkit",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/retlehs/quien/releases/download/v0.11.0/quien_windows_amd64.zip",
+            "hash": "ac98ae31f4f29eae75d0c8ff7f3f2f60c25cd0f7daf5660b5bdefa016e70b2c2"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/retlehs/quien/releases/download/v0.11.0/quien_windows_arm64.zip",
+            "hash": "c5feeacd132012f6a4ebaf7577ae95aa7d2d634cb7045e501ec3391280345aa7"
+        }
+    },
+    "bin": "quien.exe",
+    "checkver": {
+        "github": "https://github.com/retlehs/quien"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/retlehs/quien/releases/download/v$version/quien_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/retlehs/quien/releases/download/v$version/quien_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/quien_$version_checksums.txt",
+            "regex": "$sha256\\s+$baseename"
+        }
+    }
+}

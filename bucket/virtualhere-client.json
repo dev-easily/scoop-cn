@@ -1,0 +1,40 @@
+{
+    "version": "6.0.0",
+    "description": "Allows USB devices to be used remotely over a network just as if they were locally connected (server-side app)",
+    "homepage": "https://www.virtualhere.com/usb_client_software",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.virtualhere.com/client_license"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.virtualhere.com/sites/default/files/usbclient/vhui64.exe#/vhui.exe",
+            "hash": "sha1:10865be6756462c39c77aa420bb5b5f6d96c0424"
+        },
+        "arm64": {
+            "url": "https://www.virtualhere.com/sites/default/files/usbclient/vhuiarm64.exe#/vhui.exe",
+            "hash": "sha1:3f388fab6290b8d5c03e0478379503de5e0d77fc"
+        }
+    },
+    "shortcuts": [
+        [
+            "vhui.exe",
+            "VirtualHere Client"
+        ]
+    ],
+    "checkver": ">Version ([\\d.]+)",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.virtualhere.com/sites/default/files/usbclient/vhui64.exe#/vhui.exe"
+            },
+            "arm64": {
+                "url": "https://www.virtualhere.com/sites/default/files/usbclient/vhuiarm64.exe#/vhui.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA1SUM",
+            "regex": "$sha1\\s+$basename"
+        }
+    }
+}

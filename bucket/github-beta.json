@@ -1,0 +1,42 @@
+{
+    "version": "3.5.13-beta1",
+    "description": "Extend your GitHub workflow beyond your browser.",
+    "homepage": "https://desktop.github.com/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/desktop/desktop/releases/download/release-3.5.13-beta1/GitHubDesktop-3.5.13-beta1-x64-full.nupkg",
+            "hash": "732cff4d8d9625b0321c1c9d908de2d0fff6d944e03bf885dbc617fa63a88e36"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/desktop/desktop/releases/download/release-3.5.13-beta1/GitHubDesktop-3.5.13-beta1-arm64-full.nupkg",
+            "hash": "dd08515b9590a6cc5bf2d5ceac48701344b48a4884b293aa175ed940de7d8899"
+        }
+    },
+    "extract_dir": "lib\\net45",
+    "bin": "GitHubDesktop.exe",
+    "shortcuts": [
+        [
+            "GitHubDesktop.exe",
+            "GitHub Desktop Beta"
+        ]
+    ],
+    "checkver": {
+        "github": "https://api.github.com/repos/desktop/desktop/tags",
+        "jsonpath": "$..name",
+        "regex": "release-([\\d.]+-beta\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/desktop/desktop/releases/download/release-$version/GitHubDesktop-$version-x64-full.nupkg"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/desktop/desktop/releases/download/release-$version/GitHubDesktop-$version-arm64-full.nupkg"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/GitHub.Desktop-$version-checksums.txt"
+        }
+    }
+}

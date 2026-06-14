@@ -1,0 +1,55 @@
+{
+    "version": "1.5.0.1415b",
+    "description": "Locate files and folders by name instantly.",
+    "homepage": "https://www.voidtools.com",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "http://www.voidtools.com/Everything-1.5.0.1415b.x64-Setup.exe",
+            "hash": "ab76b4f9b756ffd808950c99b5dc0da666985d4b6907e22fe72c0640b6f0abad"
+        },
+        "32bit": {
+            "url": "http://www.voidtools.com/Everything-1.5.0.1415b.x86-Setup.exe",
+            "hash": "8cb20eb74da2f86d9d9e9b1871e5ea6eb7d83de675775a6145ac0211dcef15e1"
+        }
+    },
+    "pre_install": "if (-not (is_admin)) { abort \"`n[ERROR]  $app requires admin rights to $cmd.\" }",
+    "installer": {
+        "script": [
+            "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList @('/S', \"/D=$dir\") -WindowStyle Hidden -Wait",
+            "Remove-Item -Path \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue"
+        ]
+    },
+    "post_install": [
+        "Remove-Item -Path \"$Env:Public\\Desktop\\Everything.lnk\" -Force",
+        "Remove-Item -Path \"$([Environment]::GetFolderPath('commonstartmenu'))\\Programs\\Everything.lnk\" -Force"
+    ],
+    "bin": "Everything.exe",
+    "shortcuts": [
+        [
+            "Everything.exe",
+            "Everything"
+        ]
+    ],
+    "pre_uninstall": [
+        "if (-not (is_admin)) { abort \"`n[ERROR]  $app requires admin rights to $cmd.\" }",
+        "Stop-Process -Name 'Everything' -Force -ErrorAction SilentlyContinue"
+    ],
+    "uninstaller": {
+        "script": "Start-Process -FilePath \"$dir\\Uninstall.exe\" -ArgumentList @('/S') -WindowStyle Hidden -Wait"
+    },
+    "checkver": {
+        "url": "https://www.voidtools.com/forum/viewtopic.php?sd=d&t=9787",
+        "regex": "Everything-([\\d.]+b)\\.x64"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "http://www.voidtools.com/Everything-$version.x64-Setup.exe"
+            },
+            "32bit": {
+                "url": "http://www.voidtools.com/Everything-$version.x86-Setup.exe"
+            }
+        }
+    }
+}

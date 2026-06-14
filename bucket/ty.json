@@ -1,0 +1,38 @@
+{
+    "version": "0.0.49",
+    "description": "An extremely fast Python type checker and language server, written in Rust.",
+    "homepage": "https://github.com/astral-sh/ty",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/astral-sh/ty/releases/download/0.0.49/ty-x86_64-pc-windows-msvc.zip",
+            "hash": "8dac8030ad5c63341a5edeec989ad8fa8bab85370e06f84c1a84bedc873c6787"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/astral-sh/ty/releases/download/0.0.49/ty-i686-pc-windows-msvc.zip",
+            "hash": "655cb561c9bc639a575ef8f39e4358bb58ffd8d942ccfe3309c9055f1e6e7005"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/astral-sh/ty/releases/download/0.0.49/ty-aarch64-pc-windows-msvc.zip",
+            "hash": "9ee792f61b03db8f47d873615d5066f289defe5989e7549e5942b633ef42ff79"
+        }
+    },
+    "bin": "ty.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/astral-sh/ty/releases/download/$version/ty-x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/astral-sh/ty/releases/download/$version/ty-i686-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/astral-sh/ty/releases/download/$version/ty-aarch64-pc-windows-msvc.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}
