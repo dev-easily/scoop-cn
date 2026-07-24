@@ -1,0 +1,38 @@
+{
+    "version": "0.9.0",
+    "description": "Coding agent for DeepSeek models that runs in your terminal.",
+    "homepage": "https://deepseek-tui.com/en",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": [
+                "https://www.ghproxy.cn/https://github.com/Hmbown/CodeWhale/releases/download/v0.9.0/codewhale-tui-windows-x64.exe#/codewhale-tui.exe",
+                "https://www.ghproxy.cn/https://github.com/Hmbown/CodeWhale/releases/download/v0.9.0/codewhale-windows-x64.exe#/codewhale.exe"
+            ],
+            "hash": [
+                "694e132193adef1a45e18a1e3ba75d64ce2b51ffd84e273c7f8d39d355032d2c",
+                "b93f1a63025f263a2c6350a43628180c818e3e758f1b4bb98f52855b0266c5f2"
+            ]
+        }
+    },
+    "bin": "codewhale.exe",
+    "checkver": {
+        "github": "https://github.com/Hmbown/CodeWhale"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": [
+                    "https://www.ghproxy.cn/https://github.com/Hmbown/CodeWhale/releases/download/v$version/codewhale-tui-windows-x64.exe#/codewhale-tui.exe",
+                    "https://www.ghproxy.cn/https://github.com/Hmbown/CodeWhale/releases/download/v$version/codewhale-windows-x64.exe#/codewhale.exe"
+                ]
+            }
+        },
+        "hash": {
+            "url": "$baseurl/codewhale-artifacts-sha256.txt"
+        }
+    }
+}

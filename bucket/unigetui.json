@@ -1,0 +1,44 @@
+{
+    "version": "2026.2.5",
+    "description": "GUI for the most common CLI package managers, such as WinGet, Scoop, Chocolatey, Pip, Npm, .NET Tool, PowerShell Gallery and more.",
+    "homepage": "https://devolutions.net/unigetui/",
+    "license": "MIT",
+    "suggest": {
+        "scoop-search": "easy-win/scoop-search"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Devolutions/UniGetUI/releases/download/v2026.2.5/UniGetUI.x64.zip",
+            "hash": "90f8e1914ed1ef69042b352def7b2d7d8b5882435b017394b4200b5d29945867"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Devolutions/UniGetUI/releases/download/v2026.2.5/UniGetUI.arm64.zip",
+            "hash": "27a30760946d3ce39bdad600b854de8a190e4b969b31c88990de8c7d6c315284"
+        }
+    },
+    "pre_install": "Set-Content -Value $null -Path \"$dir\\ForceUniGetUIPortable\"",
+    "bin": "UniGetUI.exe",
+    "shortcuts": [
+        [
+            "UniGetUI.exe",
+            "UniGetUI"
+        ]
+    ],
+    "persist": "Settings",
+    "checkver": {
+        "github": "https://github.com/Devolutions/UniGetUI"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Devolutions/UniGetUI/releases/download/v$version/UniGetUI.x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Devolutions/UniGetUI/releases/download/v$version/UniGetUI.arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

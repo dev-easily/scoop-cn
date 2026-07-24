@@ -1,0 +1,38 @@
+{
+    "version": "1.67.2",
+    "description": "A live-reloading command line utility for developing Go applications.",
+    "homepage": "https://github.com/air-verse/air",
+    "license": "GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/air-verse/air/releases/download/v1.67.2/air_1.67.2_windows_amd64.tar.gz",
+            "hash": "2190f1fed649f95e20f9d6af7b5543e5e6c4064ac133664a0bda5f239c1e4bc3"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/air-verse/air/releases/download/v1.67.2/air_1.67.2_windows_386.tar.gz",
+            "hash": "ec8966aa4dc4347cb6cee09b87ad3ea2f995a452eac6545d428c18f165fa41ed"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/air-verse/air/releases/download/v1.67.2/air_1.67.2_windows_arm64.tar.gz",
+            "hash": "b2897dfa4fffe5f6b11a550941f06e36e940cafdc77b0d477922c328e7bd709e"
+        }
+    },
+    "bin": "air.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/air-verse/air/releases/download/v$version/air_$version_windows_amd64.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/air-verse/air/releases/download/v$version/air_$version_windows_386.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/air-verse/air/releases/download/v$version/air_$version_windows_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/air_$version_checksums.txt"
+        }
+    }
+}

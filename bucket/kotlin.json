@@ -1,0 +1,28 @@
+{
+    "version": "2.4.10",
+    "description": "A cross-platform, statically typed, general-purpose programming language with type inference.",
+    "homepage": "https://kotlinlang.org/",
+    "license": "Apache-2.0",
+    "suggest": {
+        "JDK": "easy-win/openjdk"
+    },
+    "url": "https://www.ghproxy.cn/https://github.com/JetBrains/kotlin/releases/download/v2.4.10/kotlin-compiler-2.4.10.zip",
+    "hash": "473dd66c7a3ef4b182065b3da670466c1bf2773a9dbb0ed8b33a39fe9d4f876d",
+    "extract_dir": "kotlinc",
+    "bin": [
+        "bin\\kapt.bat",
+        "bin\\kotlin.bat",
+        "bin\\kotlinc.bat",
+        "bin\\kotlinc-js.bat",
+        "bin\\kotlinc-jvm.bat"
+    ],
+    "env_set": {
+        "KOTLIN_HOME": "$dir"
+    },
+    "checkver": {
+        "github": "https://github.com/JetBrains/kotlin"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/JetBrains/kotlin/releases/download/v$version/kotlin-compiler-$version.zip"
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "version": "3.7.20123",
+    "description": "PDF and eBook reader (Pre-release).",
+    "homepage": "https://www.sumatrapdfreader.org/free-pdf-reader",
+    "license": "GPL-3.0-only,BSD-2-Clause",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.sumatrapdfreader.org/dl/prerel/20123/SumatraPDF-prerel-64.zip",
+            "hash": "144d2184d0e5f40714f1d8f1b65867e50d904c4c4af025d110d7fbf75b359d2c"
+        },
+        "arm64": {
+            "url": "https://www.sumatrapdfreader.org/dl/prerel/20123/SumatraPDF-prerel-arm64.zip",
+            "hash": "b6f4a95b26fdee79a985812548f3aa4c4ca1e1cf2962bdd329202d74dcd26146"
+        }
+    },
+    "pre_install": [
+        "$file = 'SumatraPDF-settings.txt'",
+        "if (!(Test-Path \"$persist_dir\\$file\")) {",
+        "    Write-Host 'File' $file 'does not exist. Creating.' -f Yellow",
+        "    Set-Content \"$dir\\$file\" 'CheckForUpdates = false' -Encoding Ascii",
+        "}",
+        "Get-ChildItem \"$dir\\SumatraPDF-*.exe\" | Rename-Item -NewName 'SumatraPDF.exe'"
+    ],
+    "bin": "SumatraPDF.exe",
+    "shortcuts": [
+        [
+            "SumatraPDF.exe",
+            "SumatraPDF"
+        ]
+    ],
+    "persist": [
+        "SumatraPDF-settings.txt",
+        "sumatrapdfcache"
+    ],
+    "checkver": {
+        "url": "https://www.sumatrapdfreader.org/docs/Version-history",
+        "script": [
+            "$page -match 'next:\\s*(\\d+\\.\\d+)' | Out-Null",
+            "$major_version = $matches[1]",
+            "$page = (Invoke-WebRequest -Uri 'https://files2.sumatrapdfreader.org/software/sumatrapdf/sumatralatest.js' -UseBasicParsing).Content",
+            "$page -match 'sumLatestVer\\s*=\\s*(\\d+);' | Out-Null",
+            "$patch_version = $matches[1]",
+            "Write-Output \"$major_version.$patch_version\""
+        ],
+        "regex": "^([\\d.]+)$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.sumatrapdfreader.org/dl/prerel/$patchVersion/SumatraPDF-prerel-64.zip"
+            },
+            "arm64": {
+                "url": "https://www.sumatrapdfreader.org/dl/prerel/$patchVersion/SumatraPDF-prerel-arm64.zip"
+            }
+        }
+    }
+}

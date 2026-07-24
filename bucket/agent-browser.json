@@ -1,0 +1,23 @@
+{
+    "version": "0.33.0",
+    "description": "Browser automation CLI for AI agents.",
+    "homepage": "https://agent-browser.dev",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/vercel-labs/agent-browser/releases/download/v0.33.0/agent-browser-win32-x64.exe#/agent-browser.exe",
+            "hash": "2033bf28c66e3652b0e4dfe4fd07ba05c22a7678e89185d14c407230659bcc08"
+        }
+    },
+    "bin": "agent-browser.exe",
+    "checkver": {
+        "github": "https://github.com/vercel-labs/agent-browser"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/vercel-labs/agent-browser/releases/download/v$version/agent-browser-win32-x64.exe#/agent-browser.exe"
+            }
+        }
+    }
+}

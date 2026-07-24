@@ -1,0 +1,39 @@
+{
+    "version": "20260723-bac7b07d-1784768082",
+    "description": "Graphical process/system monitor",
+    "homepage": "https://github.com/ClementTsang/bottom",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ClementTsang/bottom/releases/download/nightly-bac7b07d-1784768082/bottom_x86_64-pc-windows-msvc.zip",
+            "hash": "9f028129f092580cf3657ecc76cbf23acf2914a1cac63f11c81464766d3b19a5"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ClementTsang/bottom/releases/download/nightly-bac7b07d-1784768082/bottom_i686-pc-windows-msvc.zip",
+            "hash": "89bd96c8b98ee5dd35c98cc3ddd18ca187f037d0cc1d5f447bae0b49537b8d18"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/ClementTsang/bottom/releases/download/nightly-bac7b07d-1784768082/bottom_aarch64-pc-windows-msvc.zip",
+            "hash": "3c1a7dccb321cb055b5c919b8c0feddc81cadc703e0ba96d69a33b33d767abe0"
+        }
+    },
+    "bin": "btm.exe",
+    "checkver": {
+        "url": "https://github.com/ClementTsang/bottom/releases?q=nightly",
+        "regex": "releases/tag/nightly-(?<tag>[\\w]+-[\\d]+)\".+?>Nightly.+?\\((?<date>(?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2}))\\)<",
+        "replace": "${year}${month}${day}-${tag}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ClementTsang/bottom/releases/download/nightly-$matchTag/bottom_x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ClementTsang/bottom/releases/download/nightly-$matchTag/bottom_i686-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/ClementTsang/bottom/releases/download/nightly-$matchTag/bottom_aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

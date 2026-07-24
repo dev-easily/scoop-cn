@@ -1,0 +1,40 @@
+{
+    "version": "0.7.19",
+    "description": "Relationship-based access control made fast, scalable, and easy to use",
+    "homepage": "https://openfga.dev",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/openfga/cli/releases/download/v0.7.19/fga_0.7.19_windows_amd64.tar.gz",
+            "hash": "c86b4c198ca8360e2076cb46b12dfe77396092f80504d5a32d553bc064c3138c"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/openfga/cli/releases/download/v0.7.19/fga_0.7.19_windows_386.tar.gz",
+            "hash": "233d463b8aa8d3f1d1602a17c276c35ec33e939e78842d06cbf7058e47a979a0"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/openfga/cli/releases/download/v0.7.19/fga_0.7.19_windows_arm64.tar.gz",
+            "hash": "8a005731073657ec319e30099681f33cf327db69e77c2f4622d4e41bc98473f2"
+        }
+    },
+    "bin": "fga.exe",
+    "checkver": {
+        "github": "https://github.com/openfga/cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/openfga/cli/releases/download/v$version/fga_$version_windows_amd64.tar.gz"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/openfga/cli/releases/download/v$version/fga_$version_windows_386.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/openfga/cli/releases/download/v$version/fga_$version_windows_arm64.tar.gz"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

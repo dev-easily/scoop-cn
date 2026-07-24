@@ -1,0 +1,36 @@
+{
+    "version": "0.10.1",
+    "description": "The fastest and the most accurate file search toolkit for AI agents, Neovim, Rust, C, and NodeJS.",
+    "homepage": "https://fff.dmtrkovalenko.dev",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/dmtrKovalenko/fff/releases/download/v0.10.1/fff-mcp-x86_64-pc-windows-msvc.exe#/fff-mcp.exe",
+            "hash": "e341b78464095c349b0c6b0a32b146fd217b542d973917b89645a5aa511640d8"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/dmtrKovalenko/fff/releases/download/v0.10.1/fff-mcp-aarch64-pc-windows-msvc.exe#/fff-mcp.exe",
+            "hash": "c2fc1e55395f314a9493340f11f9b75501a6cd2c1e8fea646d343c7eaf3cd556"
+        }
+    },
+    "bin": "fff-mcp.exe",
+    "checkver": {
+        "github": "https://github.com/dmtrKovalenko/fff"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/dmtrKovalenko/fff/releases/download/v$version/fff-mcp-x86_64-pc-windows-msvc.exe#/fff-mcp.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/dmtrKovalenko/fff/releases/download/v$version/fff-mcp-aarch64-pc-windows-msvc.exe#/fff-mcp.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

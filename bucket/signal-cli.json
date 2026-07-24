@@ -1,0 +1,18 @@
+{
+    "version": "0.14.6",
+    "description": "A cross-platform encrypted messaging service (command line/dbus version).",
+    "homepage": "https://github.com/AsamK/signal-cli",
+    "license": "GPL-3.0-only",
+    "suggest": {
+        "JDK": "easy-win/openjdk"
+    },
+    "url": "https://www.ghproxy.cn/https://github.com/AsamK/signal-cli/releases/download/v0.14.6/signal-cli-0.14.6.tar.gz",
+    "hash": "e90f4faea709b3c0a55909646a2b94289b9779ba9c8fd5c6eaa847d3f67312eb",
+    "extract_dir": "signal-cli-0.14.6",
+    "bin": "bin\\signal-cli.bat",
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/AsamK/signal-cli/releases/download/v$version/signal-cli-$version.tar.gz",
+        "extract_dir": "signal-cli-$version"
+    }
+}

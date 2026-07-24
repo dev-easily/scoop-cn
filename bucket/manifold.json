@@ -1,0 +1,31 @@
+{
+    "version": "9.0.182.3",
+    "description": "Parallel GIS, ETL, data science and DBMS tool",
+    "homepage": "https://manifold.net/",
+    "license": "Proprietary",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "url": "https://manifold.net/updates/manifold-9.0.182.3.zip",
+    "hash": "afc908331575ae4be3390b09f7ea4d06a892c2923571748dc7d11838848e1489",
+    "extract_dir": "manifold-9.0.182.3",
+    "architecture": {
+        "64bit": {
+            "bin": "manifold.exe",
+            "shortcuts": [
+                [
+                    "manifold.exe",
+                    "Manifold 9"
+                ]
+            ]
+        }
+    },
+    "checkver": {
+        "url": "https://manifold.net/updates/download_9.shtml",
+        "regex": "https://manifold.net/updates/manifold-([\\d.]+).zip"
+    },
+    "autoupdate": {
+        "url": "https://manifold.net/updates/manifold-$version.zip",
+        "extract_dir": "manifold-$version"
+    }
+}

@@ -1,0 +1,33 @@
+{
+    "version": "2.109.1",
+    "description": "Supabase CLI.",
+    "homepage": "https://supabase.com",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v2.109.1/supabase_2.109.1_windows_amd64.zip",
+            "hash": "d0d270692cf78b8aa56545461f02cdf929ce9bb94e95e5e66404fd0e7d2c0c16"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v2.109.1/supabase_2.109.1_windows_arm64.zip",
+            "hash": "8dad4e026e6cfc98dfa048d57cd9c552b1479de2e596c7e4240c916662ba581f"
+        }
+    },
+    "bin": "supabase.exe",
+    "checkver": {
+        "github": "https://github.com/supabase/cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v$version/supabase_$version_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v$version/supabase_$version_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

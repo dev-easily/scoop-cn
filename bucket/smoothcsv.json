@@ -1,0 +1,40 @@
+{
+    "version": "3.23.1",
+    "description": "A powerful and intuitive tool for editing CSV files.",
+    "homepage": "https://smoothcsv.com/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://smoothcsv.com/terms"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/kohii/smoothcsv3/releases/download/v3.23.1/SmoothCSV_3.23.1_x64_portable.zip",
+            "hash": "662a18a74a294433c509cc093f907d9689ba94b8855e63e4c9df6796977bcbcf"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/kohii/smoothcsv3/releases/download/v3.23.1/SmoothCSV_3.23.1_arm64_portable.zip",
+            "hash": "6a530e15c8ed1ebc5746d5011a72625796bb7ac835c4439c6d868db0478dc752"
+        }
+    },
+    "bin": "bin\\smoothcsv.exe",
+    "shortcuts": [
+        [
+            "SmoothCSV.exe",
+            "SmoothCSV"
+        ]
+    ],
+    "persist": "data",
+    "checkver": {
+        "github": "https://github.com/kohii/smoothcsv3"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/kohii/smoothcsv3/releases/download/v$version/SmoothCSV_$version_x64_portable.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/kohii/smoothcsv3/releases/download/v$version/SmoothCSV_$version_arm64_portable.zip"
+            }
+        }
+    }
+}
