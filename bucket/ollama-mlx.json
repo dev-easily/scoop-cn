@@ -1,0 +1,40 @@
+{
+    "version": "0.32.15",
+    "description": "Get up and running with large language models locally, with MLX support.",
+    "homepage": "https://ollama.com/",
+    "license": "MIT",
+    "notes": "Ollama with daemon has been moved to 'extras/ollama-full'.",
+    "suggest": {
+        "Ollama": "easy-win/ollama",
+        "Ollama Full": "easy-win/ollama-full"
+    },
+    "architecture": {
+        "64bit": {
+            "url": [
+                "https://www.ghproxy.cn/https://github.com/ollama/ollama/releases/download/v0.32.15/ollama-windows-amd64.zip",
+                "https://www.ghproxy.cn/https://github.com/ollama/ollama/releases/download/v0.32.15/ollama-windows-amd64-mlx.zip"
+            ],
+            "hash": [
+                "a1d11d46a944f9c7521f5e9a3a5db51cd3365401da627d96c204698fc6914ff9",
+                "26f137458116a79ed3bec9ac16c256d807a57e3b5577553af9af739f58455179"
+            ]
+        }
+    },
+    "bin": "ollama.exe",
+    "checkver": {
+        "github": "https://github.com/ollama/ollama"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": [
+                    "https://www.ghproxy.cn/https://github.com/ollama/ollama/releases/download/v$version/ollama-windows-amd64.zip",
+                    "https://www.ghproxy.cn/https://github.com/ollama/ollama/releases/download/v$version/ollama-windows-amd64-mlx.zip"
+                ]
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sum.txt"
+        }
+    }
+}

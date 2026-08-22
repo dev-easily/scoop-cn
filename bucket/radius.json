@@ -1,0 +1,26 @@
+{
+    "version": "0.60.0",
+    "description": "Radius is a cloud-native, portable application platform that makes app development easier for teams building cloud-native apps.",
+    "homepage": "https://radapp.io/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/radius-project/radius/releases/download/v0.60.0/rad_windows_amd64.exe#/rad.exe",
+            "hash": "8427af4ed14fa8f3db3ec6490c14f4784cb8aeeb264f7377fd3c7bcda02c6d2d"
+        }
+    },
+    "bin": "rad.exe",
+    "checkver": {
+        "github": "https://github.com/radius-project/radius"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/radius-project/radius/releases/download/v$version/rad_windows_amd64.exe#/rad.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

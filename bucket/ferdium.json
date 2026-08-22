@@ -1,0 +1,51 @@
+{
+    "version": "7.2.1",
+    "description": "All-in-one messaging apps for various services",
+    "homepage": "https://ferdium.org/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-win-AutoSetup-7.2.1-x64.exe#/dl.7z",
+            "hash": "sha512:08c442512c811e198ec59f4b8b9e5752cb7afa893552bd54bff286746446928fdb50e57106889a0cd6215a0476194f178d7cfe469eb8c2d9e6194bde272a32ff"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-win-AutoSetup-7.2.1-ia32.exe#/dl.7z",
+            "hash": "sha512:b037883ead22a2e6d7bfef5634e43610b98b530fcf48a5e9e48a9892cf328ab8a13a4fd77c1236f3361af0d0a19f35f1d9b4781f5f306c46691d078b50151ae5"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v7.2.1/Ferdium-win-AutoSetup-7.2.1-arm64.exe#/dl.7z",
+            "hash": "sha512:81b73efcf84e29283345eb7e3474ef35884432014d4f616e2e588ce64c306097b2dd0572d905535d800522a0b519d5196f3ae896175f8346da423d97ff02d3a6"
+        }
+    },
+    "pre_install": [
+        "Get-ChildItem \"$dir\\`$PLUGINSDIR\\app-*.7z\" | Rename-Item -NewName 'app.7z'",
+        "Expand-7zipArchive -Path \"$dir\\`$PLUGINSDIR\\app.7z\" \"$dir\"",
+        "Remove-Item \"$dir\\`$*\" -Force -Recurse"
+    ],
+    "shortcuts": [
+        [
+            "Ferdium.exe",
+            "Ferdium"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/ferdium/ferdium-app"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v$version/Ferdium-win-AutoSetup-$version-x64.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v$version/Ferdium-win-AutoSetup-$version-ia32.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/ferdium/ferdium-app/releases/download/v$version/Ferdium-win-AutoSetup-$version-arm64.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "$basename\\s+sha512:\\s+$base64"
+        }
+    }
+}

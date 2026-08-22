@@ -1,0 +1,28 @@
+{
+    "description": "High-performance, embeddable, polyglot Virtual Machine for JVM-langs (Java, Scala, Kotlin), JavaScript/NodeJS, Python, Ruby, R, and LLVM-langs (C, C++, Rust)",
+    "version": "25.3.4.1-dev-20260821_0204",
+    "homepage": "https://www.graalvm.org/",
+    "license": "GPL-2.0",
+    "url": "https://www.ghproxy.cn/https://github.com/graalvm/graalvm-ce-dev-builds/releases/download/25.3.4.1-dev-20260821_0204/graalvm-community-dev-windows-amd64.zip",
+    "hash": "f479a4ed5b2e84f1808cf934954ecebcb0f6d1b008fa6b5e240c128caa056a11",
+    "extract_to": "tmp",
+    "installer": {
+        "script": [
+            "(Get-ChildItem -Directory \"$dir\\tmp\").FullName | % { Move-Item \"$_\\*\" \"$dir\" }",
+            "Remove-Item -Recurse \"$dir\\tmp\""
+        ]
+    },
+    "env_add_path": "bin",
+    "env_set": {
+        "JAVA_HOME": "$dir",
+        "GRAALVM_HOME": "$dir"
+    },
+    "checkver": {
+        "github": "https://github.com/graalvm/graalvm-ce-dev-builds",
+        "jsonpath": "$.tag_name",
+        "regex": "([\\d.]+-dev-\\d{8}_\\d{4})"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/graalvm/graalvm-ce-dev-builds/releases/download/$version/graalvm-community-dev-windows-amd64.zip"
+    }
+}

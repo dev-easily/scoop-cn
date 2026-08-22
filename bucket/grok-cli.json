@@ -1,0 +1,34 @@
+{
+    "version": "1.0.5",
+    "description": "An extensible coding agent that can be used interactively, in scripts, or through the Agent Client Protocol",
+    "homepage": "https://x.ai/cli",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://x.ai/legal/terms-of-service"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://x.ai/cli/grok-1.0.5-windows-x86_64.exe#/grok.exe",
+            "hash": "4b924daa801663ea20e96382408b1f2b5ba39efad62c14d20d88618a9eb0be64"
+        },
+        "arm64": {
+            "url": "https://x.ai/cli/grok-1.0.5-windows-aarch64.exe#/grok.exe",
+            "hash": "a987033f6c15c2b61a0f0ba80dd878160953e67d5e78d8c224e2743f01910f2f"
+        }
+    },
+    "bin": "grok.exe",
+    "checkver": {
+        "url": "https://x.ai/cli/stable",
+        "regex": "([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://x.ai/cli/grok-$version-windows-x86_64.exe#/grok.exe"
+            },
+            "arm64": {
+                "url": "https://x.ai/cli/grok-$version-windows-aarch64.exe#/grok.exe"
+            }
+        }
+    }
+}
