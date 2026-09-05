@@ -1,0 +1,37 @@
+{
+    "version": "2.1.629",
+    "description": "Personalized stats and insights powered by billions of matches",
+    "homepage": "https://blitz.gg",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://blitz-main.blitz.gg/Blitz-2.1.629.exe#/dl.7z",
+            "hash": "534e50816c1e76791ffa18af068bf05e4917f5ead5310b9409c79b7e938d6e8d"
+        }
+    },
+    "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\resources\\app-update.yml\" -Recurse -Force",
+    "shortcuts": [
+        [
+            "Blitz.exe",
+            "Blitz"
+        ]
+    ],
+    "checkver": {
+        "script": [
+            "try {",
+            "    $Response = Invoke-WebRequest -Uri 'https://blitz.gg/download/win' -MaximumRedirection 0",
+            "} catch {",
+            "    $_.Exception.Response.Headers.Location",
+            "}"
+        ],
+        "regex": "([\\d.]+).exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://blitz-main.blitz.gg/Blitz-$version.exe#/dl.7z"
+            }
+        }
+    }
+}

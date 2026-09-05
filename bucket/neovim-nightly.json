@@ -1,0 +1,41 @@
+{
+    "version": "0.13.0-1511",
+    "description": "Vim fork focused on extensibility and usability",
+    "homepage": "https://neovim.io",
+    "license": {
+        "identifier": "Apache-2.0,Vim",
+        "url": "https://github.com/neovim/neovim/blob/master/LICENSE.txt"
+    },
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip",
+            "hash": "40c1ef5b36274ea2b26e4659811fd8823f2ef094d9320360e42986c7b8e1ab43",
+            "extract_dir": "nvim-win64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/neovim/neovim/releases/download/nightly/nvim-win-arm64.zip",
+            "hash": "9ff1cd48929efe18c7f1552e118076a73086b82c274d86feffe20da7971abd45",
+            "extract_dir": "nvim-win-arm64"
+        }
+    },
+    "bin": "bin\\nvim.exe",
+    "checkver": {
+        "github": "https://api.github.com/repos/neovim/neovim/releases/tags/nightly",
+        "jsonpath": "$.body",
+        "regex": "NVIM v([\\d.]+)-dev-([a-f\\d]+)",
+        "replace": "${1}-${2}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/neovim/neovim/releases/download/nightly/nvim-win64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/neovim/neovim/releases/download/nightly/nvim-win-arm64.zip"
+            }
+        }
+    }
+}

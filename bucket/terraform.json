@@ -1,0 +1,36 @@
+{
+    "version": "1.16.1",
+    "description": "Create and manage infrastructure as code using simple declarative configuration files.",
+    "homepage": "https://www.terraform.io",
+    "license": "BUSL-1.1",
+    "architecture": {
+        "64bit": {
+            "url": "https://releases.hashicorp.com/terraform/1.16.1/terraform_1.16.1_windows_amd64.zip",
+            "hash": "5c6c6d8fedf56ce29c55f0c1fc91de3c259f42c2d220a28e827b5b60fd47bfa1",
+            "pre_install": "ensure \"$env:APPDATA\\terraform.d\\plugins\\windows_amd64\" | Out-Null"
+        },
+        "32bit": {
+            "url": "https://releases.hashicorp.com/terraform/1.16.1/terraform_1.16.1_windows_386.zip",
+            "hash": "82c3c8a0c31c60ac7f59c1f9dfc8f26a4720142c26b527c197544bac40e6eeb8",
+            "pre_install": "ensure \"$env:APPDATA\\terraform.d\\plugins\\windows_386\" | Out-Null"
+        }
+    },
+    "bin": "terraform.exe",
+    "checkver": {
+        "url": "https://releases.hashicorp.com/terraform/",
+        "regex": "terraform_([\\d.]+)</a>"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://releases.hashicorp.com/terraform/$version/terraform_$version_windows_amd64.zip"
+            },
+            "32bit": {
+                "url": "https://releases.hashicorp.com/terraform/$version/terraform_$version_windows_386.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/terraform_$version_SHA256SUMS"
+        }
+    }
+}

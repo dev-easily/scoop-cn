@@ -1,0 +1,44 @@
+{
+    "version": "0.81.6",
+    "description": "ML-powered manga translator, written in Rust.",
+    "homepage": "https://koharu.rs/",
+    "license": "GPL-3.0-only|Apache-2.0",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/mayocream/koharu/releases/download/0.81.6/koharu_0.81.6_x64-setup.exe#/dl.7z",
+            "hash": "546ba7446533cf45b0483ee69f60ac996866b16ac8a530fff447142534e0e794"
+        }
+    },
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\config.toml\")) { New-Item \"$dir\\config.toml\" -ItemType File | Out-Null }",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall*\" -Force -Recurse"
+    ],
+    "bin": "koharu.exe",
+    "shortcuts": [
+        [
+            "koharu.exe",
+            "Koharu"
+        ]
+    ],
+    "persist": [
+        "blobs",
+        "fonts",
+        "models",
+        "projects",
+        "runtime",
+        "config.toml"
+    ],
+    "checkver": {
+        "github": "https://github.com/mayocream/koharu"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/mayocream/koharu/releases/download/$version/koharu_$version_x64-setup.exe#/dl.7z"
+            }
+        }
+    }
+}

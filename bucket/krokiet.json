@@ -1,0 +1,29 @@
+{
+    "version": "12.0.1",
+    "description": "Krokiet is the Slint frontend for Czkawka, helping you remove unnecessary files from your computer.",
+    "homepage": "https://github.com/qarmin/czkawka",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/qarmin/czkawka/releases/download/12.0.1/windows_krokiet_on_windows_all_backends.zip",
+            "hash": "13f68c9b29b7667caf913c1223dbcdb58e9e51b8a050e00ed1f1fd31508d17b5"
+        }
+    },
+    "shortcuts": [
+        [
+            "krokiet.exe",
+            "Krokiet"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/qarmin/czkawka/releases/download/$version/windows_krokiet_on_windows_all_backends.zip"
+            }
+        }
+    }
+}

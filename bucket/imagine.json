@@ -1,0 +1,76 @@
+{
+    "version": "2.6.5",
+    "description": "(1MB Tiny) Freeware Image & Animation Viewer for Windows",
+    "homepage": "https://www.nyam.pe.kr/dev/imagine/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.nyam.pe.kr/dev/imagine/#license"
+    },
+    "pre_install": "if (!(Test-Path \"$persist_dir\\Imagine.ini\")) { New-Item \"$dir\\Imagine.ini\" | Out-Null }",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.nyam.pe.kr/dev/imagine/download.php?arch=x64&unicode=1&full=0&setup=0&version=2.6.5#/dl.zip",
+            "hash": "299264b423376ab5b693e47baff419d5893c8d14f7bd8ee577e85a8f415a9149",
+            "bin": [
+                "Imagine64.exe",
+                [
+                    "Imagine64.exe",
+                    "Imagine"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "Imagine64.exe",
+                    "Imagine"
+                ]
+            ]
+        },
+        "32bit": {
+            "url": "https://www.nyam.pe.kr/dev/imagine/download.php?arch=x86&unicode=1&full=0&setup=0&version=2.6.5#/dl.zip",
+            "hash": "ebcc2fefca96bbebcb67f5740ad7ee150c633fe5c7818d8c21dceeda5644c316",
+            "bin": "Imagine.exe",
+            "shortcuts": [
+                [
+                    "Imagine.exe",
+                    "Imagine"
+                ]
+            ]
+        },
+        "arm64": {
+            "url": "https://www.nyam.pe.kr/dev/imagine/download.php?arch=arm64&unicode=1&full=0&setup=0&version=2.6.5#/dl.zip",
+            "hash": "4ef62b9826370d1d0d908fec593215fafa5c58735df618bf9f9da2fd10c7853c",
+            "bin": [
+                "ImagineA64.exe",
+                [
+                    "ImagineA64.exe",
+                    "Imagine"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "ImagineA64.exe",
+                    "Imagine"
+                ]
+            ]
+        }
+    },
+    "persist": [
+        "Imagine.ini",
+        "PlugInst.inf",
+        "Plugin"
+    ],
+    "checkver": "v(\\d[\\d.]+)",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.nyam.pe.kr/dev/imagine/download.php?arch=x64&unicode=1&full=0&setup=0&version=$version#/dl.zip"
+            },
+            "32bit": {
+                "url": "https://www.nyam.pe.kr/dev/imagine/download.php?arch=x86&unicode=1&full=0&setup=0&version=$version#/dl.zip"
+            },
+            "arm64": {
+                "url": "https://www.nyam.pe.kr/dev/imagine/download.php?arch=arm64&unicode=1&full=0&setup=0&version=$version#/dl.zip"
+            }
+        }
+    }
+}

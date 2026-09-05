@@ -1,0 +1,39 @@
+{
+    "version": "4.17.0",
+    "description": "Desktop application for Rocket.Chat using Electron",
+    "homepage": "https://rocket.chat",
+    "license": "MIT",
+    "url": "https://www.ghproxy.cn/https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/4.17.0/rocketchat-4.17.0-win.exe#/dl.7z",
+    "hash": "sha512:0191cafaf2d91b5406daac08b04005d4acb0dedfcf64b698549ef712aa7f1f80973d9e021f1d52aed1a9c15413c11301e351381cd80b48d89bd45efc85d62fff",
+    "architecture": {
+        "64bit": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\""
+        },
+        "32bit": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\""
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall*exe\" -Recurse",
+    "bin": [
+        [
+            "Rocket.Chat.exe",
+            "rocketchat"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Rocket.Chat.exe",
+            "Rocket Chat"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/RocketChat/Rocket.Chat.Electron"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/RocketChat/Rocket.Chat.Electron/releases/download/$version/rocketchat-$version-win.exe#/dl.7z",
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
+    }
+}

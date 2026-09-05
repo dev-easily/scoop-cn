@@ -1,0 +1,42 @@
+{
+    "version": "1788482970",
+    "description": "Lightning-fast and Powerful Code Editor written in Rust",
+    "homepage": "https://lapce.dev/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/lapce/lapce/releases/download/nightly/Lapce-windows-portable.zip",
+            "hash": "2d34e744927395e0e141a5017388bbca274e038d07c0e0bc0c953eae5f7ef682"
+        }
+    },
+    "bin": [
+        [
+            "lapce.exe",
+            "lapce-nightly"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "lapce.exe",
+            "Lapce Nightly"
+        ]
+    ],
+    "persist": "lapce-data",
+    "checkver": {
+        "github": "https://api.github.com/repos/lapce/lapce/releases/tags/nightly",
+        "script": [
+            "$release = $page | ConvertFrom-Json",
+            "$output = @{'result' = \"$(Get-Date $release.published_at -UFormat %s)\"} | ConvertTo-Json -Compress",
+            "Write-Output $output"
+        ],
+        "jsonpath": "$.result",
+        "regex": "\\A(\\d+)\\Z"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/lapce/lapce/releases/download/nightly/Lapce-windows-portable.zip"
+            }
+        }
+    }
+}

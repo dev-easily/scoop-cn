@@ -1,0 +1,28 @@
+{
+    "version": "2.9.0",
+    "description": "A 2FA TUI for your shell",
+    "homepage": "https://github.com/tjblackheart/andcli",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/tjblackheart/andcli/releases/download/v2.9.0/andcli_v2.9.0_windows_amd64.exe#/andcli.exe",
+            "hash": "eca5b8fe225812e117f8794f14eb6dae7f95adaa9d4472de68490fbcd18b0e56"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/tjblackheart/andcli/releases/download/v2.9.0/andcli_v2.9.0_windows_arm64.exe#/andcli.exe",
+            "hash": "fa3b80e7a62c784b884e4b5936246f93c4635faa6dd5013e4d42b095b1d3b40c"
+        }
+    },
+    "bin": "andcli.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/tjblackheart/andcli/releases/download/v$version/andcli_v$version_windows_amd64.exe#/andcli.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/tjblackheart/andcli/releases/download/v$version/andcli_v$version_windows_arm64.exe#/andcli.exe"
+            }
+        }
+    }
+}
