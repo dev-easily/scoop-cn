@@ -1,0 +1,51 @@
+{
+    "version": "3353",
+    "description": "A free form data organizer and a replacement for spreadsheets, mind mappers, outliners, PIMs, text editors and small databases.",
+    "homepage": "https://strlen.com/treesheets",
+    "license": "ZLIB",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/aardappel/treesheets/releases/download/3353/TreeSheets-3353-winx64.zip",
+            "hash": "0731e7132ed605cda111061c55d5a200e3a154944539a5047e372631f977b4e9",
+            "extract_dir": "TreeSheets-3353-winx64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/aardappel/treesheets/releases/download/3353/TreeSheets-3353-winarm64.zip",
+            "hash": "df2509c73a8bf533542b157195bccab21647b9b9ba738045d23057e8eae925e0",
+            "extract_dir": "TreeSheets-3353-winarm64"
+        }
+    },
+    "pre_install": [
+        "if (Test-Path \"$persist_dir\\TreeSheets.ini\") {",
+        "    Copy-Item \"$persist_dir\\TreeSheets.ini\" \"$dir\"",
+        "}"
+    ],
+    "shortcuts": [
+        [
+            "TreeSheets.exe",
+            "TreeSheets",
+            "-p"
+        ]
+    ],
+    "pre_uninstall": [
+        "if (Test-Path \"$dir\\TreeSheets.ini\") {",
+        "    ensure \"$persist_dir\" | Out-Null",
+        "    Copy-Item \"$dir\\TreeSheets.ini\" \"$persist_dir\"",
+        "}"
+    ],
+    "checkver": {
+        "github": "https://github.com/aardappel/treesheets"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/aardappel/treesheets/releases/download/$version/TreeSheets-$version-winx64.zip",
+                "extract_dir": "TreeSheets-$version-winx64"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/aardappel/treesheets/releases/download/$version/TreeSheets-$version-winarm64.zip",
+                "extract_dir": "TreeSheets-$version-winarm64"
+            }
+        }
+    }
+}

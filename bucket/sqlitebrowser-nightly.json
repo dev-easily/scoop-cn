@@ -1,0 +1,60 @@
+{
+    "version": "20260908-4a7359d",
+    "description": "DB Browser for SQLite (DB4S) project (nightly build)",
+    "homepage": "https://github.com/sqlitebrowser/sqlitebrowser",
+    "license": "MPL-2.0|GPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/continuous/DB.Browser.for.SQLite-dev-4a7359d-win-x64.zip",
+            "hash": "75756c23c698473c77b7ed79a57d89e667d4749012800b41c9505ffb22124d38"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/continuous/DB.Browser.for.SQLite-dev-4a7359d-win-x86.zip",
+            "hash": "6c95a746a8179f07e926bd7c4bcfe9fa9eeab8b7c436861ecb2f2c9e964b7742"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/continuous/DB.Browser.for.SQLite-dev-4a7359d-win-arm64.zip",
+            "hash": "35b2ad50f38aef73e6e776c11ff6637f77fe36872344529f70ef3f3825f07980"
+        }
+    },
+    "bin": [
+        "DB Browser for SQLite.exe",
+        "DB Browser for SQLCipher.exe"
+    ],
+    "shortcuts": [
+        [
+            "DB Browser for SQLite.exe",
+            "DB Browser for SQLite"
+        ],
+        [
+            "DB Browser for SQLCipher.exe",
+            "DB Browser for SQLCipher"
+        ]
+    ],
+    "persist": "Data",
+    "checkver": {
+        "github": "https://api.github.com/repos/sqlitebrowser/sqlitebrowser/releases/tags/continuous",
+        "script": [
+            "$release = $page | ConvertFrom-Json",
+            "$date = Get-Date $release.updated_at -Format 'yyyyMMdd'",
+            "$page -match 'SQLite-dev-(?<commit>[0-9a-f]{7})-win-x64.zip' | Out-Null",
+            "$output = @{'result' = \"$date-$($matches['commit'])\"} | ConvertTo-Json -Compress",
+            "Write-Output $output"
+        ],
+        "jsonpath": "$.result",
+        "regex": "^(?<version>\\d{8}-(?<commit>[0-9a-f]{7}))$"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/continuous/DB.Browser.for.SQLite-dev-$matchCommit-win-x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/continuous/DB.Browser.for.SQLite-dev-$matchCommit-win-x86.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/sqlitebrowser/sqlitebrowser/releases/download/continuous/DB.Browser.for.SQLite-dev-$matchCommit-win-arm64.zip"
+            }
+        }
+    }
+}

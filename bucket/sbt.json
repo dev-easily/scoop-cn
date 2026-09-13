@@ -1,0 +1,24 @@
+{
+    "version": "2.0.8",
+    "description": "A build tool for Scala, Java, and more",
+    "homepage": "https://www.scala-sbt.org",
+    "license": "BSD-3-Clause",
+    "url": "https://www.ghproxy.cn/https://github.com/sbt/sbt/releases/download/v2.0.8/sbt-2.0.8.zip",
+    "hash": "8cde344a0ea59bf3ac1df3c808bb82eabf44a93a2d7c817237f002dcca254e4b",
+    "extract_dir": "sbt",
+    "env_set": {
+        "SBT_HOME": "$dir"
+    },
+    "bin": "bin\\sbt.bat",
+    "persist": "conf",
+    "checkver": {
+        "url": "https://www.scala-sbt.org/download/",
+        "regex": "/sbt-([\\d.]+)\\.zip"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/sbt/sbt/releases/download/v$version/sbt-$version.zip",
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

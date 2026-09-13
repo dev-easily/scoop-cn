@@ -1,0 +1,39 @@
+{
+    "version": "3.31.2-dev0-2073.4fa2b8efe",
+    "description": "A free implementation of the Remote Desktop Protocol (RDP).",
+    "homepage": "https://www.freerdp.com/",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://ci.freerdp.com/job/freerdp-nightly-windows/2073/arch=win64,label=vs2017/artifact/*zip*/archive.zip",
+            "hash": "8af78f9929c23c28b30f03b2c64ed126eedff806b7736ea57824cec52fdb4a63"
+        }
+    },
+    "extract_dir": "archive\\install\\bin",
+    "bin": [
+        "freerdp-proxy.exe",
+        "sdl-freerdp.exe",
+        "sfreerdp-server.exe",
+        "winpr-hash.exe",
+        "winpr-makecert.exe"
+    ],
+    "checkver": {
+        "script": [
+            "$build = Invoke-RestMethod 'https://ci.freerdp.com/job/freerdp-nightly-windows/lastSuccessfulBuild/api/json?tree=actions[lastBuiltRevision[SHA1]],number'",
+            "$sha = ($build.actions | Where-Object { $_.lastBuiltRevision.SHA1 } | Select-Object -First 1 -ExpandProperty lastBuiltRevision).SHA1",
+            "if (-not $sha) { error 'Unable to determine the FreeRDP commit SHA from Jenkins.'; break }",
+            "$cmake = Invoke-RestMethod \"https://www.ghproxy.cn/https://raw.githubusercontent.com/FreeRDP/FreeRDP/$sha/cmake/GetProjectVersion.cmake\"",
+            "$versionMatch = [regex]::Match($cmake, 'set\\(RAW_VERSION_STRING\\s+\"(?<baseVersion>[^\"]+)\"\\s*\\)')",
+            "if (-not $versionMatch.Success) { error 'Unable to determine the FreeRDP version from GetProjectVersion.cmake.'; break }",
+            "\"$($versionMatch.Groups['baseVersion'].Value)-$($build.number).$($sha.Substring(0, 9))#$($build.number)\""
+        ],
+        "regex": "(?<version>[^#]+)#(?<build>\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://ci.freerdp.com/job/freerdp-nightly-windows/$matchBuild/arch=win64,label=vs2017/artifact/*zip*/archive.zip"
+            }
+        }
+    }
+}
