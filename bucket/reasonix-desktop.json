@@ -1,0 +1,38 @@
+{
+    "version": "1.38.10",
+    "description": "Reasonix Desktop, official GUI for Reasonix, a DeepSeek-native AI coding agent built to reduce API costs through aggressive context caching.",
+    "homepage": "https://reasonix.io",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/esengine/DeepSeek-Reasonix/releases/download/desktop-v1.38.10/Reasonix-windows-amd64.zip",
+            "hash": "e56602949b9f9b8b88b0cf232d3ee6eb5d9645c824d317a82e91bcf84272a25c"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/esengine/DeepSeek-Reasonix/releases/download/desktop-v1.38.10/Reasonix-windows-arm64.zip",
+            "hash": "d370a374a8a6c7e249787f6d42426e09297824c0b46fdef50fa256ba295ffd58"
+        }
+    },
+    "shortcuts": [
+        [
+            "reasonix-launcher.exe",
+            "Reasonix Desktop",
+            "launch --detach"
+        ]
+    ],
+    "checkver": {
+        "github": "https://api.github.com/repos/esengine/DeepSeek-Reasonix/releases",
+        "jsonpath": "$[*].tag_name",
+        "regex": "\"desktop-v([\\d.]+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/esengine/DeepSeek-Reasonix/releases/download/desktop-v$version/Reasonix-windows-amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/esengine/DeepSeek-Reasonix/releases/download/desktop-v$version/Reasonix-windows-arm64.zip"
+            }
+        }
+    }
+}

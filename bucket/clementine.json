@@ -1,0 +1,22 @@
+{
+    "version": "1.4.1-141",
+    "description": "A modern music player and library organizer.",
+    "homepage": "https://www.clementine-player.org/",
+    "license": "GPL-3.0-only",
+    "url": "https://www.ghproxy.cn/https://github.com/clementine-player/Clementine/releases/download/1.4.1-141-g02b0d960b/ClementineSetup-1.4.1-141-g02b0d960b.exe#/dl.7z",
+    "hash": "607959b7132ed4db7346eb27d6d1e390de2115d31b9dc1eeccb6f3073ef70d20",
+    "bin": "clementine.exe",
+    "shortcuts": [
+        [
+            "clementine.exe",
+            "Clementine"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/clementine-player/Clementine",
+        "regex": "^(?i)(?<tag>v?([\\d.-]+)[-+]g(?<commit>[\\w]+))$"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/clementine-player/Clementine/releases/download/$matchTag/ClementineSetup-$matchTag.exe#/dl.7z"
+    }
+}

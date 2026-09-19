@@ -1,0 +1,29 @@
+{
+    "version": "0.1.1",
+    "description": "The worktree IDE by JetBrains for the pi coding agent.",
+    "homepage": "https://thinkrail.ai",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/JetBrains/thinkrail/releases/download/v0.1.1/thinkrail-windows-x64.exe#/thinkrail.exe",
+            "hash": "27e79ad94fcfffbb7af6bdda178030d555dc707077fee9d23c99b1ccb50ec870"
+        }
+    },
+    "env_set": {
+        "THINKRAIL_DATA_DIR": "$persist_dir"
+    },
+    "bin": "thinkrail.exe",
+    "checkver": {
+        "github": "https://github.com/JetBrains/thinkrail"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/JetBrains/thinkrail/releases/download/v$version/thinkrail-windows-x64.exe#/thinkrail.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS"
+        }
+    }
+}

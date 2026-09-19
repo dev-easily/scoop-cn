@@ -1,0 +1,32 @@
+{
+    "version": "0.6.16",
+    "description": "Lightweight, cross-platform database client",
+    "homepage": "https://dbxio.com",
+    "license": "AGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/t8y2/dbx/releases/download/v0.6.16/DBX_0.6.16_x64-portable.zip",
+            "hash": "52091f49b13e420015d90a11e7f616be6879c2a7b03093d876c4c81b74166b09"
+        }
+    },
+    "shortcuts": [
+        [
+            "DBX.exe",
+            "DBX"
+        ]
+    ],
+    "env_set": {
+        "DBX_DATA_DIR": "$dir\\data"
+    },
+    "persist": "data",
+    "checkver": {
+        "github": "https://github.com/t8y2/dbx"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/t8y2/dbx/releases/download/v$version/DBX_$version_x64-portable.zip"
+            }
+        }
+    }
+}

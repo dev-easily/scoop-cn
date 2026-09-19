@@ -1,0 +1,58 @@
+{
+    "version": "20260916",
+    "description": "Open source home theater/media center software and entertainment hub for digital media",
+    "homepage": "https://kodi.tv/",
+    "license": "GPL-2.0-or-later",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://mirrors.tuna.tsinghua.edu.cn/kodi/nightlies/windows/win64/master/KodiSetup-20260916-1a9c02dc-master-x64.exe#/dl.7z",
+            "hash": "d43c3786205bd68f9eb5698daf5657c606417c46315b0d6774fe3db9a53ac99a"
+        },
+        "32bit": {
+            "url": "https://mirrors.tuna.tsinghua.edu.cn/kodi/nightlies/windows/win32/master/KodiSetup-20260916-1a9c02dc-master-x86.exe#/dl.7z",
+            "hash": "18e8693d9788f9a5f388465cb0e409ff4452bcc5a04d25b3018f5f66f4361b9c"
+        }
+    },
+    "post_install": "'$PLUGINSDIR', '$TEMP', 'AppxManifest.xml', 'Uninstall.exe' | ForEach-Object { Remove-Item \"$dir\\$_\" -Recurse -Force }",
+    "shortcuts": [
+        [
+            "kodi.exe",
+            "Kodi Dev",
+            "-p"
+        ]
+    ],
+    "persist": "portable_data",
+    "checkver": {
+        "script": [
+            "$builds = 'win32', 'win64'",
+            "$script_ver = ''",
+            "$urls =  @()",
+            "foreach ($build in $builds) {",
+            "   $base_url = 'https://mirrors.tuna.tsinghua.edu.cn/kodi/nightlies/windows/'+ $build + '/master/'",
+            "   $dl_page = Invoke-WebRequest $base_url -UseBasicParsing",
+            "   $full_version = $dl_page.links | Where-Object href -match '\\.exe$' | Select-Object -first 1 -expand href",
+            "   $script_ver = $full_version -split '-' | Select-Object -Skip 1 | Select-Object -First 1",
+            "   $urls += $full_version",
+            "}",
+            "Write-Output ('version:\"' + $script_ver + '\"') ('urls:\"' + $urls + '\"')"
+        ],
+        "regex": "version:\"(?<version>\\d+)\"\\surls:\"(?<win32bit>.+)\\s(?<win64bit>.+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://mirrors.tuna.tsinghua.edu.cn/kodi/nightlies/windows/win64/master/$matchWin64bit#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://mirrors.tuna.tsinghua.edu.cn/kodi/nightlies/windows/win32/master/$matchWin32bit#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url?mirrorlist",
+            "regex": "$sha256"
+        }
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "version": "2026.3-263.5153.42",
+    "description": "Cross-Platform IDE for PHP by JetBrains. (Latest)",
+    "homepage": "https://www.jetbrains.com/phpstorm/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.jetbrains.com/legal/docs/toolbox/license/"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://download.jetbrains.com/webide/PhpStorm-263.5153.42.exe#/dl.7z",
+            "hash": "9e0b1276c55e0261653cde5f37a8ab853afb67bcebe6ffc4f7f4ebbf302e719b",
+            "bin": [
+                [
+                    "IDE\\bin\\phpstorm64.exe",
+                    "phpstorm"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "IDE\\bin\\phpstorm64.exe",
+                    "JetBrains\\PhpStorm (Latest)"
+                ]
+            ]
+        },
+        "arm64": {
+            "url": "https://download.jetbrains.com/webide/PhpStorm-263.5153.42-aarch64.exe#/dl.7z",
+            "hash": "5a026cefeed5ca7f40402c7cfe4a9f6e324f3f2c56340a1470cb6f12d976f4b9",
+            "bin": [
+                [
+                    "IDE\\bin\\phpstorm64.exe",
+                    "phpstorm"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "IDE\\bin\\phpstorm64.exe",
+                    "JetBrains\\PhpStorm (Latest)"
+                ]
+            ]
+        }
+    },
+    "extract_to": "IDE",
+    "installer": {
+        "script": [
+            "& \"$bucketsdir\\easy-win\\scripts\\jetbrains\\portable.ps1\" \"$dir\" \"$persist_dir\"",
+            "Remove-Item \"$dir\\IDE\\`$*\" -Force -Recurse"
+        ]
+    },
+    "persist": [
+        "IDE\\bin\\idea.properties",
+        "IDE\\bin\\phpstorm64.exe.vmoptions",
+        "profile"
+    ],
+    "checkver": {
+        "script": [
+            "$productCode = 'PS'",
+            "$releaseURL = 'https://data.services.jetbrains.com/products/releases?code={0}&latest=true&platform=zip&type={1}'",
+            "$latestRelease = @('eap', 'rc', 'release') | ForEach-Object {",
+            "    $type = $_",
+            "    $url = $releaseURL -f $productCode, $type",
+            "    $response = Invoke-RestMethod -Uri $url -UseBasicParsing",
+            "    [PSCustomObject]@{",
+            "        version = ($response.$productCode)[0].majorVersion",
+            "        build = ($response.$productCode)[0].build",
+            "        urlx64 = ($response.$productCode)[0].downloads.windows.link",
+            "        urlArm64 = ($response.$productCode)[0].downloads.windowsARM64.link",
+            "    }",
+            "} | Sort-Object {[version]$_.build} -Descending | Select-Object -First 1",
+            "Write-Output \"$($latestRelease.version)-$($latestRelease.build),$($latestRelease.urlx64),$($latestRelease.urlArm64)\""
+        ],
+        "regex": "(?<ver>[\\d.]+)-(?<build>[\\d.]+),https://download\\.jetbrains\\.com/(?<urlx64>[^,]+),https://download\\.jetbrains\\.com/(?<urlarm64>.+)",
+        "replace": "${ver}-${build}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://download.jetbrains.com/$matchUrlx64#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://download.jetbrains.com/$matchUrlarm64#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

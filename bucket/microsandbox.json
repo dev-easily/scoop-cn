@@ -1,0 +1,40 @@
+{
+    "version": "0.7.2",
+    "description": "Easy, fast, local microVMs for untrusted workloads.",
+    "homepage": "https://microsandbox.dev",
+    "license": "Apache-2.0",
+    "notes": "On first install, open a new terminal before running 'msb' so MSB_HOME takes effect; Scoop's environment changes only apply to new sessions.",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/superradcompany/microsandbox/releases/download/v0.7.2/microsandbox-windows-x86_64.zip",
+            "hash": "5a67a23eb8007bb98e6b5ff0579534d3122fe8faa413952b200ca8c3752d8498"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/superradcompany/microsandbox/releases/download/v0.7.2/microsandbox-windows-aarch64.zip",
+            "hash": "65be14d39623c4bb85726876553fa8e5b622091a5208a75174f81c10a47b4db9"
+        }
+    },
+    "env_set": {
+        "MSB_HOME": "$persist_dir"
+    },
+    "bin": "msb.exe",
+    "checkver": {
+        "github": "https://github.com/superradcompany/microsandbox"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/superradcompany/microsandbox/releases/download/v$version/microsandbox-windows-x86_64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/superradcompany/microsandbox/releases/download/v$version/microsandbox-windows-aarch64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.sha256"
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "version": "0.8.5",
+    "description": "A local-first alternative to Logitech Options+, written in Rust. Remap buttons, drive DPI and SmartShift over HID++. No account, no telemetry.",
+    "homepage": "https://openlogi.org",
+    "license": "MIT|Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/AprilNEA/OpenLogi/releases/download/v0.8.5/OpenLogi-v0.8.5-windows-x86_64.zip",
+            "hash": "cb70fff896e3c31e7e2498b56fcb0275487c031bab428b6fe66c663cd9ebdb1f"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/AprilNEA/OpenLogi/releases/download/v0.8.5/OpenLogi-v0.8.5-windows-arm64.zip",
+            "hash": "a60836394fc112b5aa2c1d7169e3a7f4cca6a2fed058bbc021b26b75906aab0b"
+        }
+    },
+    "shortcuts": [
+        [
+            "OpenLogi.exe",
+            "OpenLogi"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/AprilNEA/OpenLogi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/AprilNEA/OpenLogi/releases/download/v$version/OpenLogi-v$version-windows-x86_64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/AprilNEA/OpenLogi/releases/download/v$version/OpenLogi-v$version-windows-arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "https://www.ghproxy.cn/https://github.com/AprilNEA/OpenLogi/releases/download/v$version/SHA256SUMS"
+        }
+    }
+}

@@ -1,0 +1,39 @@
+{
+    "version": "1.0.0-beta.10",
+    "description": "Official standalone command-line tool for installing and managing Unity Editors and modules from a terminal (beta version).",
+    "homepage": "https://docs.unity.com/en-us/unity-cli/use-unity-cli",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://unity.com/legal/terms-of-service"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.10/unity-windows-x64.exe#/unity.exe",
+            "hash": "2ac041e4fa04e7bedca1d53cc059981c323ae430aafaafdb8defd7f70a58ba81"
+        },
+        "arm64": {
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.10/unity-windows-arm64.exe#/unity.exe",
+            "hash": "07ed01086461f7af6cfac6728741fde53e48e8df59aafbab01df4592fbec679a"
+        }
+    },
+    "bin": "unity.exe",
+    "checkver": {
+        "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json",
+        "jsonpath": "$.version",
+        "regex": "(\\d+(?:\\.\\d+)+-beta\\.\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$version/unity-windows-x64.exe#/unity.exe"
+            },
+            "arm64": {
+                "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$version/unity-windows-arm64.exe#/unity.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.json",
+            "jsonpath": "$..[?(@.filename == '$basename')].sha256"
+        }
+    }
+}

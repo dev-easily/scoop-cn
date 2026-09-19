@@ -1,0 +1,35 @@
+{
+    "version": "2.118.0-beta.55",
+    "description": "Supabase CLI (beta channel).",
+    "homepage": "https://supabase.com",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v2.118.0-beta.55/supabase_2.118.0-beta.55_windows_amd64.zip",
+            "hash": "d6cf05cb95acc196f99324775acac5b59ecce8a2d6e5e20ad3db5b9994bdba92"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v2.118.0-beta.55/supabase_2.118.0-beta.55_windows_arm64.zip",
+            "hash": "c07131df988e45dbe9bf2d61ae052073e9ef949f15c5389f71495019a4af1d73"
+        }
+    },
+    "bin": "supabase.exe",
+    "checkver": {
+        "github": "https://api.github.com/repos/supabase/cli/releases",
+        "jsonpath": "$[*].tag_name",
+        "regex": "\"v([\\d.]+-beta\\.\\d+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v$version/supabase_$version_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/supabase/cli/releases/download/v$version/supabase_$version_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}
