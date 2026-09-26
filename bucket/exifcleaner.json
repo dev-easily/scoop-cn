@@ -1,0 +1,32 @@
+{
+    "version": "4.4.0",
+    "description": "Image metadata cleaner",
+    "homepage": "https://exifcleaner.com",
+    "license": "MIT",
+    "url": "https://www.ghproxy.cn/https://github.com/szTheory/exifcleaner/releases/download/v4.4.0/ExifCleaner.Setup.4.4.0.exe#/dl.7z",
+    "hash": "3b8f65b1f05fdf68d76365ff393c35d13b0c284bb44b22725c65d15b0e61972f",
+    "architecture": {
+        "64bit": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\""
+        },
+        "32bit": {
+            "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\""
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninst*\" -Recurse",
+    "shortcuts": [
+        [
+            "ExifCleaner.exe",
+            "ExifCleaner"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/szTheory/exifcleaner"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/szTheory/exifcleaner/releases/download/v$version/ExifCleaner.Setup.$version.exe#/dl.7z",
+        "hash": {
+            "url": "$baseurl/SHASUMS256.txt"
+        }
+    }
+}

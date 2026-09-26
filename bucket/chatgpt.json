@@ -1,0 +1,58 @@
+{
+    "version": "26.924.1866.0",
+    "description": "Desktop application for ChatGPT",
+    "homepage": "https://chatgpt.com/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://openai.com/policies/terms-of-use/"
+    },
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://persistent.oaistatic.com/codex-app-prod/releases/26.924.1866.0/ChatGPT-x64.msix#/dl.zip",
+            "hash": "ed58f738c31cfcabd96d072f0657269166e3f47da51c6b3a864b682e30f598e1"
+        },
+        "arm64": {
+            "url": "https://persistent.oaistatic.com/codex-app-prod/releases/26.924.1866.0/ChatGPT-arm64.msix#/dl.zip",
+            "hash": "69df536416e7235b31e8fd3d9332b986db74cbd52a4c005e52436af0041b93b0"
+        }
+    },
+    "extract_dir": "app",
+    "post_install": [
+        "# MSIX stores names as OPC/AppX percent-encoded UTF-8 (e.g. %40 -> @); decode to the real name.",
+        "# Children are renamed before their parents to ensure each item's path is still valid when it's renamed.",
+        "Get-ChildItem -LiteralPath $dir -Recurse | Sort-Object { $_.FullName.Length } -Descending | ForEach-Object {",
+        "    $decodedName = [uri]::UnescapeDataString($_.Name)",
+        "    if ($decodedName -ne $_.Name) {",
+        "        Rename-Item -LiteralPath $_.FullName -NewName $decodedName",
+        "    }",
+        "}"
+    ],
+    "shortcuts": [
+        [
+            "ChatGPT.exe",
+            "ChatGPT"
+        ]
+    ],
+    "env_set": {
+        "CODEX_CLI_PATH": "$dir\\resources\\codex.exe",
+        "CODEX_SPARKLE_ENABLED": "false"
+    },
+    "checkver": {
+        "url": "https://persistent.oaistatic.com/codex-app-prod/windows-store-update.json",
+        "script": "(Invoke-WebRequest 'https://persistent.oaistatic.com/codex-app-prod/ChatGPT-x64.msix' -Method Head -UseBasicParsing).Headers['x-ms-meta-package_version']",
+        "regex": "([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://persistent.oaistatic.com/codex-app-prod/releases/$version/ChatGPT-x64.msix#/dl.zip"
+            },
+            "arm64": {
+                "url": "https://persistent.oaistatic.com/codex-app-prod/releases/$version/ChatGPT-arm64.msix#/dl.zip"
+            }
+        }
+    }
+}

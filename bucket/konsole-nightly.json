@@ -1,0 +1,33 @@
+{
+    "version": "5327",
+    "description": "Konsole is a terminal to run a command shell. It provides a command line interface for directly controlling your computer.",
+    "homepage": "https://apps.kde.org/konsole/",
+    "license": "GPL-2.0+",
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.kde.org/ci-builds/utilities/konsole/master/windows/konsole-master-5327-windows-cl-msvc2022-x86_64.7z",
+            "hash": "6cb0d367506076e03ae60a6768c23fc5518c16a3a13e1413e148f3a2d425ef02"
+        }
+    },
+    "bin": "bin\\konsole.exe",
+    "shortcuts": [
+        [
+            "bin\\konsole.exe",
+            "Konsole Nightly"
+        ]
+    ],
+    "checkver": {
+        "url": "https://cdn.kde.org/ci-builds/utilities/konsole/master/windows/",
+        "regex": "konsole-master-([\\d]+)-windows-cl-msvc(?<Year>[\\d]+)-x86_64"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.kde.org/ci-builds/utilities/konsole/master/windows/konsole-master-$version-windows-cl-msvc$matchYear-x86_64.7z",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}

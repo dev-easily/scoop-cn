@@ -1,0 +1,48 @@
+{
+    "version": "33.0.0-beta4",
+    "description": "Video recording and live streaming software",
+    "homepage": "https://obsproject.com",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/obsproject/obs-studio/releases/download/33.0.0-beta4/OBS-Studio-33.0.0-beta4-Windows-arm64.zip",
+            "hash": "c8bdbd9963e9bbdaf5e8ffaa7536ce6edd4ac583bec560fff69a5dee532ac111",
+            "shortcuts": [
+                [
+                    "bin\\64bit\\obs64.exe",
+                    "OBS Studio (Preview)"
+                ]
+            ]
+        },
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/obsproject/obs-studio/releases/download/33.0.0-beta4/OBS-Studio-33.0.0-beta4-Windows-x64.zip",
+            "hash": "0a6d97ed2fb4d4c4cd3669eeaf063365e89ce72b602dc101659fc135f047359e",
+            "shortcuts": [
+                [
+                    "bin\\64bit\\obs64.exe",
+                    "OBS Studio (Preview)"
+                ]
+            ]
+        }
+    },
+    "pre_install": "if (!(Test-Path \"$persist_dir\\portable_mode.txt\")) { New-Item \"$dir\\portable_mode.txt\" | Out-Null }",
+    "persist": [
+        "config",
+        "portable_mode.txt"
+    ],
+    "checkver": {
+        "github": "https://api.github.com/repos/obsproject/obs-studio/releases",
+        "jsonpath": "$[0].tag_name",
+        "regex": "\\A([\\d.]+(?:-(?:rc|beta)\\d+)?)\\Z"
+    },
+    "autoupdate": {
+        "architecture": {
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/obsproject/obs-studio/releases/download/$version/OBS-Studio-$version-Windows-arm64.zip"
+            },
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/obsproject/obs-studio/releases/download/$version/OBS-Studio-$version-Windows-x64.zip"
+            }
+        }
+    }
+}

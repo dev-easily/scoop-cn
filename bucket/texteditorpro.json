@@ -1,0 +1,58 @@
+{
+    "version": "37.2.1",
+    "description": "Powerful text editor with syntax highlighting for multiple languages and scripts. Formerly known as EditBone",
+    "homepage": "https://texteditor.pro/",
+    "license": {
+        "identifier": "Freeware",
+        "url": "https://www.texteditor.pro/support/license/"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.texteditor.pro/downloads/TextEditorPro64.7z",
+            "hash": "dccd2c743b543040f193e089bea8864e5eaee631ffd70fc8a376b8b6867c81c4"
+        },
+        "32bit": {
+            "url": "https://www.texteditor.pro/downloads/TextEditorPro32.7z",
+            "hash": "ad73faa60e87eb9b75ad295bb451d2c370207ffeb99f856de145eae32505ebc9"
+        },
+        "arm64": {
+            "url": "https://www.texteditor.pro/downloads/TextEditorProArm64.7z",
+            "hash": "53c271b973a6a9a3c13ebf5e905a0e9e68ca3172aff6291f13c0b8367b1ebf57"
+        }
+    },
+    "bin": [
+        [
+            "TextEditorPro.exe",
+            "TextEditorPro",
+            "-inipath=\"$dir\\config\""
+        ]
+    ],
+    "shortcuts": [
+        [
+            "TextEditorPro.exe",
+            "Text Editor Pro",
+            "-inipath=\"$dir\\config\""
+        ]
+    ],
+    "persist": [
+        "config",
+        "Skins"
+    ],
+    "checkver": {
+        "url": "https://texteditor.pro/pages/changes.php",
+        "regex": "Version ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.texteditor.pro/downloads/TextEditorPro64.7z"
+            },
+            "32bit": {
+                "url": "https://www.texteditor.pro/downloads/TextEditorPro32.7z"
+            },
+            "arm64": {
+                "url": "https://www.texteditor.pro/downloads/TextEditorProArm64.7z"
+            }
+        }
+    }
+}

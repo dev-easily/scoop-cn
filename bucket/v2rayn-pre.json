@@ -1,0 +1,47 @@
+{
+    "version": "7.25.2",
+    "description": "v2rayN (WPF-based pre-release version) is a GUI client for V2Ray, with support for Xray, sing-box, and other compatible cores.",
+    "homepage": "https://github.com/2dust/v2rayN",
+    "license": "GPL-3.0-only",
+    "notes": [
+        "Since v7.17.0, v2rayN is self-contained and no longer requires the .NET 8.0 Desktop Runtime.",
+        "For more information, see: https://github.com/2dust/v2rayN/releases/tag/7.17.0"
+    ],
+    "suggest": {
+        "v2fly-core": "v2ray"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/2dust/v2rayN/releases/download/7.25.2/v2rayN-windows-64.zip",
+            "hash": "2564e9460f97c8070f61379a43e46ecbfed4e6b891df54da23766941352d228f",
+            "extract_dir": "v2rayN-windows-64"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/2dust/v2rayN/releases/download/7.25.2/v2rayN-windows-arm64.zip",
+            "hash": "8befee16ecb0dceb84ab6143293b8b6ac1c2cd80c966380d2b8cf0272805af3b",
+            "extract_dir": "v2rayN-windows-arm64"
+        }
+    },
+    "shortcuts": [
+        [
+            "v2rayN.exe",
+            "v2rayN (Pre-release)"
+        ]
+    ],
+    "persist": "guiConfigs",
+    "checkver": {
+        "github": "https://api.github.com/repos/2dust/v2rayN/releases",
+        "jsonpath": "$[0].tag_name",
+        "regex": "(?:v|V)?([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/2dust/v2rayN/releases/download/$version/v2rayN-windows-64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/2dust/v2rayN/releases/download/$version/v2rayN-windows-arm64.zip"
+            }
+        }
+    }
+}
