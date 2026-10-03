@@ -1,0 +1,31 @@
+{
+    "version": "26.2.0",
+    "description": "A database that's engineered for modern software applications and event-driven architectures (Formerly known as EventStoreDB).",
+    "homepage": "https://kurrentdb.kurrent.io/kurrentdb/",
+    "license": {
+        "identifier": "KLv1",
+        "url": "https://github.com/kurrent-io/KurrentDB/blob/master/LICENSE.md"
+    },
+    "notes": "Database files are stored in \"$persist_dir\\db\".",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/kurrent-io/KurrentDB/releases/download/v26.2.0/kurrentdb-26.2.0-windows-x64.tar.gz",
+            "hash": "789d9c9de87d6e721739a7d796d6bc4ae7d4f3926f77409ff872d1c26e0920e6"
+        }
+    },
+    "env_set": {
+        "KURRENTDB_DB": "$persist_dir\\db"
+    },
+    "bin": "KurrentDB.exe",
+    "persist": "db",
+    "checkver": {
+        "github": "https://github.com/kurrent-io/KurrentDB"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/kurrent-io/KurrentDB/releases/download/v$version/kurrentdb-$version-windows-x64.tar.gz"
+            }
+        }
+    }
+}

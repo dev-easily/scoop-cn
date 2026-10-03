@@ -1,0 +1,39 @@
+{
+    "version": "14.5.1",
+    "description": "Text shaping engine. Supports OpenType and Apple Advanced Typography.",
+    "homepage": "https://harfbuzz.github.io/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/harfbuzz/harfbuzz/releases/download/14.5.1/harfbuzz-win64-14.5.1.zip",
+            "hash": "cdd2f68341ab0f66f4ced96aa9dad4d785fb5aeb61369d805fba81262804142b",
+            "extract_dir": "harfbuzz-win64"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/harfbuzz/harfbuzz/releases/download/14.5.1/harfbuzz-win32-14.5.1.zip",
+            "hash": "22814129b198bc1490b2aa58fd995d26b8ad71b82ef73930d3f3d41d626c8010",
+            "extract_dir": "harfbuzz-win32"
+        }
+    },
+    "bin": [
+        "hb-gpu.exe",
+        "hb-info.exe",
+        "hb-raster.exe",
+        "hb-shape.exe",
+        "hb-subset.exe",
+        "hb-view.exe"
+    ],
+    "checkver": {
+        "github": "https://github.com/harfbuzz/harfbuzz"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/harfbuzz/harfbuzz/releases/download/$version/harfbuzz-win64-$version.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/harfbuzz/harfbuzz/releases/download/$version/harfbuzz-win32-$version.zip"
+            }
+        }
+    }
+}

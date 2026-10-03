@@ -1,0 +1,46 @@
+{
+    "version": "2.0.29",
+    "description": "Open-source (FOSS) todo manager based on the todo.txt syntax",
+    "homepage": "https://github.com/ransome1/sleek",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/ransome1/sleek/releases/download/v2.0.29/sleek-2.0.29-win-x64-Setup.exe#/dl.7z",
+            "hash": "sha512:1b50665ba22a2dc06935edeba18547fe753d61656ae4077ab0f21b8e5f4b65d2396440e288a30778c417720158b972ef1e8951bb110cfdbedad3be94810d31fc"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/ransome1/sleek/releases/download/v2.0.29/sleek-2.0.29-win-arm64-Setup.exe#/dl.7z",
+            "hash": "sha512:16f81565fef4b58835d3e61774cfb15ebeae4775bd7b4780dd287f35a358a9211d5ecdaa42eb410f60b1f110440876f9ed74d38b87ab40ad0eceb0bc8d727702"
+        }
+    },
+    "pre_install": [
+        "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-*.7z\" \"$dir\"",
+        "Remove-Item \"$dir\\`$*\" -Force -Recurse",
+        "if (!(Test-Path \"$persist_dir\\user-preferences.json\")) {",
+        "    New-Item \"$dir\\user-preferences.json\" -ItemType File | Out-Null",
+        "}"
+    ],
+    "bin": "sleek.exe",
+    "shortcuts": [
+        [
+            "sleek.exe",
+            "Sleek"
+        ]
+    ],
+    "persist": "user-preferences.json",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/ransome1/sleek/releases/download/v$version/sleek-$version-win-x64-Setup.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/ransome1/sleek/releases/download/v$version/sleek-$version-win-arm64-Setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "(?sm)$basename.*?sha512:\\s+$base64"
+        }
+    }
+}

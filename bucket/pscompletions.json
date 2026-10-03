@@ -1,0 +1,27 @@
+{
+    "version": "7.6.0",
+    "description": "A tab-completion manager for PowerShell, powered by Rust engine and interactive menu",
+    "homepage": "https://pscompletions.abgox.com",
+    "license": "MIT",
+    "notes": [
+        "Use the module by running: 'Import-Module PSCompletions'.",
+        "Add to $PROFILE to auto-import on startup."
+    ],
+    "url": "https://cdn.powershellgallery.com/packages/pscompletions.7.6.0.nupkg",
+    "hash": "3f714de276edd572da6057372fc38fa81b7f5edc7fb8167a2ee1d4b0097f1465",
+    "pre_install": "Remove-Item \"$dir\\_rels\", \"$dir\\package\", \"$dir\\*Content*.xml\" -Recurse",
+    "env_set": {
+        "PSCOMPLETIONS_DATA_DIR": "$dir\\data"
+    },
+    "psmodule": {
+        "name": "PSCompletions"
+    },
+    "persist": "data",
+    "checkver": {
+        "url": "https://www.powershellgallery.com/packages/PSCompletions",
+        "regex": "<h2>([\\d.]+)</h2>"
+    },
+    "autoupdate": {
+        "url": "https://cdn.powershellgallery.com/packages/pscompletions.$version.nupkg"
+    }
+}

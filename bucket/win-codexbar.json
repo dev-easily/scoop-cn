@@ -1,0 +1,33 @@
+{
+    "version": "0.60.3",
+    "description": "Windows system-tray app that shows usage stats for AI coding tools (Claude, Codex, Copilot, and more).",
+    "homepage": "https://github.com/nesszer/Win-CodexBar",
+    "license": "MIT",
+    "suggest": {
+        "Microsoft Edge WebView2": "easy-win/webview2"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/nesszer/Win-CodexBar/releases/download/v0.60.3/CodexBar-0.60.3-portable.exe#/CodexBar.exe",
+            "hash": "810ae2ee9377767d2f0d78bbed1af3da6a2dd43e9763d935205a3d44d6abe987"
+        }
+    },
+    "bin": "CodexBar.exe",
+    "shortcuts": [
+        [
+            "CodexBar.exe",
+            "Win-CodexBar"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/nesszer/Win-CodexBar/releases/download/v$version/CodexBar-$version-portable.exe#/CodexBar.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

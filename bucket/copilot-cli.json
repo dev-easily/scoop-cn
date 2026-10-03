@@ -1,0 +1,33 @@
+{
+    "version": "1.0.91",
+    "description": "Brings the power of Copilot coding agent directly to your terminal",
+    "homepage": "https://github.com/features/copilot/cli",
+    "license": {
+        "identifier": "GitHub Copilot CLI License",
+        "url": "https://github.com/github/copilot-cli/blob/main/LICENSE.md"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/github/copilot-cli/releases/download/v1.0.91/copilot-win32-x64.zip",
+            "hash": "c6513217c9bb9424d72167d6ae88f67fddc305f331497e1c7f3e9cc8b00d34bf"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/github/copilot-cli/releases/download/v1.0.91/copilot-win32-arm64.zip",
+            "hash": "5a3e8f818c18ec365cb80dea5c26ab0077943e9c67525dd1a461aa0259988858"
+        }
+    },
+    "bin": "copilot.exe",
+    "checkver": {
+        "github": "https://github.com/github/copilot-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/github/copilot-cli/releases/download/v$version/copilot-win32-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/github/copilot-cli/releases/download/v$version/copilot-win32-arm64.zip"
+            }
+        }
+    }
+}

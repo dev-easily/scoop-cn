@@ -1,0 +1,31 @@
+{
+    "version": "13.9.0",
+    "description": "Database migration tool that favors simplicity and convention over configuration.",
+    "homepage": "https://github.com/flyway/flyway",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/flyway/flyway/releases/download/flyway-13.9.0/flyway-commandline-13.9.0-windows-x64.zip",
+            "hash": "bea2d620274bf59d86b179f44d35c665019f82b0ffa5bae9b12d7da5d7c49eeb"
+        }
+    },
+    "extract_dir": "flyway-13.9.0",
+    "bin": "flyway.cmd",
+    "persist": [
+        "conf",
+        "sql",
+        "jars"
+    ],
+    "checkver": {
+        "url": "https://github.com/flyway/flyway/releases/latest",
+        "regex": "flyway-([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/flyway/flyway/releases/download/flyway-$version/flyway-commandline-$version-windows-x64.zip"
+            }
+        },
+        "extract_dir": "flyway-$version"
+    }
+}

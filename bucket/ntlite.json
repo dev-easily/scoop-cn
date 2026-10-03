@@ -1,0 +1,58 @@
+{
+    "version": "2026.09.12311",
+    "description": "Cutting-edge Windows configuration tool",
+    "homepage": "https://www.ntlite.com",
+    "license": "Proprietary",
+    "depends": "easy-win/innounp",
+    "architecture": {
+        "64bit": {
+            "url": "https://downloads.ntlite.com/files/NTLite_setup_x64.exe",
+            "hash": "f59d707ebe30a4faa9e25cbfa07e623148ff07fc9c9a3c742d1944a247bf2b71"
+        },
+        "32bit": {
+            "url": "https://downloads.ntlite.com/files/NTLite_setup_x86_legacy.exe",
+            "hash": "febbfe94c7a4451098df61752d3294419bc214bebc81dda457eb0406ce19a8cb"
+        }
+    },
+    "pre_install": [
+        "if (!(Test-Path \"$persist_dir\\settings.xml\")) {",
+        "    $settings = '<?xml version=\"1.0\" encoding=\"utf-8\"?><GeneralOptions xmlns=\"urn:schemas-nliteos-com:pn.v1\"><CheckUpdate>false</CheckUpdate><AutoUpdate>false</AutoUpdate></GeneralOptions>'",
+        "    Set-Content \"$dir\\settings.xml\" $settings -Encoding Ascii",
+        "}"
+    ],
+    "installer": {
+        "script": [
+            "Expand-InnoArchive -Path \"$dir\\$fname\"",
+            "Expand-InnoArchive -Path \"$dir\\$fname\" -ExtractDir '{code_CefInstallDir}' -Removal"
+        ]
+    },
+    "shortcuts": [
+        [
+            "NTLite.exe",
+            "NTLite"
+        ]
+    ],
+    "persist": [
+        "Presets",
+        "Updates",
+        "settings.xml"
+    ],
+    "checkver": {
+        "url": "https://www.ntlite.com/download/",
+        "regex": "\\>v\\D*([\\d.]+)<"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://downloads.ntlite.com/files/NTLite_setup_x64.exe"
+            },
+            "32bit": {
+                "url": "https://downloads.ntlite.com/files/NTLite_setup_x86_legacy.exe"
+            }
+        },
+        "hash": {
+            "url": "https://www.ntlite.com/download/",
+            "regex": "$basename.*?>$sha256<"
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "version": "2.7.4",
+    "description": "Execute commands in response to file modifications",
+    "homepage": "https://github.com/watchexec/watchexec",
+    "license": "Apache-2.0",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2005"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/watchexec/watchexec/releases/download/v2.7.4/watchexec-2.7.4-x86_64-pc-windows-msvc.zip",
+            "hash": "4f380d9785661d05d188e2c36c221678d2614e9dd8c7d8397e72660596498a6d",
+            "extract_dir": "watchexec-2.7.4-x86_64-pc-windows-msvc"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/watchexec/watchexec/releases/download/v2.7.4/watchexec-2.7.4-aarch64-pc-windows-msvc.zip",
+            "hash": "40415afb1ea0be0d6636d91d5de3a24c384f01d46775e9f46184c0f682d89501",
+            "extract_dir": "watchexec-2.7.4-aarch64-pc-windows-msvc"
+        }
+    },
+    "bin": "watchexec.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/watchexec/watchexec/releases/download/v$version/watchexec-$version-x86_64-pc-windows-msvc.zip",
+                "extract_dir": "watchexec-$version-x86_64-pc-windows-msvc"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/watchexec/watchexec/releases/download/v$version/watchexec-$version-aarch64-pc-windows-msvc.zip",
+                "extract_dir": "watchexec-$version-aarch64-pc-windows-msvc"
+            }
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{
+    "version": "1.35.0",
+    "description": "A developer CLI that provides commands for working with Azure resources that map to key workflow stages: code, build, deploy, monitor, repeat.",
+    "homepage": "https://aka.ms/azd",
+    "license": "MIT",
+    "notes": [
+        "1. Shell completion requires additional setup, see: https://github.com/Azure/azure-dev",
+        "2. Telemetry is enabled by default, it can be disabled by setting env variable \"AZURE_DEV_COLLECT_TELEMETRY\" to \"no\""
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_1.35.0/azd-windows-amd64.zip",
+            "hash": "7a033a04b1ca3485a6a908b9f7a9a58cc30b6699720f7da25321c4cdebd87a1c"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_1.35.0/azd-windows-arm64-alpha.zip",
+            "hash": "aad9772ae2f0bba6d2990dc635d58e68bfc49b2108557820be7098b9eccf4f01"
+        }
+    },
+    "pre_install": "Get-Item \"$dir\\azd-*.exe\" | Rename-Item -NewName \"azd.exe\"",
+    "bin": "azd.exe",
+    "post_uninstall": [
+        "if ($purge) {",
+        "    $Directories = [string[]](",
+        "        [System.IO.Path]::Combine($env:USERPROFILE,'.azd')",
+        "    )",
+        "    $Directories.ForEach{",
+        "        if ([System.IO.Directory]::Exists($_)) {",
+        "            $null = [System.IO.Directory]::Delete($_,$true)",
+        "        }",
+        "    }",
+        "}"
+    ],
+    "checkver": {
+        "github": "https://github.com/Azure/azure-dev",
+        "regex": "azure-dev-cli_([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_$version/azd-windows-amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Azure/azure-dev/releases/download/azure-dev-cli_$version/azd-windows-arm64-alpha.zip"
+            }
+        }
+    }
+}

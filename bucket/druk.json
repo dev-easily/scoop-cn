@@ -1,0 +1,21 @@
+{
+    "version": "1.36.0",
+    "description": "Terminal code editor with a file tree, tabs, search, git integration and syntax highlighting.",
+    "homepage": "https://github.com/letstri/druk",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/letstri/druk/releases/download/v1.36.0/druk-windows-x64.zip",
+            "hash": "afd9196d3b78d96468aa20a5730780f7d494924ee60506725464964e6d235424"
+        }
+    },
+    "bin": "druk.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/letstri/druk/releases/download/v$version/druk-windows-x64.zip"
+            }
+        }
+    }
+}

@@ -1,0 +1,36 @@
+{
+    "version": "1.4.219",
+    "description": "The next-gen IDE for working with a fleet of parallel agents.",
+    "homepage": "https://onorca.dev",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/stablyai/orca/releases/download/v1.4.219/orca-windows-setup.exe#/dl.7z",
+            "hash": "sha512:3f2f38e26394034e0ebc338b1f097886d8ef6a9c5c682431dd5a978c671d561bd685856d889cc81ccd60b1c11c87e4e53ebb5ca34c0d8e270a1c062a4b75bb16",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\*.nsi\" -Recurse"
+            ]
+        }
+    },
+    "shortcuts": [
+        [
+            "Orca.exe",
+            "Orca"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/stablyai/orca"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/stablyai/orca/releases/download/v$version/orca-windows-setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
+        }
+    }
+}

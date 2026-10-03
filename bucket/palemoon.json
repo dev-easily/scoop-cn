@@ -1,0 +1,58 @@
+{
+    "version": "35.0.1",
+    "description": "Mozilla-derived web browser focusing on efficiency and customization",
+    "homepage": "https://www.palemoon.org",
+    "license": "MPL-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-35.0.1.win64.exe#/palemoon.7z",
+            "hash": "654334ff9189a2077f1eae8fe977eb8e13a61b4b29e0202e80a75ae362dc8532"
+        },
+        "32bit": {
+            "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-35.0.1.win32.exe#/palemoon.7z",
+            "hash": "5d39555512b592d190a7ee66f9e14fa63cde9d5cc7451beb97130c903d970f09"
+        }
+    },
+    "post_install": [
+        "(Get-Content \"$dir\\Palemoon-Portable.ini\") -replace 'ShowSplash=true','ShowSplash=false' | Set-Content \"$dir\\Palemoon-Portable.ini\"",
+        "if (!(Test-Path \"$dir\\User\\Palemoon\\Profiles\") -and (Test-Path \"$env:AppData\\Moonchild Productions\\Pale Moon\\Profiles\")) {",
+        "    mkdir \"$dir\\User\\Palemoon\" -ErrorAction SilentlyContinue",
+        "    Copy-Item \"$env:AppData\\Moonchild Productions\\Pale Moon\\Profiles\" \"$dir\\User\\Palemoon\" -Recurse",
+        "}"
+    ],
+    "bin": [
+        [
+            "Palemoon-Portable.exe",
+            "palemoon"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Palemoon-Portable.exe",
+            "Pale Moon"
+        ]
+    ],
+    "persist": [
+        "Backups",
+        "Downloads",
+        "User"
+    ],
+    "checkver": {
+        "url": "https://www.palemoon.org/download.shtml",
+        "regex": "Hashes for release ([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-$version.win64.exe#/palemoon.7z"
+            },
+            "32bit": {
+                "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-$version.win32.exe#/palemoon.7z"
+            }
+        },
+        "hash": {
+            "url": "https://www.palemoon.org/download.shtml",
+            "regex": "$basename\\s+$sha256"
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "version": "0.19.4",
+    "description": "A native, all-in-one workspace for databases, SSH, SFTP, terminals, remote desktop, monitoring, and AI.",
+    "homepage": "https://navop.dev",
+    "license": {
+        "identifier": "Apache-2.0,Navop",
+        "url": "https://github.com/feigeCode/navop/blob/main/NAVOP_LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/feigeCode/navop/releases/download/v0.19.4/navop-0.19.4-windows-x64-portable.zip",
+            "hash": "029cda0587c73957e4a3913c2e3206d299e5dd312639d93af35843645b4bc276"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/feigeCode/navop/releases/download/v0.19.4/navop-0.19.4-win32-portable.zip",
+            "hash": "9669c17b087db670f85987addddb16ed050c2af84591f3934847ff65a46d098c"
+        }
+    },
+    "shortcuts": [
+        [
+            "navop.exe",
+            "Navop"
+        ]
+    ],
+    "persist": "data",
+    "checkver": {
+        "github": "https://github.com/feigeCode/navop"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/feigeCode/navop/releases/download/v$version/navop-$version-windows-x64-portable.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/feigeCode/navop/releases/download/v$version/navop-$version-win32-portable.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/sha256sums.txt"
+        }
+    }
+}

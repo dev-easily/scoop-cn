@@ -1,0 +1,30 @@
+{
+    "version": "4.1.2",
+    "description": "An easy-to-use Trakt/Plex Discord Rich Presence",
+    "homepage": "https://github.com/afonsojramos/discrakt",
+    "license": "MIT",
+    "suggest": {
+        "vcredist": "easy-win/vcredist2022"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/afonsojramos/discrakt/releases/download/v4.1.2/discrakt_win64.exe#/discrakt.exe",
+            "hash": "702b67f4c1aec139e9c87b14934a82e32b99bbaafa81fbf3a812fd59f075fa93"
+        }
+    },
+    "bin": "discrakt.exe",
+    "shortcuts": [
+        [
+            "discrakt.exe",
+            "Discrakt"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/afonsojramos/discrakt/releases/download/v$version/discrakt_win64.exe#/discrakt.exe"
+            }
+        }
+    }
+}

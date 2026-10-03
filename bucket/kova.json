@@ -1,0 +1,33 @@
+{
+    "version": "0.8.0",
+    "description": "Markdown presentation editor that turns plain Markdown into polished slides with live preview, multiple layouts, theming, and PPTX export.",
+    "homepage": "https://kova.md",
+    "license": "GPL-3.0-or-later",
+    "suggest": {
+        "Microsoft Edge WebView2": "easy-win/webview2"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/KovaMD/Kova/releases/download/v0.8.0/Kova_0.8.0_x64_en-US.msi",
+            "hash": "7e19dbcc73085d175da445915512e7c89f459874fc2e9244db58b6e8c023bf65"
+        }
+    },
+    "extract_dir": "PFiles\\Kova",
+    "bin": "Kova.exe",
+    "shortcuts": [
+        [
+            "Kova.exe",
+            "Kova"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/KovaMD/Kova"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/KovaMD/Kova/releases/download/v$version/Kova_$version_x64_en-US.msi"
+            }
+        }
+    }
+}
