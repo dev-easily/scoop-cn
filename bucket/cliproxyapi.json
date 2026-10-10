@@ -1,0 +1,50 @@
+{
+    "version": "8.0.23",
+    "description": "Wrap Gemini CLI, Antigravity, ChatGPT Codex, Claude Code, Grok Build as an OpenAI/Gemini/Claude/Codex compatible API service.",
+    "homepage": "https://help.router-for.me",
+    "license": "MIT",
+    "notes": [
+        "cli-proxy-api shim use \"$persist_dir\\config.yaml\" as the default config file.",
+        "To use a different config file, please run:",
+        "\"$dir\\cli-proxy-api.exe\" --config <NEW_CONFIG_FILE>"
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/router-for-me/CLIProxyAPI/releases/download/v8.0.23/CLIProxyAPI_8.0.23_windows_amd64.zip",
+            "hash": "d2839470df9a3698c9b0a93a6f42f8c569be4a0f74099f7110ba9350f62ca6f7"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/router-for-me/CLIProxyAPI/releases/download/v8.0.23/CLIProxyAPI_8.0.23_windows_aarch64.zip",
+            "hash": "2982f6c6d001f98519d4067f17e6f34b35049a99ccb9581bf2848ae63f630848"
+        }
+    },
+    "pre_install": [
+        "if (-not (Test-Path -Path \"$persist_dir\\config.yaml\")) {",
+        "    Copy-Item -Path \"$dir\\config.example.yaml\" -Destination \"$dir\\config.yaml\"",
+        "}"
+    ],
+    "bin": [
+        [
+            "cli-proxy-api.exe",
+            "cli-proxy-api",
+            "--config \"$persist_dir\\config.yaml\""
+        ]
+    ],
+    "persist": "config.yaml",
+    "checkver": {
+        "github": "https://github.com/router-for-me/CLIProxyAPI"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/router-for-me/CLIProxyAPI/releases/download/v$version/CLIProxyAPI_$version_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/router-for-me/CLIProxyAPI/releases/download/v$version/CLIProxyAPI_$version_windows_aarch64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

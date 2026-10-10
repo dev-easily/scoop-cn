@@ -1,0 +1,41 @@
+{
+    "version": "2.73.0",
+    "description": "Manage your dotfiles across multiple diverse machines, securely.",
+    "homepage": "https://chezmoi.io",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/twpayne/chezmoi/releases/download/v2.73.0/chezmoi_2.73.0_windows_amd64.zip",
+            "hash": "266938399108028a5b6dc7a137026e3ead747304122e5fe381d5396e496620f6"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/twpayne/chezmoi/releases/download/v2.73.0/chezmoi_2.73.0_windows_i386.zip",
+            "hash": "f8041408280a9a450d0a6cf3944f050cb4691a92ac9b4138be5005fabc7c607c"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/twpayne/chezmoi/releases/download/v2.73.0/chezmoi_2.73.0_windows_arm64.zip",
+            "hash": "bedc0ea1949d6b13386b5326a92bbca64506ffe8566c95c1b569067b8f1a1761"
+        }
+    },
+    "bin": "chezmoi.exe",
+    "checkver": {
+        "github": "https://github.com/twpayne/chezmoi/"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/twpayne/chezmoi/releases/download/v$version/chezmoi_$version_windows_amd64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/twpayne/chezmoi/releases/download/v$version/chezmoi_$version_windows_i386.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/twpayne/chezmoi/releases/download/v$version/chezmoi_$version_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt",
+            "regex": "$sha256\\s*$basename"
+        }
+    }
+}

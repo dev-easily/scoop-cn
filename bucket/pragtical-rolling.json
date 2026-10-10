@@ -1,0 +1,41 @@
+{
+    "version": "20261009-755-62b3659",
+    "description": "The practical and pragmatic code editor (rolling release).",
+    "homepage": "https://pragtical.dev/",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/pragtical/pragtical/releases/download/rolling/pragtical-rolling-windows-x86_64.zip",
+            "hash": "5421b6e14fbc12cd9eb76c7503376d57226c740a2bc70dcd199b01426c738de7"
+        }
+    },
+    "extract_dir": "pragtical",
+    "bin": "pragtical.exe",
+    "shortcuts": [
+        [
+            "pragtical.exe",
+            "Pragtical"
+        ]
+    ],
+    "persist": "user",
+    "checkver": {
+        "github": "https://api.github.com/repos/pragtical/pragtical/actions/workflows/rolling.yml/runs?branch=master&status=success",
+        "script": [
+            "$content = ConvertFrom-Json $page",
+            "if ((-not $content) -or (-not $content.workflow_runs) -or ($content.workflow_runs.Count -eq 0)) {",
+            "    return $null",
+            "}",
+            "$release = $content.workflow_runs[0]",
+            "Write-Output \"$($release.run_number) $($release.created_at | Get-Date -Format 'yyyy-MM-dd') $($release.head_sha)\""
+        ],
+        "regex": "^(?<runId>\\d+) (?<year>\\d{4})-(?<month>\\d{2})-(?<day>\\d{2}) (?<hash>.{7})(?<rest>.*)$",
+        "replace": "${year}${month}${day}-${runId}-${hash}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/pragtical/pragtical/releases/download/rolling/pragtical-rolling-windows-x86_64.zip"
+            }
+        }
+    }
+}

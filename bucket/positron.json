@@ -1,0 +1,47 @@
+{
+    "version": "2026.10.0-297",
+    "description": "A next-generation data science IDE",
+    "homepage": "https://positron.posit.co",
+    "license": "Elastic-2.0",
+    "suggest": {
+        "R": "r",
+        "Python": "python"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://cdn.posit.co/positron/releases/win/x86_64/Positron-2026.10.0-297-UserSetup-x64.exe",
+            "hash": "40a97f7e498cd2bcf8579728896586509515a6b5b9cec88b6315eb08ba66f6e9"
+        },
+        "arm64": {
+            "url": "https://cdn.posit.co/positron/releases/win/arm64/Positron-2026.10.0-297-UserSetup-arm64.exe",
+            "hash": "339ef11cc201829b41edbb48bedea4fbf6371bfe631662e1d716e6e31981785b"
+        }
+    },
+    "innosetup": true,
+    "extract_dir": "{code_GetDestDir}",
+    "bin": "bin/positron.cmd",
+    "shortcuts": [
+        [
+            "Positron.exe",
+            "Positron"
+        ]
+    ],
+    "checkver": {
+        "url": "https://cdn.posit.co/positron/releases/win/x86_64/user-releases.json",
+        "jsonpath": "$.version"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cdn.posit.co/positron/releases/win/x86_64/Positron-$version-UserSetup-x64.exe"
+            },
+            "arm64": {
+                "url": "https://cdn.posit.co/positron/releases/win/arm64/Positron-$version-UserSetup-arm64.exe"
+            }
+        },
+        "hash": {
+            "url": "https://cdn.posit.co/positron/releases/checksums/positron-$version-checksums.json",
+            "jsonpath": "$.['$basename']"
+        }
+    }
+}

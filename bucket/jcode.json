@@ -1,0 +1,31 @@
+{
+    "version": "0.93.0",
+    "description": "Coding Agent Harness.",
+    "homepage": "https://jcode.sh",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/1jehuang/jcode/releases/download/v0.93.0/jcode-windows-x86_64.tar.gz",
+            "hash": "b5207968ff36a3a0ed5a0bc39b531cc8577397af82b3d7b1e22731e4a40875dc"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/1jehuang/jcode/releases/download/v0.93.0/jcode-windows-aarch64.tar.gz",
+            "hash": "f243cdec49e42970747c79bde1c1ccaf1a805292b61e0af0f9db9891c9b1c9c0"
+        }
+    },
+    "pre_install": "Get-ChildItem -Path \"$dir\\jcode-windows-*.exe\" | Select-Object -First 1 | Rename-Item -NewName 'jcode.exe'",
+    "bin": "jcode.exe",
+    "checkver": {
+        "github": "https://github.com/1jehuang/jcode"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/1jehuang/jcode/releases/download/v$version/jcode-windows-x86_64.tar.gz"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/1jehuang/jcode/releases/download/v$version/jcode-windows-aarch64.tar.gz"
+            }
+        }
+    }
+}

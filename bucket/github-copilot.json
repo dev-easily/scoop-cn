@@ -1,0 +1,38 @@
+{
+    "version": "1.1.28",
+    "description": "GitHub Copilot, an agent-native desktop development environment.",
+    "homepage": "https://github.com/github/app",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://github.com/github/app/blob/main/License.md"
+    },
+    "notes": "Requires an active GitHub Copilot subscription (Pro, Pro+, Business, or Enterprise) and Git installed.",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/github/app/releases/download/v1.1.28/GitHub-Copilot-windows-x64.msi",
+            "hash": "bf410abf79b9b7e7510364a590ab73f277ec8f6604ad303e7a7c81444981bd3d"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/github/app/releases/download/v1.1.28/GitHub-Copilot-windows-arm64.msi",
+            "hash": "2c035a60be525e5c9f1abda7b58b1b8491ca0a0c4127dbdf6380f910d2026a16"
+        }
+    },
+    "extract_dir": "PFiles\\GitHub Copilot",
+    "shortcuts": [
+        [
+            "github.exe",
+            "GitHub Copilot"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/github/app/releases/download/v$version/GitHub-Copilot-windows-x64.msi"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/github/app/releases/download/v$version/GitHub-Copilot-windows-arm64.msi"
+            }
+        }
+    }
+}

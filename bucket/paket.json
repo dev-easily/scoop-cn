@@ -1,0 +1,18 @@
+{
+    "version": "11.0.0",
+    "description": "Dependency manager for .NET with support for NuGet and Git repositories",
+    "homepage": "https://fsprojects.github.io/Paket/",
+    "license": "MIT",
+    "url": "https://www.ghproxy.cn/https://github.com/fsprojects/Paket/releases/download/11.0.0/paket.exe",
+    "hash": "d9486e2381302ca2547cbf80cc6c4abd5e34073e5e0f95edd42576474d47f925",
+    "bin": "paket.exe",
+    "checkver": {
+        "github": "https://github.com/fsprojects/Paket"
+    },
+    "autoupdate": {
+        "url": "https://www.ghproxy.cn/https://github.com/fsprojects/Paket/releases/download/$version/paket.exe",
+        "hash": {
+            "url": "$urlNoExt-sha256.txt"
+        }
+    }
+}

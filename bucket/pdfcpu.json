@@ -1,0 +1,37 @@
+{
+    "version": "0.16.1",
+    "description": "A PDF processor written in Go, supporting encryption.",
+    "homepage": "https://pdfcpu.io",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/pdfcpu/pdfcpu/releases/download/v0.16.1/pdfcpu_0.16.1_Windows_x86_64.zip",
+            "hash": "bc796772a32b7cd8b532b18da268e65f67344a3dabf466c5c940b73d81f3e815",
+            "extract_dir": "pdfcpu_0.16.1_Windows_x86_64"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/pdfcpu/pdfcpu/releases/download/v0.16.1/pdfcpu_0.16.1_Windows_i386.zip",
+            "hash": "1bf915324e5e31b61a5c19814afeab90b6de923ea102fe55ee79e26d86302133",
+            "extract_dir": "pdfcpu_0.16.1_Windows_i386"
+        }
+    },
+    "bin": "pdfcpu.exe",
+    "checkver": {
+        "github": "https://github.com/pdfcpu/pdfcpu"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/pdfcpu/pdfcpu/releases/download/v$version/pdfcpu_$version_Windows_x86_64.zip",
+                "extract_dir": "pdfcpu_$version_Windows_x86_64"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/pdfcpu/pdfcpu/releases/download/v$version/pdfcpu_$version_Windows_i386.zip",
+                "extract_dir": "pdfcpu_$version_Windows_i386"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

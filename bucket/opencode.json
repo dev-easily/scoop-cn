@@ -1,0 +1,35 @@
+{
+    "version": "1.18.35",
+    "description": "The open source AI coding agent.",
+    "homepage": "https://opencode.ai/",
+    "license": "MIT",
+    "notes": [
+        "OpenCode v2 is now available via Scoop as `versions/opencode2`.",
+        "Its configuration is incompatible with v1, so you'll need to uninstall v1 before installing v2.",
+        "For migration instructions, see https://opencode.ai/v2/docs/migrate-v1/."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v1.18.35/opencode-windows-x64.zip",
+            "hash": "c90d248cca75e42fd15422a29b5f83a1b30c441af83565635d6b2682adc58dd1"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v1.18.35/opencode-windows-arm64.zip",
+            "hash": "3c144f54fea5d56afb00174fd3134709803a7bb6ce990963044831b671bd9882"
+        }
+    },
+    "bin": "opencode.exe",
+    "checkver": {
+        "github": "https://github.com/anomalyco/opencode"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v$version/opencode-windows-x64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/anomalyco/opencode/releases/download/v$version/opencode-windows-arm64.zip"
+            }
+        }
+    }
+}

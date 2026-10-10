@@ -1,0 +1,33 @@
+{
+    "version": "5.22.0",
+    "description": "Helps Symfony developers manage projects, from local code to remote infrastructure",
+    "homepage": "https://symfony.com",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/symfony-cli/symfony-cli/releases/download/v5.22.0/symfony-cli_windows_amd64.zip",
+            "hash": "9621bda8ef34c8c4eecbdd44bbb53fb1022baf764c09c700d2ca27b44a74fddd"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/symfony-cli/symfony-cli/releases/download/v5.22.0/symfony-cli_windows_386.zip",
+            "hash": "5690e749e7d9409d4a6b119e400a65b3af5a701240af3672fff3e9fc93d52318"
+        }
+    },
+    "bin": "symfony.exe",
+    "checkver": {
+        "github": "https://github.com/symfony-cli/symfony-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/symfony-cli/symfony-cli/releases/download/v$version/symfony-cli_windows_amd64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/symfony-cli/symfony-cli/releases/download/v$version/symfony-cli_windows_386.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/checksums.txt"
+        }
+    }
+}

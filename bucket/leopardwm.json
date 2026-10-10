@@ -1,0 +1,34 @@
+{
+    "version": "0.3.0",
+    "description": "Scroll-first tiling window manager for Windows, inspired by niri.",
+    "homepage": "https://github.com/jcardama/LeopardWM",
+    "license": "GPL-3.0-only",
+    "notes": [
+        "Run 'leopardwm-cli run' to start the daemon, or 'leopardwm-cli help' for the full command list.",
+        "Configuration lives at %APPDATA%\\leopardwm\\config\\config.toml (created on first run)."
+    ],
+    "suggest": {
+        "Microsoft Edge WebView2": "easy-win/webview2"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/jcardama/LeopardWM/releases/download/v0.3.0/LeopardWM-0.3.0-x86_64-windows.zip",
+            "hash": "17e24322c86cbd36cae0cae0b25b1d46360c63e6edc447615994432c966b5e70",
+            "extract_dir": "LeopardWM-0.3.0-x86_64-windows"
+        }
+    },
+    "bin": [
+        "leopardwm.exe",
+        "leopardwm-cli.exe",
+        "lwm.exe"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/jcardama/LeopardWM/releases/download/v$version/LeopardWM-$version-x86_64-windows.zip",
+                "extract_dir": "LeopardWM-$version-x86_64-windows"
+            }
+        }
+    }
+}

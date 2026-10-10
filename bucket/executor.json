@@ -1,0 +1,32 @@
+{
+    "version": "2.4.1",
+    "description": "Multipurpose launcher and more advanced and customizable freeware Windows run replacement and more.",
+    "homepage": "https://executor.dk/",
+    "license": "MIT",
+    "architecture": {
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/executordk/executor-community/releases/download/v2.4.1/Executor_v2.4.1_32bit.zip",
+            "hash": "b77e42e9a3f834805c5908f84b8925591852c9652fed218479ee136beaac34ce",
+            "extract_dir": "Executor32bit"
+        },
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/executordk/executor-community/releases/download/v2.4.1/Executor_v2.4.1_64bit.zip",
+            "hash": "d95ac27d675b4de7a13749bc4ad51c00f46bde30ab63a0443bc754926c5b2d54",
+            "extract_dir": "Executor64bit"
+        }
+    },
+    "bin": "Executor.exe",
+    "checkver": {
+        "github": "https://github.com/executordk/executor-community"
+    },
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/executordk/executor-community/releases/download/v$version/Executor_v$version_32bit.zip"
+            },
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/executordk/executor-community/releases/download/v$version/Executor_v$version_64bit.zip"
+            }
+        }
+    }
+}

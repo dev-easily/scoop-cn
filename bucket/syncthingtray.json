@@ -1,0 +1,59 @@
+{
+    "version": "2.1.8",
+    "description": "Tray application for Syncthing",
+    "homepage": "https://github.com/Martchus/syncthingtray",
+    "license": {
+        "identifier": "GPL-2.0-only,...",
+        "url": "https://github.com/Martchus/syncthingtray/blob/master/LICENSES-windows-distribution.md"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Martchus/syncthingtray/releases/download/v2.1.8/syncthingtray-2.1.8-x86_64-w64-mingw32.exe.zip",
+            "hash": "50b1082e636aecc2a4fbee72467b36de678a5e448170e50535d1d604324403ce"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/Martchus/syncthingtray/releases/download/v2.1.8/syncthingtray-qt5-2.1.8-i686-w64-mingw32.exe.zip",
+            "hash": "fcbd811af104460f481443407dba8aa664625326181b4636d225c8df46dc542a"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/Martchus/syncthingtray/releases/download/v2.1.8/syncthingtray-2.1.8-aarch64-w64-mingw32.exe.zip",
+            "hash": "a0095af06612daa3d896ac0730e64ef7f87fe51d8f5ca4a73485e3e443350a3a"
+        }
+    },
+    "pre_install": [
+        "Move-Item \"$dir\\syncthingtray-*-mingw32.exe\" \"$dir\\syncthingtray.exe\"",
+        "Move-Item \"$dir\\syncthingtray-*-mingw32-cli.exe\" \"$dir\\syncthingtray-cli.exe\""
+    ],
+    "##": "syncthingtray.ini will recreate by syncthingtray.exe",
+    "post_install": [
+        "$config = \"syncthingtray.ini\"",
+        "ensure $persist_dir",
+        "if (!(Test-Path \"$persist_dir\\$config\")) { New-Item \"$persist_dir\\$config\" -ItemType File | Out-Null }",
+        "move-item \"$persist_dir\\$config\" \"$dir\""
+    ],
+    "pre_uninstall": [
+        "ensure $persist_dir",
+        "move-item \"$dir\\syncthingtray.ini\" \"$persist_dir\""
+    ],
+    "bin": "syncthingtray-cli.exe",
+    "shortcuts": [
+        [
+            "syncthingtray.exe",
+            "Syncthing Tray"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Martchus/syncthingtray/releases/download/v$version/syncthingtray-$version-x86_64-w64-mingw32.exe.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/Martchus/syncthingtray/releases/download/v$version/syncthingtray-qt5-$version-i686-w64-mingw32.exe.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/Martchus/syncthingtray/releases/download/v$version/syncthingtray-$version-aarch64-w64-mingw32.exe.zip"
+            }
+        }
+    }
+}

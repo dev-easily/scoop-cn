@@ -1,0 +1,37 @@
+{
+    "version": "2.38.1",
+    "description": "load or unload environment variables depending on the current directory",
+    "homepage": "https://direnv.net",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/direnv/direnv/releases/download/v2.38.1/direnv.windows-amd64.exe#/direnv.exe",
+            "hash": "4fd9aa3db07be23ca67affb892c7e1e31ff8f7d3ecc1ee93d46c9c5c7bed5834"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/direnv/direnv/releases/download/v2.38.1/direnv.windows-arm64.exe#/direnv.exe",
+            "hash": "189bf5e3308a00cfd2718c04f789fe6fa4cc32329bfd1d6c0835bf03b9ab679c"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/direnv/direnv/releases/download/v2.38.1/direnv.windows-386.exe#/direnv.exe",
+            "hash": "b0067c831f4f40da35113417137665ad94447182839a72d79624472a5c5d6633"
+        }
+    },
+    "bin": "direnv.exe",
+    "checkver": {
+        "github": "https://github.com/direnv/direnv"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/direnv/direnv/releases/download/v$version/direnv.windows-amd64.exe#/direnv.exe"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/direnv/direnv/releases/download/v$version/direnv.windows-arm64.exe#/direnv.exe"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/direnv/direnv/releases/download/v$version/direnv.windows-386.exe#/direnv.exe"
+            }
+        }
+    }
+}

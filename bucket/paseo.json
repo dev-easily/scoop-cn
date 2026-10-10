@@ -1,0 +1,43 @@
+{
+    "version": "0.11.2",
+    "description": "Orchestrate multiple coding agents from desktop and mobile",
+    "homepage": "https://paseo.sh",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/getpaseo/paseo/releases/download/v0.11.2/Paseo-Setup-0.11.2-x64.exe#/dl.7z",
+            "hash": "9f70d95ecb70fda4b6ded63e8d3cf7c2e213ae4e39a1d2c3cd1c37e370052c47",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\*.nsi\" -Recurse"
+            ]
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/getpaseo/paseo/releases/download/v0.11.2/Paseo-Setup-0.11.2-arm64.exe#/dl.7z",
+            "hash": "dbcdece2df232a8a497e57fdeca83c315304c3de4b85c33d453c14f81517bd3d",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-arm64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\*.nsi\" -Recurse"
+            ]
+        }
+    },
+    "shortcuts": [
+        [
+            "Paseo.exe",
+            "Paseo"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/getpaseo/paseo"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/getpaseo/paseo/releases/download/v$version/Paseo-Setup-$version-x64.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/getpaseo/paseo/releases/download/v$version/Paseo-Setup-$version-arm64.exe#/dl.7z"
+            }
+        }
+    }
+}

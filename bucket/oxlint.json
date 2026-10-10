@@ -1,0 +1,40 @@
+{
+    "version": "1.87.0",
+    "description": "A high-performance linter for JavaScript and TypeScript built on the Oxc compiler stack.",
+    "homepage": "https://oxc.rs/docs/guide/usage/linter",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v1.87.0/oxlint-x86_64-pc-windows-msvc.zip",
+            "hash": "ba1661fd40bdb6fdc69fa6d8421d37d8965505015a76a5d8a2e617e6b23c7950"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v1.87.0/oxlint-i686-pc-windows-msvc.zip",
+            "hash": "fc919b1bda456ca4069b470e16fa8742b4393d1d3e7a14534d061ec3779581ee"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v1.87.0/oxlint-aarch64-pc-windows-msvc.zip",
+            "hash": "e97a2eece076bd893923d8a9fc4faf4fc413703331e5b44df61f54b61ecbfeed"
+        }
+    },
+    "pre_install": "Get-ChildItem -LiteralPath $dir -Filter 'oxlint-*.exe' -File | Select-Object -First 1 | Rename-Item -NewName 'oxlint.exe'",
+    "bin": "oxlint.exe",
+    "checkver": {
+        "github": "https://api.github.com/repos/oxc-project/oxc/releases",
+        "jsonpath": "$[?(@.prerelease == false)].tag_name",
+        "regex": "\"oxlint_v(\\d+(?:\\.\\d+)+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v$version/oxlint-x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v$version/oxlint-i686-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxlint_v$version/oxlint-aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}

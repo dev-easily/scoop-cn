@@ -1,0 +1,32 @@
+{
+    "version": "6.1.0",
+    "description": "A free and open source code snippets manager for developers",
+    "homepage": "https://github.com/massCodeIO/massCode",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/massCodeIO/massCode/releases/download/v6.1.0/massCode-6.1.0-x64.exe#/dl.7z",
+            "hash": "489cc73bcbf359784d8f0fd3ae8d2c7132e75184aac3c5ee8ff39ca25e7b62d3"
+        }
+    },
+    "installer": {
+        "script": [
+            "Get-Item \"$dir\\`$PLUGINSDIR\\app*.7z\" | Expand-7zipArchive -DestinationPath \"$dir\"",
+            "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Force -Recurse"
+        ]
+    },
+    "shortcuts": [
+        [
+            "massCode.exe",
+            "massCode"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/massCodeIO/massCode/releases/download/v$version/massCode-$version-x64.exe#/dl.7z"
+            }
+        }
+    }
+}

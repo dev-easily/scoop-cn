@@ -1,0 +1,22 @@
+{
+    "version": "7.1.0.37",
+    "description": "A revolutionary search utility (v7 beta).",
+    "homepage": "https://www.listary.com/v7",
+    "license": "Shareware",
+    "url": "https://dl.listary.net/v7/Listary.exe#/dl.exe",
+    "hash": "28152da7c7d41d6a8f263bb397e5ad90bf34eca872ff39850af993918b9b411a",
+    "innosetup": true,
+    "shortcuts": [
+        [
+            "Listary.exe",
+            "Listary7 (Beta) "
+        ]
+    ],
+    "checkver": {
+        "url": "https://dl.listary.net/v7/auto_update_v7_v2.xml",
+        "regex": "(?i)<version>\\s*(7(?:\\.\\d+)+)\\s*</version>"
+    },
+    "autoupdate": {
+        "url": "https://dl.listary.net/v7/Listary.exe#/dl.exe"
+    }
+}

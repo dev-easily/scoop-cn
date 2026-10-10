@@ -1,0 +1,34 @@
+{
+    "version": "4.2.0",
+    "description": "Tiny libvips / gtk+4 image viewer",
+    "homepage": "https://github.com/libvips/vipsdisp",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/libvips/vipsdisp/releases/download/v4.2.0/vipsdisp-x64-4.2.0.zip",
+            "hash": "effdf491577d37b9c30a13a0ea9a1d529853e7eddf3f2b9731b9c96f31fe1411"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/libvips/vipsdisp/releases/download/v4.2.0/vipsdisp-arm64-4.2.0.zip",
+            "hash": "b5be445131971ca08ac3c396a7a2a21d7b7b460d0d55acfadd97399c9add7784"
+        }
+    },
+    "bin": "bin\\vipsdisp.exe",
+    "shortcuts": [
+        [
+            "bin\\vipsdisp.exe",
+            "vipsdisp"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/libvips/vipsdisp/releases/download/v$version/vipsdisp-x64-$version.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/libvips/vipsdisp/releases/download/v$version/vipsdisp-arm64-$version.zip"
+            }
+        }
+    }
+}

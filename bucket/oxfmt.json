@@ -1,0 +1,40 @@
+{
+    "version": "0.72.0",
+    "description": "A high-performance formatter for the JavaScript ecosystem.",
+    "homepage": "https://oxc.rs/docs/guide/usage/formatter",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.72.0/oxfmt-x86_64-pc-windows-msvc.zip",
+            "hash": "6ec165afee6d5100763fbec5b3098e0a286790fe60fd536c9f959769baa0e6a4"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.72.0/oxfmt-i686-pc-windows-msvc.zip",
+            "hash": "efe1a6a75e09ad342b726a225d564afc476a8a88d358860aded03702a763362a"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxfmt_v0.72.0/oxfmt-aarch64-pc-windows-msvc.zip",
+            "hash": "6278ccbb73d65aeb23835fc7f42dd493c0420758d5f876580b41e1f91e7cf00f"
+        }
+    },
+    "pre_install": "Get-ChildItem -LiteralPath $dir -Filter 'oxfmt-*.exe' -File | Select-Object -First 1 | Rename-Item -NewName 'oxfmt.exe'",
+    "bin": "oxfmt.exe",
+    "checkver": {
+        "github": "https://api.github.com/repos/oxc-project/oxc/releases",
+        "jsonpath": "$[?(@.prerelease == false)].tag_name",
+        "regex": "\"oxfmt_v(\\d+(?:\\.\\d+)+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxfmt_v$version/oxfmt-x86_64-pc-windows-msvc.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxfmt_v$version/oxfmt-i686-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/oxc-project/oxc/releases/download/oxfmt_v$version/oxfmt-aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}
