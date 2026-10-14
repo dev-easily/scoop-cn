@@ -1,0 +1,50 @@
+{
+    "version": "0.6.2",
+    "description": "Computer-aided design and drafting; an open-source, clean-room reimplementation of Autodesk AutoCAD, rebuilt in pure Rust",
+    "homepage": "https://github.com/storytold/cadcraft",
+    "license": "MIT|Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/storytold/cadcraft/releases/download/v0.6.2/cadcraft-0.6.2-windows-x64-portable.zip",
+            "hash": "624f01d53407ed9078328a1ad10bbbde7656a83567e8a757654fbcba2cd97b9b",
+            "extract_dir": "cadcraft-0.6.2-windows-x64-portable"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/storytold/cadcraft/releases/download/v0.6.2/cadcraft-0.6.2-windows-x86-portable.zip",
+            "hash": "eb926bf956643fa135ec88105a7855d392409fc16f4dcc6f62d42bbe8f1725f8",
+            "extract_dir": "cadcraft-0.6.2-windows-x86-portable"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/storytold/cadcraft/releases/download/v0.6.2/cadcraft-0.6.2-windows-arm64-portable.zip",
+            "hash": "e23e77202e260abfaffd49ebe79bfea02ba88ee3150ab9b3b18de6df71e65613",
+            "extract_dir": "cadcraft-0.6.2-windows-arm64-portable"
+        }
+    },
+    "bin": "cadcraft-cli.exe",
+    "shortcuts": [
+        [
+            "cadcraft.exe",
+            "CADCraft"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/storytold/cadcraft/releases/download/v$version/cadcraft-$version-windows-x64-portable.zip",
+                "extract_dir": "cadcraft-$version-windows-x64-portable"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/storytold/cadcraft/releases/download/v$version/cadcraft-$version-windows-x86-portable.zip",
+                "extract_dir": "cadcraft-$version-windows-x86-portable"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/storytold/cadcraft/releases/download/v$version/cadcraft-$version-windows-arm64-portable.zip",
+                "extract_dir": "cadcraft-$version-windows-arm64-portable"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/SHA256SUMS.txt"
+        }
+    }
+}

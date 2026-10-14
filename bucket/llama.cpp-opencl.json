@@ -1,0 +1,45 @@
+{
+    "version": "b11606",
+    "description": "Inference of LLaMA model in pure C/C++ (OpenCL for Adreno GPUs)",
+    "homepage": "https://github.com/ggml-org/llama.cpp",
+    "license": "MIT",
+    "architecture": {
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/b11606/llama-b11606-bin-win-opencl-adreno-arm64.zip",
+            "hash": "ffc9f0d8a9ad26adb484eea2cb5b21130447e8dccfdfa3105ac3bb0df8e509f1"
+        }
+    },
+    "bin": [
+        "llama-batched-bench.exe",
+        "llama-bench.exe",
+        "llama-cli.exe",
+        "llama-completion.exe",
+        "llama-fit-params.exe",
+        "llama-gemma3-cli.exe",
+        "llama-gguf-split.exe",
+        "llama-imatrix.exe",
+        "llama-llava-cli.exe",
+        "llama-minicpmv-cli.exe",
+        "llama-mtmd-cli.exe",
+        "llama-perplexity.exe",
+        "llama-quantize.exe",
+        "llama-qwen2vl-cli.exe",
+        "llama-server.exe",
+        "llama-tokenize.exe",
+        "llama-tts.exe",
+        "llama.exe"
+    ],
+    "persist": "models",
+    "checkver": {
+        "github": "https://api.github.com/repos/ggml-org/llama.cpp/releases",
+        "jsonpath": "$[*].tag_name",
+        "regex": "\"(b[\\d]+)\""
+    },
+    "autoupdate": {
+        "architecture": {
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/ggml-org/llama.cpp/releases/download/$version/llama-$version-bin-win-opencl-adreno-arm64.zip"
+            }
+        }
+    }
+}

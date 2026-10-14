@@ -1,0 +1,54 @@
+{
+    "version": "7.3.1",
+    "description": "Fork of Telegram Desktop with quality-of-life enhancements.",
+    "homepage": "https://t.me/forkgram",
+    "license": {
+        "identifier": "GPL-3.0-openssl-exception",
+        "url": "https://github.com/forkgram/tdesktop/blob/dev/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/forkgram/tdesktop/releases/download/v7.3.1/Telegram.zip",
+            "hash": "e5bb1b4e9e7f0c3fa4f4f130c3fdfaf4e6971a92b4c11c79261accb19cc8214b"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/forkgram/tdesktop/releases/download/v7.3.1/Telegram_x86.zip",
+            "hash": "8a9fb712900eca36b35a22d2d2157f9059282bc76859ac9d247d5bc64e1d93bf"
+        }
+    },
+    "pre_install": [
+        "if (Test-Path \"$dir\\Telegram\\Telegram.exe\") {",
+        "    Get-ChildItem \"$dir\\Telegram\" | Move-Item -Destination \"$dir\\\" -Force",
+        "    Remove-Item \"$dir\\Telegram\" -Recurse -Force",
+        "}",
+        "if (Test-Path \"$persist_dir\\log.txt\") { Copy-Item \"$persist_dir\\log.txt\" \"$dir\\\" }"
+    ],
+    "pre_uninstall": "if (Test-Path \"$dir\\log.txt\") { Copy-Item \"$dir\\log.txt\" \"$persist_dir\\\" }",
+    "bin": [
+        "Telegram.exe",
+        [
+            "Telegram.exe",
+            "Forkgram"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Telegram.exe",
+            "Forkgram"
+        ]
+    ],
+    "persist": "tdata",
+    "checkver": {
+        "github": "https://github.com/forkgram/tdesktop"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/forkgram/tdesktop/releases/download/v$version/Telegram.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/forkgram/tdesktop/releases/download/v$version/Telegram_x86.zip"
+            }
+        }
+    }
+}

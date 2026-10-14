@@ -1,0 +1,39 @@
+{
+    "version": "2026.9.21.0",
+    "homepage": "https://github.com/AAndyProgram/SCrawler",
+    "description": "A program to download photos and videos from any site (e.g. Reddit, Twitter, Instagram, TikTok, RedGifs, PornHub, XHamster, XVIDEOS, LPSG).",
+    "license": "GPL-3.0",
+    "notes": ".NET Framework 4.6.1 or higher is required.",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/AAndyProgram/SCrawler/releases/download/2026.9.21.0/SCrawler_2026.9.21.0_x64.zip",
+            "hash": "ce2271927a85d171aa36ef2af7d02b5c1432c4645b8cd5f9c64f5e9536534730"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/AAndyProgram/SCrawler/releases/download/2026.9.21.0/SCrawler_2026.9.21.0_x86.zip",
+            "hash": "4ac9c93e4c7dcf23aaba823b2290c3d073e0a98ae22ffb2ac41e0176a54bcca7"
+        }
+    },
+    "shortcuts": [
+        [
+            "SCrawler.exe",
+            "SCrawler"
+        ]
+    ],
+    "persist": [
+        "Data",
+        "Settings",
+        "Plugins"
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/AAndyProgram/SCrawler/releases/download/$version/SCrawler_$version_x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/AAndyProgram/SCrawler/releases/download/$version/SCrawler_$version_x86.zip"
+            }
+        }
+    }
+}

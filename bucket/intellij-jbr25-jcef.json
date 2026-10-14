@@ -1,0 +1,67 @@
+{
+    "version": "25.0.4.1-b635.72",
+    "homepage": "https://github.com/JetBrains/JetBrainsRuntime",
+    "description": "A fork of OpenJDK that supports enhanced class redefinition (DCEVM), features optional JCEF, a framework for embedding Chromium-based browsers, includes a number of improvements in font rendering, keyboards support, windowing/focus subsystems, HiDPI, accessibility, and performance, provides better desktop integration and bugfixes not yet present in OpenJDK.",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbr_jcef-25.0.4.1-windows-x64-b635.72.tar.gz",
+            "hash": "sha512:84d3a7c486eb8c2b287784bfdc7c11c322fbb22cf49b38e9f56905f99675a4add29d702fbc3416738320b6be68cb773b0510d11562b61de5b9d8a76d0080a118",
+            "extract_dir": "jbr_jcef-25.0.4.1-windows-x64-b635.72"
+        },
+        "arm64": {
+            "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbr_jcef-25.0.4.1-windows-aarch64-b635.72.tar.gz",
+            "hash": "sha512:cab7833885b91b82c4cc87488144eb10e109e168f227feb835837a9cdba1f87488556357dbb09de9ab1b1d16d4d09322987147be74a7426167e251a92656eb59",
+            "extract_dir": "jbr_jcef-25.0.4.1-windows-aarch64-b635.72"
+        }
+    },
+    "env_set": {
+        "JAVA_HOME": "$dir"
+    },
+    "env_add_path": "bin",
+    "checkver": {
+        "script": [
+            "$url = 'https://api.github.com/repos/JetBrains/JetBrainsRuntime/releases'",
+            "$releases = Invoke-RestMethod $url",
+            "$tags = $releases | ForEach-Object { $_.tag_name }",
+            "# `$Script:expected_ver` is current version for fallback",
+            "$tags += 'jbr-release-' + ($Script:expected_ver -replace '-', '')",
+            "$pattern = 'jbr-release-25\\.(?<Version>[\\d.]+)b(?<BuildNum>[\\d]+)\\.(?<Patch>\\d+)'",
+            "$matches = foreach ($t in $tags) { if ($t -match $pattern) {",
+            "    [PSCustomObject]@{",
+            "      Tag = $t",
+            "      VersionParts = ($Matches.Version -split '\\.') | ForEach-Object { [int]$_ }",
+            "      BuildNum = [int]$Matches.BuildNum",
+            "      Patch = [int]$Matches.Patch",
+            "    }",
+            "  } }",
+            "$latest = $matches | Sort-Object @{Expression={$_.VersionParts[0]}},",
+            "                                 @{Expression={$_.VersionParts[1]}},",
+            "                                 @{Expression={$_.BuildNum}},",
+            "                                 @{Expression={$_.Patch}} | Select-Object -Last 1",
+            "Write-Output $latest.Tag"
+        ],
+        "regex": "jbr-release-25\\.(?<Version>[\\d.]+)(?<Build>[\\w]+)\\.(?<Patch>[\\d]+)",
+        "replace": "25.${Version}-${Build}.${Patch}"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbr_jcef-25.$matchVersion-windows-x64-$matchBuild.$matchPatch.tar.gz",
+                "hash": {
+                    "url": "$url.checksum",
+                    "regex": "$sha512\\s"
+                },
+                "extract_dir": "jbr_jcef-25.$matchVersion-windows-x64-$matchBuild.$matchPatch"
+            },
+            "arm64": {
+                "url": "https://cache-redirector.jetbrains.com/intellij-jbr/jbr_jcef-25.$matchVersion-windows-aarch64-$matchBuild.$matchPatch.tar.gz",
+                "hash": {
+                    "url": "$url.checksum",
+                    "regex": "$sha512\\s"
+                },
+                "extract_dir": "jbr_jcef-25.$matchVersion-windows-aarch64-$matchBuild.$matchPatch"
+            }
+        }
+    }
+}

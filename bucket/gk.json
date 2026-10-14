@@ -1,0 +1,43 @@
+{
+    "version": "3.1.76",
+    "description": "GitKraken CLI",
+    "homepage": "https://www.gitkraken.com/cli",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://github.com/gitkraken/gk-cli/blob/main/LICENSE"
+    },
+    "architecture": {
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/gitkraken/gk-cli/releases/download/v3.1.76/gk_3.1.76_windows_386.zip",
+            "hash": "b91d9bfb429787e0c6b96937fb7a5861cb2179689665f9f668ed5e5d35e43428"
+        },
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/gitkraken/gk-cli/releases/download/v3.1.76/gk_3.1.76_windows_amd64.zip",
+            "hash": "2d607867c6b06eb690e87daf880f56f5deb8fe7a5745031d0ed1f2ad3393f91f"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/gitkraken/gk-cli/releases/download/v3.1.76/gk_3.1.76_windows_arm64.zip",
+            "hash": "9b46c1c1c5d215d6862e16284d72300178141e539ba0da7bd7bd070000280ade"
+        }
+    },
+    "bin": "gk.exe",
+    "checkver": {
+        "github": "https://github.com/gitkraken/gk-cli"
+    },
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/gitkraken/gk-cli/releases/download/v$version/gk_$version_windows_386.zip"
+            },
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/gitkraken/gk-cli/releases/download/v$version/gk_$version_windows_amd64.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/gitkraken/gk-cli/releases/download/v$version/gk_$version_windows_arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/gk_checksums.txt"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "version": "3.0.0",
+    "description": "Git repository summary on terminal",
+    "homepage": "https://github.com/o2sh/onefetch",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/o2sh/onefetch/releases/download/3.0.0/onefetch-win.tar.gz",
+            "hash": "b17143631ccd4381705c9e118dd675b209e40ceda4ab6de196a9d7edf558e714"
+        }
+    },
+    "bin": "onefetch.exe",
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/o2sh/onefetch/releases/download/$version/onefetch-win.tar.gz"
+            }
+        }
+    }
+}

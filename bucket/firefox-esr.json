@@ -1,0 +1,86 @@
+{
+    "version": "153.5.0",
+    "description": "Extended Support Release of Firefox: the popular open source web browser",
+    "homepage": "https://www.firefox.com/browsers/enterprise/",
+    "license": "MPL-2.0",
+    "notes": [
+        "To set profile 'Scoop-ESR' as *DEFAULT*, or profiles/settings was lost after update:",
+        "  - Run 'Firefox ESR Profile Manager', choose 'Scoop-ESR' then click 'Start Firefox'.",
+        "  - Visit 'about:profiles' page in Firefox ESR to check *DEFAULT* profile.",
+        "For details: https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles"
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://archive.mozilla.org/pub/firefox/releases/153.5.0esr/win64/en-US/Firefox%20Setup%20153.5.0esr.exe#/dl.7z",
+            "hash": "sha512:a21e0ddb2862b12ba9d8245cf4e9e6840eb64c1d966829f6a639c9ce725627f5329b17550d8b4e6c2f3457938d67ae71a22651edde3cce23c1988a77e09bb84c"
+        },
+        "32bit": {
+            "url": "https://archive.mozilla.org/pub/firefox/releases/153.5.0esr/win32/en-US/Firefox%20Setup%20153.5.0esr.exe#/dl.7z",
+            "hash": "sha512:f2ce6d90f29ffa54db74990edcdfcbab8a55bac1a154f014f1181d3a8503c915c908732f6425b442374ae575d2616fbf9b9e0ddeeed406c513d09e1650727f28"
+        },
+        "arm64": {
+            "url": "https://archive.mozilla.org/pub/firefox/releases/153.5.0esr/win64-aarch64/en-US/Firefox%20Setup%20153.5.0esr.exe#/dl.7z",
+            "hash": "sha512:62220e7b64ce46803fe091b016d5f30353de363c1ffa9010d7aa9bf8bd1b823033f81173a2e4e6747524ef9778b1f0d4b69a7db2484b08130aaf457ed9d50b19"
+        }
+    },
+    "extract_dir": "core",
+    "post_install": [
+        "firefox-esr -CreateProfile \"Scoop-ESR $persist_dir\\profile\"",
+        "$Addition = \"$persist_dir\\addition\"",
+        "if (Test-Path $Addition) {",
+        "  info 'Copying additional items...'",
+        "  Copy-Item -Path $Addition\\* -Destination $dir -Force -Recurse -ErrorAction SilentlyContinue",
+        "}"
+    ],
+    "bin": [
+        [
+            "firefox.exe",
+            "firefox-esr"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "firefox.exe",
+            "Firefox ESR"
+        ],
+        [
+            "firefox.exe",
+            "Firefox ESR Profile Manager",
+            "-P"
+        ]
+    ],
+    "persist": [
+        "distribution",
+        "profile"
+    ],
+    "checkver": {
+        "url": "https://product-details.mozilla.org/1.0/firefox_versions.json",
+        "jsonpath": "$.FIREFOX_ESR",
+        "regex": "([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://archive.mozilla.org/pub/firefox/releases/$versionesr/win64/en-US/Firefox%20Setup%20$versionesr.exe#/dl.7z",
+                "hash": {
+                    "url": "https://archive.mozilla.org/pub/firefox/releases/$versionesr/SHA512SUMS",
+                    "regex": "$sha512\\s+win64/en-US/$basename"
+                }
+            },
+            "32bit": {
+                "url": "https://archive.mozilla.org/pub/firefox/releases/$versionesr/win32/en-US/Firefox%20Setup%20$versionesr.exe#/dl.7z",
+                "hash": {
+                    "url": "https://archive.mozilla.org/pub/firefox/releases/$versionesr/SHA512SUMS",
+                    "regex": "$sha512\\s+win32/en-US/$basename"
+                }
+            },
+            "arm64": {
+                "url": "https://archive.mozilla.org/pub/firefox/releases/$versionesr/win64-aarch64/en-US/Firefox%20Setup%20$versionesr.exe#/dl.7z",
+                "hash": {
+                    "url": "https://archive.mozilla.org/pub/firefox/releases/$versionesr/SHA512SUMS",
+                    "regex": "$sha512\\s+win64-aarch64/en-US/$basename"
+                }
+            }
+        }
+    }
+}

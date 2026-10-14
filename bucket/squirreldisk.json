@@ -1,0 +1,31 @@
+{
+    "version": "2.5.1",
+    "description": "Free, open-source disk usage analyzer.",
+    "homepage": "https://www.squirreldisk.com/",
+    "license": "AGPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/adileo/squirreldisk/releases/download/v2.5.1/squirreldisk-x86_64-pc-windows-msvc.exe#/SquirrelDisk.exe",
+            "hash": "39597847256b6a3d63942d52565d1c3e2672915496867e5e0516bd4249a08d19"
+        }
+    },
+    "post_install": "if (!(Test-Path \"$persist_dir\\portable\\settings.json\")) { Set-Content \"$dir\\portable\\settings.json\" '{\"auto_update\":false,\"auto_install\":false}' -Encoding Ascii }",
+    "bin": "SquirrelDisk.exe",
+    "shortcuts": [
+        [
+            "SquirrelDisk.exe",
+            "SquirrelDisk"
+        ]
+    ],
+    "persist": "portable",
+    "checkver": {
+        "github": "https://github.com/adileo/squirreldisk"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/adileo/squirreldisk/releases/download/v$version/squirreldisk-x86_64-pc-windows-msvc.exe#/SquirrelDisk.exe"
+            }
+        }
+    }
+}

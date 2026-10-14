@@ -1,0 +1,30 @@
+{
+    "version": "3.3.0",
+    "description": "Open source tool to safely clean orphaned Windows Installer files and reclaim disk space.",
+    "homepage": "https://github.com/no-faff/InstallerClean",
+    "license": "Apache-2.0",
+    "notes": "Requires administrator privileges to access C:\\Windows\\Installer.",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/no-faff/InstallerClean/releases/download/v3.3.0/InstallerClean-3.3.0-portable.exe#/InstallerClean-portable.exe",
+            "hash": "d8db0b9006484890cc1e5b2cb56e48fe4902e18f2caf4918e553f1eb4dbce522"
+        }
+    },
+    "shortcuts": [
+        [
+            "InstallerClean-portable.exe",
+            "InstallerClean"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/no-faff/InstallerClean/releases/download/v$version/InstallerClean-$version-portable.exe#/InstallerClean-portable.exe"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    }
+}

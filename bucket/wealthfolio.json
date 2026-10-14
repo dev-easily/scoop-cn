@@ -1,0 +1,36 @@
+{
+    "version": "3.10.0",
+    "description": "A wealth management tool designed to help users track and manage their financial portfolios.",
+    "homepage": "https://wealthfolio.app/",
+    "license": "LGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/wealthfolio/wealthfolio/releases/download/v3.10.0/Wealthfolio_3.10.0_x64-setup.exe#/dl.7z",
+            "hash": "7a0cbcb0693dd8d9c30419caea4ecf03984f2f3f87fb6f53e46ca0d5bffa4849"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/wealthfolio/wealthfolio/releases/download/v3.10.0/Wealthfolio_3.10.0_arm64-setup.exe#/dl.7z",
+            "hash": "6c3702521dc378216d50e8a947d50c93ded7b38d85b19c0355ff0a0f637534a8"
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse",
+    "shortcuts": [
+        [
+            "Wealthfolio.exe",
+            "Wealthfolio"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/wealthfolio/wealthfolio"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/wealthfolio/wealthfolio/releases/download/v$version/Wealthfolio_$version_x64-setup.exe#/dl.7z"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/wealthfolio/wealthfolio/releases/download/v$version/Wealthfolio_$version_arm64-setup.exe#/dl.7z"
+            }
+        }
+    }
+}

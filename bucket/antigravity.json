@@ -1,0 +1,74 @@
+{
+    "version": "2.23.0",
+    "description": "Agent orchestration platform developed by Google.",
+    "homepage": "https://antigravity.google/product/antigravity-2",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://antigravity.google/terms"
+    },
+    "notes": [
+        "Antigravity 2.0 has fully transitioned into an agent orchestration platform.",
+        "The editor component has been decoupled and is now maintained separately as Antigravity IDE.",
+        "For more details, see: https://antigravity.google/blog/introducing-google-antigravity-2-0",
+        "",
+        "Antigravity IDE is available as a separate package: 'extras/antigravity-ide'.",
+        "If you have previously installed Antigravity IDE (v1.x), your data (v1.x) is located in:",
+        "\"$persist_dir\"",
+        "You may need to move the persisted data manually after installing Antigravity IDE v2.x."
+    ],
+    "suggest": {
+        "Antigravity IDE": "easy-win/antigravity-ide"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.0-5238607586394112/windows-x64/Antigravity-x64.exe#/dl.7z",
+            "hash": "sha512:fbae01b00be745126b560475bb8b34328f47ed0447824626a25dde4430753172e88b387f415597adb52ca717098c2cdd4ed626f9e2e708ee3b0f1eaad6324d67"
+        },
+        "arm64": {
+            "url": "https://storage.googleapis.com/antigravity-public/antigravity-hub/2.23.0-5238607586394112/windows-arm/Antigravity-arm64.exe#/dl.7z",
+            "hash": "sha512:8474fe6329f12b9fa1b8e7408389d98b815c21ea6a5c7cef52800d90f09b550ecc8530e4b37589cd774233583533834dae15aaea57167fc602adedcea2f027a2"
+        }
+    },
+    "installer": {
+        "script": [
+            "Get-Item \"$dir\\`$PLUGINSDIR\\app*.7z\" | Expand-7zipArchive -DestinationPath \"$dir\"",
+            "Remove-Item \"$dir\\`$*\" -Force -Recurse"
+        ]
+    },
+    "post_install": [
+        "# Disable built-in update mechanism to prevent conflicts with Scoop's update management",
+        "$yaml = \"$dir\\resources\\app-update.yml\"",
+        "$content = Get-Content -Path $yaml | Foreach-Object {",
+        "    if ($_.StartsWith('url')) { \"$($_.Replace('url', '# url')) # Disabled by Scoop\" } else { $_ }",
+        "}",
+        "Set-Content $yaml -Value $content -Encoding ascii"
+    ],
+    "shortcuts": [
+        [
+            "Antigravity.exe",
+            "Antigravity"
+        ]
+    ],
+    "checkver": {
+        "url": "https://antigravity-hub-auto-updater-974169037036.us-central1.run.app/manifest/latest-x64-win.yml",
+        "regex": "antigravity-hub/(?<version>[\\d.]+)-(?<build>\\d+)/"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://storage.googleapis.com/antigravity-public/antigravity-hub/$version-$matchBuild/windows-x64/Antigravity-x64.exe#/dl.7z",
+                "hash": {
+                    "url": "https://antigravity-hub-auto-updater-974169037036.us-central1.run.app/manifest/latest-x64-win.yml",
+                    "regex": "sha512:\\s+$base64"
+                }
+            },
+            "arm64": {
+                "url": "https://storage.googleapis.com/antigravity-public/antigravity-hub/$version-$matchBuild/windows-arm/Antigravity-arm64.exe#/dl.7z",
+                "hash": {
+                    "url": "https://antigravity-hub-auto-updater-974169037036.us-central1.run.app/manifest/latest-arm64-win.yml",
+                    "regex": "sha512:\\s+$base64"
+                }
+            }
+        }
+    }
+}

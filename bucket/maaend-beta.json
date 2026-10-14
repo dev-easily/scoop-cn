@@ -1,0 +1,53 @@
+{
+    "version": "2.33.0-beta.4",
+    "description": "High-precision automation assistant. Designed for heavy-duty operations and maximum efficiency in Arknights: Endfield.",
+    "homepage": "https://github.com/MaaEnd/MaaEnd",
+    "license": "AGPL-3.0",
+    "pre_install": [
+        "if (Test-Path \"$(appdir maaend)\") {",
+        "    error 'MaaEnd is already installed. You are trying to install/update MaaEnd-Beta.';",
+        "    throw 'Abort'",
+        "} else { if ($cmd -eq 'update') {",
+        " Start-Process powershell -ArgumentList '-NoProfile -Command Stop-Process -Name \"MaaEnd\" -Force' -Verb RunAs -WindowStyle Hidden -Wait",
+        "  };",
+        "}"
+    ],
+    "pre_uninstall": "Start-Process powershell -ArgumentList '-NoProfile -Command Stop-Process -Name \"MaaEnd\" -Force' -Verb RunAs -WindowStyle Hidden",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/MaaEnd/MaaEnd/releases/download/v2.33.0-beta.4/MaaEnd-win-x86_64-v2.33.0-beta.4.zip",
+            "hash": "9707026ef6e5a3d9b0c300ac19a4a269dd4855d20ed8d864dbb4db9a2cdab5a7"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/MaaEnd/MaaEnd/releases/download/v2.33.0-beta.4/MaaEnd-win-aarch64-v2.33.0-beta.4.zip",
+            "hash": "da5cc257c455b9f776ac3eecb52204dbe27102cbe9d7d8bd83b57856bd5d1dd4"
+        }
+    },
+    "bin": "MaaEnd.exe",
+    "shortcuts": [
+        [
+            "MaaEnd.exe",
+            "MaaEnd"
+        ]
+    ],
+    "persist": [
+        "cache",
+        "config",
+        "debug"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/MaaEnd/MaaEnd/releases",
+        "jsonpath": "$[?(@.prerelease == true)].tag_name",
+        "regex": "(?!v)([\\w.-]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/MaaEnd/MaaEnd/releases/download/v$version/MaaEnd-win-x86_64-v$version.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/MaaEnd/MaaEnd/releases/download/v$version/MaaEnd-win-aarch64-v$version.zip"
+            }
+        }
+    }
+}

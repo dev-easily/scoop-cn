@@ -1,0 +1,42 @@
+{
+    "version": "3.202.7",
+    "description": "A safe place for your notes, thoughts, and life's work.",
+    "homepage": "https://standardnotes.org/",
+    "license": "AGPL-3.0-or-later",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@3.202.7/standard-notes-3.202.7-win-x64.exe#/dl.7z",
+            "hash": "sha512:7c1883d3d97483d4a6e328a42f8b7547b436e47e500a720ab66aed80c0a3c9c75644228c611010b72d6f8ef63443d7dc88e19c4b17f2f119f6e3bf5c52cceb56"
+        },
+        "32bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@3.202.7/standard-notes-3.202.7-win-ia32.exe#/dl.7z",
+            "hash": "sha512:fbb5ab0fb5747550f0ba39537355c43f8377b95df207f96b7ef308ebe65051cc9889bbcf7d603e83f9afb17aef28ab846ec780b09a244a22718adbe27913f42a"
+        }
+    },
+    "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-$($architecture.Substring(0,2)).7z\" \"$dir\"",
+    "post_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse",
+    "shortcuts": [
+        [
+            "Standard Notes.exe",
+            "Standard Notes"
+        ]
+    ],
+    "checkver": {
+        "github": "https://api.github.com/repos/standardnotes/app/releases/latest",
+        "regex": "@standardnotes/desktop@([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@$version/standard-notes-$version-win-x64.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/standardnotes/app/releases/download/@standardnotes/desktop@$version/standard-notes-$version-win-ia32.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "(?is)$basename.*?$base64"
+        }
+    }
+}

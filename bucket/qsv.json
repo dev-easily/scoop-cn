@@ -1,0 +1,32 @@
+{
+    "version": "24.0.0",
+    "description": "A command line CSV data-wrangling toolkit",
+    "homepage": "https://qsv.dathere.com",
+    "license": "Unlicense|MIT",
+    "notes": "Only the full featured \"qsv\" build is included",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.ghproxy.cn/https://github.com/dathere/qsv/releases/download/24.0.0/qsv-24.0.0-x86_64-pc-windows-msvc.zip",
+            "hash": "737b6b040fe484f5f9767181f7f4bdebb3eda75e4d1ecbd427b9250aa0bd5483"
+        },
+        "arm64": {
+            "url": "https://www.ghproxy.cn/https://github.com/dathere/qsv/releases/download/24.0.0/qsv-24.0.0-aarch64-pc-windows-msvc.zip",
+            "hash": "207a1e893dadb96cc9765cb42550e5e0ec51d6a9b0164d91c9a20967b8dbad1a"
+        }
+    },
+    "pre_install": "Get-ChildItem -Path \"$dir\" -Exclude README,qsv.exe | Remove-Item -Force",
+    "bin": "qsv.exe",
+    "checkver": {
+        "github": "https://github.com/dathere/qsv"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.ghproxy.cn/https://github.com/dathere/qsv/releases/download/$version/qsv-$version-x86_64-pc-windows-msvc.zip"
+            },
+            "arm64": {
+                "url": "https://www.ghproxy.cn/https://github.com/dathere/qsv/releases/download/$version/qsv-$version-aarch64-pc-windows-msvc.zip"
+            }
+        }
+    }
+}
